@@ -1,0 +1,17 @@
+- platform: hue
+  host: !secret huebridge_host
+  allow_unreachable: true
+  filename: phue.conf
+
+- platform: yeelight
+  devices:
+    !secret yl-kueche_host:
+      name: Kuechenlampe
+      transition: 500
+      use_music_mode: true
+      save_on_change: false
+    !secret yl-badezimmer_host:
+      name: Badezimmer Lampe
+      transition: 500
+      use_music_mode: true
+      save_on_change: false

@@ -1,0 +1,6 @@
+# Apple TV
+- host: !secret atv4_host
+  login_id: !secret atv4_login_id
+  name: Apple TV
+  start_off: true
+  credentials: !secret atv4_airplay_credentials

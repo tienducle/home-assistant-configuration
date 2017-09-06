@@ -1,0 +1,2 @@
+host: !secret pilight_host
+port: !secret pilight_port

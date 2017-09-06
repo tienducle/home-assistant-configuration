@@ -1,0 +1,5 @@
+hosts:
+  wired:
+    ip: !secret homematic_host
+    port: !secret homematic_port
+    resolvenames: json

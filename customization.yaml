@@ -1,0 +1,103 @@
+# Customization
+
+# Groups
+group.kueche:
+  friendly_name: 'Küche'
+
+sensor.wohnzimmer_temperature:
+  friendly_name: 'Wohnzimmer Temperatur'
+sensor.wohnzimmer_humidity:
+  friendly_name: 'Wohnzimmer Feuchtigkeit'
+sensor.schlafzimmer_temperature:
+  friendly_name: 'Schlafzimmer Temperatur'
+sensor.schlafzimmer_humidity:
+  friendly_name: 'Schlafzimmer Feuchtigkeit'
+
+switch.wol_macmini:
+  hidden: true
+switch.wol_wohnzimmercomputer:
+  hidden: true
+switch.shutdown_wohnzimmercomputer:
+  hidden: true
+switch.macmini:
+  icon: mdi:server
+switch.wohnzimmercomputer:
+  icon: mdi:windows
+
+sensor.nordschule_jena_to_stadtzentrum_lobdergraben_jena:
+  friendly_name: 'Nordschule nach Löbdergraben'
+sensor.stadtzentrum_lobdergraben_jena_to_nordschule_jena:
+  friendly_name: 'Löbdergraben nach Nordschule'
+sensor.speedtest_download:
+  friendly_name: 'Download Speed'
+  icon: mdi:download
+
+sensor.speedtest_upload:
+  friendly_name: 'Upload Speed'
+  icon: mdi:upload
+sensor.speedtest_ping:
+  friendly_name: 'Ping'
+  icon: mdi:looks
+
+sensor.dark_sky_apparent_temperature:
+  friendly_name: 'Apparent Temperature'
+sensor.dark_sky_daily_high_temperature:
+  friendly_name: 'Max. Temperature'
+sensor.dark_sky_daily_low_temperature:
+  friendly_name: 'Min. Temperature'
+sensor.dark_sky_humidity:
+  friendly_name: 'Humidity'
+sensor.dark_sky_summary:
+  friendly_name: 'Summary'
+sensor.dark_sky_temperature:
+  friendly_name: 'Temperature'
+sensor.dark_sky_wind_speed:
+  friendly_name: 'Wind speed'
+sensor.tleip7p_battery_level:
+  hidden: true
+sensor.tleip7p_battery_state:
+  hidden: true
+sensor.mspip7_battery_level:
+  hidden: true
+sensor.mspip7_battery_state:
+  hidden: true
+
+# Homematic
+homematic.wired:
+  hidden: true
+climate.meq0797490:
+  friendly_name: 'Thermostat'
+  homebridge_name: 'Thermostat'
+switch.schlafzimmer_auto:
+  friendly_name: 'Auto'
+  icon: mdi:nest-thermostat
+switch.schlafzimmer_boost:
+  friendly_name: 'Boost'
+  icon: mdi:nest-thermostat
+switch.schlafzimmer_manual:
+  friendly_name: 'Manual'
+  icon: mdi:nest-thermostat
+
+# Lights
+light.kuechenlampe:
+  friendly_name: 'Küchenlampe'
+light.schlafzimmer:
+  hidden: true
+  homebridge_hidden: true
+light.schlafzimmer_lampe:
+  homebridge_hidden: true
+light.wohnzimmer:
+  friendly_name: 'Wohnzimmer Lampe'
+  homebridge_hidden: true
+light.wohnzimmer_lampe_1:
+  friendly_name: 'Lampe 1'
+  homebridge_hidden: true
+light.wohnzimmer_lampe_2:
+  friendly_name: 'Lampe 2'
+  homebridge_hidden: true
+light.wohnzimmer_lampe_3:
+  friendly_name: 'Lampe 3'
+  homebridge_hidden: true
+light.wohnzimmer_lampe_4:
+  friendly_name: 'Lampe 4'
+  homebridge_hidden: true
