@@ -1,0 +1,14 @@
+- home:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 45
+  icon: mdi:home
+
+#50.92898326,11.58356756,156 m
+- work_duc:
+  name: Salesforce
+  latitude: !secret work_duc_latitude
+  longitude: !secret work_duc_longitude
+  radius: 45
+  icon: mdi:wallet-travel

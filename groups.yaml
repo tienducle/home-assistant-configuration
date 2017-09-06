@@ -1,0 +1,45 @@
+Bahn:
+  - sensor.nordschule_jena_to_stadtzentrum_lobdergraben_jena
+  - sensor.stadtzentrum_lobdergraben_jena_to_nordschule_jena
+Devices:
+  - device_tracker.tlembpr
+  - device_tracker.tlembprlan
+  - device_tracker.tleipp
+  - device_tracker.melinamba
+Internet:
+  - sensor.speedtest_download
+  - sensor.speedtest_upload
+  - sensor.speedtest_ping
+Weather Jena:
+  - sensor.dark_sky_summary
+  - sensor.dark_sky_temperature
+  - sensor.dark_sky_apparent_temperature
+  - sensor.dark_sky_daily_low_temperature
+  - sensor.dark_sky_daily_high_temperature
+  - sensor.dark_sky_humidity
+  - sensor.dark_sky_wind_speed
+
+# Zimmer
+Badezimmer:
+  - light.badezimmer_lampe
+Kueche:
+  - light.kuechenlampe
+Schlafzimmer:
+  - climate.meq0797490
+  - sensor.schlafzimmer_thermostat_battery
+  - sensor.schlafzimmer_temperature
+  - sensor.schlafzimmer_humidity
+  - switch.schlafzimmer_auto
+  - switch.schlafzimmer_boost
+  - switch.schlafzimmer_manual
+  - light.schlafzimmer_lampe
+  - switch.schlafzimmer_steckdose
+Wohnzimmer:
+  - sensor.wohnzimmer_temperature
+  - sensor.wohnzimmer_humidity
+  - light.wohnzimmer
+  - light.wohnzimmer_lampe_1
+  - light.wohnzimmer_lampe_2
+  - light.wohnzimmer_lampe_3
+  - light.wohnzimmer_lampe_4
+  - switch.wohnzimmer_steckdose

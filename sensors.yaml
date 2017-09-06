@@ -1,0 +1,67 @@
+# Bahn
+- name: bahn_nordschule_loebdergraben
+  platform: deutsche_bahn
+  from: Nordschule, Jena
+  to: Stadtzentrum Löbdergraben, Jena
+
+- name: bahn_loebdergraben_nordschule
+  platform: deutsche_bahn
+  from: Stadtzentrum Löbdergraben, Jena
+  to: Nordschule, Jena
+
+#sensor rng:
+#  - platform: random
+
+# Speedtest
+- platform: speedtest
+  server_id: 6518
+  minute:
+    - 0
+    - 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+# Thermostat Batteries
+- platform: template
+  sensors:
+    schlafzimmer_thermostat_battery:
+      value_template: '{{ states.climate.meq0797490.attributes.battery }}'
+      friendly_name: 'Batterie'
+      unit_of_measurement: 'V'
+      entity_id: climate.meq0797490
+
+#  - platform: statistics
+#    entity_id: states.climate.meq0797490.attributes.battery
+
+# Weather
+- platform: darksky
+  api_key: !secret darksky_api_key
+  monitored_conditions:
+    - summary
+    - temperature
+    - apparent_temperature
+    - temperature_max
+    - temperature_min
+    - wind_speed
+    - humidity
+  units: si
+#  update_interval: '00:10'
+
+- platform: mqtt
+  state_topic: "rooms/wohnzimmer/temperature"
+  name: 'Wohnzimmer Temperature'
+  unit_of_measurement: '°C'
+- platform: mqtt
+  state_topic: "rooms/wohnzimmer/humidity"
+  name: 'Wohnzimmer Humidity'
+  unit_of_measurement: '%'
+- platform: mqtt
+  state_topic: "rooms/schlafzimmer/temperature"
+  name: 'Schlafzimmer Temperature'
+  unit_of_measurement: '°C'
+- platform: mqtt
+  state_topic: "rooms/schlafzimmer/humidity"
+  name: 'Schlafzimmer Humidity'
+  unit_of_measurement: '%'

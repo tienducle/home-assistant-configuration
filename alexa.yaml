@@ -1,0 +1,22 @@
+#Alexa
+alexa:
+  intents:
+    LocateIntent:
+#      action:
+#        service: notify.telegram
+#        data_template:
+#          message: The location of {{ User }} has been queried via Alexa.
+      speech:
+        type: plaintext
+        text: >
+          {%- for state in states.device_tracker -%}
+            {%- if state.name.lower() == User.lower() -%}
+              {{ state.name }} ist in {{ state.state }}
+            {%- endif -%}
+          {%- else -%}
+            Sorry, ich habe keine Tracker gefunden.
+          {%- endfor -%}
+      card:
+        type: simple
+        title: Sample title
+        content: Some more content

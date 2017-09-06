@@ -1,0 +1,2 @@
+- platform: mqtt
+  topic: rooms/wohnzimmer/cam1

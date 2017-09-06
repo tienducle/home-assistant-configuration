@@ -1,0 +1,5 @@
+default: error
+logs:
+#  homeassistant.components.media_player.denon: fatal
+#  homeassistant.components.media_player.denonavr: fatal
+  homeassistant.components.media_player.braviatv: critical
