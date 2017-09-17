@@ -1,13 +1,19 @@
 group.kueche:
+  entity_id:
+  - light.kuechenlampe
+  - sensor.kueche_temperature
+  - sensor.kueche_humidity
   friendly_name: "K\xFCche"
 sensor.wohnzimmer_temperature:
   friendly_name: Wohnzimmer Temperatur
 sensor.wohnzimmer_humidity:
   friendly_name: Wohnzimmer Feuchtigkeit
+  icon: mdi:water-percent
 sensor.schlafzimmer_temperature:
   friendly_name: Schlafzimmer Temperatur
 sensor.schlafzimmer_humidity:
   friendly_name: Schlafzimmer Feuchtigkeit
+  icon: mdi:water-percent
 switch.wol_macmini:
   hidden: true
 switch.wol_wohnzimmercomputer:
@@ -32,19 +38,19 @@ sensor.speedtest_ping:
   friendly_name: Ping
   icon: mdi:looks
 sensor.dark_sky_apparent_temperature:
-  friendly_name: Apparent Temperature
+  friendly_name: "Gef\xFChlte Temperatur"
 sensor.dark_sky_daily_high_temperature:
-  friendly_name: Max. Temperature
+  friendly_name: Max. Temperatur
 sensor.dark_sky_daily_low_temperature:
-  friendly_name: Min. Temperature
+  friendly_name: Min. Temperatur
 sensor.dark_sky_humidity:
-  friendly_name: Humidity
+  friendly_name: Luftfeuchtigkeit
 sensor.dark_sky_summary:
   friendly_name: Summary
 sensor.dark_sky_temperature:
-  friendly_name: Temperature
+  friendly_name: Temperatur
 sensor.dark_sky_wind_speed:
-  friendly_name: Wind speed
+  friendly_name: Wind
 sensor.tleip7p_battery_level:
   hidden: true
 sensor.tleip7p_battery_state:
@@ -56,16 +62,15 @@ sensor.mspip7_battery_state:
 homematic.wired:
   hidden: true
 climate.meq0797490:
-  friendly_name: Thermostat
-  homebridge_name: Thermostat
+  friendly_name: Schlafzimmer Thermostat
 switch.schlafzimmer_auto:
-  friendly_name: Auto
+  friendly_name: Schlafzimmer Auto
   icon: mdi:nest-thermostat
 switch.schlafzimmer_boost:
-  friendly_name: Boost
+  friendly_name: Schlafzimmer Boost
   icon: mdi:nest-thermostat
 switch.schlafzimmer_manual:
-  friendly_name: Manual
+  friendly_name: Schlafzimmer Manual
   icon: mdi:nest-thermostat
 light.kuechenlampe:
   friendly_name: "K\xFCchenlampe"
@@ -93,3 +98,51 @@ sensor.tleip7p_battery_level_2:
   hidden: true
 sensor.tleip7p_battery_state_2:
   hidden: true
+light.all_hue_lights:
+  hidden: true
+  homebridge_hidden: true
+sensor.schlafzimmer_thermostat_battery:
+  friendly_name: Schlafzimmer Thermostat Batterie
+automation.wohnzimmer_feuchtigkeit:
+  hidden: true
+automation.schlafzimmer_feuchtigkeit:
+  hidden: true
+device_tracker.tleip7p:
+  icon: mdi:cellphone-iphone
+device_tracker.melinaip7:
+  icon: mdi:cellphone-iphone
+device_tracker.tleip5:
+  friendly_name: Viktoria
+  icon: mdi:cellphone-iphone
+device_tracker.tleaw:
+  icon: mdi:watch
+device_tracker.mspaw2:
+  icon: mdi:watch
+group.schlafzimmer: {}
+group.wohnzimmer:
+  entity_id:
+  - sensor.wohnzimmer_temperature
+  - sensor.wohnzimmer_humidity
+  - light.wohnzimmer
+  - light.wohnzimmer_lampe_1
+  - light.wohnzimmer_lampe_2
+  - light.wohnzimmer_lampe_3
+  - light.wohnzimmer_lampe_4
+  - switch.wohnzimmercomputer
+  - switch.wohnzimmer_steckdose
+  - switch.hifi_steckdose
+sensor.kueche_humidity:
+  friendly_name: "K\xFCche Feuchtigkeit"
+  icon: mdi:water-percent
+sensor.badezimmer_humidity:
+  friendly_name: Badezimmer Feuchtigkeit
+  icon: mdi:water-percent
+group.badezimmer:
+  entity_id:
+  - light.badezimmer_lampe
+  - sensor.badezimmer_temperature
+  - sensor.badezimmer_humidity
+sensor.kueche_temperature:
+  friendly_name: "K\xFCche Temperatur"
+sensor.badezimmer_temperature:
+  friendly_name: Badezimmer Temperatur
