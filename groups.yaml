@@ -21,8 +21,18 @@ Weather Jena:
 
 # Zimmer
 Badezimmer:
+  - climate.oeq0665714
+  - sensor.badezimmer_thermostat_battery
+  - sensor.badezimmer_temperature
+  - sensor.badezimmer_humidity
+  - switch.badezimmer_auto
+  - switch.badezimmer_boost
+  - switch.badezimmer_manual
+  - binary_sensor.oeq0164835_state
   - light.badezimmer_lampe
 Kueche:
+  - sensor.kueche_temperature
+  - sensor.kueche_humidity
   - light.kuechenlampe
 Schlafzimmer:
   - climate.meq0797490
@@ -32,14 +42,24 @@ Schlafzimmer:
   - switch.schlafzimmer_auto
   - switch.schlafzimmer_boost
   - switch.schlafzimmer_manual
+  - binary_sensor.oeq0167636_state
   - light.schlafzimmer_lampe
   - switch.schlafzimmer_steckdose
 Wohnzimmer:
+  - climate.oeq0667981
+  - sensor.wohnzimmer_thermostat_battery
   - sensor.wohnzimmer_temperature
   - sensor.wohnzimmer_humidity
+  - switch.wohnzimmer_auto
+  - switch.wohnzimmer_boost
+  - switch.wohnzimmer_manual
+  - binary_sensor.oeq0166378_state
   - light.wohnzimmer
   - light.wohnzimmer_lampe_1
   - light.wohnzimmer_lampe_2
   - light.wohnzimmer_lampe_3
   - light.wohnzimmer_lampe_4
   - switch.wohnzimmer_steckdose
+  - switch.hifi_steckdose
+  - switch.wohnzimmercomputer
+  - switch.macmini
