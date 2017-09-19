@@ -91,6 +91,34 @@
         service: switch.turn_on
         entity_id: switch.wol_macmini
 
+# Badezimmer Thermostat
+- platform: template
+  switches:
+    badezimmer_auto:
+      value_template: "{{ is_state('climate.oeq0665714', 'auto') }}"
+      turn_on:
+        service: climate.set_operation_mode
+        data:
+          entity_id: climate.oeq0665714
+          operation_mode: auto
+      turn_off:
+    badezimmer_boost:
+      value_template: "{{ is_state('climate.oeq0665714', 'boost') }}"
+      turn_on:
+        service: climate.set_operation_mode
+        data:
+          entity_id: climate.oeq0665714
+          operation_mode: boost
+      turn_off:
+    badezimmer_manual:
+      value_template: "{{ is_state('climate.oeq0665714', 'manual') }}"
+      turn_on:
+        service: climate.set_operation_mode
+        data:
+          entity_id: climate.oeq0665714
+          operation_mode: manual
+      turn_off:
+
 # Schlafzimmer Thermostat
 - platform: template
   switches:
@@ -116,5 +144,33 @@
         service: climate.set_operation_mode
         data:
           entity_id: climate.meq0797490
+          operation_mode: manual
+      turn_off:
+
+# Wohnzimmer Thermostat
+- platform: template
+  switches:
+    wohnzimmer_auto:
+      value_template: "{{ is_state('climate.oeq0667981', 'auto') }}"
+      turn_on:
+        service: climate.set_operation_mode
+        data:
+          entity_id: climate.oeq0667981
+          operation_mode: auto
+      turn_off:
+    wohnzimmer_boost:
+      value_template: "{{ is_state('climate.oeq0667981', 'boost') }}"
+      turn_on:
+        service: climate.set_operation_mode
+        data:
+          entity_id: climate.oeq0667981
+          operation_mode: boost
+      turn_off:
+    wohnzimmer_manual:
+      value_template: "{{ is_state('climate.oeq0667981', 'manual') }}"
+      turn_on:
+        service: climate.set_operation_mode
+        data:
+          entity_id: climate.oeq0667981
           operation_mode: manual
       turn_off:

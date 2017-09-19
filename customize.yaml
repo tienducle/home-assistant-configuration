@@ -1,8 +1,4 @@
 group.kueche:
-  entity_id:
-  - light.kuechenlampe
-  - sensor.kueche_temperature
-  - sensor.kueche_humidity
   friendly_name: "K\xFCche"
 sensor.wohnzimmer_temperature:
   friendly_name: Wohnzimmer Temperatur
@@ -101,12 +97,6 @@ sensor.tleip7p_battery_state_2:
 light.all_hue_lights:
   hidden: true
   homebridge_hidden: true
-sensor.schlafzimmer_thermostat_battery:
-  friendly_name: Schlafzimmer Thermostat Batterie
-automation.wohnzimmer_feuchtigkeit:
-  hidden: true
-automation.schlafzimmer_feuchtigkeit:
-  hidden: true
 device_tracker.tleip7p:
   icon: mdi:cellphone-iphone
 device_tracker.melinaip7:
@@ -118,31 +108,55 @@ device_tracker.tleaw:
   icon: mdi:watch
 device_tracker.mspaw2:
   icon: mdi:watch
-group.schlafzimmer: {}
-group.wohnzimmer:
-  entity_id:
-  - sensor.wohnzimmer_temperature
-  - sensor.wohnzimmer_humidity
-  - light.wohnzimmer
-  - light.wohnzimmer_lampe_1
-  - light.wohnzimmer_lampe_2
-  - light.wohnzimmer_lampe_3
-  - light.wohnzimmer_lampe_4
-  - switch.wohnzimmercomputer
-  - switch.wohnzimmer_steckdose
-  - switch.hifi_steckdose
 sensor.kueche_humidity:
   friendly_name: "K\xFCche Feuchtigkeit"
   icon: mdi:water-percent
 sensor.badezimmer_humidity:
   friendly_name: Badezimmer Feuchtigkeit
   icon: mdi:water-percent
-group.badezimmer:
-  entity_id:
-  - light.badezimmer_lampe
-  - sensor.badezimmer_temperature
-  - sensor.badezimmer_humidity
 sensor.kueche_temperature:
   friendly_name: "K\xFCche Temperatur"
 sensor.badezimmer_temperature:
   friendly_name: Badezimmer Temperatur
+binary_sensor.oeq0167636_state:
+  friendly_name: Schlafzimmer Fenster
+  homebridge_opening_type: window
+  icon: mdi:window-closed
+sun.sun:
+  friendly_name: Sonne
+climate.oeq0667981:
+  friendly_name: Wohnzimmer Thermostat
+binary_sensor.oeq0166378_state:
+  friendly_name: Wohnzimmer Fenster
+  homebridge_opening_type: window
+  icon: mdi:window-closed
+switch.wohnzimmer_auto:
+  friendly_name: Wohnzimmer Auto
+  icon: mdi:nest-thermostat
+switch.wohnzimmer_boost:
+  friendly_name: Wohnzimmer Boost
+  icon: mdi:nest-thermostat
+switch.wohnzimmer_manual:
+  friendly_name: Wohnzimmer Manual
+  icon: mdi:nest-thermostat
+binary_sensor.oeq0164835_state:
+  friendly_name: Badezimmer Fenster
+  homebridge_opening_type: window
+  icon: mdi:window-closed
+climate.oeq0665714:
+  friendly_name: Badezimmer Thermostat
+switch.badezimmer_auto:
+  friendly_name: Badezimmer Auto
+  icon: mdi:nest-thermostat
+switch.badezimmer_boost:
+  friendly_name: Badezimmer Boost
+  icon: mdi:nest-thermostat
+switch.badezimmer_manual:
+  friendly_name: Badezimmer Manual
+  icon: mdi:nest-thermostat
+sensor.badezimmer_thermostat_battery:
+  icon: mdi:battery-90
+sensor.schlafzimmer_thermostat_battery:
+  icon: mdi:battery-90
+sensor.wohnzimmer_thermostat_battery:
+  icon: mdi:battery-90

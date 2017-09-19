@@ -1,4 +1,7 @@
+###
+# Notification: Open windows
 - alias: Wohnzimmer Feuchtigkeit
+  hide_entity: true
   trigger:
     - platform: numeric_state
       entity_id: sensor.wohnzimmer_humidity
@@ -29,6 +32,7 @@
       message: Wohnzimmer sollte gelueftet werden! (Luftfeuchtigkeit {{ states('sensor.wohnzimmer_humidity') }}%)
 
 - alias: Schlafzimmer Feuchtigkeit
+  hide_entity: true
   trigger:
     - platform: numeric_state
       entity_id: sensor.schlafzimmer_humidity
@@ -56,8 +60,53 @@
     data:
       message: Schlafzimmer sollte gelueftet werden! (Luftfeuchtigkeit {{ states('sensor.schlafzimmer_humidity') }}%)
 
+
+###
+# Notification: Close windows; todo: distinguish between winter/not winter or cold temperatures in general
+- alias: Badezimmer Fenster
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0164835_state
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 6
+  action:
+    service: notify.telegram
+    data:
+      message: Badezimmer Fenster sollte nun geschlossen werden!
+
+- alias: Schlafzimmer Fenster
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0167636_state
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 6
+  action:
+    service: notify.telegram
+    data:
+      message: Schlafzimmer Fenster sollte nun geschlossen werden!
+
+- alias: Wohnzimmer Fenster
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0166378_state
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 6
+  action:
+    service: notify.telegram
+    data:
+      message: Wohnzimmer Fenster sollte nun geschlossen werden!
+
+
+###
+# Hifi plug; todo: remove this
 - alias: Hifi Turn On
-  hide_entity: false
+  hide_entity: true
   trigger:
     - platform: state
       entity_id: media_player.sony_bravia_tv
@@ -72,7 +121,7 @@
     entity_id: switch.hifi_steckdose
 
 - alias: Hifi Turn Off
-  hide_entity: false
+  hide_entity: true
   trigger:
     - platform: state
       entity_id: media_player.sony_bravia_tv
