@@ -63,6 +63,29 @@
 
 ###
 # Notification: Close windows; todo: distinguish between winter/not winter or cold temperatures in general
+- alias: Fenster
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0169426_state
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.oeq0164835_state
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.oeq0167636_state
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.oeq0166378_state
+        state: 'on'
+  action:
+    service: notify.telegram
+    data:
+      message: Fenster schliessen!
+
 - alias: Badezimmer Fenster
   trigger:
     - platform: state
@@ -70,7 +93,13 @@
       from: 'off'
       to: 'on'
       for:
-        minutes: 6
+        minutes: 15
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_temperature
+        below: 10
   action:
     service: notify.telegram
     data:
@@ -83,7 +112,13 @@
       from: 'off'
       to: 'on'
       for:
-        minutes: 6
+        minutes: 12
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_temperature
+        below: 10
   action:
     service: notify.telegram
     data:
@@ -96,7 +131,13 @@
       from: 'off'
       to: 'on'
       for:
-        minutes: 6
+        minutes: 12
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_temperature
+        below: 10
   action:
     service: notify.telegram
     data:
