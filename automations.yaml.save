@@ -1,0 +1,148 @@
+###
+# Notification: Open windows
+- alias: Wohnzimmer Feuchtigkeit
+  hide_entity: true
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.wohnzimmer_humidity
+      value_template: '{{ float(state.state) }}'
+      above: 60
+    - platform: numeric_state
+      entity_id: sensor.dark_sky_humidity
+      #value_template: '{{ states.sensor.wohnzimmer_humidity.state }}'
+      below: 60
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.wohnzimmer_humidity
+        value_template: >
+          {% if is_state('sensor.wohnzimmer_humidity', 'nan') %}
+            0.0
+          {% else %}
+            {{ states('sensor.wohnzimmer_humidity') }}
+          {% endif %}
+        above: 60
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_humidity
+        below: 60
+  action:
+    service: notify.telegram
+    data:
+      message: Wohnzimmer sollte gelueftet werden! (Luftfeuchtigkeit {{ states('sensor.wohnzimmer_humidity') }}%)
+
+- alias: Schlafzimmer Feuchtigkeit
+  hide_entity: true
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.schlafzimmer_humidity
+      above: 60
+    - platform: numeric_state
+      entity_id: sensor.dark_sky_humidity
+      below: 60
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.schlafzimmer_humidity
+        value_template: >
+          {% if is_state('sensor.schlafzimmer_humidity', 'nan') %}
+            0.0
+          {% else %}
+            {{ states('sensor.schlafzimmer_humidity') }}
+          {% endif %}
+        above: 60
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_humidity
+        below: 60
+  action:
+    service: notify.telegram
+    data:
+      message: Schlafzimmer sollte gelueftet werden! (Luftfeuchtigkeit {{ states('sensor.schlafzimmer_humidity') }}%)
+
+
+###
+# Notification: Close windows; todo: distinguish between winter/not winter or cold temperatures in general
+- alias: Badezimmer Fenster
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0164835_state
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 10
+  condition:
+    condition: template
+    value_template: '{{   }}'
+  action:
+    service: notify.telegram
+    data:
+      message: Badezimmer Fenster sollte nun geschlossen werden!
+
+- alias: Schlafzimmer Fenster
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0167636_state
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 10
+  action:
+    service: notify.telegram
+    data:
+      message: Schlafzimmer Fenster sollte nun geschlossen werden!
+
+- alias: Wohnzimmer Fenster
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0166378_state
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 10
+  action:
+    service: notify.telegram
+    data:
+      message: Wohnzimmer Fenster sollte nun geschlossen werden!
+
+
+###
+# Hifi plug; todo: remove this
+- alias: Hifi Turn On
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: media_player.sony_bravia_tv
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: media_player.denon
+      from: 'off'
+      to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.hifi_steckdose
+
+- alias: Hifi Turn Off
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: media_player.sony_bravia_tv
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: media_player.denon
+      from: 'on'
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: media_player.sony_bravia_tv
+        state: 'off'
+      - condition: state
+        entity_id: media_player.denon
+        state: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.hifi_steckdose

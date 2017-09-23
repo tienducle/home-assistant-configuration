@@ -14,7 +14,7 @@ homeassistant:
   # Customization
   customize: !include customize.yaml
 
-automation: !include automation.yaml
+automation: !include automations.yaml
 
 # Apple TV
 apple_tv: !include appletv.yaml
