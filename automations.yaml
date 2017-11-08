@@ -26,6 +26,9 @@
       - condition: numeric_state
         entity_id: sensor.dark_sky_humidity
         below: 60
+      - condition: state
+        entity_id: sensor.someone_at_home
+        state: 'True'
   action:
     service: notify.telegram
     data:
@@ -55,6 +58,9 @@
       - condition: numeric_state
         entity_id: sensor.dark_sky_humidity
         below: 60
+      - condition: state
+        entity_id: sensor.someone_at_home
+        state: 'True'
   action:
     service: notify.telegram
     data:
@@ -63,7 +69,7 @@
 
 ###
 # Notification: Close windows; todo: distinguish between winter/not winter or cold temperatures in general
-- alias: Fenster
+- alias: Fenster schliessen
   trigger:
     - platform: state
       entity_id: binary_sensor.oeq0169426_state
@@ -184,3 +190,14 @@
   action:
     service: switch.turn_off
     entity_id: switch.hifi_steckdose
+
+###
+# Updater
+- alias: 'Update Available Notification'
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    service: notify.telegramtest
+    data:
+      message: 'Update for Home Assistant is available.'

@@ -151,3 +151,7 @@ sensor.wohnzimmer_thermostat_battery:
 binary_sensor.oeq0169426_state:
   friendly_name: "Haust\xFCr"
   icon: mdi:border-inside
+sensor.tleip7p_battery_level:
+  hidden: true
+sensor.tleip7p_battery_state:
+  hidden: true
