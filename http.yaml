@@ -2,3 +2,4 @@ api_password: !secret http_password
 ssl_certificate: !secret https_crt
 ssl_key: !secret https_pkey
 login_attempts_threshold: 3
+ip_ban_enabled: true
