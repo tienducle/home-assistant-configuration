@@ -6,3 +6,13 @@
 # Sony TV
 - platform: braviatv
   host: !secret tv_host
+
+### Log severities
+# critical
+# fatal
+# error
+# warning
+# warn
+# info
+# debug
+# notset
