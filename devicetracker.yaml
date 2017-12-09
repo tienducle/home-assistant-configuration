@@ -1,4 +1,4 @@
 - platform: fritz
   host: !secret fritzbox_host
-  interval_seconds: 300
-  consider_home: 300
+  interval_seconds: 60
+  consider_home: 480

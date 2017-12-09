@@ -12,10 +12,13 @@ sensor.schlafzimmer_humidity:
   icon: mdi:water-percent
 switch.wol_macmini:
   hidden: true
+  homebridge_hidden: true
 switch.wol_wohnzimmercomputer:
   hidden: true
+  homebridge_hidden: true
 switch.shutdown_wohnzimmercomputer:
   hidden: true
+  homebridge_hidden: true
 switch.macmini:
   icon: mdi:server
 switch.wohnzimmercomputer:
@@ -85,12 +88,11 @@ light.wohnzimmer_lampe_4:
 light.all_hue_lights:
   hidden: true
   homebridge_hidden: true
-device_tracker.tleip7p:
+device_tracker.tleipx:
   icon: mdi:cellphone-iphone
 device_tracker.melinaip7:
   icon: mdi:cellphone-iphone
-device_tracker.tleip5:
-  friendly_name: Viktoria
+device_tracker.vwiip7:
   icon: mdi:cellphone-iphone
 device_tracker.tleaw3:
   icon: mdi:watch
@@ -151,7 +153,11 @@ sensor.wohnzimmer_thermostat_battery:
 binary_sensor.oeq0169426_state:
   friendly_name: "Haust\xFCr"
   icon: mdi:border-inside
-sensor.tleip7p_battery_level:
+sensor.tleipx_battery_level:
   hidden: true
-sensor.tleip7p_battery_state:
+sensor.tleipx_battery_state:
+  hidden: true
+sensor.mspip7_battery_level:
+  hidden: true
+sensor.mspip7_battery_state:
   hidden: true

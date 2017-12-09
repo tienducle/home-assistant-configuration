@@ -22,9 +22,14 @@
 # Speedtest
 - platform: speedtest
   server_id: 6518
-  minute:
-    - 0
-    - 30
+  hour:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 12
+    - 16
   monitored_conditions:
     - ping
     - download

@@ -1,6 +1,7 @@
 ###
 # Notification: Open windows
-- alias: Wohnzimmer Feuchtigkeit
+- id: wohnzimmer_feuchtigkeit
+  alias: Wohnzimmer Feuchtigkeit
   hide_entity: true
   trigger:
     - platform: numeric_state
@@ -34,7 +35,8 @@
     data:
       message: Wohnzimmer sollte gelueftet werden! (Luftfeuchtigkeit {{ states('sensor.wohnzimmer_humidity') }}%)
 
-- alias: Schlafzimmer Feuchtigkeit
+- id: schlafzimmer_feuchtigkeit
+  alias: Schlafzimmer Feuchtigkeit
   hide_entity: true
   trigger:
     - platform: numeric_state
@@ -69,7 +71,71 @@
 
 ###
 # Notification: Close windows; todo: distinguish between winter/not winter or cold temperatures in general
-- alias: Fenster schliessen
+- id: badezimmer_fenster
+  alias: Badezimmer Fenster
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0164835_state
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 15
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_temperature
+        below: 10
+  action:
+    service: notify.telegram
+    data:
+      message: Badezimmer Fenster sollte nun geschlossen werden!
+
+- id: schlafzimmer_fenster
+  alias: Schlafzimmer Fenster
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0167636_state
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 12
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_temperature
+        below: 10
+  action:
+    service: notify.telegram
+    data:
+      message: Schlafzimmer Fenster sollte nun geschlossen werden!
+
+- id: wohnzimmer_fenster
+  alias: Wohnzimmer Fenster
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0166378_state
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 12
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_temperature
+        below: 10
+  action:
+    service: notify.telegram
+    data:
+      message: Wohnzimmer Fenster sollte nun geschlossen werden!
+
+
+###
+# Door alarms
+- id: fenster_schliessen
+  alias: Fenster schliessen
   trigger:
     - platform: state
       entity_id: binary_sensor.oeq0169426_state
@@ -92,73 +158,96 @@
     data:
       message: Fenster schliessen!
 
-- alias: Badezimmer Fenster
+- id: wohnzimmer_lampe_ausmachen
+  alias: Wohnzimmer Lampe ausmachen
   trigger:
     - platform: state
-      entity_id: binary_sensor.oeq0164835_state
+      entity_id: binary_sensor.oeq0169426_state
       from: 'off'
       to: 'on'
-      for:
-        minutes: 15
   condition:
-    condition: and
+    condition: or
     conditions:
-      - condition: numeric_state
-        entity_id: sensor.dark_sky_temperature
-        below: 10
+      - condition: state
+        entity_id: light.wohnzimmer_lampe_1
+        state: 'on'
+      - condition: state
+        entity_id: light.wohnzimmer_lampe_2
+        state: 'on'
+      - condition: state
+        entity_id: light.wohnzimmer_lampe_3
+        state: 'on'
+      - condition: state
+        entity_id: light.wohnzimmer_lampe_4
+        state: 'on'
   action:
     service: notify.telegram
     data:
-      message: Badezimmer Fenster sollte nun geschlossen werden!
+      message: Wohnzimmer Lampe ausmachen!
 
-- alias: Schlafzimmer Fenster
+- id: kuechenlampe_ausmachen
+  alias: Küchenlampe ausmachen
   trigger:
     - platform: state
-      entity_id: binary_sensor.oeq0167636_state
+      entity_id: binary_sensor.oeq0169426_state
       from: 'off'
       to: 'on'
-      for:
-        minutes: 12
   condition:
-    condition: and
+    condition: or
     conditions:
-      - condition: numeric_state
-        entity_id: sensor.dark_sky_temperature
-        below: 10
+      - condition: state
+        entity_id: light.kuechenlampe
+        state: 'on'
   action:
     service: notify.telegram
     data:
-      message: Schlafzimmer Fenster sollte nun geschlossen werden!
+      message: Küchenlampe ausmachen!
 
-- alias: Wohnzimmer Fenster
+- id: badezimmer_lampe_ausmachen
+  alias: Badezimmer Lampe ausmachen
   trigger:
     - platform: state
-      entity_id: binary_sensor.oeq0166378_state
+      entity_id: binary_sensor.oeq0169426_state
       from: 'off'
       to: 'on'
-      for:
-        minutes: 12
   condition:
-    condition: and
+    condition: or
     conditions:
-      - condition: numeric_state
-        entity_id: sensor.dark_sky_temperature
-        below: 10
+      - condition: state
+        entity_id: light.badezimmer_lampe
+        state: 'on'
   action:
     service: notify.telegram
     data:
-      message: Wohnzimmer Fenster sollte nun geschlossen werden!
+      message: Badezimmer Lampe ausmachen!
 
-
+- id: schlafzimmer_lampe_ausmachen
+  alias: Schlafzimmer Lampe ausmachen
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0169426_state
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: light.schlafzimmer_lampe
+        state: 'on'
+  action:
+    service: notify.telegram
+    data:
+      message: Schlafzimmer Lampe ausmachen!
 ###
 # Hifi plug; todo: remove this
-- alias: Hifi Turn On
+- id: hifi_turn_on
+  alias: Hifi Turn On
   hide_entity: true
   trigger:
-    - platform: state
-      entity_id: media_player.sony_bravia_tv
-      from: 'off'
-      to: 'on'
+#    - platform: state
+#      entity_id: media_player.sony_bravia_tv
+#      from: 'off'
+#      to: 'on'
     - platform: state
       entity_id: media_player.denon
       from: 'off'
@@ -167,33 +256,34 @@
     service: switch.turn_on
     entity_id: switch.hifi_steckdose
 
-- alias: Hifi Turn Off
-  hide_entity: true
-  trigger:
-    - platform: state
-      entity_id: media_player.sony_bravia_tv
-      from: 'on'
-      to: 'off'
-    - platform: state
-      entity_id: media_player.denon
-      from: 'on'
-      to: 'off'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: media_player.sony_bravia_tv
-        state: 'off'
-      - condition: state
-        entity_id: media_player.denon
-        state: 'off'
-  action:
-    service: switch.turn_off
-    entity_id: switch.hifi_steckdose
+#- alias: Hifi Turn Off
+#  hide_entity: true
+#  trigger:
+#    - platform: state
+#      entity_id: media_player.sony_bravia_tv
+#      from: 'on'
+#      to: 'off'
+#    - platform: state
+#      entity_id: media_player.denon
+#      from: 'on'
+#      to: 'off'
+#  condition:
+#    condition: and
+#    conditions:
+#      - condition: state
+#        entity_id: media_player.sony_bravia_tv
+#        state: 'off'
+#      - condition: state
+#        entity_id: media_player.denon
+#        state: 'off'
+#  action:
+#    service: switch.turn_off
+#    entity_id: switch.hifi_steckdose
 
 ###
 # Updater
-- alias: 'Update Available Notification'
+- id: update_notification
+  alias: Update Available Notification
   trigger:
     platform: state
     entity_id: updater.updater
@@ -201,3 +291,4 @@
     service: notify.telegramtest
     data:
       message: 'Update for Home Assistant is available.'
+

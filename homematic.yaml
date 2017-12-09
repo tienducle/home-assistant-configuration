@@ -1,5 +1,5 @@
-hosts:
+interfaces:
   wired:
-    ip: !secret homematic_host
+    host: !secret homematic_host
     port: !secret homematic_port
     resolvenames: json
