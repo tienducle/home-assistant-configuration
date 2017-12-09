@@ -4,8 +4,8 @@
   name: Denon
 
 # Sony TV
-- platform: braviatv
-  host: !secret tv_host
+#- platform: braviatv
+#  host: !secret tv_host
 
 ### Log severities
 # critical

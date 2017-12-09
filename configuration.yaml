@@ -22,7 +22,7 @@ automation: !include automations.yaml
 apple_tv: !include appletv.yaml
 
 # Cameras
-camera: !include cameras.yaml
+#camera: !include cameras.yaml
 
 # Enable config screen
 config:
@@ -37,6 +37,8 @@ device_tracker: !include devicetracker.yaml
 
 # Enables the frontend
 frontend:
+  javascript_version: es5
+#  javascript_version: latest
 
 # Grouping
 group: !include groups.yaml
@@ -47,6 +49,8 @@ history: !include history.yaml
 homematic: !include homematic.yaml
 
 http: !include http.yaml
+
+hue: !include hue.yaml
 
 ios:
 
@@ -71,8 +75,7 @@ notify: !include notifier.yaml
 
 pilight: !include pilight.yaml
 
-recorder:
-  db_url: !secret pgsql
+recorder: !include recorder.yaml
 
 sensor: !include sensors.yaml
 
