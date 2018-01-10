@@ -1,0 +1,39 @@
+- platform: ping
+  host: !secret macmini_host
+  name: MacMini
+
+- platform: ping
+  host: !secret printer_host
+  name: Printer
+
+- platform: ping
+  host: !secret database_host
+  name: Database
+
+- platform: ping
+  host: !secret bitbucket_host
+  name: Bitbucket
+
+- platform: ping
+  host: !secret dns_server_host
+  name: DNS Server
+
+- platform: ping
+  host: !secret homebridge_host
+  name: Homebridge
+
+- platform: ping
+  host: !secret huebridge_host
+  name: Philips Hue Bridge
+
+- platform: ping
+  host: !secret mqtt_host
+  name: MQTT
+
+- platform: ping
+  host: !secret atv4_host
+  name: Apple TV
+
+- platform: ping
+  host: !secret seafile_host
+  name: Seafile
