@@ -1,6 +1,17 @@
 Bahn:
   - sensor.nordschule_jena_to_stadtzentrum_lobdergraben_jena
   - sensor.stadtzentrum_lobdergraben_jena_to_nordschule_jena
+Systems:
+  - binary_sensor.macmini
+  - binary_sensor.dns_server
+  - binary_sensor.mqtt
+  - binary_sensor.homebridge
+  - binary_sensor.database
+  - binary_sensor.apple_tv
+  - binary_sensor.philips_hue_bridge
+  - binary_sensor.printer
+  - binary_sensor.bitbucket
+  - binary_sensor.seafile
 Devices:
   - device_tracker.tlembpr
   - device_tracker.tlembprlan
