@@ -1,6 +1,7 @@
 secrets.yaml
 phue.conf
 .ios.conf
+bravia.conf
 home-assistant.log
 
 .uuid

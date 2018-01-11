@@ -1,0 +1,19 @@
+Wohnzimmer:
+  - climate.oeq0667981
+  - sensor.wohnzimmer_thermostat_battery
+  - sensor.wohnzimmer_temperature
+  - sensor.wohnzimmer_humidity
+  - switch.wohnzimmer_auto
+  - switch.wohnzimmer_boost
+  - switch.wohnzimmer_manual
+  - binary_sensor.oeq0166378_state
+  - light.wohnzimmer
+  - light.wohnzimmer_lampe_1
+  - light.wohnzimmer_lampe_2
+  - light.wohnzimmer_lampe_3
+  - light.wohnzimmer_lampe_4
+  - switch.wohnzimmer_steckdose
+  - switch.hifi_steckdose
+  - switch.wohnzimmercomputer
+  - switch.macmini
+
