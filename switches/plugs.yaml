@@ -1,0 +1,41 @@
+- platform: pilight
+  switches:
+    Schlafzimmer Steckdose:
+      on_code:
+        protocol: kaku_switch
+        id: !secret plug1_id
+        unit: 0
+        state: 'on'
+        'on': 1
+      off_code:
+        protocol: kaku_switch
+        id: !secret plug1_id
+        unit: 0
+        state: 'off'
+        'off': 0
+    Wohnzimmer Steckdose:
+      on_code:
+        protocol: kaku_switch
+        id: !secret plug1_id
+        unit: 1
+        state: 'on'
+        'on': 1
+      off_code:
+        protocol: kaku_switch
+        id: !secret plug1_id
+        unit: 1
+        state: 'off'
+        'off': 0
+    Hifi Steckdose:
+      on_code:
+        protocol: kaku_switch
+        id: !secret plug1_id
+        unit: 2
+        state: 'on'
+        'on': 1
+      off_code:
+        protocol: kaku_switch
+        id: !secret plug1_id
+        unit: 2
+        state: 'off'
+        'off': 0

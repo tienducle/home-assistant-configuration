@@ -1,0 +1,11 @@
+Schlafzimmer:
+  - climate.meq0797490
+  - sensor.schlafzimmer_thermostat_battery
+  - sensor.schlafzimmer_temperature
+  - sensor.schlafzimmer_humidity
+  - switch.schlafzimmer_auto
+  - switch.schlafzimmer_boost
+  - switch.schlafzimmer_manual
+  - binary_sensor.oeq0167636_state
+  - light.schlafzimmer_lampe
+  - switch.schlafzimmer_steckdose

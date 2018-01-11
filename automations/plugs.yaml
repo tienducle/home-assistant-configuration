@@ -1,0 +1,42 @@
+###
+# Hifi plug; todo: remove this
+#- id: hifi_turn_on
+#  alias: Hifi Turn On
+#  hide_entity: true
+#  trigger:
+#    - platform: state
+#      entity_id: media_player.sony_bravia_tv
+#      from: 'off'
+#      to: 'on'
+#    - platform: state
+#      entity_id: media_player.denon
+#      from: 'off'
+#      to: 'on'
+#  action:
+#    service: switch.turn_on
+#    entity_id: switch.hifi_steckdose
+
+#- alias: Hifi Turn Off
+#  hide_entity: true
+#  trigger:
+#    - platform: state
+#      entity_id: media_player.sony_bravia_tv
+#      from: 'on'
+#      to: 'off'
+#    - platform: state
+#      entity_id: media_player.denon
+#      from: 'on'
+#      to: 'off'
+#  condition:
+#    condition: and
+#    conditions:
+#      - condition: state
+#        entity_id: media_player.sony_bravia_tv
+#        state: 'off'
+#      - condition: state
+#        entity_id: media_player.denon
+#        state: 'off'
+#  action:
+#    service: switch.turn_off
+#    entity_id: switch.hifi_steckdose
+

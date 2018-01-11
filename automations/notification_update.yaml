@@ -1,0 +1,9 @@
+- id: update_notification
+  alias: Update Available Notification
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    service: notify.telegramtest
+    data:
+      message: 'Update for Home Assistant is available.'
