@@ -1,0 +1,4 @@
+Kueche:
+  - sensor.kueche_temperature
+  - sensor.kueche_humidity
+  - light.kuechenlampe

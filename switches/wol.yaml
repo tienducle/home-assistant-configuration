@@ -1,0 +1,48 @@
+# Wohnzimmer Computer
+# these are actually 3 switches
+# 1. wake_on_lan switch for turning the computer on
+# 2. command_line switch for turning the computer off
+# 3. the actual switch that is shown in the UI
+#    - checks wake_on_lan switch to determine whether the computer is on
+#    - on: triggers wake_on_lan switch
+#    - off: triggers command_line switch
+
+- platform: wake_on_lan
+  mac_address: !secret wohnzimmercomputer_mac
+  name: "wol_wohnzimmercomputer"
+  host: !secret wohnzimmercomputer_host
+
+- platform: command_line
+  switches:
+    shutdown_wohnzimmercomputer:
+      command_off: !secret wol_wohnzimmercomputer_cmd
+
+- platform: template
+  switches:
+    wohnzimmercomputer:
+      friendly_name: 'Wohnzimmer Computer'
+      value_template: '{{ is_state("switch.wol_wohnzimmercomputer", "on") }}'
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.wol_wohnzimmercomputer
+      turn_off:
+        service: switch.turn_off
+        entity_id: switch.shutdown_wohnzimmercomputer
+
+# MacMini
+- platform: wake_on_lan
+  mac_address: !secret macmini_mac
+  name: "wol_macmini"
+  host: !secret macmini_host
+
+- platform: template
+  switches:
+    macmini:
+      friendly_name: 'MacMini'
+      value_template: '{{ is_state("switch.wol_macmini", "on") }}'
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.wol_macmini
+      turn_off:
+        service: switch.turn_on
+        entity_id: switch.wol_macmini

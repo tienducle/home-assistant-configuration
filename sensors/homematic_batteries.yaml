@@ -1,0 +1,23 @@
+- platform: template
+  sensors:
+    badezimmer_thermostat_battery:
+      value_template: '{{ states.climate.oeq0665714.attributes.battery }}'
+      friendly_name: 'Badezimmer Thermostat Batterie'
+      unit_of_measurement: 'V'
+      entity_id: climate.oeq0665714
+
+- platform: template
+  sensors:
+    schlafzimmer_thermostat_battery:
+      value_template: '{{ states.climate.meq0797490.attributes.battery }}'
+      friendly_name: 'Schlafzimmer Thermostat Batterie'
+      unit_of_measurement: 'V'
+      entity_id: climate.meq0797490
+
+- platform: template
+  sensors:
+    wohnzimmer_thermostat_battery:
+      value_template: '{{ states.climate.oeq0667981.attributes.battery }}'
+      friendly_name: 'Wohnzimmer Thermostat Batterie'
+      unit_of_measurement: 'V'
+      entity_id: climate.oeq0667981

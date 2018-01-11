@@ -5,7 +5,6 @@
   radius: 45
   icon: mdi:home
 
-#50.92898326,11.58356756,156 m
 - work_duc:
   name: Salesforce
   latitude: !secret work_duc_latitude

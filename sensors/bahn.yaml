@@ -1,0 +1,9 @@
+- name: bahn_nordschule_lobdergraben
+  platform: deutsche_bahn
+  from: Nordschule, Jena
+  to: Stadtzentrum Lobdergraben, Jena
+
+- name: bahn_lobdergraben_nordschule
+  platform: deutsche_bahn
+  from: Stadtzentrum Lobdergraben, Jena
+  to: Nordschule, Jena

@@ -1,0 +1,10 @@
+Badezimmer:
+  - climate.oeq0665714
+  - sensor.badezimmer_thermostat_battery
+  - sensor.badezimmer_temperature
+  - sensor.badezimmer_humidity
+  - switch.badezimmer_auto
+  - switch.badezimmer_boost
+  - switch.badezimmer_manual
+  - binary_sensor.oeq0164835_state
+  - light.badezimmer_lampe
