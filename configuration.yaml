@@ -16,10 +16,12 @@ homeassistant:
 
 alexa:
 
-automation: !include automations.yaml
+automation: !include_dir_merge_list automations
 
 # Apple TV
-apple_tv: !include appletv.yaml
+apple_tv: !include services/appletv.yaml
+
+binary_sensor: !include_dir_merge_list binary_sensors
 
 # Cameras
 #camera: !include cameras.yaml
@@ -30,7 +32,7 @@ config:
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
-device_tracker: !include devicetracker.yaml
+device_tracker: !include_dir_merge_list devicetracker
 
 # Discover some devices automatically
 #discovery:
@@ -41,50 +43,50 @@ frontend:
 #  javascript_version: latest
 
 # Grouping
-group: !include groups.yaml
+group: !include_dir_merge_named groups
 
 # Enables support for tracking state changes over time.
-history: !include history.yaml
+history: !include services/history.yaml
 
-homematic: !include homematic.yaml
+homematic: !include services/homematic.yaml
 
-http: !include http.yaml
+http: !include services/http.yaml
 
-hue: !include hue.yaml
+hue: !include services/hue.yaml
 
 ios:
 
 # Show links to resources in log and frontend
 #introduction:
 
-light: !include lights.yaml
+light: !include_dir_merge_list lights
 
 # View all events in a logbook
 logbook:
 
 # Logger settings
-logger: !include logger.yaml
+logger: !include services/logger.yaml
 
 # Media Players
-media_player: !include mediaplayers.yaml
+media_player: !include_dir_merge_list mediaplayers
 
 # Mqtt
-mqtt: !include mqtt.yaml
+mqtt: !include services/mqtt.yaml
 
-notify: !include notifier.yaml
+notify: !include services/notifier.yaml
 
-pilight: !include pilight.yaml
+pilight: !include services/pilight.yaml
 
-recorder: !include recorder.yaml
+recorder: !include services/recorder.yaml
 
-sensor: !include sensors.yaml
+sensor: !include_dir_merge_list sensors
 
 sun:
 
-switch: !include switches.yaml
+switch: !include_dir_merge_list switches
 
 # Notifier Telegram
-telegram_bot: !include telegram.yaml
+telegram_bot: !include services/telegram.yaml
 
 # Checks for available updates
 updater:
