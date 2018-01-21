@@ -1,0 +1,14 @@
+default_view:
+  view: yes
+  icon: mdi:home
+  entities:
+    - device_tracker.tleipx
+    - device_tracker.melinaip7
+    - device_tracker.tleaw3
+    - device_tracker.mspaw2
+    - device_tracker.vwiip7
+    - binary_sensor.oeq0169426_state
+    - sensor.someone_at_home
+    - group.bahn
+    - group.weather_jena
+    - group.internet

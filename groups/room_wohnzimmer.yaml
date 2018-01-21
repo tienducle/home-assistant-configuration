@@ -1,19 +1,50 @@
-Wohnzimmer:
-  - climate.oeq0667981
-  - sensor.wohnzimmer_thermostat_battery
-  - sensor.wohnzimmer_temperature
-  - sensor.wohnzimmer_humidity
-  - switch.wohnzimmer_auto
-  - switch.wohnzimmer_boost
-  - switch.wohnzimmer_manual
-  - binary_sensor.oeq0166378_state
-  - light.wohnzimmer
-  - light.wohnzimmer_lampe_1
-  - light.wohnzimmer_lampe_2
-  - light.wohnzimmer_lampe_3
-  - light.wohnzimmer_lampe_4
-  - switch.wohnzimmer_steckdose
-  - switch.hifi_steckdose
-  - switch.wohnzimmercomputer
-  - switch.macmini
+room_wohnzimmer:
+  name: Wohnzimmer
+  view: yes
+  entities:
+    - group.wohnzimmer_lights
+    - group.wohnzimmer_plugs
+    - group.wohnzimmer_devices
+    - group.wohnzimmer_thermostat
+    - group.wohnzimmer_climate
 
+wohnzimmer_thermostat:
+  name: Thermostat
+  control: hidden
+  entities:
+    - climate.oeq0667981
+    - sensor.wohnzimmer_thermostat_battery
+    - binary_sensor.oeq0166378_state
+    - switch.wohnzimmer_auto
+    - switch.wohnzimmer_boost
+    - switch.wohnzimmer_manual
+
+wohnzimmer_climate:
+  name: Climate
+  control: hidden
+  entities:
+    - sensor.wohnzimmer_temperature
+    - sensor.wohnzimmer_humidity
+
+wohnzimmer_lights:
+  name: Lampen
+  control: hidden # group control not needed because of exposed hue group
+  entities:
+    - light.wohnzimmer
+    - light.wohnzimmer_lampe_1
+    - light.wohnzimmer_lampe_2
+    - light.wohnzimmer_lampe_3
+    - light.wohnzimmer_lampe_4
+
+wohnzimmer_plugs:
+  name: Steckdosen
+  entities:
+    - switch.wohnzimmer_steckdose
+    - switch.hifi_steckdose
+
+wohnzimmer_devices:
+  name: Geraete
+  control: hidden
+  entities:
+    - switch.wohnzimmercomputer
+    - switch.macmini

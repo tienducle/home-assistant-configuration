@@ -1,10 +1,30 @@
-Badezimmer:
-  - climate.oeq0665714
-  - sensor.badezimmer_thermostat_battery
-  - sensor.badezimmer_temperature
-  - sensor.badezimmer_humidity
-  - switch.badezimmer_auto
-  - switch.badezimmer_boost
-  - switch.badezimmer_manual
-  - binary_sensor.oeq0164835_state
-  - light.badezimmer_lampe
+room_badezimmer:
+  name: Badezimmer
+  view: yes
+  entities:
+    - group.badezimmer_lights
+    - group.badezimmer_thermostat
+    - group.badezimmer_climate
+
+badezimmer_thermostat:
+  name: Thermostat
+  control: hidden
+  entities:
+    - climate.oeq0665714
+    - sensor.badezimmer_thermostat_battery
+    - binary_sensor.oeq0164835_state
+    - switch.badezimmer_auto
+    - switch.badezimmer_boost
+    - switch.badezimmer_manual
+
+badezimmer_climate:
+  name: Climate
+  control: hidden
+  entities:
+    - sensor.badezimmer_temperature
+    - sensor.badezimmer_humidity
+
+badezimmer_lights:
+  name: Lampen
+  entities:
+    - light.badezimmer_lampe

@@ -1,11 +1,38 @@
-Schlafzimmer:
-  - climate.meq0797490
-  - sensor.schlafzimmer_thermostat_battery
-  - sensor.schlafzimmer_temperature
-  - sensor.schlafzimmer_humidity
-  - switch.schlafzimmer_auto
-  - switch.schlafzimmer_boost
-  - switch.schlafzimmer_manual
-  - binary_sensor.oeq0167636_state
-  - light.schlafzimmer_lampe
-  - switch.schlafzimmer_steckdose
+room_schlafzimmer:
+  name: Schlafzimmer
+  view: yes
+  entities:
+    - group.schlafzimmer_lights
+    - group.schlafzimmer_plugs
+    - group.schlafzimmer_thermostat
+    - group.schlafzimmer_climate
+
+schlafzimmer_thermostat:
+  name: Thermostat
+  control: hidden
+  entities:
+    - climate.meq0797490
+    - sensor.schlafzimmer_thermostat_battery
+    - binary_sensor.oeq0167636_state
+    - switch.schlafzimmer_auto
+    - switch.schlafzimmer_boost
+    - switch.schlafzimmer_manual
+
+schlafzimmer_climate:
+  name: Climate
+  control: hidden
+  entities:
+    - sensor.schlafzimmer_temperature
+    - sensor.schlafzimmer_humidity
+
+schlafzimmer_lights:
+  name: Lampen
+  control: hidden
+  entities:
+    - light.schlafzimmer_lampe
+
+schlafzimmer_plugs:
+  name: Steckdosen
+  entities:
+    - switch.schlafzimmer_steckdose
+

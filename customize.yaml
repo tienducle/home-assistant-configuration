@@ -1,5 +1,3 @@
-group.kueche:
-  friendly_name: "K\xFCche"
 sensor.wohnzimmer_temperature:
   friendly_name: Wohnzimmer Temperatur
 sensor.wohnzimmer_humidity:
@@ -24,9 +22,9 @@ switch.macmini:
 switch.wohnzimmercomputer:
   icon: mdi:windows
 sensor.nordschule_jena_to_stadtzentrum_lobdergraben_jena:
-  friendly_name: "Nordschule nach L\xF6bdergraben"
+  friendly_name: Nordschule nach Löbdergraben
 sensor.stadtzentrum_lobdergraben_jena_to_nordschule_jena:
-  friendly_name: "L\xF6bdergraben nach Nordschule"
+  friendly_name: Löbdergraben nach Nordschule
 sensor.speedtest_download:
   friendly_name: Download Speed
   icon: mdi:download
@@ -37,7 +35,7 @@ sensor.speedtest_ping:
   friendly_name: Ping
   icon: mdi:looks
 sensor.dark_sky_apparent_temperature:
-  friendly_name: "Gef\xFChlte Temperatur"
+  friendly_name: Gefühlte Temperatur
 sensor.dark_sky_daily_high_temperature:
   friendly_name: Max. Temperatur
 sensor.dark_sky_daily_low_temperature:
@@ -64,7 +62,7 @@ switch.schlafzimmer_manual:
   friendly_name: Schlafzimmer Manual
   icon: mdi:nest-thermostat
 light.kuechenlampe:
-  friendly_name: "K\xFCchenlampe"
+  friendly_name: Küchenlampe
 light.schlafzimmer:
   hidden: true
   homebridge_hidden: true
@@ -99,13 +97,13 @@ device_tracker.tleaw3:
 device_tracker.mspaw2:
   icon: mdi:watch
 sensor.kueche_humidity:
-  friendly_name: "K\xFCche Feuchtigkeit"
+  friendly_name: Küche Feuchtigkeit
   icon: mdi:water-percent
 sensor.badezimmer_humidity:
   friendly_name: Badezimmer Feuchtigkeit
   icon: mdi:water-percent
 sensor.kueche_temperature:
-  friendly_name: "K\xFCche Temperatur"
+  friendly_name: Küche Temperatur
 sensor.badezimmer_temperature:
   friendly_name: Badezimmer Temperatur
 binary_sensor.oeq0167636_state:
@@ -151,7 +149,7 @@ sensor.schlafzimmer_thermostat_battery:
 sensor.wohnzimmer_thermostat_battery:
   icon: mdi:battery-90
 binary_sensor.oeq0169426_state:
-  friendly_name: "Haust\xFCr"
+  friendly_name: Haustür
   icon: mdi:border-inside
 sensor.tleipx_battery_level:
   hidden: true
@@ -161,3 +159,22 @@ sensor.mspip7_battery_level:
   hidden: true
 sensor.mspip7_battery_state:
   hidden: true
+group.all_automations:
+  hidden: false
+group.all_devices:
+  hidden: false
+# ordering
+group.default_view:
+  order: 1
+group.room_wohnzimmer:
+  order: 2
+group.room_schlafzimmer:
+  order: 3
+group.room_badezimmer:
+  order: 4
+group.room_kueche:
+  order: 5
+group.devices:
+  order: 6
+group.automations:
+  order: 7
