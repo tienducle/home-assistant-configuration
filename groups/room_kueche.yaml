@@ -1,4 +1,17 @@
-Kueche:
-  - sensor.kueche_temperature
-  - sensor.kueche_humidity
-  - light.kuechenlampe
+room_kueche:
+  name: Kueche
+  view: yes
+  entities:
+    - group.kueche_lights
+    - group.kueche_climate
+
+kueche_climate:
+  name: Climate
+  entities:
+    - sensor.kueche_temperature
+    - sensor.kueche_humidity
+
+kueche_lights:
+  name: Lampen
+  entities:
+    - light.kuechenlampe

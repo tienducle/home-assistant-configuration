@@ -1,8 +1,10 @@
-Weather Jena:
-  - sensor.dark_sky_summary
-  - sensor.dark_sky_temperature
-  - sensor.dark_sky_apparent_temperature
-  - sensor.dark_sky_daily_low_temperature
-  - sensor.dark_sky_daily_high_temperature
-  - sensor.dark_sky_humidity
-  - sensor.dark_sky_wind_speed
+weather_jena:
+  name: Wetter Jena
+  entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_apparent_temperature
+    - sensor.dark_sky_daily_low_temperature
+    - sensor.dark_sky_daily_high_temperature
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_wind_speed
