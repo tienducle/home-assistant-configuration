@@ -2,7 +2,7 @@ default_view:
   view: yes
   icon: mdi:home
   entities:
-    - device_tracker.tleipx
+    - device_tracker.tle_tleipx
     - device_tracker.melinaip7
     - device_tracker.tleaw3
     - device_tracker.mspaw2
