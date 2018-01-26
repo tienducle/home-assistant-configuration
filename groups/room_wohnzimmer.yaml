@@ -7,6 +7,8 @@ room_wohnzimmer:
     - group.wohnzimmer_devices
     - group.wohnzimmer_thermostat
     - group.wohnzimmer_climate
+    - media_player.denon
+    - media_player.apple_tv
 
 wohnzimmer_thermostat:
   name: Thermostat
