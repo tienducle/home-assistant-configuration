@@ -1,3 +1,4 @@
 - platform: denonavr
   host:  !secret denon_host
   name: Denon
+  show_all_sources: false
