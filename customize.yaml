@@ -1,13 +1,15 @@
-sensor.wohnzimmer_temperature:
-  friendly_name: Wohnzimmer Temperatur
-sensor.wohnzimmer_humidity:
-  friendly_name: Wohnzimmer Feuchtigkeit
-  icon: mdi:water-percent
-sensor.schlafzimmer_temperature:
-  friendly_name: Schlafzimmer Temperatur
-sensor.schlafzimmer_humidity:
-  friendly_name: Schlafzimmer Feuchtigkeit
-  icon: mdi:water-percent
+light.haus:
+  homebridge_hidden: true
+light.wetter:
+  homebridge_hidden: true
+light.wohnzimmer:
+  homebridge_hidden: true
+light.schlafzimmer:
+  homebridge_hidden: true
+light.badezimmer:
+  homebridge_hidden: true
+light.kuche:
+  homebridge_hidden: true
 switch.wol_macmini:
   hidden: true
   homebridge_hidden: true
@@ -21,6 +23,16 @@ switch.macmini:
   icon: mdi:server
 switch.wohnzimmercomputer:
   icon: mdi:windows
+sensor.wohnzimmer_temperature:
+  friendly_name: Wohnzimmer Temperatur
+sensor.wohnzimmer_humidity:
+  friendly_name: Wohnzimmer Feuchtigkeit
+  icon: mdi:water-percent
+sensor.schlafzimmer_temperature:
+  friendly_name: Schlafzimmer Temperatur
+sensor.schlafzimmer_humidity:
+  friendly_name: Schlafzimmer Feuchtigkeit
+  icon: mdi:water-percent
 sensor.nordschule_jena_to_stadtzentrum_lobdergraben_jena:
   friendly_name: Nordschule nach Löbdergraben
 sensor.stadtzentrum_lobdergraben_jena_to_nordschule_jena:
@@ -63,13 +75,7 @@ switch.schlafzimmer_manual:
   icon: mdi:nest-thermostat
 light.kuechenlampe:
   friendly_name: Küchenlampe
-light.schlafzimmer:
-  hidden: true
-  homebridge_hidden: true
 light.schlafzimmer_lampe:
-  homebridge_hidden: true
-light.wohnzimmer:
-  friendly_name: Wohnzimmer Lampe
   homebridge_hidden: true
 light.wohnzimmer_lampe_1:
   friendly_name: Lampe 1
@@ -163,7 +169,6 @@ group.all_automations:
   hidden: false
 group.all_devices:
   hidden: false
-# ordering
 group.default_view:
   order: 1
 group.room_wohnzimmer:
@@ -178,3 +183,5 @@ group.devices:
   order: 6
 group.automations:
   order: 7
+switch.kueche_alexa_steckdose:
+  friendly_name: Küche Alexa

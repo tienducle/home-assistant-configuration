@@ -4,6 +4,7 @@ room_kueche:
   entities:
     - group.kueche_lights
     - group.kueche_climate
+    - group.kueche_plugs
 
 kueche_climate:
   name: Climate
@@ -15,3 +16,8 @@ kueche_lights:
   name: Lampen
   entities:
     - light.kuechenlampe
+
+kueche_plugs:
+  name: Steckdosen
+  entities:
+    - switch.kueche_alexa_steckdose
