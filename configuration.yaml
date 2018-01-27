@@ -14,7 +14,7 @@ homeassistant:
   # Customization
   customize: !include customize.yaml
 
-alexa:
+alexa: !include services/alexa.yaml
 
 automation: !include_dir_merge_list automations
 
