@@ -26,7 +26,7 @@
         unit: 1
         state: 'off'
         'off': 0
-    Hifi Steckdose:
+    Kueche Alexa Steckdose:
       on_code:
         protocol: kaku_switch
         id: !secret plug1_id

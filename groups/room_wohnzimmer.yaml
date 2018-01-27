@@ -30,7 +30,7 @@ wohnzimmer_climate:
 
 wohnzimmer_lights:
   name: Lampen
-  control: hidden # group control not needed because of exposed hue group
+  #control: hidden # group control not needed because of exposed hue group
   entities:
     - light.wohnzimmer
     - light.wohnzimmer_lampe_1
@@ -42,7 +42,6 @@ wohnzimmer_plugs:
   name: Steckdosen
   entities:
     - switch.wohnzimmer_steckdose
-    - switch.hifi_steckdose
 
 wohnzimmer_devices:
   name: Geraete
