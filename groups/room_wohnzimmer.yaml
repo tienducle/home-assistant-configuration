@@ -37,6 +37,8 @@ wohnzimmer_lights:
     - light.wohnzimmer_lampe_2
     - light.wohnzimmer_lampe_3
     - light.wohnzimmer_lampe_4
+    - light.wohnzimmer_lampe_5
+    - light.wohnzimmer_lampe_6
 
 wohnzimmer_plugs:
   name: Steckdosen

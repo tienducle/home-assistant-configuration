@@ -89,6 +89,12 @@ light.wohnzimmer_lampe_3:
 light.wohnzimmer_lampe_4:
   friendly_name: Lampe 4
   homebridge_hidden: true
+light.wohnzimmer_lampe_5:
+  friendly_name: Lampe 5
+  homebridge_hidden: true
+light.wohnzimmer_lampe_6:
+  friendly_name: Lampe 6
+  homebridge_hidden: true
 light.all_hue_lights:
   hidden: true
   homebridge_hidden: true
