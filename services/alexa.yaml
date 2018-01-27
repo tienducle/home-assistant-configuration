@@ -1,0 +1,15 @@
+smart_home:
+  filter:
+#    include_entities:
+    include_domains:
+      - light
+      - switch
+      - media_player
+    exclude_entities:
+      # hue room-groups
+      - light.haus
+      - light.wetter
+      - light.wohnzimmer
+      - light.schlafzimmer
+      - light.badezimmer
+      - light.kuche
