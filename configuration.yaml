@@ -42,6 +42,9 @@ frontend:
   javascript_version: es5
 #  javascript_version: latest
 
+# Google Assistant
+google_assistant: !include services/gassistant.yaml
+
 # Grouping
 group: !include_dir_merge_named groups
 
