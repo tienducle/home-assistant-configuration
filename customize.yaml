@@ -2,8 +2,8 @@ light.haus:
   homebridge_hidden: true
 light.wetter:
   homebridge_hidden: true
-light.wohnzimmer:
-  homebridge_hidden: true
+#light.wohnzimmer:
+#  homebridge_hidden: true
 light.schlafzimmer:
   homebridge_hidden: true
 light.badezimmer:
