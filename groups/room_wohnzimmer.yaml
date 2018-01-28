@@ -9,6 +9,7 @@ room_wohnzimmer:
     - group.wohnzimmer_climate
     - media_player.denon
     - media_player.apple_tv
+    - media_player.chromecast_ultra
 
 wohnzimmer_thermostat:
   name: Thermostat
@@ -30,9 +31,9 @@ wohnzimmer_climate:
 
 wohnzimmer_lights:
   name: Lampen
-  #control: hidden # group control not needed because of exposed hue group
+#  control: hidden
   entities:
-    - light.wohnzimmer
+#    - light.wohnzimmer
     - light.wohnzimmer_lampe_1
     - light.wohnzimmer_lampe_2
     - light.wohnzimmer_lampe_3
