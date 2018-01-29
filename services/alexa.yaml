@@ -9,7 +9,16 @@ smart_home:
       # hue room-groups
       - light.haus
       - light.wetter
-      - light.wohnzimmer
+      #- light.wohnzimmer
       - light.schlafzimmer
       - light.badezimmer
       - light.kuche
+      - switch.shutdown_wohnzimmercomputer
+      - switch.wol_macmini
+      - switch.wol_wohnzimmercomputer
+  entity_config:
+    media_player.sony_bravia_tv:
+      name: Fernseher
+      display_categories: TV
+    media_player.denon:
+      name: Verstärker
