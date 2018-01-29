@@ -10,6 +10,7 @@ room_wohnzimmer:
     - media_player.denon
     - media_player.apple_tv
     - media_player.chromecast_ultra
+    - media_player.sony_bravia_tv
 
 wohnzimmer_thermostat:
   name: Thermostat
