@@ -3,6 +3,8 @@ phue.conf
 .ios.conf
 bravia.conf
 home-assistant.log
+entity_registry.yaml
+.config_entries.json
 
 .uuid
 ._*

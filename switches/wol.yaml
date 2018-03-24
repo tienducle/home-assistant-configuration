@@ -29,6 +29,30 @@
         service: switch.turn_off
         entity_id: switch.shutdown_wohnzimmercomputer
 
+# Schlafzimmer Computer
+
+- platform: wake_on_lan
+  mac_address: !secret schlafzimmercomputer_mac
+  name: "wol_schlafzimmercomputer"
+  host: !secret schlafzimmercomputer_host
+
+- platform: command_line
+  switches:
+    shutdown_schlafzimmercomputer:
+      command_off: !secret wol_schlafzimmercomputer_cmd
+
+- platform: template
+  switches:
+    schlafzimmercomputer:
+      friendly_name: 'Schlafzimmer Computer'
+      value_template: '{{ is_state("switch.wol_schlafzimmercomputer", "on") }}'
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.wol_schlafzimmercomputer
+      turn_off:
+        service: switch.turn_off
+        entity_id: switch.shutdown_schlafzimmercomputer
+
 # MacMini
 - platform: wake_on_lan
   mac_address: !secret macmini_mac

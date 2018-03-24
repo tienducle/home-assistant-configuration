@@ -3,8 +3,19 @@ room_kueche:
   view: yes
   entities:
     - group.kueche_lights
+    - group.kueche_thermostat
     - group.kueche_climate
     - group.kueche_plugs
+
+kueche_thermostat:
+  name: Thermostat
+  control: hidden
+  entities:
+    - climate.kuche
+    - sensor.kuche_tado_mode
+    - sensor.kuche_heating
+    - sensor.kuche_temperature
+    - sensor.kuche_humidity
 
 kueche_climate:
   name: Climate

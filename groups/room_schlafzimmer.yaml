@@ -6,6 +6,7 @@ room_schlafzimmer:
     - group.schlafzimmer_plugs
     - group.schlafzimmer_thermostat
     - group.schlafzimmer_climate
+    - group.schlafzimmer_devices
 
 schlafzimmer_thermostat:
   name: Thermostat
@@ -36,3 +37,8 @@ schlafzimmer_plugs:
   entities:
     - switch.schlafzimmer_steckdose
 
+schlafzimmer_devices:
+  name: Geraete
+  control: hidden
+  entities:
+    - switch.schlafzimmercomputer
