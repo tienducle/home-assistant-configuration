@@ -51,5 +51,6 @@ wohnzimmer_devices:
   name: Geraete
   control: hidden
   entities:
+    - switch.braviatv
     - switch.wohnzimmercomputer
     - switch.macmini
