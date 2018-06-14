@@ -1,2 +1,11 @@
 - platform: mqtt
   topic: rooms/wohnzimmer/cam1
+  name: Wohnzimmer MQTT Kamera
+
+- platform: ffmpeg
+  input: !secret cam_wohnzimmer2
+  name: Wohnzimmer Kamera 2
+
+- platform: ffmpeg
+  input: !secret cam_wohnzimmer3
+  name: Wohnzimmer Kamera 3

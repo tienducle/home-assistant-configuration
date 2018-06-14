@@ -11,6 +11,9 @@ room_wohnzimmer:
     - media_player.apple_tv
     - media_player.chromecast_ultra
     - media_player.sony_bravia_tv
+    - camera.wohnzimmer_kamera_2
+    - camera.wohnzimmer_kamera_3
+    - camera.wohnzimmer_mqtt_kamera
 
 wohnzimmer_thermostat:
   name: Thermostat

@@ -196,7 +196,6 @@ sensor.wohnzimmer_thermostat_battery:
   icon: mdi:battery-90
 binary_sensor.oeq0169426_state:
   friendly_name: Haustür
-  icon: mdi:border-inside
   homebridge_visible: true
 sensor.tleipx_battery_level:
   hidden: true

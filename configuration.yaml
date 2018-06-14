@@ -23,7 +23,7 @@ apple_tv: !include services/appletv.yaml
 binary_sensor: !include_dir_merge_list binary_sensors
 
 # Cameras
-#camera: !include cameras.yaml
+camera: !include cameras.yaml
 
 # Enable config screen
 config:
@@ -35,6 +35,9 @@ device_tracker: !include_dir_merge_list devicetracker
 
 # Discover some devices automatically
 #discovery:
+
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
 
 # Enables the frontend
 frontend:
