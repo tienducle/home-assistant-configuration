@@ -32,8 +32,24 @@
 
 - platform: ping
   host: !secret atv4_host
-  name: Apple TV
+  name: Apple TV Schlafzimmer
+
+- platform: ping
+  host: !secret atv4k_host
+  name: Apple TV Wohnzimmer
 
 - platform: ping
   host: !secret seafile_host
   name: Seafile
+
+- platform: ping
+  host: !secret wohnzimmer_kamera_1_host
+  name: Wohnzimmer Kamera 1
+
+- platform: ping
+  host: !secret tado_bridge_host
+  name: Tado Bridge
+
+- platform: ping
+  host: !secret alexa_kueche_host
+  name: Alexa Kueche

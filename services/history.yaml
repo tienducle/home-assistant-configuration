@@ -31,6 +31,20 @@ include:
     - sensor.speedtest_ping
     # Sun
     - sun.sun
+    # Systems
+    - binary_sensor.dns_server
+    - binary_sensor.macmini
+    - binary_sensor.mqtt
+    - binary_sensor.database
+    - binary_sensor.apple_tv_wohnzimmer
+    - binary_sensor.apple_tv_schlafzimmer
+    - binary_sensor.alexa_kueche
+    - binary_sensor.printer
+    - binary_sensor.bitbucket
+    - binary_sensor.seafile
+    - binary_sensor.homebridge
+    - binary_sensor.philips_hue_bridge
+    - binary_sensor.tado_bridge
     #
     - switch.wohnzimmercomputer
     - switch.macmini

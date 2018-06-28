@@ -1,5 +1,5 @@
-- id: fenster_schliessen
-  alias: Fenster schliessen
+- id: badezimmer_fenster_schliessen
+  alias: Badezimmer Fenster schliessen
   trigger:
     - platform: state
       entity_id: binary_sensor.oeq0169426_state
@@ -11,16 +11,46 @@
       - condition: state
         entity_id: binary_sensor.oeq0164835_state
         state: 'on'
+  action:
+    service: notify.telegram
+    data:
+      message: Badezimmer Fenster schliessen!
+
+- id: schlafzimmer_fenster_schliessen
+  alias: Schlafzimmer Fenster schliessen
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0169426_state
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
       - condition: state
         entity_id: binary_sensor.oeq0167636_state
         state: 'on'
+  action:
+    service: notify.telegram
+    data:
+      message: Schlafzimmer Fenster schliessen!
+
+- id: wohnzimmer_fenster_schliessen
+  alias: Wohnzimmer Fenster schliessen
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.oeq0169426_state
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
       - condition: state
         entity_id: binary_sensor.oeq0166378_state
         state: 'on'
   action:
     service: notify.telegram
     data:
-      message: Fenster schliessen!
+      message: Wohnzimmer Fenster schliessen!
 
 - id: wohnzimmer_lampe_ausmachen
   alias: Wohnzimmer Lampe ausmachen
