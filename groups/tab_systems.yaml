@@ -1,0 +1,34 @@
+devices:
+  name: Devices
+  view: yes
+  entities:
+    - group.ping_systems
+    - group.ping_bridges
+    - group.ping_cameras
+    - group.all_devices
+
+ping_systems:
+  name: Systems
+  entities:
+    - binary_sensor.dns_server
+    - binary_sensor.macmini
+    - binary_sensor.mqtt
+    - binary_sensor.database
+    - binary_sensor.apple_tv_wohnzimmer
+    - binary_sensor.apple_tv_schlafzimmer
+    - binary_sensor.alexa_kueche
+    - binary_sensor.printer
+    - binary_sensor.bitbucket
+    - binary_sensor.seafile
+
+ping_bridges:
+  name: Bridges
+  entities:
+    - binary_sensor.homebridge
+    - binary_sensor.philips_hue_bridge
+    - binary_sensor.tado_bridge
+
+ping_cameras:
+  name: Cameras
+  entities:
+    - binary_sensor.wohnzimmer_kamera_1

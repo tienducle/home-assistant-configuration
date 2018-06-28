@@ -27,7 +27,7 @@
         entity_id: sensor.dark_sky_humidity
         below: 60
       - condition: state
-        entity_id: sensor.someone_at_home
+        entity_id: binary_sensor.someone_at_home
         state: 'True'
   action:
     service: notify.telegram
@@ -60,7 +60,7 @@
         entity_id: sensor.dark_sky_humidity
         below: 60
       - condition: state
-        entity_id: sensor.someone_at_home
+        entity_id: binary_sensor.someone_at_home
         state: 'True'
   action:
     service: notify.telegram
@@ -93,7 +93,7 @@
         entity_id: sensor.dark_sky_humidity
         below: 60
       - condition: state
-        entity_id: sensor.someone_at_home
+        entity_id: binary_sensor.someone_at_home
         state: 'True'
   action:
     service: notify.telegram

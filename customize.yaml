@@ -196,7 +196,6 @@ sensor.wohnzimmer_thermostat_battery:
   icon: mdi:battery-90
 binary_sensor.oeq0169426_state:
   friendly_name: Haustür
-  icon: mdi:border-inside
   homebridge_visible: true
 sensor.tleipx_battery_level:
   hidden: true
@@ -240,3 +239,7 @@ switch.schlafzimmer_steckdose:
 climate.kuche:
   homebridge_hidden: true
   friendly_name: Küche Thermostat
+binary_sensor.someone_at_home:
+  friendly_name: Jemand zu Hause
+  device_class: occupancy
+  homebridge_visible: true
