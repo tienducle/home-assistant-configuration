@@ -1,0 +1,5 @@
+- platform: google_travel_time
+  name: Travel Jena Erfurt
+  api_key: !secret gdev_home_api_key_3
+  origin: Clara-Zetkin-Str. 3, Jena, Germany
+  destination: Erfurt, Germany

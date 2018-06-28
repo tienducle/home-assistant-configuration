@@ -8,7 +8,12 @@ default_view:
     - device_tracker.mspaw2
     - device_tracker.vwiip7
     - binary_sensor.oeq0169426_state
-    - sensor.someone_at_home
+    - binary_sensor.someone_at_home
     - group.bahn
     - group.weather_jena
     - group.internet
+    - sensor.travel_jena_erfurt
+
+bahn:
+  - sensor.nordschule_jena_to_stadtzentrum_lobdergraben_jena
+  - sensor.stadtzentrum_lobdergraben_jena_to_nordschule_jena

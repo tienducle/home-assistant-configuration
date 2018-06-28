@@ -15,7 +15,8 @@ homeassistant:
 
 alexa: !include services/alexa.yaml
 
-automation: !include_dir_merge_list automations
+automation: !include automations.yaml
+automation old: !include_dir_merge_list automations
 
 # Apple TV
 apple_tv: !include services/appletv.yaml
