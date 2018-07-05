@@ -24,7 +24,7 @@ apple_tv: !include services/appletv.yaml
 binary_sensor: !include_dir_merge_list binary_sensors
 
 # Cameras
-camera: !include cameras.yaml
+#camera: !include cameras.yaml
 
 # Enable config screen
 config:
@@ -42,7 +42,7 @@ ffmpeg:
 
 # Enables the frontend
 frontend:
-  javascript_version: es5
+#  javascript_version: es5
 #  javascript_version: latest
 
 # Grouping
@@ -84,6 +84,8 @@ pilight: !include services/pilight.yaml
 
 recorder: !include services/recorder.yaml
 
+script: !include scripts.yaml
+
 sensor: !include_dir_merge_list sensors
 
 sun:
@@ -94,6 +96,8 @@ tado: !include services/tado.yaml
 
 # Notifier Telegram
 telegram_bot: !include services/telegram.yaml
+
+tts: !include services/tts.yaml
 
 # Checks for available updates
 updater:
