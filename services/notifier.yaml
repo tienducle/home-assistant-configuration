@@ -5,3 +5,7 @@
 - name: telegramtest
   platform: telegram
   chat_id: !secret telegram_test_chat_id
+
+- name: tv
+  platform: nfandroidtv
+  host: !secret wohnzimmer_fernseher_host

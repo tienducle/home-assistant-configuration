@@ -1,0 +1,14 @@
+- id: test_notification_tv
+  alias: Test Notification TV
+  trigger:
+  action:
+    service: notify.tv
+    data:
+      message: 'Some message'
+      title: 'Some title'
+      data:
+        position: 'center'
+        duration: 5
+        transparency: '0%'
+        color: 'red'
+        interrupt: 1

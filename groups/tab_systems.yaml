@@ -4,7 +4,7 @@ devices:
   entities:
     - group.ping_systems
     - group.ping_bridges
-    - group.ping_cameras
+#    - group.ping_cameras
     - group.all_devices
 
 ping_systems:
@@ -28,7 +28,7 @@ ping_bridges:
     - binary_sensor.philips_hue_bridge
     - binary_sensor.tado_bridge
 
-ping_cameras:
-  name: Cameras
-  entities:
-    - binary_sensor.wohnzimmer_kamera_1
+#ping_cameras:
+#  name: Cameras
+#  entities:
+#    - binary_sensor.wohnzimmer_kamera_1

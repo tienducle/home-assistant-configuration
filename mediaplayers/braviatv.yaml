@@ -1,2 +1,2 @@
 - platform: braviatv
-  host: !secret tv_host
+  host: !secret wohnzimmer_fernseher_host
