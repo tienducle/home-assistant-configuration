@@ -234,6 +234,8 @@ switch.braviatv:
   homebridge_visible: true
 light.badezimmer_lampe:
   homebridge_visible: true
+light.wohnzimmer_schreibtisch_lampe:
+  homebridge_visible: true
 switch.schlafzimmer_steckdose:
   homebridge_visible: true
 climate.kuche:
