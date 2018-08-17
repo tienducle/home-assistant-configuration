@@ -19,3 +19,5 @@ config.sublime-workspace
 
 .DS_Store
 .HA_VERSION
+
+.storage/*
