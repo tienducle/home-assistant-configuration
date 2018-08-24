@@ -14,6 +14,7 @@ room_wohnzimmer:
     - camera.wohnzimmer_kamera_2
     - camera.wohnzimmer_kamera_3
     - camera.wohnzimmer_mqtt_kamera
+    - group.wohnzimmer_feeder
 
 wohnzimmer_thermostat:
   name: Thermostat
@@ -57,3 +58,10 @@ wohnzimmer_devices:
     - switch.braviatv
     - switch.wohnzimmercomputer
     - switch.macmini
+
+wohnzimmer_feeder:
+  name: Futterautomat
+  control: hidden
+  entities:
+    - input_number.feedamount
+    - switch.manualfeed

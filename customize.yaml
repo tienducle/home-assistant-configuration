@@ -245,3 +245,6 @@ binary_sensor.someone_at_home:
   friendly_name: Jemand zu Hause
   device_class: occupancy
   homebridge_visible: true
+switch.manualfeed:
+  friendly_name: Snack
+  homebridge_visible: true

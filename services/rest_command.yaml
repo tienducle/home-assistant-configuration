@@ -1,0 +1,5 @@
+feeder_feed:
+  url: !secret feeder_url_feed
+  method: POST
+  payload: '{"feederMac":"{{ states("sensor.feedermac") }}","weight":"{{ feedamount }}"}'
+  content_type:  'application/json; charset=utf-8'

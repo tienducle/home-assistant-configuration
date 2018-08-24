@@ -5,6 +5,7 @@ bravia.conf
 home-assistant.log
 entity_registry.yaml
 .config_entries.json
+ip_bans.yaml
 
 .uuid
 ._*
@@ -21,3 +22,4 @@ config.sublime-workspace
 .HA_VERSION
 
 .storage/*
+tts/*

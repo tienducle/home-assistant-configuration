@@ -4,7 +4,7 @@ homeassistant:
   # Authentication
   auth_providers:
     - type: homeassistant
-    #- type: legacy_api_password
+    - type: legacy_api_password
   # Location required to calculate the time the sun rises and sets
   latitude: !secret home_latitude
   longitude: !secret home_longitude
@@ -61,6 +61,8 @@ http: !include services/http.yaml
 
 hue: !include services/hue.yaml
 
+input_number: !include controls/input_number.yaml
+
 ios:
 
 # Show links to resources in log and frontend
@@ -91,13 +93,15 @@ pilight: !include services/pilight.yaml
 
 recorder: !include services/recorder.yaml
 
+rest_command: !include services/rest_command.yaml
+
 script: !include scripts.yaml
 
 sensor: !include_dir_merge_list sensors
 
 sun:
 
-switch: !include_dir_merge_list switches
+switch: !include_dir_merge_list controls/switches
 
 tado: !include services/tado.yaml
 
