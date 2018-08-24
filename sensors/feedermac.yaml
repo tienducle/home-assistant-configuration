@@ -1,0 +1,4 @@
+- platform: template
+  sensors:
+    feedermac:
+      value_template: !secret feedermac

@@ -1,0 +1,10 @@
+- platform: template
+  switches:
+    manualfeed:
+      friendly_name: 'Snack'
+      value_template: '{{ false }}'
+      turn_on:
+        service: rest_command.feeder_feed
+        data_template:
+          feedamount: "{{ states('input_number.feedamount') | int }}"
+      turn_off:
