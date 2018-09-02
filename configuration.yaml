@@ -49,6 +49,8 @@ frontend:
 #  javascript_version: es5
 #  javascript_version: latest
 
+#graphite: !include services/graphite.yaml
+
 # Grouping
 group: !include_dir_merge_named groups
 
@@ -71,7 +73,7 @@ ios:
 light: !include_dir_merge_list lights
 
 # View all events in a logbook
-logbook:
+logbook: !include services/logbook.yaml
 
 # Logger settings
 logger: !include services/logger.yaml
@@ -88,6 +90,8 @@ media_player: !include_dir_merge_list mediaplayers
 mqtt: !include services/mqtt.yaml
 
 notify: !include services/notifier.yaml
+
+openuv: !include services/openuv.yaml
 
 pilight: !include services/pilight.yaml
 

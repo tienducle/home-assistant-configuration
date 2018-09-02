@@ -9,6 +9,7 @@ room_wohnzimmer:
     - group.wohnzimmer_climate
     - media_player.denon
     - media_player.apple_tv_4k
+    - remote.apple_tv_4k
     - media_player.chromecast_ultra
     - media_player.sony_bravia_tv
     - camera.wohnzimmer_kamera_2
@@ -65,3 +66,4 @@ wohnzimmer_feeder:
   entities:
     - input_number.feedamount
     - switch.manualfeed
+    - switch.feed60

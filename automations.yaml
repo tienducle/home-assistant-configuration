@@ -1,20 +1,20 @@
-- id: '1534528054933'
-  alias: Rick MP
-  trigger: []
+- id: '1535720192997'
+  alias: Feed Time 60g
+  trigger:
+  - at: '15:00:00'
+    platform: time
   condition: []
   action:
   - data:
-      entity_id: media_player.sony_bravia_tv
-      media_content_id: https://www.youtube.com/watch?v=oHg5SJYRHA0
-      media_content_type: video/youtube
-    service: media_player.play_media
-- id: '1534528083466'
-  alias: Rick ME
-  trigger: []
+      feedamount: '60'
+    service: rest_command.feeder_feed
+- id: '1535742813512'
+  alias: Feed Time 40g
+  trigger:
+  - at: 03:00
+    platform: time
   condition: []
   action:
   - data:
-      entity_id: media_player.sony_bravia_tv
-      media_content_id: https://www.youtube.com/watch?v=oHg5SJYRHA0
-      media_content_type: video/youtube
-    service: media_extractor.play_media
+      feedamount: 40g
+    service: rest_command.feeder_feed

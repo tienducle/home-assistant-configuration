@@ -10,8 +10,9 @@ default_view:
     - binary_sensor.oeq0169426_state
     - binary_sensor.someone_at_home
     - group.bahn
-    - group.weather_jena
     - group.internet
+    - group.weather_jena
+    - group.uvinfo
     - sensor.travel_to_erfurt
 
 Bahn:
