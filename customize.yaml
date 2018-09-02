@@ -207,6 +207,8 @@ sensor.mspip7_battery_state:
   hidden: true
 group.all_automations:
   hidden: false
+group.all_remotes:
+  hidden: false
 group.all_devices:
   hidden: false
 group.default_view:

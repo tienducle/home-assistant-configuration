@@ -1,0 +1,16 @@
+api_key: !secret openuv_api_key
+scan_interval: 600
+binary_sensors:
+  monitored_conditions:
+    - uv_protection_window
+sensors:
+  monitored_conditions:
+    - current_ozone_level
+    - current_uv_index
+    - max_uv_index
+    - safe_exposure_time_type_1
+    - safe_exposure_time_type_2
+    - safe_exposure_time_type_3
+    - safe_exposure_time_type_4
+    - safe_exposure_time_type_5
+    - safe_exposure_time_type_6
