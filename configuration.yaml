@@ -57,6 +57,8 @@ group: !include_dir_merge_named groups
 # Enables support for tracking state changes over time.
 history: !include services/history.yaml
 
+homekit: !include services/homekit.yaml
+
 homematic: !include services/homematic.yaml
 
 http: !include services/http.yaml

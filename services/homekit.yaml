@@ -1,0 +1,45 @@
+auto_start: true
+port: 51827
+name: Home Assistant Bridge
+filter:
+  include_entities:
+# Haus
+    - binary_sensor.oeq0169426_state
+    - light.flurlampe
+# Wohnzimmer
+    - sensor.wohnzimmer_humidity
+    - sensor.wohnzimmer_temperature
+    - binary_sensor.oeq0166378_state
+    - climate.oeq0667981
+    - switch.wohnzimmer_auto
+    - switch.wohnzimmer_boost
+    - switch.wohnzimmer_manual
+    - light.wohnzimmer_schreibtisch_lampe
+    - switch.wohnzimmer_steckdose
+    - switch.braviatv
+    - switch.wohnzimmercomputer
+    - switch.manualfeed
+    - switch.feed60
+# Schlafzimmer
+    - sensor.schlafzimmer_humidity
+    - sensor.schlafzimmer_temperature
+    - binary_sensor.oeq0167636_state
+    - climate.meq0797490
+    - switch.schlafzimmer_auto
+    - switch.schlafzimmer_boost
+    - switch.schlafzimmer_manual
+    - switch.schlafzimmer_steckdose
+    - switch.schlafzimmercomputer
+# Badezimmer
+    - sensor.badezimmer_humidity
+    - sensor.badezimmer_temperature
+    - binary_sensor.oeq0164835_state
+    - climate.oeq0665714
+    - switch.badezimmer_auto
+    - switch.badezimmer_boost
+    - switch.badezimmer_manual
+    - light.badezimmer_lampe
+# Kueche
+    - sensor.kueche_humidity
+    - sensor.kueche_temperature
+    - switch.kueche_alexa_steckdose
