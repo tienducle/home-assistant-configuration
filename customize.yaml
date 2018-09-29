@@ -36,16 +36,18 @@ sensor.wohnzimmer_temperature:
   friendly_name: Wohnzimmer Temperatur
   homebridge_visible: true
 sensor.wohnzimmer_humidity:
+  device_class: humidity
   friendly_name: Wohnzimmer Feuchtigkeit
-  icon: mdi:water-percent
   homebridge_visible: true
+  icon: mdi:water-percent
 sensor.schlafzimmer_temperature:
   friendly_name: Schlafzimmer Temperatur
   homebridge_visible: true
 sensor.schlafzimmer_humidity:
+  device_class: humidity
   friendly_name: Schlafzimmer Feuchtigkeit
-  icon: mdi:water-percent
   homebridge_visible: true
+  icon: mdi:water-percent
 sensor.nordschule_jena_to_stadtzentrum_lobdergraben_jena:
   friendly_name: Nordschule nach Löbdergraben
 sensor.stadtzentrum_lobdergraben_jena_to_nordschule_jena:
@@ -128,13 +130,15 @@ device_tracker.tleaw3:
 device_tracker.mspaw2:
   icon: mdi:watch
 sensor.kueche_humidity:
+  device_class: humidity
   friendly_name: Küche Feuchtigkeit
-  icon: mdi:water-percent
   homebridge_visible: true
+  icon: mdi:water-percent
 sensor.badezimmer_humidity:
+  device_class: humidity
   friendly_name: Badezimmer Feuchtigkeit
-  icon: mdi:water-percent
   homebridge_visible: true
+  icon: mdi:water-percent
 sensor.kueche_temperature:
   friendly_name: Küche Temperatur
   homebridge_visible: true
