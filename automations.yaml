@@ -1,7 +1,7 @@
 - id: '1535720192997'
   alias: Feed Time 60g
   trigger:
-  - at: '15:00:00'
+  - at: '21:00:00'
     platform: time
   condition: []
   action:
@@ -9,12 +9,42 @@
       feedamount: '60'
     service: rest_command.feeder_feed
 - id: '1535742813512'
-  alias: Feed Time 40g
+  alias: Feed Time 20g
   trigger:
   - at: 03:00
     platform: time
   condition: []
   action:
   - data:
-      feedamount: 40g
+      feedamount: '20'
+    service: rest_command.feeder_feed
+- id: '1536739179438'
+  alias: Feed Stuendlich
+  trigger:
+  - at: '10:00'
+    platform: time
+  - at: '11:00'
+    platform: time
+  - at: '12:00'
+    platform: time
+  - at: '13:00'
+    platform: time
+  - at: '14:00'
+    platform: time
+  - at: '15:00'
+    platform: time
+  - at: '16:00'
+    platform: time
+  - at: '17:00'
+    platform: time
+  - at: '18:00'
+    platform: time
+  - at: '19:00'
+    platform: time
+  - at: '20:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      feedamount: '5'
     service: rest_command.feeder_feed
