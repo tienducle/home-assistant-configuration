@@ -9,13 +9,13 @@ default_view:
     - device_tracker.vwiip7
     - binary_sensor.oeq0169426_state
     - binary_sensor.someone_at_home
-    - group.bahn
+#    - group.bahn
     - group.internet
     - group.weather_jena
     - group.uvinfo
     - sensor.travel_to_erfurt
     - light.flurlampe
 
-Bahn:
-  - sensor.nordschule_jena_to_stadtzentrum_lobdergraben_jena
-  - sensor.stadtzentrum_lobdergraben_jena_to_nordschule_jena
+#Bahn:
+#  - sensor.nordschule_jena_to_stadtzentrum_lobdergraben_jena
+#  - sensor.stadtzentrum_lobdergraben_jena_to_nordschule_jena

@@ -4,10 +4,11 @@
     - summary
     - temperature
     - apparent_temperature
-    - temperature_max
-    - temperature_min
+    - temperature_high
+    - temperature_low
     - wind_speed
     - humidity
   units: si
   update_interval:
     minutes: 2
+  language: de
