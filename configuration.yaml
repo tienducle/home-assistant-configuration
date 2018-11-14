@@ -109,7 +109,7 @@ sun:
 
 switch: !include_dir_merge_list controls/switches
 
-tado: !include services/tado.yaml
+#tado: !include services/tado.yaml
 
 # Notifier Telegram
 telegram_bot: !include services/telegram.yaml
