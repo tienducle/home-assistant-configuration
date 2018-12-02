@@ -1,8 +1,8 @@
 api_key: !secret openuv_api_key
 scan_interval: 600
-#binary_sensors:
-#  monitored_conditions:
-#    - uv_protection_window
+# binary_sensors:
+#   monitored_conditions:
+#     - uv_protection_window
 sensors:
   monitored_conditions:
     - current_ozone_level
