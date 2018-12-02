@@ -6,7 +6,6 @@ default_view:
     - device_tracker.melinaip7
     - device_tracker.tleaw3
     - device_tracker.mspaw2
-    - device_tracker.vwiip7
     - binary_sensor.oeq0169426_state
     - binary_sensor.someone_at_home
     - group.internet
