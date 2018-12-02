@@ -10,13 +10,14 @@ devices:
 ping_systems:
   name: Systems
   entities:
-    - binary_sensor.dns_server
-    - binary_sensor.macmini
-    - binary_sensor.mqtt
+    - binary_sensor.gateway
+    - binary_sensor.unifi_controller
     - binary_sensor.database
+    - binary_sensor.fileserver
+    - binary_sensor.mqtt
+    - binary_sensor.nodered
     - binary_sensor.apple_tv_wohnzimmer
     - binary_sensor.apple_tv_schlafzimmer
-    - binary_sensor.alexa_kueche
     - binary_sensor.printer
     - binary_sensor.bitbucket
     - binary_sensor.seafile
@@ -26,7 +27,6 @@ ping_bridges:
   entities:
     - binary_sensor.homebridge
     - binary_sensor.philips_hue_bridge
-    - binary_sensor.tado_bridge
 
 #ping_cameras:
 #  name: Cameras
