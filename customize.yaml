@@ -229,12 +229,15 @@ group.devices:
   order: 6
 group.automations:
   order: 7
-switch.kueche_alexa_steckdose:
-  friendly_name: Küche Alexa
+switch.wohnzimmer_alexa_steckdose:
+  friendly_name: Wohnzimmer Alexa
+  homebridge_visible: true
+switch.reiskocher_steckdose:
+  friendly_name: Reiskocher
   homebridge_visible: true
 group.wohnzimmer_lights:
   homebridge_visible: true
-switch.wohnzimmer_steckdose:
+switch.wohnzimmer_kamera_steckdose:
   homebridge_visible: true
 switch.braviatv:
   homebridge_visible: true

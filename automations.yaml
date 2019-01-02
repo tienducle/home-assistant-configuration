@@ -6,5 +6,5 @@
   condition: []
   action:
   - data:
-      feedamount: '30'
+      feedamount: '20'
     service: rest_command.feeder_feed

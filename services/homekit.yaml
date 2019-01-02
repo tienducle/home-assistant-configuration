@@ -15,7 +15,8 @@ filter:
     - switch.wohnzimmer_boost
     - switch.wohnzimmer_manual
     - light.wohnzimmer_schreibtisch_lampe
-    - switch.wohnzimmer_steckdose
+    - switch.wohnzimmer_kamera_steckdose
+    - switch.wohnzimmer_alexa_steckdose
     - switch.braviatv
     - switch.wohnzimmercomputer
     - switch.manualfeed
@@ -42,4 +43,4 @@ filter:
 # Kueche
     - sensor.kueche_humidity
     - sensor.kueche_temperature
-    - switch.kueche_alexa_steckdose
+    - switch.reiskocher_steckdose
