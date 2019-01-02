@@ -20,4 +20,4 @@ kueche_lights:
 kueche_plugs:
   name: Steckdosen
   entities:
-    - switch.kueche_alexa_steckdose
+    - switch.reiskocher_steckdose

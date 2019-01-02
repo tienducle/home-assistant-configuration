@@ -50,7 +50,8 @@ wohnzimmer_lights:
 wohnzimmer_plugs:
   name: Steckdosen
   entities:
-    - switch.wohnzimmer_steckdose
+    - switch.wohnzimmer_kamera_steckdose
+    - switch.wohnzimmer_alexa_steckdose
 
 wohnzimmer_devices:
   name: Geraete
