@@ -7,7 +7,8 @@ room_schlafzimmer:
     - group.schlafzimmer_thermostat
     - group.schlafzimmer_climate
     - group.schlafzimmer_devices
-    - media_player.apple_tv_4
+    - media_player.schlafzimmer
+    - media_player.kdl42w805b
 
 schlafzimmer_thermostat:
   name: Thermostat
@@ -42,4 +43,5 @@ schlafzimmer_devices:
   name: Geraete
   control: hidden
   entities:
-    - switch.schlafzimmercomputer
+    - switch.schlafzimmer_fernseher
+    - switch.schlafzimmer_computer

@@ -17,10 +17,9 @@ filter:
     - light.wohnzimmer_schreibtisch_lampe
     - switch.wohnzimmer_kamera_steckdose
     - switch.wohnzimmer_alexa_steckdose
-    - switch.braviatv
-    - switch.wohnzimmercomputer
-    - switch.manualfeed
-    - switch.feed60
+    - switch.wohnzimmer_fernseher
+    - switch.wohnzimmer_computer
+    - switch.snack
 # Schlafzimmer
     - sensor.schlafzimmer_humidity
     - sensor.schlafzimmer_temperature
@@ -30,7 +29,8 @@ filter:
     - switch.schlafzimmer_boost
     - switch.schlafzimmer_manual
     - switch.schlafzimmer_steckdose
-    - switch.schlafzimmercomputer
+    - switch.schlafzimmer_computer
+    - switch.schlafzimmer_fernseher
 # Badezimmer
     - sensor.badezimmer_humidity
     - sensor.badezimmer_temperature
@@ -44,3 +44,12 @@ filter:
     - sensor.kueche_humidity
     - sensor.kueche_temperature
     - switch.reiskocher_steckdose
+entity_config:
+  switch.wohnzimmer_kamera_steckdose:
+    type: outlet
+  switch.wohnzimmer_alexa_steckdose:
+    type: outlet
+  switch.schlafzimmer_steckdose:
+    type: outlet
+  switch.reiskocher_steckdose:
+    type: outlet

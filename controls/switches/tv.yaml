@@ -1,14 +1,26 @@
 - platform: template
   switches:
-    braviatv:
-      friendly_name: Fernseher
+    wohnzimmer_fernseher:
+      friendly_name: Wohnzimmer Fernseher
       icon_template: mdi:television
-      value_template: "{{ is_state('media_player.sony_bravia_tv', 'on') }}"
+      value_template: "{{ is_state('media_player.kd55xe9005', 'on') }}"
       turn_on:
         service: media_player.turn_on
         data:
-          entity_id: media_player.sony_bravia_tv
+          entity_id: media_player.kd55xe9005
       turn_off:
         service: media_player.turn_off
         data:
-          entity_id: media_player.sony_bravia_tv
+          entity_id: media_player.kd55xe9005
+    schlafzimmer_fernseher:
+      friendly_name: Schlafzimmer Fernseher
+      icon_template: mdi:television
+      value_template: "{{ is_state('media_player.kdl42w805b', 'on') }}"
+      turn_on:
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.kdl42w805b
+      turn_off:
+        service: media_player.turn_off
+        data:
+          entity_id: media_player.kdl42w805b

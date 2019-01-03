@@ -6,6 +6,7 @@ home-assistant.log
 entity_registry.yaml
 .config_entries.json
 ip_bans.yaml
+home-assistant_v2.db
 
 .homekit.state
 .uuid

@@ -4,7 +4,6 @@ homeassistant:
   # Authentication
   auth_providers:
     - type: homeassistant
-    - type: legacy_api_password
   # Location required to calculate the time the sun rises and sets
   latitude: !secret home_latitude
   longitude: !secret home_longitude
@@ -14,42 +13,33 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Berlin
-  # Customization
+  # Customization file
   customize: !include customize.yaml
 
-alexa: !include services/alexa.yaml
+# Defaults:
+# Show links to resources in log and frontend
+# introduction:
+# Discover some devices automatically
+# discovery:
+# Allows you to issue voice commands from the frontend in enabled browsers
+# conversation:
+
+apple_tv: !include services/appletv.yaml
+
+# alexa: !include services/alexa.yaml
 
 automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
 
-# Apple TV
-apple_tv: !include services/appletv.yaml
-
 binary_sensor: !include_dir_merge_list binary_sensors
 
-# Cameras
-# camera: !include cameras.yaml
-
-# Enable config screen
+# Enables configuration UI
 config:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
 
 device_tracker: !include_dir_merge_list devicetracker
 
-# Discover some devices automatically
-# discovery
-
-ffmpeg:
-  ffmpeg_bin: /usr/bin/ffmpeg
-
 # Enables the frontend
 frontend:
-#  javascript_version: es5
-#  javascript_version: latest
-
-#graphite: !include services/graphite.yaml
 
 # Grouping
 group: !include_dir_merge_named groups
@@ -59,6 +49,7 @@ history: !include services/history.yaml
 
 homekit: !include services/homekit.yaml
 
+# Homematic
 homematic: !include services/homematic.yaml
 
 http: !include services/http.yaml
@@ -69,17 +60,12 @@ input_number: !include controls/input_number.yaml
 
 ios:
 
-# Show links to resources in log and frontend
-#introduction:
-
 light: !include_dir_merge_list lights
 
 # View all events in a logbook
 logbook: !include services/logbook.yaml
 
-# Logger settings
-logger: !include services/logger.yaml
-
+# Enables a map showing the location of tracked devices
 map:
 
 media_extractor:
@@ -105,6 +91,7 @@ script: !include scripts.yaml
 
 sensor: !include_dir_merge_list sensors
 
+# Track the sun
 sun:
 
 switch: !include_dir_merge_list controls/switches
@@ -115,7 +102,13 @@ telegram_bot: !include services/telegram.yaml
 tts: !include services/tts.yaml
 
 # Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  include_used_components: true
 
 # Wake on lan
 wake_on_lan:

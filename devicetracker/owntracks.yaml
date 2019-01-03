@@ -2,11 +2,11 @@
   max_gps_accuracy: 100
   waypoints: false
   mqtt_topic: "owntracks/#"
-#  secret:
-#  events_only: true
-#  waypoint_whitelist:
-#    - tle
-#    - msp
-#  region_mapping:
-#    home: home
+  secret:
+  events_only: true
+  waypoint_whitelist:
+    - tle
+    - msp
+  region_mapping:
+    home: home
 
