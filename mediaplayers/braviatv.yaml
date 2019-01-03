@@ -1,2 +1,7 @@
 - platform: braviatv
   host: !secret wohnzimmer_fernseher_host
+  name: KD55XE9005
+
+- platform: braviatv
+  host: !secret schlafzimmer_fernseher_host
+  name: KDL42W805B

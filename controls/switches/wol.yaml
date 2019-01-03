@@ -19,7 +19,7 @@
 
 - platform: template
   switches:
-    wohnzimmercomputer:
+    wohnzimmer_computer:
       friendly_name: 'Wohnzimmer Computer'
       value_template: '{{ is_state("switch.wol_wohnzimmercomputer", "on") }}'
       turn_on:
@@ -43,7 +43,7 @@
 
 - platform: template
   switches:
-    schlafzimmercomputer:
+    schlafzimmer_computer:
       friendly_name: 'Schlafzimmer Computer'
       value_template: '{{ is_state("switch.wol_schlafzimmercomputer", "on") }}'
       turn_on:

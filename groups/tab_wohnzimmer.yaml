@@ -8,10 +8,10 @@ room_wohnzimmer:
     - group.wohnzimmer_thermostat
     - group.wohnzimmer_climate
     - media_player.denon
-    - media_player.apple_tv_4k
+    - media_player.wohnzimmer
     - remote.apple_tv_4k
     - media_player.chromecast_ultra
-    - media_player.sony_bravia_tv
+    - media_player.kd55xe9005
     - camera.wohnzimmer_kamera_2
     - camera.wohnzimmer_kamera_3
     - camera.wohnzimmer_mqtt_kamera
@@ -57,8 +57,8 @@ wohnzimmer_devices:
   name: Geraete
   control: hidden
   entities:
-    - switch.braviatv
-    - switch.wohnzimmercomputer
+    - switch.wohnzimmer_fernseher
+    - switch.wohnzimmer_computer
     - switch.macmini
 
 wohnzimmer_feeder:

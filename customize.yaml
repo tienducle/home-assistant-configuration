@@ -1,52 +1,30 @@
-light.haus:
-  homebridge_hidden: true
-light.wetter:
-  homebridge_hidden: true
-light.schlafzimmer:
-  homebridge_hidden: true
-light.badezimmer:
-  homebridge_hidden: true
-light.kuche:
-  homebridge_hidden: true
 switch.wol_macmini:
   hidden: true
-  homebridge_hidden: true
 switch.wol_wohnzimmercomputer:
   hidden: true
-  homebridge_hidden: true
 switch.shutdown_wohnzimmercomputer:
   hidden: true
-  homebridge_hidden: true
-switch.wohnzimmercomputer:
+switch.wohnzimmer_computer:
   icon: mdi:windows
-  homebridge_visible: true
 switch.wol_schlafzimmercomputer:
   hidden: true
-  homebridge_hidden: true
 switch.shutdown_schlafzimmercomputer:
   hidden: true
-  homebridge_hidden: true
-switch.schlafzimmercomputer:
+switch.schlafzimmer_computer:
   icon: mdi:windows
-  homebridge_visible: true
 switch.macmini:
   icon: mdi:server
-  homebridge_visible: true
 sensor.wohnzimmer_temperature:
   friendly_name: Wohnzimmer Temperatur
-  homebridge_visible: true
 sensor.wohnzimmer_humidity:
   device_class: humidity
   friendly_name: Wohnzimmer Feuchtigkeit
-  homebridge_visible: true
   icon: mdi:water-percent
 sensor.schlafzimmer_temperature:
   friendly_name: Schlafzimmer Temperatur
-  homebridge_visible: true
 sensor.schlafzimmer_humidity:
   device_class: humidity
   friendly_name: Schlafzimmer Feuchtigkeit
-  homebridge_visible: true
   icon: mdi:water-percent
 sensor.nordschule_jena_to_stadtzentrum_lobdergraben_jena:
   friendly_name: Nordschule nach Löbdergraben
@@ -63,62 +41,35 @@ sensor.speedtest_ping:
   icon: mdi:looks
 sensor.dark_sky_apparent_temperature:
   friendly_name: Gefühlte Temperatur
-  homebridge_visible: true
 sensor.dark_sky_daily_high_temperature:
   friendly_name: Max. Temperatur
-  homebridge_visible: true
 sensor.dark_sky_daily_low_temperature:
   friendly_name: Min. Temperatur
-  homebridge_visible: true
 sensor.dark_sky_humidity:
   friendly_name: Luftfeuchtigkeit
-  homebridge_visible: true
 sensor.dark_sky_summary:
   friendly_name: Summary
-  homebridge_hidden: true
 sensor.dark_sky_temperature:
   friendly_name: Temperatur
-  homebridge_visible: true
 sensor.dark_sky_wind_speed:
   friendly_name: Wind
-  homebridge_visible: true
 homematic.wired:
   hidden: true
 climate.meq0797490:
   friendly_name: Schlafzimmer Thermostat
-  homebridge_visible: true
 switch.schlafzimmer_auto:
   friendly_name: Schlafzimmer Auto
   icon: mdi:nest-thermostat
-  homebridge_visible: true
 switch.schlafzimmer_boost:
   friendly_name: Schlafzimmer Boost
   icon: mdi:nest-thermostat
-  homebridge_visible: true
 switch.schlafzimmer_manual:
   friendly_name: Schlafzimmer Manual
   icon: mdi:nest-thermostat
-  homebridge_visible: true
 light.kuechenlampe:
   friendly_name: Küchenlampe
-  homebridge_visible: true
-light.schlafzimmer_lampe:
-  homebridge_hidden: true
-light.wohnzimmer_lampe_1:
-  homebridge_hidden: true
-light.wohnzimmer_lampe_2:
-  homebridge_hidden: true
-light.wohnzimmer_lampe_3:
-  homebridge_hidden: true
-light.wohnzimmer_lampe_4:
-  homebridge_hidden: true
-light.wohnzimmer_lampe_5:
-  homebridge_hidden: true
-light.wohnzimmer_lampe_6:
-  homebridge_hidden: true
 light.all_hue_lights:
   hidden: true
-  homebridge_hidden: true
 device_tracker.tleipx:
   icon: mdi:cellphone-iphone
 device_tracker.melinaip7:
@@ -132,66 +83,48 @@ device_tracker.mspaw2:
 sensor.kueche_humidity:
   device_class: humidity
   friendly_name: Küche Feuchtigkeit
-  homebridge_visible: true
   icon: mdi:water-percent
 sensor.badezimmer_humidity:
   device_class: humidity
   friendly_name: Badezimmer Feuchtigkeit
-  homebridge_visible: true
   icon: mdi:water-percent
 sensor.kueche_temperature:
   friendly_name: Küche Temperatur
-  homebridge_visible: true
 sensor.badezimmer_temperature:
   friendly_name: Badezimmer Temperatur
-  homebridge_visible: true
 binary_sensor.oeq0167636_state:
   friendly_name: Schlafzimmer Fenster
-  homebridge_opening_type: window
   icon: mdi:window-closed
-  homebridge_visible: true
 sun.sun:
   friendly_name: Sonne
 climate.oeq0667981:
   friendly_name: Wohnzimmer Thermostat
-  homebridge_visible: true
 binary_sensor.oeq0166378_state:
   friendly_name: Wohnzimmer Fenster
-  homebridge_opening_type: window
   icon: mdi:window-closed
-  homebridge_visible: true
 switch.wohnzimmer_auto:
   friendly_name: Wohnzimmer Auto
   icon: mdi:nest-thermostat
-  homebridge_visible: true
 switch.wohnzimmer_boost:
   friendly_name: Wohnzimmer Boost
   icon: mdi:nest-thermostat
-  homebridge_visible: true
 switch.wohnzimmer_manual:
   friendly_name: Wohnzimmer Manual
   icon: mdi:nest-thermostat
-  homebridge_visible: true
 binary_sensor.oeq0164835_state:
   friendly_name: Badezimmer Fenster
-  homebridge_opening_type: window
   icon: mdi:window-closed
-  homebridge_visible: true
 climate.oeq0665714:
   friendly_name: Badezimmer Thermostat
-  homebridge_visible: true
 switch.badezimmer_auto:
   friendly_name: Badezimmer Auto
   icon: mdi:nest-thermostat
-  homebridge_visible: true
 switch.badezimmer_boost:
   friendly_name: Badezimmer Boost
   icon: mdi:nest-thermostat
-  homebridge_visible: true
 switch.badezimmer_manual:
   friendly_name: Badezimmer Manual
   icon: mdi:nest-thermostat
-  homebridge_visible: true
 sensor.badezimmer_thermostat_battery:
   icon: mdi:battery-90
 sensor.schlafzimmer_thermostat_battery:
@@ -200,7 +133,6 @@ sensor.wohnzimmer_thermostat_battery:
   icon: mdi:battery-90
 binary_sensor.oeq0169426_state:
   friendly_name: Haustür
-  homebridge_visible: true
 sensor.tleipx_battery_level:
   hidden: true
 sensor.tleipx_battery_state:
@@ -210,8 +142,6 @@ sensor.mspip7_battery_level:
 sensor.mspip7_battery_state:
   hidden: true
 group.all_automations:
-  hidden: false
-group.all_remotes:
   hidden: false
 group.all_devices:
   hidden: false
@@ -231,29 +161,8 @@ group.automations:
   order: 7
 switch.wohnzimmer_alexa_steckdose:
   friendly_name: Wohnzimmer Alexa
-  homebridge_visible: true
 switch.reiskocher_steckdose:
   friendly_name: Reiskocher
-  homebridge_visible: true
-group.wohnzimmer_lights:
-  homebridge_visible: true
-switch.wohnzimmer_kamera_steckdose:
-  homebridge_visible: true
-switch.braviatv:
-  homebridge_visible: true
-light.badezimmer_lampe:
-  homebridge_visible: true
-light.wohnzimmer_schreibtisch_lampe:
-  homebridge_visible: true
-switch.schlafzimmer_steckdose:
-  homebridge_visible: true
-climate.kuche:
-  homebridge_hidden: true
-  friendly_name: Küche Thermostat
 binary_sensor.someone_at_home:
   friendly_name: Jemand zu Hause
   device_class: occupancy
-  homebridge_visible: true
-switch.manualfeed:
-  friendly_name: Snack
-  homebridge_visible: true
