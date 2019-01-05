@@ -3,7 +3,7 @@ default_view:
   icon: mdi:home
   entities:
     - device_tracker.tle_tleipx
-    - device_tracker.melinaip7
+    - device_tracker.msp_mspip7
     - device_tracker.tleaw3
     - device_tracker.mspaw2
     - binary_sensor.oeq0169426_state

@@ -1,15 +1,15 @@
 - platform: speedtest
   server_id: 6518
-#  hour:
-#    - 1
-#    - 2
-#    - 3
-#    - 4
+  hour:
+    - 2
+    - 3
+    - 4
+    - 5
 #    - 5
 #    - 12
 #    - 16
-  minute:
-     - 30
+#  minute:
+#     - 30
   monitored_conditions:
     - ping
     - download

@@ -5,6 +5,7 @@ room_badezimmer:
     - group.badezimmer_lights
     - group.badezimmer_thermostat
     - group.badezimmer_climate
+    - group.badezimmer_waschmaschine
 
 badezimmer_thermostat:
   name: Thermostat
@@ -28,3 +29,15 @@ badezimmer_lights:
   name: Lampen
   entities:
     - light.badezimmer_lampe
+
+badezimmer_waschmaschine:
+  name: Waschmaschine
+  control: hidden
+  entities:
+    - switch.waschmaschine
+    - sensor.waschmaschine_power
+    - sensor.waschmaschine_voltage
+    - sensor.waschmaschine_verbrauch_heute
+    - sensor.waschmaschine_verbrauch_gestern
+    - sensor.waschmaschine_verbrauch_gesamt
+    - sensor.waschmaschine_power_factor
