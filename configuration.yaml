@@ -4,6 +4,7 @@ homeassistant:
   # Authentication
   auth_providers:
     - type: homeassistant
+    - type: legacy_api_password
   # Location required to calculate the time the sun rises and sets
   latitude: !secret home_latitude
   longitude: !secret home_longitude

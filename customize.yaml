@@ -70,9 +70,9 @@ light.kuechenlampe:
   friendly_name: Küchenlampe
 light.all_hue_lights:
   hidden: true
-device_tracker.tleipx:
+device_tracker.tle_tleipx:
   icon: mdi:cellphone-iphone
-device_tracker.melinaip7:
+device_tracker.msp_mspip7:
   icon: mdi:cellphone-iphone
 device_tracker.vwiip7:
   icon: mdi:cellphone-iphone

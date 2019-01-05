@@ -1,1 +1,12 @@
-[]
+- id: '1546589843284'
+  alias: Futter
+  trigger:
+  - at: '9:00:00'
+    platform: time
+  - at: '15:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      feedamount: 20
+    service: rest_command.feeder_feed
