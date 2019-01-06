@@ -16,6 +16,7 @@ room_wohnzimmer:
     - camera.wohnzimmer_kamera_3
     - camera.wohnzimmer_mqtt_kamera
     - group.wohnzimmer_feeder
+    - group.wohnzimmer_verbrauch
 
 wohnzimmer_thermostat:
   name: Thermostat
@@ -68,3 +69,14 @@ wohnzimmer_feeder:
     - input_number.feedamount
     - switch.manualfeed
     - switch.feed60
+
+wohnzimmer_verbrauch:
+  name: Wohnzimmer Verbrauch
+  control: hidden
+  entities:
+    - sensor.wohnzimmer_power
+    - sensor.wohnzimmer_voltage
+    - sensor.wohnzimmer_verbrauch_heute
+    - sensor.wohnzimmer_verbrauch_gestern
+    - sensor.wohnzimmer_verbrauch_gesamt
+    - sensor.wohnzimmer_power_factor
