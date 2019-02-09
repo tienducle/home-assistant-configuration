@@ -4,7 +4,6 @@ homeassistant:
   # Authentication
   auth_providers:
     - type: homeassistant
-    - type: legacy_api_password
   # Location required to calculate the time the sun rises and sets
   latitude: !secret home_latitude
   longitude: !secret home_longitude
@@ -25,9 +24,11 @@ homeassistant:
 # Allows you to issue voice commands from the frontend in enabled browsers
 # conversation:
 
+api:
+
 apple_tv: !include services/appletv.yaml
 
-# alexa: !include services/alexa.yaml
+alexa: !include services/alexa.yaml
 
 automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
