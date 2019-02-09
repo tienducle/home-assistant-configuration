@@ -2,7 +2,7 @@
   switches:
     snack:
       friendly_name: 'Snack'
-      value_template: '{{ states("switch.manualfeed") }}'
+      value_template: '{{ states("switch.snack") }}'
       turn_on:
         service: rest_command.feeder_feed
         data_template:

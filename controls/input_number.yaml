@@ -1,6 +1,6 @@
 feedamount:
   name: Futtermenge
   initial: 10
-  min: 5
+  min: 10
   max: 60
   step: 5

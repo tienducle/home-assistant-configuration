@@ -16,6 +16,7 @@ include:
     # Badezimmer
     - sensor.badezimmer_temperature
     - sensor.badezimmer_humidity
+    - sensor.waschmaschine_power
     # Küche
     - sensor.kueche_temperature
     - sensor.kueche_humidity
@@ -25,6 +26,7 @@ include:
     # Wohnzimmer
     - sensor.wohnzimmer_temperature
     - sensor.wohnzimmer_humidity
+    - sensor.wohnzimmer_power
     # Speedtest
     - sensor.speedtest_download
     - sensor.speedtest_upload
