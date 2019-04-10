@@ -1,4 +1,4 @@
 - platform: template
   sensors:
     someone_at_home:
-      value_template: '{{ is_state("device_tracker.tle_tleipx","home") or is_state("device_tracker.msp_mspip7","home") }}'
+      value_template: '{{ is_state("device_tracker.tle_ipx","home") or is_state("device_tracker.msp_ip7","home") }}'

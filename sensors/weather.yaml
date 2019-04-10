@@ -11,6 +11,6 @@
     - wind_speed
     - humidity
   units: si
-  update_interval:
+  scan_interval:
     minutes: 10
   language: de

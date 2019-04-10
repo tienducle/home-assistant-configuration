@@ -81,7 +81,9 @@ mqtt: !include services/mqtt.yaml
 
 notify: !include services/notifier.yaml
 
-openuv: !include services/openuv.yaml
+# openuv: !include services/openuv.yaml
+
+person: !include services/person.yaml
 
 pilight: !include services/pilight.yaml
 
@@ -93,10 +95,14 @@ script: !include scripts.yaml
 
 sensor: !include_dir_merge_list sensors
 
+speedtestdotnet: !include services/speedtestdotnet.yaml
+
 # Track the sun
 sun:
 
 switch: !include_dir_merge_list controls/switches
+
+system_health:
 
 # Notifier Telegram
 telegram_bot: !include services/telegram.yaml

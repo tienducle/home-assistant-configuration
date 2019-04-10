@@ -2,15 +2,13 @@ default_view:
   view: yes
   icon: mdi:home
   entities:
-    - device_tracker.tle_tleipx
-    - device_tracker.msp_mspip7
-    - device_tracker.tleaw3
-    - device_tracker.mspaw2
+    - person.duc
+    - person.melina
     - binary_sensor.oeq0169426_state
     - binary_sensor.someone_at_home
     - group.internet
     - group.weather_jena
-    - group.uvinfo
+#    - group.uvinfo
     - sensor.travel_to_erfurt
     - light.flurlampe
 
