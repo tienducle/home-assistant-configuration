@@ -1,5 +1,4 @@
 api_key: !secret openuv_api_key
-scan_interval: 2700
 # binary_sensors:
 #   monitored_conditions:
 #     - uv_protection_window

@@ -1,7 +1,7 @@
 ###
 # Notification: Open windows
 - id: wohnzimmer_feuchtigkeit
-  alias: Wohnzimmer Feuchtigkeit
+  alias: SYSTEM Wohnzimmer Feuchtigkeit
   hide_entity: true
   trigger:
     - platform: numeric_state
@@ -35,7 +35,7 @@
       message: Wohnzimmer sollte gelueftet werden! (Luftfeuchtigkeit {{ states('sensor.wohnzimmer_humidity') }}%)
 
 - id: schlafzimmer_feuchtigkeit
-  alias: Schlafzimmer Feuchtigkeit
+  alias: SYSTEM Schlafzimmer Feuchtigkeit
   hide_entity: true
   trigger:
     - platform: numeric_state
@@ -68,7 +68,7 @@
       message: Schlafzimmer sollte gelueftet werden! (Luftfeuchtigkeit {{ states('sensor.schlafzimmer_humidity') }}%)
 
 - id: kueche_feuchtigkeit
-  alias: Kueche Feuchtigkeit
+  alias: SYSTEM Kueche Feuchtigkeit
   hide_entity: true
   trigger:
     - platform: numeric_state
@@ -104,7 +104,7 @@
 # Notification: Close windows;
 # todo: distinguish between different states
 - id: badezimmer_fenster
-  alias: Badezimmer Fenster
+  alias: SYSTEM Badezimmer Fenster
   trigger:
     - platform: state
       entity_id: binary_sensor.oeq0164835_state
@@ -124,7 +124,7 @@
       message: Badezimmer Fenster sollte nun geschlossen werden!
 
 - id: schlafzimmer_fenster
-  alias: Schlafzimmer Fenster
+  alias: SYSTEM Schlafzimmer Fenster
   trigger:
     - platform: state
       entity_id: binary_sensor.oeq0167636_state
@@ -144,7 +144,7 @@
       message: Schlafzimmer Fenster sollte nun geschlossen werden!
 
 - id: wohnzimmer_fenster
-  alias: Wohnzimmer Fenster
+  alias: SYSTEM Wohnzimmer Fenster
   trigger:
     - platform: state
       entity_id: binary_sensor.oeq0166378_state

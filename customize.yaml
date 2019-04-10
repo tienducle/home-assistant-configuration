@@ -41,9 +41,9 @@ sensor.speedtest_ping:
   icon: mdi:looks
 sensor.dark_sky_apparent_temperature:
   friendly_name: Gefühlte Temperatur
-sensor.dark_sky_daily_high_temperature:
+sensor.dark_sky_daytime_high_temperature:
   friendly_name: Max. Temperatur
-sensor.dark_sky_daily_low_temperature:
+sensor.dark_sky_overnight_low_temperature:
   friendly_name: Min. Temperatur
 sensor.dark_sky_humidity:
   friendly_name: Luftfeuchtigkeit
@@ -146,6 +146,13 @@ group.all_automations:
 group.all_devices:
   hidden: false
 group.default_view:
+  entity_id:
+  - binary_sensor.oeq0169426_state
+  - binary_sensor.someone_at_home
+  - group.internet
+  - group.weather_jena
+  - sensor.travel_to_erfurt
+  - light.flurlampe
   order: 1
 group.room_wohnzimmer:
   order: 2

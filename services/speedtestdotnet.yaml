@@ -1,0 +1,8 @@
+server_id: 6518
+scan_interval:
+  hours: 1
+manual: true
+monitored_conditions:
+  - ping
+  - download
+  - upload
