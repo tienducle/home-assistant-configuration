@@ -3,7 +3,7 @@ port: !secret mqtt_port
 certificate: /etc/ssl/certs/ca-certificates.crt
 client_id: homeassistant
 keepalive: 60
-username: homeassistant
+username: !secret mqtt_username
 password: !secret mqtt_password
 protocol: 3.1.1
 tls_version: '1.2'

@@ -1,2 +1,0 @@
-api_password: !secret http_password
-login_attempts_threshold: 3

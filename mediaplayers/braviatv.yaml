@@ -1,7 +1,11 @@
 - platform: braviatv
-  host: !secret wohnzimmer_fernseher_host
+  host: !secret tv_xe9005_host
   name: KD55XE9005
 
-- platform: braviatv
-  host: !secret schlafzimmer_fernseher_host
-  name: KDL42W805B
+#- platform: braviatv
+#  host: !secret tv_w805b_host
+#  name: KDL42W805B
+
+# Workaround as of 2019-06-23
+# apt-get install net-tools
+# ln -s /usr/sbin/arp /usr/bin/arp

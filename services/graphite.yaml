@@ -1,2 +1,0 @@
-host: !secret graphite_host
-port: !secret graphite_port

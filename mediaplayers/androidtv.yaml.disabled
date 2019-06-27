@@ -1,0 +1,4 @@
+- platform: androidtv
+  name: Wohnzimmer Fernseher
+  host: !secret tv_xe9005_host
+  adbkey: !secret tv_xe9005_adbkey

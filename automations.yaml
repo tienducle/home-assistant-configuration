@@ -1,12 +1,18 @@
-- id: '1546589843284'
-  alias: Futter
+- id: '1561274952342'
+  alias: (TEST) NTFY TV
   trigger:
-  - at: '9:00:00'
-    platform: time
-  - at: '15:00:00'
-    platform: time
+  - event_data: {}
+    event_type: ''
+    platform: event
   condition: []
   action:
   - data:
-      feedamount: 20
-    service: rest_command.feeder_feed
+      data:
+        color: default
+        duration: 5
+        interrupt: 1
+        position: center
+        transparency: 0%
+      message: Test
+      title: Notification Title
+    service: notify.tv

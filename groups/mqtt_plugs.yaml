@@ -1,0 +1,65 @@
+router_verbrauch:
+  name: Router Verbrauch
+  control: hidden
+  entities:
+    - sensor.router_power
+    - sensor.router_voltage
+    - sensor.router_verbrauch_heute
+    - sensor.router_verbrauch_gestern
+    - sensor.router_verbrauch_gesamt
+    - sensor.router_power_factor
+
+waschmaschine_verbrauch:
+  name: Waschmaschine Verbrauch
+  control: hidden
+  entities:
+    - sensor.waschmaschine_power
+    - sensor.waschmaschine_voltage
+    - sensor.waschmaschine_verbrauch_heute
+    - sensor.waschmaschine_verbrauch_gestern
+    - sensor.waschmaschine_verbrauch_gesamt
+    - sensor.waschmaschine_power_factor
+
+trockner_verbrauch:
+  name: Trockner Verbrauch
+  control: hidden
+  entities:
+    - sensor.trockner_power
+    - sensor.trockner_voltage
+    - sensor.trockner_verbrauch_heute
+    - sensor.trockner_verbrauch_gestern
+    - sensor.trockner_verbrauch_gesamt
+    - sensor.trockner_power_factor
+
+geschirrspueler_verbrauch:
+  name: Geschirrspueler Verbrauch
+  control: hidden
+  entities:
+    - sensor.geschirrspueler_power
+    - sensor.geschirrspueler_voltage
+    - sensor.geschirrspueler_verbrauch_heute
+    - sensor.geschirrspueler_verbrauch_gestern
+    - sensor.geschirrspueler_verbrauch_gesamt
+    - sensor.geschirrspueler_power_factor
+
+wohnzimmer_verbrauch:
+  name: Wohnzimmer Verbrauch
+  control: hidden
+  entities:
+    - sensor.wohnzimmer_power
+    - sensor.wohnzimmer_voltage
+    - sensor.wohnzimmer_verbrauch_heute
+    - sensor.wohnzimmer_verbrauch_gestern
+    - sensor.wohnzimmer_verbrauch_gesamt
+    - sensor.wohnzimmer_power_factor
+
+schreibtisch_duc_verbrauch:
+  name: Schreibtisch Duc Verbrauch
+  control: hidden
+  entities:
+    - sensor.schreibtisch_duc_power
+    - sensor.schreibtisch_duc_voltage
+    - sensor.schreibtisch_duc_verbrauch_heute
+    - sensor.schreibtisch_duc_verbrauch_gestern
+    - sensor.schreibtisch_duc_verbrauch_gesamt
+    - sensor.schreibtisch_duc_power_factor
