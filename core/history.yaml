@@ -1,0 +1,52 @@
+include:
+  entities:
+    # Badezimmer-/Schlafzimmer-/Wohnzimmerfenster & Haustür
+    - binary_sensor.oeq0164835_state
+    - binary_sensor.oeq0167636_state
+    - binary_sensor.oeq0166378_state
+    - binary_sensor.oeq0169426_state
+    #
+    #- device_tracker.tleip7p
+    #- device_tracker.melinaip7
+    #- device_tracker.tleip5
+    # Weather
+    #- sensor.dark_sky_temperature
+    #- sensor.dark_sky_humidity
+    #- sensor.dark_sky_wind_speed
+    # Badezimmer
+    #- sensor.badezimmer_temperature
+    #- sensor.badezimmer_humidity
+    #- sensor.waschmaschine_power
+    # Küche
+    #- sensor.kueche_temperature
+    #- sensor.kueche_humidity
+    # Schlafzimmer
+    #- sensor.schlafzimmer_temperature
+    #- sensor.schlafzimmer_humidity
+    # Wohnzimmer
+    #- sensor.wohnzimmer_temperature
+    #- sensor.wohnzimmer_humidity
+    #- sensor.wohnzimmer_power
+    # Speedtest
+    #- sensor.speedtest_download
+    #- sensor.speedtest_upload
+    #- sensor.speedtest_ping
+    # Sun
+    #- sun.sun
+    # Systems
+    #- binary_sensor.dns_server
+    #- binary_sensor.macmini
+    #- binary_sensor.mqtt
+    #- binary_sensor.database
+    #- binary_sensor.apple_tv_wohnzimmer
+    #- binary_sensor.apple_tv_schlafzimmer
+    #- binary_sensor.alexa_kueche
+    #- binary_sensor.printer
+    #- binary_sensor.bitbucket
+    #- binary_sensor.seafile
+    #- binary_sensor.homebridge
+    #- binary_sensor.philips_hue_bridge
+    #- binary_sensor.tado_bridge
+    #
+    #- switch.wohnzimmercomputer
+    #- switch.macmini

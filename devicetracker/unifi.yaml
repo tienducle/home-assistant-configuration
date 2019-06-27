@@ -1,9 +1,0 @@
-- platform: unifi
-  host: !secret unifi_controller_host
-  username: !secret unifi_controller_user
-  password: !secret unifi_controller_pass
-  ssid_filter:
-    - '0612'
-    - '0612bgn'
-  verify_ssl: true
-  detection_time: 300

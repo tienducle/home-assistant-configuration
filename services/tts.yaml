@@ -1,5 +1,0 @@
-- platform: amazon_polly
-  aws_access_key_id: !secret aws_access_key
-  aws_secret_access_key: !secret aws_secret
-  region_name: eu-central-1
-  voice: Marlene

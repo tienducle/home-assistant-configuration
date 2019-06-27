@@ -1,14 +1,13 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Authentication
-  auth_providers:
-    - type: homeassistant
+  # https://www.home-assistant.io/docs/configuration/basic/
+  # Overwrite automatic detections
+  
   # Location required to calculate the time the sun rises and sets
   latitude: !secret home_latitude
   longitude: !secret home_longitude
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 143
+  elevation: !secret home_elevation
+
   # metric for Metric, imperial for Imperial
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -16,109 +15,63 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-# Defaults:
-# Show links to resources in log and frontend
-# introduction:
-# Discover some devices automatically
-# discovery:
-# Allows you to issue voice commands from the frontend in enabled browsers
-# conversation:
+  # legacy auth
+  auth_providers:
+    - type: homeassistant
+  #  - type: legacy_api_password
+  #    api_password: !secret api_password
 
-api:
-
-apple_tv: !include services/appletv.yaml
-
-alexa: !include services/alexa.yaml
-
+# Configure a default setup of Home Assistant (frontend, api, etc)
+# https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/default_config/manifest.json
+#default_config:
+config:
 automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
-
-binary_sensor: !include_dir_merge_list binary_sensors
-
-# Enables configuration UI
-config:
-
-device_tracker: !include_dir_merge_list devicetracker
-
-# Enables the frontend
-frontend:
-
-# Grouping
+frontend: !include core/frontend.yaml
+history: !include core/history.yaml
+http: !include core/http.yaml
 group: !include_dir_merge_named groups
-
-# Enables support for tracking state changes over time.
-history: !include services/history.yaml
-
-homekit: !include services/homekit.yaml
+#logbook: !include core/logbook.yaml
+lovelace:
+person: !include core/person.yaml
+recorder: !include core/recorder.yaml
+script: !include scripts.yaml
+#script: !include_dir_merge_named scripts
+sensor: !include_dir_merge_list sensors
+switch: !include_dir_merge_list controls/switches
+system_health:
+updater:
+#api:
+#websocket_api:
 
 # Homematic
 homematic: !include services/homematic.yaml
 
-http: !include services/http.yaml
-
+# Hue
+# Press link button before starting HA for first setup
 hue: !include services/hue.yaml
 
-input_number: !include controls/input_number.yaml
-
+# iOS integrations
 ios:
+mobile_app:
 
-light: !include_dir_merge_list lights
-
-# View all events in a logbook
-logbook: !include services/logbook.yaml
-
-# Enables a map showing the location of tracked devices
-map:
-
-media_extractor:
-  default_query: best
-
-# Media Players
+# Media Player
 media_player: !include_dir_merge_list mediaplayers
+apple_tv: !include services/mediaplayers/appletv.yaml
+media_extractor: !include services/mediaplayers/mediaextractor.yaml
 
-# Mqtt
+# MQTT
 mqtt: !include services/mqtt.yaml
 
+# Notifications
 notify: !include services/notifier.yaml
-
-# openuv: !include services/openuv.yaml
-
-person: !include services/person.yaml
-
-pilight: !include services/pilight.yaml
-
-recorder: !include services/recorder.yaml
-
-rest_command: !include services/rest_command.yaml
-
-script: !include scripts.yaml
-
-sensor: !include_dir_merge_list sensors
-
-speedtestdotnet: !include services/speedtestdotnet.yaml
-
-# Track the sun
-sun:
-
-switch: !include_dir_merge_list controls/switches
-
-system_health:
-
-# Notifier Telegram
 telegram_bot: !include services/telegram.yaml
 
-tts: !include services/tts.yaml
+# Pilight
+pilight: !include services/pilight.yaml
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  include_used_components: true
+# Tradfri
+tradfri: !include services/tradfri.yaml
 
 # Wake on lan
 wake_on_lan:
-
-zone: !include zones.yaml
