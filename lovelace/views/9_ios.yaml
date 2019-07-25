@@ -1,0 +1,44 @@
+- title: iOS
+  path: ios-devices
+  theme: dark-mode
+  cards:
+
+    - type: entities
+      title: Duc
+      show_header_toggle: false
+      entities:
+        - entity: device_tracker.tle_ipx
+        - entity: sensor.tle_ipx_activity
+        - entity: sensor.tle_ipx_average_active_pace
+        - entity: sensor.tle_ipx_bssid
+        - entity: sensor.tle_ipx_battery_level
+        - entity: sensor.tle_ipx_battery_state
+        - entity: sensor.tle_ipx_connection_type
+        - entity: sensor.tle_ipx_distance
+        - entity: sensor.tle_ipx_floors_ascended
+        - entity: sensor.tle_ipx_floors_descended
+        - entity: sensor.tle_ipx_geocoded_location
+        - entity: sensor.tle_ipx_last_update_trigger
+        - entity: sensor.tle_ipx_sim_1
+        - entity: sensor.tle_ipx_ssid
+        - entity: sensor.tle_ipx_steps
+
+    - type: entities
+      title: Melina
+      show_header_toggle: false
+      entities:
+        - entity: device_tracker.msp_ip7
+        - entity: sensor.msp_ip7_activity
+        - entity: sensor.msp_ip7_average_active_pace
+        - entity: sensor.msp_ip7_bssid
+        - entity: sensor.msp_ip7_battery_level
+        - entity: sensor.msp_ip7_battery_state
+        - entity: sensor.msp_ip7_connection_type
+        - entity: sensor.msp_ip7_distance
+        - entity: sensor.msp_ip7_floors_ascended
+        - entity: sensor.msp_ip7_floors_descended
+        - entity: sensor.msp_ip7_geocoded_location
+        - entity: sensor.msp_ip7_last_update_trigger
+        - entity: sensor.msp_ip7_sim_1
+        - entity: sensor.msp_ip7_ssid
+        - entity: sensor.msp_ip7_steps

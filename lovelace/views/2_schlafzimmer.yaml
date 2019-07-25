@@ -1,0 +1,41 @@
+- title: Schlafzimmer
+  path: schlafzimmer
+  theme: dark-mode
+  cards:
+
+    - type: vertical-stack
+      cards:
+        - type: glance
+          entities:
+            - entity: binary_sensor.oeq0167636_state
+              name: Fenster
+
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Lampen
+          show_header_toggle: true
+          entities:
+            - entity: light.schlafzimmer
+              name: Alle
+            - entity: light.schlafzimmer_lampe_1
+              name: Lampe 1
+            - entity: light.schlafzimmer_lampe_2
+              name: Lampe 2
+
+    - type: vertical-stack
+      cards:
+        - type: thermostat
+          entity: climate.meq0797490
+          name: Thermostat
+
+        - type: entities
+          title: Thermostatsteuerung
+          show_header_toggle: false
+          entities:
+            - entity: switch.schlafzimmer_auto
+              name: Auto
+            - entity: switch.schlafzimmer_boost
+              name: Boost
+            - entity: switch.schlafzimmer_manual
+              name: Manual
