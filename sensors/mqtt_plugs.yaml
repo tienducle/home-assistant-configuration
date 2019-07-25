@@ -19,15 +19,15 @@
   state_topic: "rooms/flur/plug-router/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
   unit_of_measurement: "W"
-- platform: mqtt
-  name: "Router Voltage"
-  state_topic: "rooms/flur/plug-router/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
-  unit_of_measurement: "V"
-- platform: mqtt
-  name: "Router Power Factor"
-  state_topic: "rooms/flur/plug-router/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+#- platform: mqtt
+#  name: "Router Voltage"
+#  state_topic: "rooms/flur/plug-router/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Router Power Factor"
+#  state_topic: "rooms/flur/plug-router/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
 
 
 # Wohnzimmer
@@ -51,15 +51,15 @@
   state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
   unit_of_measurement: "W"
-- platform: mqtt
-  name: "Wohnzimmer Voltage"
-  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
-  unit_of_measurement: "V"
-- platform: mqtt
-  name: "Wohnzimmer Power Factor"
-  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+#- platform: mqtt
+#  name: "Wohnzimmer Voltage"
+#  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Wohnzimmer Power Factor"
+#  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
 
 # Kueche
 - platform: mqtt
@@ -82,15 +82,15 @@
   state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
   unit_of_measurement: "W"
-- platform: mqtt
-  name: "Waschmaschine Voltage"
-  state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
-  unit_of_measurement: "V"
-- platform: mqtt
-  name: "Waschmaschine Power Factor"
-  state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+#- platform: mqtt
+#  name: "Waschmaschine Voltage"
+#  state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Waschmaschine Power Factor"
+#  state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
 
 - platform: mqtt
   name: "Geschirrspueler Verbrauch Heute"
@@ -112,15 +112,15 @@
   state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
   unit_of_measurement: "W"
-- platform: mqtt
-  name: "Geschirrspueler Voltage"
-  state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
-  unit_of_measurement: "V"
-- platform: mqtt
-  name: "Geschirrspueler Power Factor"
-  state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+#- platform: mqtt
+#  name: "Geschirrspueler Voltage"
+#  state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Geschirrspueler Power Factor"
+#  state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
 
 # Badezimmer
 - platform: mqtt
@@ -143,15 +143,15 @@
   state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
   unit_of_measurement: "W"
-- platform: mqtt
-  name: "Trockner Voltage"
-  state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
-  unit_of_measurement: "V"
-- platform: mqtt
-  name: "Trockner Power Factor"
-  state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+#- platform: mqtt
+#  name: "Trockner Voltage"
+#  state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Trockner Power Factor"
+#  state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
 
 # Arbeitszimmer 
 - platform: mqtt
@@ -174,12 +174,12 @@
   state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
   unit_of_measurement: "W"
-- platform: mqtt
-  name: "Schreibtisch Duc Voltage"
-  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
-  unit_of_measurement: "V"
-- platform: mqtt
-  name: "Schreibtisch Duc Power Factor"
-  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+#- platform: mqtt
+#  name: "Schreibtisch Duc Voltage"
+#  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Schreibtisch Duc Power Factor"
+#  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'

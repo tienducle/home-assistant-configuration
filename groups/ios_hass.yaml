@@ -1,0 +1,39 @@
+tle_ipx:
+  name: Duc
+  control: hidden
+  entities:
+    - device_tracker.tle_ipx
+    - sensor.tle_ipx_activity
+    - sensor.tle_ipx_average_active_pace
+    - sensor.tle_ipx_bssid
+    - sensor.tle_ipx_battery_level
+    - sensor.tle_ipx_battery_state
+    - sensor.tle_ipx_connection_type
+    - sensor.tle_ipx_distance
+    - sensor.tle_ipx_floors_ascended
+    - sensor.tle_ipx_floors_descended
+    - sensor.tle_ipx_geocoded_location
+    - sensor.tle_ipx_last_update_trigger
+    - sensor.tle_ipx_sim_1
+    - sensor.tle_ipx_ssid
+    - sensor.tle_ipx_steps
+
+msp_ip7:
+  name: Melina
+  control: hidden
+  entities:
+    - device_tracker.msp_ip7
+    - sensor.msp_ip7_activity
+    - sensor.msp_ip7_average_active_pace
+    - sensor.msp_ip7_bssid
+    - sensor.msp_ip7_battery_level
+    - sensor.msp_ip7_battery_state
+    - sensor.msp_ip7_connection_type
+    - sensor.msp_ip7_distance
+    - sensor.msp_ip7_floors_ascended
+    - sensor.msp_ip7_floors_descended
+    - sensor.msp_ip7_geocoded_location
+    - sensor.msp_ip7_last_update_trigger
+    - sensor.msp_ip7_sim_1
+    - sensor.msp_ip7_ssid
+    - sensor.msp_ip7_steps

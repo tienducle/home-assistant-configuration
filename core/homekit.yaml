@@ -1,0 +1,64 @@
+filter:
+  include_entities:
+    # Windows
+    - binary_sensor.oeq0164835_state # Küche
+    - binary_sensor.oeq0166378_state # Wohnzimmer Balkon
+    - binary_sensor.oeq0167636_state # Badezimmer
+    - binary_sensor.oeq0169426_state # Haustür
+
+    # Thermostats
+    - climate.meq0797490 # Schlafzimmer
+    - climate.oeq0665714 # Badezimmer
+    - climate.oeq0667981 # Wohnzimmer
+
+    # Switches
+    - switch.wohnzimmer_auto
+    - switch.wohnzimmer_boost
+    - switch.wohnzimmer_manual
+    - switch.badezimmer_auto
+    - switch.badezimmer_boost
+    - switch.badezimmer_manual
+    - switch.schlafzimmer_auto
+    - switch.schlafzimmer_boost
+    - switch.schlafzimmer_manual
+    - switch.braviatv
+    - switch.arbeitszimmer_alexa_steckdose
+    - switch.wohnzimmer_ventilator_steckdose
+    - switch.schlafzimmer_tv_steckdose
+    - switch.schlafzimmer_ventilator_steckdose
+    - switch.ducs_computer
+    - switch.melinas_computer
+
+    # Lights
+    - light.badezimmer_lampe
+    - light.badezimmer_lampe_1
+    - light.badezimmer_lampe_2
+
+    - light.wohnzimmer_lampe
+    - light.wohnzimmer_lampe_1
+    - light.wohnzimmer_lampe_2
+    - light.wohnzimmer_lampe_3
+    - light.wohnzimmer_lampe_4
+    - light.wohnzimmer_lampe_5
+    - light.wohnzimmer_lampe_6
+
+    - light.schlafzimmer_lampe
+    - light.schlafzimmer_lampe_1
+    - light.schlafzimmer_lampe_2
+
+    - light.arbeitszimmer_lampe
+    - light.arbeitszimmer_lampe_1
+    - light.arbeitszimmer_lampe_2
+    - light.arbeitszimmer_lampe_3
+
+    # Scenes
+    - script.scene_badezimmer_tag
+entity_config:
+  switch.wohnzimmer_ventilator_steckdose:
+    type: outlet
+  switch.arbeitszimmer_alexa_steckdose:
+    type: outlet
+  switch.schlafzimmer_tv_steckdose:
+    type: outlet
+  switch.schlafzimmer_ventilator_steckdose:
+    type: outlet

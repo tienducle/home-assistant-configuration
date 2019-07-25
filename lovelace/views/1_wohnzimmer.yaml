@@ -1,0 +1,76 @@
+- title: Wohnzimmer
+  path: wohnzimmer
+  theme: dark-mode
+  cards:
+
+    - type: glance
+      entities:
+        - entity: binary_sensor.oeq0166378_state
+          name: Balkon Fenster
+        - entity: switch.braviatv
+          name: Fernseher
+          tap_action:
+            action: toggle
+        - entity: switch.wohnzimmer_ventilator_steckdose
+          name: Ventilator
+          tap_action:
+            action: toggle
+
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Lampen
+          show_header_toggle: true
+          entities:
+            - entity: light.wohnzimmer
+              name: Alle
+            - entity: light.wohnzimmer_lampe_1
+              name: Lampe 1
+            - entity: light.wohnzimmer_lampe_2
+              name: Lampe 2
+            - entity: light.wohnzimmer_lampe_3
+              name: Lampe 3
+            - entity: light.wohnzimmer_lampe_4
+              name: Lampe 4
+            - entity: light.wohnzimmer_lampe_5
+              name: Lampe 5
+            - entity: light.wohnzimmer_lampe_6
+              name: Lampe 6
+
+    - type: vertical-stack
+      cards:
+        - type: thermostat
+          entity: climate.oeq0667981
+          name: Thermostat
+
+        - type: entities
+          title: Thermostatsteuerung
+          show_header_toggle: false
+          entities:
+            - entity: switch.wohnzimmer_auto
+              name: Auto
+            - entity: switch.wohnzimmer_boost
+              name: Boost
+            - entity: switch.wohnzimmer_manual
+              name: Manual
+
+    - type: media-control
+      entity: media_player.apple_tv_4k
+
+    - type: media-control
+      entity: media_player.kd55xe9005
+
+    - type: media-control
+      entity: media_player.denon
+
+    - type: glance
+      title: Wohnzimmer Verbrauch
+      entities:
+        - entity: sensor.wohnzimmer_power
+          name: Jetzt
+        - entity: sensor.wohnzimmer_verbrauch_heute
+          name: Heute
+        - entity: sensor.wohnzimmer_verbrauch_gestern
+          name: Gestern
+        - entity: sensor.wohnzimmer_verbrauch_gesamt
+          name: Gesamt

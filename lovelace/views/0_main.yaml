@@ -1,0 +1,45 @@
+- title: Main
+  
+  # Unique path for direct access /lovelace/${path}
+  path: main
+  
+  # Each view can have a different theme applied. Theme should be defined in the frontend.
+  theme: dark-mode
+  
+  # The cards to show on this view.
+  cards:
+
+    - type: entity-filter
+      entities:
+        - binary_sensor.meq0797490_lowbat
+        - binary_sensor.oeq0665714_lowbat
+        - binary_sensor.oeq0667981_lowbat
+        - binary_sensor.oeq0169426_lowbat
+        - binary_sensor.oeq0166378_lowbat
+        - binary_sensor.oeq0167636_lowbat
+        - binary_sensor.oeq0164835_lowbat
+      state_filter:
+        - 'on'
+        #- 'off'
+      card:
+        title: Batterie Level Niedrig
+        show_header_toggle: false
+
+    - type: glance
+      entities:
+        - entity: binary_sensor.oeq0169426_state
+          name: Haustür
+        - person.duc
+        - person.melina
+
+    - type: glance
+      title: Router/NAS Verbrauch
+      entities:
+        - entity: sensor.router_power
+          name: Jetzt
+        - entity: sensor.router_verbrauch_heute
+          name: Heute
+        - entity: sensor.router_verbrauch_gestern
+          name: Gestern
+        - entity: sensor.router_verbrauch_gesamt
+          name: Gesamt

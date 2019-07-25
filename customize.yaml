@@ -18,17 +18,23 @@ binary_sensor.oeq0167636_lowbat:
   friendly_name: Schlafzimmer Fenster Batterien
   device_class: battery
 binary_sensor.oeq0164835_state:
-  friendly_name: Kueche Balkon Fenster
+  friendly_name: Küche Balkon Fenster
   device_class: window
 binary_sensor.oeq0164835_lowbat:
-  friendly_name: Kueche Balkon Fenster Batterien
+  friendly_name: Küche Balkon Fenster Batterien
   device_class: battery
 climate.oeq0667981:
   friendly_name: Wohnzimmer Thermostat
+binary_sensor.oeq0667981_lowbat:
+  friendly_name: Wohnzimmer Thermostat Batterien
 climate.meq0797490:
   friendly_name: Schlafzimmer Thermostat
+binary_sensor.meq0797490_lowbat:
+  friendly_name: Schlafzimmer Thermostat Batterien
 climate.oeq0665714:
   friendly_name: Badezimmer Thermostat
+binary_sensor.oeq0665714_lowbat:
+  friendly_name: Badezimmer Thermostat Batterien
 
 # Hue
 light.wohnzimmer:

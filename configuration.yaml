@@ -30,10 +30,12 @@ automation old: !include_dir_merge_list automations
 frontend: !include core/frontend.yaml
 history: !include core/history.yaml
 http: !include core/http.yaml
+homekit: !include core/homekit.yaml
 group: !include_dir_merge_named groups
 #logbook: !include core/logbook.yaml
 lovelace:
-person: !include core/person.yaml
+  mode: yaml
+person: #!include core/person.yaml
 recorder: !include core/recorder.yaml
 script: !include scripts.yaml
 #script: !include_dir_merge_named scripts
@@ -52,7 +54,7 @@ homematic: !include services/homematic.yaml
 hue: !include services/hue.yaml
 
 # iOS integrations
-ios:
+# ios:
 mobile_app:
 
 # Media Player
