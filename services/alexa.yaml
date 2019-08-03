@@ -1,0 +1,41 @@
+smart_home:
+  endpoint: https://api.eu.amazonalexa.com/v3/events
+  client_id: amzn1.application-oa2-client.ac3d84be933246ff8296559b76ea69ec
+  client_secret: a544e75ebc046938151079e9b20050a2227b2540add1dc5fcb44be733dc0781f
+  filter:
+    include_entities:
+      # Thermostats
+      ## Schlafzimmer
+      - climate.meq0797490
+      ## Badezimmer
+      - climate.oeq0665714
+      ## Wohnzimmer
+      - climate.oeq0667981
+
+      # Switches
+      - switch.braviatv
+      - switch.arbeitszimmer_alexa_steckdose
+      - switch.wohnzimmer_ventilator_steckdose
+      - switch.schlafzimmer_fernseher_steckdose
+      - switch.schlafzimmer_ventilator_steckdose
+      - switch.ducs_computer
+      - switch.melinas_computer
+
+      # Lights
+      - light.wohnzimmer
+      - light.schlafzimmer
+      - light.arbeitszimmer
+      - light.badezimmer
+
+#    include_domains:
+#      - light
+#      - switch
+#      - climate
+#  entity_config:
+#     light.arbeitszimmer:
+#       name: Arbeitszimmer Lampe
+#    media_player.sony_bravia_tv:
+#      name: Fernseher
+#      display_categories: TV
+#    media_player.denon:
+#      name: Verstärker

@@ -1,2 +1,10 @@
+db_url: !secret dburl
 purge_interval: 1
 purge_keep_days: 365
+include:
+  entities:
+    # Badezimmer-/Schlafzimmer-/Wohnzimmerfenster & Haustür
+    - binary_sensor.oeq0164835_state
+    - binary_sensor.oeq0167636_state
+    - binary_sensor.oeq0166378_state
+    - binary_sensor.oeq0169426_state

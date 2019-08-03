@@ -28,7 +28,8 @@ config:
 automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
 frontend: !include core/frontend.yaml
-history: !include core/history.yaml
+history:
+#!include core/history.yaml
 http: !include core/http.yaml
 homekit: !include core/homekit.yaml
 group: !include_dir_merge_named groups
@@ -43,8 +44,11 @@ sensor: !include_dir_merge_list sensors
 switch: !include_dir_merge_list controls/switches
 system_health:
 updater:
-#api:
+api:
 #websocket_api:
+
+# Alexa
+alexa: !include services/alexa.yaml
 
 # Homematic
 homematic: !include services/homematic.yaml
@@ -71,6 +75,9 @@ telegram_bot: !include services/telegram.yaml
 
 # Pilight
 pilight: !include services/pilight.yaml
+
+# Shell commands
+shell_command: !include shellcommands.yaml
 
 # Tradfri
 tradfri: !include services/tradfri.yaml
