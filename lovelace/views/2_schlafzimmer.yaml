@@ -1,14 +1,19 @@
 - title: Schlafzimmer
   path: schlafzimmer
-  theme: dark-mode
   cards:
 
-    - type: vertical-stack
-      cards:
-        - type: glance
-          entities:
-            - entity: binary_sensor.oeq0167636_state
-              name: Fenster
+    - type: glance
+      entities:
+        - entity: binary_sensor.oeq0167636_state
+          name: Fenster
+        - entity: switch.schlafzimmer_fernseher_steckdose
+          name: Fernseher Steckdose
+          tap_action:
+            action: toggle
+        - entity: switch.schlafzimmer_ventilator_steckdose
+          name: Ventilator
+          tap_action:
+            action: toggle
 
     - type: vertical-stack
       cards:
@@ -16,8 +21,8 @@
           title: Lampen
           show_header_toggle: true
           entities:
-            - entity: light.schlafzimmer
-              name: Alle
+#            - entity: light.schlafzimmer
+#              name: Alle
             - entity: light.schlafzimmer_lampe_1
               name: Lampe 1
             - entity: light.schlafzimmer_lampe_2
@@ -39,3 +44,5 @@
               name: Boost
             - entity: switch.schlafzimmer_manual
               name: Manual
+            - entity: binary_sensor.meq0797490_lowbat
+              name: Batterien
