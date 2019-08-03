@@ -32,7 +32,7 @@ include:
     #- sensor.speedtest_upload
     #- sensor.speedtest_ping
     # Sun
-    #- sun.sun
+    - sun.sun
     # Systems
     #- binary_sensor.dns_server
     #- binary_sensor.macmini
@@ -50,3 +50,7 @@ include:
     #
     #- switch.wohnzimmercomputer
     #- switch.macmini
+    - person.duc
+    - person.melina
+    - device_tracker.tle_ipx
+    - device_tracker.msp_ip7

@@ -1,0 +1,1 @@
+update_hass: 'pip3 install --upgrade homeassistant --user'

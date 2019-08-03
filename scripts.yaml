@@ -1,3 +1,6 @@
+############
+# Wohnzimmer
+############
 scene_wohnzimmer_tag:
   alias: Szene Wohnzimmer Tag
   sequence:
@@ -5,6 +8,7 @@ scene_wohnzimmer_tag:
     data:
       group_name: Wohnzimmer
       scene_name: Wohnzimmer Tag
+
 scene_wohnzimmer_abend:
   alias: Szene Wohnzimmer Abend
   sequence:
@@ -12,6 +16,7 @@ scene_wohnzimmer_abend:
     data:
       group_name: Wohnzimmer
       scene_name: Wohnzimmer Abend
+
 scene_wohnzimmer_film:
   alias: Szene Wohnzimmer Film
   sequence:
@@ -19,6 +24,7 @@ scene_wohnzimmer_film:
     data:
       group_name: Wohnzimmer
       scene_name: Wohnzimmer Film
+
 scene_wohnzimmer_film_essen:
   alias: Szene Wohnzimmer Film Essen
   sequence:
@@ -26,6 +32,7 @@ scene_wohnzimmer_film_essen:
     data:
       group_name: Wohnzimmer
       scene_name: Wohnzimmer Film Essen
+
 scene_wohnzimmer_nacht:
   alias: Szene Wohnzimmer Nacht
   sequence:
@@ -33,10 +40,53 @@ scene_wohnzimmer_nacht:
     data:
       group_name: Wohnzimmer
       scene_name: Wohnzimmer Nacht
+
+############
+# Badezimmer
+############
 scene_badezimmer_tag:
-  alias: Badezimmer Tag
+  alias: Szene Badezimmer Tag
   sequence:
   - data:
       brightness: '255'
       entity_id: light.badezimmer
     service: light.turn_on
+
+############
+# Schlafzimmer
+############
+scene_schlafzimmer_tag:
+  alias: Szene Schlafzimmer Tag
+  sequence:
+  - service: light.turn_on
+    data:
+      brightness: '255'
+      entity_id: light.schlafzimmer_lampe_1
+  - service: light.turn_on
+    data:
+      brightness: '255'
+      entity_id: light.schlafzimmer_lampe_2
+
+scene_schlafzimmer_abend:
+  alias: Szene Schlafzimmer Abend
+  sequence:
+  - service: light.turn_on
+    data:
+      brightness: '128'
+      entity_id: light.schlafzimmer_lampe_1
+  - service: light.turn_on
+    data:
+      brightness: '128'
+      entity_id: light.schlafzimmer_lampe_2
+
+scene_schlafzimmer_dunkel:
+  alias: Szene Schlafzimmer Dunkel
+  sequence:
+  - service: light.turn_on
+    data:
+      brightness: '1'
+      entity_id: light.schlafzimmer_lampe_1
+  - service: light.turn_on
+    data:
+      brightness: '1'
+      entity_id: light.schlafzimmer_lampe_2
