@@ -1,6 +1,5 @@
 - title: Küche
   path: kueche
-  theme: dark-mode
   cards:
 
     - type: vertical-stack

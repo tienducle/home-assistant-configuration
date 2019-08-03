@@ -1,6 +1,5 @@
 - title: Badezimmer
   path: badezimmer
-  theme: dark-mode
   cards:
 
     - type: vertical-stack
@@ -9,8 +8,8 @@
           title: Lampen
           show_header_toggle: true
           entities:
-            - entity: light.badezimmer
-              name: Alle
+#            - entity: light.badezimmer
+#              name: Alle
             - entity: light.badezimmer_lampe_1
               name: Lampe 1
             - entity: light.badezimmer_lampe_2
@@ -44,3 +43,5 @@
               name: Boost
             - entity: switch.badezimmer_manual
               name: Manual
+            - entity: binary_sensor.oeq0665714_lowbat
+              name: Batterien

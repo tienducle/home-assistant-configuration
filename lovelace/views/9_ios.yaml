@@ -1,6 +1,5 @@
 - title: iOS
   path: ios-devices
-  theme: dark-mode
   cards:
 
     - type: entities

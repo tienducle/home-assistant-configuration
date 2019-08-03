@@ -1,6 +1,5 @@
 - title: Wohnzimmer
   path: wohnzimmer
-  theme: dark-mode
   cards:
 
     - type: glance
@@ -22,8 +21,8 @@
           title: Lampen
           show_header_toggle: true
           entities:
-            - entity: light.wohnzimmer
-              name: Alle
+#            - entity: light.wohnzimmer
+#              name: Alle
             - entity: light.wohnzimmer_lampe_1
               name: Lampe 1
             - entity: light.wohnzimmer_lampe_2
@@ -53,6 +52,8 @@
               name: Boost
             - entity: switch.wohnzimmer_manual
               name: Manual
+            - entity: binary_sensor.oeq0667981_lowbat
+              name: Batterien
 
     - type: media-control
       entity: media_player.apple_tv_4k
