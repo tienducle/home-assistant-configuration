@@ -1,0 +1,47 @@
+- title: Badezimmer
+  path: badezimmer
+  cards:
+
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Lampen
+          show_header_toggle: true
+          entities:
+#            - entity: light.badezimmer
+#              name: Alle
+            - entity: light.badezimmer_lampe_1
+              name: Lampe 1
+            - entity: light.badezimmer_lampe_2
+              name: Lampe 2
+
+    - type: glance
+      title: Trockner Verbrauch
+      entities:
+        - entity: sensor.trockner_power
+          name: Jetzt
+        - entity: sensor.trockner_verbrauch_heute
+          name: Heute
+        - entity: sensor.trockner_verbrauch_gestern
+          name: Gestern
+        - entity: sensor.trockner_verbrauch_gesamt
+          name: Gesamt
+
+    - type: vertical-stack
+      cards:
+        - type: thermostat
+          entity: climate.oeq0665714
+          name: Thermostat
+
+        - type: entities
+          title: Thermostatsteuerung
+          show_header_toggle: false
+          entities:
+            - entity: switch.badezimmer_auto
+              name: Auto
+            - entity: switch.badezimmer_boost
+              name: Boost
+            - entity: switch.badezimmer_manual
+              name: Manual
+            - entity: binary_sensor.oeq0665714_lowbat
+              name: Batterien

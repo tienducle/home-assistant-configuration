@@ -1,0 +1,10 @@
+- name: Duc
+  id: tle
+  user_id: !secret person_user_id_tle
+  device_trackers:
+    - device_tracker.tle_ipx
+- name: Melina
+  id: msp
+  user_id: !secret person_user_id_msp
+  device_trackers:
+    - device_tracker.msp_ip7

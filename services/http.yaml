@@ -1,8 +1,0 @@
-api_password: !secret http_password
-ssl_certificate: !secret https_crt
-ssl_key: !secret https_pkey
-use_x_forwarded_for: true
-trusted_proxies:
-  - !secret gateway_host
-login_attempts_threshold: 3
-ip_ban_enabled: true

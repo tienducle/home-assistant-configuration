@@ -1,5 +1,0 @@
-automations:
-  name: Automations
-  view: yes
-  entities:
-    - group.all_automations

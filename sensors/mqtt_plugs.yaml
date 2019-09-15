@@ -1,33 +1,36 @@
+# Flur
 - platform: mqtt
-  name: "Waschmaschine Verbrauch Heute"
-  state_topic: "rooms/badezimmer/plug-waschmaschine/tele/SENSOR"
+  name: "Router Verbrauch Heute"
+  state_topic: "rooms/flur/plug-router/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Waschmaschine Verbrauch Gestern"
-  state_topic: "rooms/badezimmer/plug-waschmaschine/tele/SENSOR"
+  name: "Router Verbrauch Gestern"
+  state_topic: "rooms/flur/plug-router/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Waschmaschine Verbrauch Gesamt"
-  state_topic: "rooms/badezimmer/plug-waschmaschine/tele/SENSOR"
+  name: "Router Verbrauch Gesamt"
+  state_topic: "rooms/flur/plug-router/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Waschmaschine Power"
-  state_topic: "rooms/badezimmer/plug-waschmaschine/tele/SENSOR"
+  name: "Router Power"
+  state_topic: "rooms/flur/plug-router/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
   unit_of_measurement: "W"
-- platform: mqtt
-  name: "Waschmaschine Voltage"
-  state_topic: "rooms/badezimmer/plug-waschmaschine/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
-  unit_of_measurement: "V"
-- platform: mqtt
-  name: "Waschmaschine Power Factor"
-  state_topic: "rooms/badezimmer/plug-waschmaschine/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+#- platform: mqtt
+#  name: "Router Voltage"
+#  state_topic: "rooms/flur/plug-router/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Router Power Factor"
+#  state_topic: "rooms/flur/plug-router/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
 
+
+# Wohnzimmer
 - platform: mqtt
   name: "Wohnzimmer Verbrauch Heute"
   state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
@@ -48,42 +51,177 @@
   state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
   unit_of_measurement: "W"
-- platform: mqtt
-  name: "Wohnzimmer Voltage"
-  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
-  unit_of_measurement: "V"
-- platform: mqtt
-  name: "Wohnzimmer Power Factor"
-  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+#- platform: mqtt
+#  name: "Wohnzimmer Voltage"
+#  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Wohnzimmer Power Factor"
+#  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
 
+# Kueche
 - platform: mqtt
-  name: "Wohnzimmer Computer Verbrauch Heute"
-  state_topic: "rooms/wohnzimmer/plug-computer/tele/SENSOR"
+  name: "Kuehlschrank Verbrauch Heute"
+  state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Wohnzimmer Computer Verbrauch Gestern"
-  state_topic: "rooms/wohnzimmer/plug-computer/tele/SENSOR"
+  name: "Kuehlschrank Verbrauch Gestern"
+  state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Wohnzimmer Computer Verbrauch Gesamt"
-  state_topic: "rooms/wohnzimmer/plug-computer/tele/SENSOR"
+  name: "Kuehlschrank Verbrauch Gesamt"
+  state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Wohnzimmer Computer Power"
-  state_topic: "rooms/wohnzimmer/plug-computer/tele/SENSOR"
+  name: "Kuehlschrank Power"
+  state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
   unit_of_measurement: "W"
+
 - platform: mqtt
-  name: "Wohnzimmer Computer Voltage"
-  state_topic: "rooms/wohnzimmer/plug-computer/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
-  unit_of_measurement: "V"
+  name: "Waschmaschine Verbrauch Heute"
+  state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Wohnzimmer Computer Power Factor"
-  state_topic: "rooms/wohnzimmer/plug-computer/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+  name: "Waschmaschine Verbrauch Gestern"
+  state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Waschmaschine Verbrauch Gesamt"
+  state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Waschmaschine Power"
+  state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+#- platform: mqtt
+#  name: "Waschmaschine Voltage"
+#  state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Waschmaschine Power Factor"
+#  state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+
+- platform: mqtt
+  name: "Geschirrspueler Verbrauch Heute"
+  state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Geschirrspueler Verbrauch Gestern"
+  state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Geschirrspueler Verbrauch Gesamt"
+  state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Geschirrspueler Power"
+  state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+#- platform: mqtt
+#  name: "Geschirrspueler Voltage"
+#  state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Geschirrspueler Power Factor"
+#  state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+
+# Badezimmer
+- platform: mqtt
+  name: "Trockner Verbrauch Heute"
+  state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Trockner Verbrauch Gestern"
+  state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Trockner Verbrauch Gesamt"
+  state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Trockner Power"
+  state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+#- platform: mqtt
+#  name: "Trockner Voltage"
+#  state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Trockner Power Factor"
+#  state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+
+# Arbeitszimmer 
+- platform: mqtt
+  name: "Schreibtisch Duc Verbrauch Heute"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Schreibtisch Duc Verbrauch Gestern"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Schreibtisch Duc Verbrauch Gesamt"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Schreibtisch Duc Power"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+#- platform: mqtt
+#  name: "Schreibtisch Duc Voltage"
+#  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Schreibtisch Duc Power Factor"
+#  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+
+- platform: mqtt
+  name: "Schreibtisch Melina Verbrauch Heute"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Schreibtisch Melina Verbrauch Gestern"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Schreibtisch Melina Verbrauch Gesamt"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Schreibtisch Melina Power"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"

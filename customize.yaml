@@ -1,175 +1,63 @@
-switch.wol_macmini:
-  hidden: true
-switch.wol_wohnzimmercomputer:
-  hidden: true
-switch.shutdown_wohnzimmercomputer:
-  hidden: true
-switch.wohnzimmer_computer:
-  icon: mdi:windows
-switch.wol_schlafzimmercomputer:
-  hidden: true
-switch.shutdown_schlafzimmercomputer:
-  hidden: true
-switch.schlafzimmer_computer:
-  icon: mdi:windows
-switch.macmini:
-  icon: mdi:server
-sensor.wohnzimmer_temperature:
-  friendly_name: Wohnzimmer Temperatur
-sensor.wohnzimmer_humidity:
-  device_class: humidity
-  friendly_name: Wohnzimmer Feuchtigkeit
-  icon: mdi:water-percent
-sensor.schlafzimmer_temperature:
-  friendly_name: Schlafzimmer Temperatur
-sensor.schlafzimmer_humidity:
-  device_class: humidity
-  friendly_name: Schlafzimmer Feuchtigkeit
-  icon: mdi:water-percent
-sensor.nordschule_jena_to_stadtzentrum_lobdergraben_jena:
-  friendly_name: Nordschule nach Löbdergraben
-sensor.stadtzentrum_lobdergraben_jena_to_nordschule_jena:
-  friendly_name: Löbdergraben nach Nordschule
-sensor.speedtest_download:
-  friendly_name: Download Speed
-  icon: mdi:download
-sensor.speedtest_upload:
-  friendly_name: Upload Speed
-  icon: mdi:upload
-sensor.speedtest_ping:
-  friendly_name: Ping
-  icon: mdi:looks
-sensor.dark_sky_apparent_temperature:
-  friendly_name: Gefühlte Temperatur
-sensor.dark_sky_daytime_high_temperature:
-  friendly_name: Max. Temperatur
-sensor.dark_sky_overnight_low_temperature:
-  friendly_name: Min. Temperatur
-sensor.dark_sky_humidity:
-  friendly_name: Luftfeuchtigkeit
-sensor.dark_sky_summary:
-  friendly_name: Summary
-sensor.dark_sky_temperature:
-  friendly_name: Temperatur
-sensor.dark_sky_wind_speed:
-  friendly_name: Wind
-homematic.wired:
-  hidden: true
-climate.meq0797490:
-  friendly_name: Schlafzimmer Thermostat
-switch.schlafzimmer_auto:
-  friendly_name: Schlafzimmer Auto
-  icon: mdi:nest-thermostat
-switch.schlafzimmer_boost:
-  friendly_name: Schlafzimmer Boost
-  icon: mdi:nest-thermostat
-switch.schlafzimmer_manual:
-  friendly_name: Schlafzimmer Manual
-  icon: mdi:nest-thermostat
-light.kuechenlampe:
-  friendly_name: Küchenlampe
-light.all_hue_lights:
-  hidden: true
-device_tracker.tle_tleipx:
-  icon: mdi:cellphone-iphone
-device_tracker.msp_mspip7:
-  icon: mdi:cellphone-iphone
-device_tracker.vwiip7:
-  icon: mdi:cellphone-iphone
-device_tracker.tleaw3:
-  icon: mdi:watch
-device_tracker.mspaw2:
-  icon: mdi:watch
-sensor.kueche_humidity:
-  device_class: humidity
-  friendly_name: Küche Feuchtigkeit
-  icon: mdi:water-percent
-sensor.badezimmer_humidity:
-  device_class: humidity
-  friendly_name: Badezimmer Feuchtigkeit
-  icon: mdi:water-percent
-sensor.kueche_temperature:
-  friendly_name: Küche Temperatur
-sensor.badezimmer_temperature:
-  friendly_name: Badezimmer Temperatur
+# Homematic
+binary_sensor.oeq0169426_state:
+  friendly_name: Haustuer
+  device_class: door
+binary_sensor.oeq0169426_lowbat:
+  friendly_name: Haustuer Batterien
+  device_class: battery
+binary_sensor.oeq0166378_state:
+  friendly_name: Wohnzimmer Balkon Fenster
+  device_class: window
+binary_sensor.oeq0166378_lowbat:
+  friendly_name: Wohnzimmer Balkon Fenster Batterien
+  device_class: battery
 binary_sensor.oeq0167636_state:
   friendly_name: Schlafzimmer Fenster
-  icon: mdi:window-closed
-sun.sun:
-  friendly_name: Sonne
+  device_class: window
+binary_sensor.oeq0167636_lowbat:
+  friendly_name: Schlafzimmer Fenster Batterien
+  device_class: battery
+binary_sensor.oeq0164835_state:
+  friendly_name: Küche Balkon Fenster
+  device_class: window
+binary_sensor.oeq0164835_lowbat:
+  friendly_name: Küche Balkon Fenster Batterien
+  device_class: battery
 climate.oeq0667981:
   friendly_name: Wohnzimmer Thermostat
-binary_sensor.oeq0166378_state:
-  friendly_name: Wohnzimmer Fenster
-  icon: mdi:window-closed
-switch.wohnzimmer_auto:
-  friendly_name: Wohnzimmer Auto
-  icon: mdi:nest-thermostat
-switch.wohnzimmer_boost:
-  friendly_name: Wohnzimmer Boost
-  icon: mdi:nest-thermostat
-switch.wohnzimmer_manual:
-  friendly_name: Wohnzimmer Manual
-  icon: mdi:nest-thermostat
-binary_sensor.oeq0164835_state:
-  friendly_name: Badezimmer Fenster
-  icon: mdi:window-closed
+binary_sensor.oeq0667981_lowbat:
+  friendly_name: Wohnzimmer Thermostat Batterien
+climate.meq0797490:
+  friendly_name: Schlafzimmer Thermostat
+binary_sensor.meq0797490_lowbat:
+  friendly_name: Schlafzimmer Thermostat Batterien
 climate.oeq0665714:
   friendly_name: Badezimmer Thermostat
-switch.badezimmer_auto:
-  friendly_name: Badezimmer Auto
-  icon: mdi:nest-thermostat
-switch.badezimmer_boost:
-  friendly_name: Badezimmer Boost
-  icon: mdi:nest-thermostat
-switch.badezimmer_manual:
-  friendly_name: Badezimmer Manual
-  icon: mdi:nest-thermostat
-sensor.badezimmer_thermostat_battery:
-  icon: mdi:battery-90
-sensor.schlafzimmer_thermostat_battery:
-  icon: mdi:battery-90
-sensor.wohnzimmer_thermostat_battery:
-  icon: mdi:battery-90
-binary_sensor.oeq0169426_state:
-  friendly_name: Haustür
-sensor.tleipx_battery_level:
+binary_sensor.oeq0665714_lowbat:
+  friendly_name: Badezimmer Thermostat Batterien
+
+# Hue
+light.wohnzimmer:
+  friendly_name: Wohnzimmer Lampe
+
+# Ikea Tradfri
+light.badezimmer:
+  friendly_name: Badezimmer Lampe
+light.schlafzimmer:
+  friendly_name: Schlafzimmer Lampe
+sensor.fernbedienung_badezimmer:
+  friendly_name: Tradfi Fernbedienung Badezimmer Batterien
+sensor.fernbedienung_schlafzimmer:
+  friendly_name: Tradfi Fernbedienung Schlafzimmer Batterien
+
+# WOL
+switch.wol_computer_tle:
   hidden: true
-sensor.tleipx_battery_state:
+switch.shutdown_computer_tle:
   hidden: true
-sensor.mspip7_battery_level:
+switch.wol_computer_msp:
   hidden: true
-sensor.mspip7_battery_state:
+switch.shutdown_computer_msp:
   hidden: true
-group.all_automations:
-  hidden: false
-group.all_devices:
-  hidden: false
-group.default_view:
-  entity_id:
-  - binary_sensor.oeq0169426_state
-  - binary_sensor.someone_at_home
-  - group.internet
-  - group.weather_jena
-  - sensor.travel_to_erfurt
-  - light.flurlampe
-  order: 1
-group.room_wohnzimmer:
-  order: 2
-group.room_schlafzimmer:
-  order: 3
-group.room_badezimmer:
-  order: 4
-group.room_kueche:
-  order: 5
-group.devices:
-  order: 6
-group.automations:
-  order: 7
-switch.wohnzimmer_alexa_steckdose:
-  friendly_name: Wohnzimmer Alexa
-switch.reiskocher_steckdose:
-  friendly_name: Reiskocher
-binary_sensor.someone_at_home:
-  friendly_name: Jemand zu Hause
-  device_class: occupancy
+switch.wol_macmini:
+  hidden: true

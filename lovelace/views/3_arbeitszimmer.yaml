@@ -1,0 +1,52 @@
+- title: Arbeitszimmer
+  path: arbeitszimmer
+  cards:
+
+    - type: glance
+      entities:
+        - entity: switch.ducs_computer
+          name: Ducs Computer
+        - entity: switch.melinas_computer
+          name: Melinas Computer
+        - entity: switch.arbeitszimmer_alexa_steckdose
+          name: Alexa
+          tap_action:
+            action: toggle
+
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Lampen
+          show_header_toggle: true
+          entities:
+#            - entity: light.arbeitszimmer
+#              name: Alle
+            - entity: light.arbeitszimmer_lampe_1
+              name: Lampe 1
+            - entity: light.arbeitszimmer_lampe_2
+              name: Lampe 2
+            - entity: light.arbeitszimmer_lampe_3
+              name: Lampe 3
+
+    - type: glance
+      title: Schreibtisch Duc Verbrauch
+      entities:
+        - entity: sensor.schreibtisch_duc_power
+          name: Jetzt
+        - entity: sensor.schreibtisch_duc_verbrauch_heute
+          name: Heute
+        - entity: sensor.schreibtisch_duc_verbrauch_gestern
+          name: Gestern
+        - entity: sensor.schreibtisch_duc_verbrauch_gesamt
+          name: Gesamt
+    - type: glance
+      title: Schreibtisch Melina Verbrauch
+      entities:
+        - entity: sensor.schreibtisch_melina_power
+          name: Jetzt
+        - entity: sensor.schreibtisch_melina_verbrauch_heute
+          name: Heute
+        - entity: sensor.schreibtisch_melina_verbrauch_gestern
+          name: Gestern
+        - entity: sensor.schreibtisch_melina_verbrauch_gesamt
+          name: Gesamt

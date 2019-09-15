@@ -1,27 +1,40 @@
 smart_home:
+  endpoint: https://api.eu.amazonalexa.com/v3/events
+  client_id: amzn1.application-oa2-client.ac3d84be933246ff8296559b76ea69ec
+  client_secret: a544e75ebc046938151079e9b20050a2227b2540add1dc5fcb44be733dc0781f
   filter:
-#    include_entities:
-    include_domains:
-      - light
-      - switch
-      - climate
-    exclude_entities:
-      # HA creates philips hue rooms as light entity; not needed if room only has one light
-      - light.wetter
-      - light.haus
-      - light.badezimmer
-      - light.kuche
+    include_entities:
+      # Thermostats
+      ## Schlafzimmer
+      - climate.meq0797490
+      ## Badezimmer
+      - climate.oeq0665714
+      ## Wohnzimmer
+      - climate.oeq0667981
+
+      # Switches
+      - switch.wohnzimmer_fernseher
+      - switch.wohnzimmer_anlage
+      - switch.arbeitszimmer_alexa_steckdose
+      - switch.wohnzimmer_ventilator_steckdose
+      - switch.schlafzimmer_fernseher_steckdose
+      - switch.schlafzimmer_ventilator_steckdose
+      - switch.ducs_computer
+      - switch.melinas_computer
+
+      # Lights
+      - light.wohnzimmer
       - light.schlafzimmer
-      # - light.wohnzimmer is okay because multiple lights
-      - switch.shutdown_wohnzimmercomputer
-      - switch.macmini
-      - switch.wol_macmini
-      - switch.wol_wohnzimmercomputer
-      - switch.wol_schlafzimmercomputer
-      - switch.shutdown_schlafzimmercomputer
-  entity_config:
-     light.wohnzimmer:
-       name: Wohnzimmer Lampe
+      - light.arbeitszimmer
+      - light.badezimmer
+
+#    include_domains:
+#      - light
+#      - switch
+#      - climate
+#  entity_config:
+#     light.arbeitszimmer:
+#       name: Arbeitszimmer Lampe
 #    media_player.sony_bravia_tv:
 #      name: Fernseher
 #      display_categories: TV

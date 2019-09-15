@@ -1,0 +1,46 @@
+- title: Küche
+  path: kueche
+  cards:
+
+    - type: vertical-stack
+      cards:
+        - type: glance
+          entities:
+            - entity: binary_sensor.oeq0164835_state
+              name: Balkon Fenster
+
+    - type: vertical-stack
+      cards:
+        - type: glance
+          title: Kuehlschrank Verbrauch
+          entities:
+            - entity: sensor.kuehlschrank_power
+              name: Jetzt
+            - entity: sensor.kuehlschrank_verbrauch_heute
+              name: Heute
+            - entity: sensor.kuehlschrank_verbrauch_gestern
+              name: Gestern
+            - entity: sensor.kuehlschrank_verbrauch_gesamt
+              name: Gesamt
+        - type: glance
+          title: Waschmaschine Verbrauch
+          entities:
+            - entity: sensor.waschmaschine_power
+              name: Jetzt
+            - entity: sensor.waschmaschine_verbrauch_heute
+              name: Heute
+            - entity: sensor.waschmaschine_verbrauch_gestern
+              name: Gestern
+            - entity: sensor.waschmaschine_verbrauch_gesamt
+              name: Gesamt
+        - type: glance
+          title: Geschirrspüler Verbrauch
+          entities:
+            - entity: sensor.geschirrspueler_power
+              name: Jetzt
+            - entity: sensor.geschirrspueler_verbrauch_heute
+              name: Heute
+            - entity: sensor.geschirrspueler_verbrauch_gestern
+              name: Gestern
+            - entity: sensor.geschirrspueler_verbrauch_gesamt
+              name: Gesamt

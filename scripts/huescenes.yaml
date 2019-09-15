@@ -1,0 +1,36 @@
+# Wohnzimmer
+scene_wohnzimmer_tag:
+  alias: Szene Wohnzimmer Tag
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Wohnzimmer"
+        scene_name: "Wohnzimmer Tag"
+scene_wohnzimmer_abend:
+  alias: Szene Wohnzimmer Abend
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Wohnzimmer"
+        scene_name: "Wohnzimmer Abend"
+scene_wohnzimmer_film:
+  alias: Szene Wohnzimmer Film
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Wohnzimmer"
+        scene_name: "Wohnzimmer Film"
+scene_wohnzimmer_film_essen:
+  alias: Szene Wohnzimmer Film Essen
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Wohnzimmer"
+        scene_name: "Wohnzimmer Film Essen"
+scene_wohnzimmer_nacht:
+  alias: Szene Wohnzimmer Nacht
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Wohnzimmer"
+        scene_name: "Wohnzimmer Nacht"

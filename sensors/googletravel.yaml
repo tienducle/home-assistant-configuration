@@ -1,5 +1,0 @@
-#- platform: google_travel_time
-#  name: Travel to Erfurt
-#  api_key: !secret gdev_home_api_key_3
-#  origin: !secret home_address
-#  destination: Erfurt, Germany

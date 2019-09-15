@@ -2,82 +2,91 @@
 - platform: template
   switches:
     badezimmer_auto:
+      friendly_name: Badezimmer Auto
       value_template: "{{ is_state('climate.oeq0665714', 'auto') }}"
       turn_on:
-        service: climate.set_operation_mode
+        service: climate.set_hvac_mode
         data:
           entity_id: climate.oeq0665714
-          operation_mode: auto
+          hvac_mode: auto
       turn_off:
     badezimmer_boost:
+      friendly_name: Badezimmer Boost
       value_template: "{{ is_state('climate.oeq0665714', 'boost') }}"
       turn_on:
-        service: climate.set_operation_mode
+        service: climate.set_preset_mode
         data:
           entity_id: climate.oeq0665714
-          operation_mode: boost
+          preset_mode: boost
       turn_off:
     badezimmer_manual:
+      friendly_name: Badezimmer Manual
       value_template: "{{ is_state('climate.oeq0665714', 'manual') }}"
       turn_on:
-        service: climate.set_operation_mode
+        service: climate.set_hvac_mode
         data:
           entity_id: climate.oeq0665714
-          operation_mode: manual
+          hvac_mode: heat
       turn_off:
 
 # Schlafzimmer Thermostat
 - platform: template
   switches:
     schlafzimmer_auto:
+      friendly_name: Schlafzimmer Auto
       value_template: "{{ is_state('climate.meq0797490', 'auto') }}"
       turn_on:
-        service: climate.set_operation_mode
+        service: climate.set_hvac_mode
         data:
           entity_id: climate.meq0797490
-          operation_mode: auto
+          hvac_mode: auto
       turn_off:
     schlafzimmer_boost:
+      friendly_name: Schlafzimmer Boost
       value_template: "{{ is_state('climate.meq0797490', 'boost') }}"
       turn_on:
-        service: climate.set_operation_mode
+        service: climate.set_preset_mode
         data:
           entity_id: climate.meq0797490
-          operation_mode: boost
+          preset_mode: boost
       turn_off:
     schlafzimmer_manual:
+      friendly_name: Schlafzimmer Manual
       value_template: "{{ is_state('climate.meq0797490', 'manual') }}"
       turn_on:
-        service: climate.set_operation_mode
+        service: climate.set_hvac_mode
         data:
           entity_id: climate.meq0797490
-          operation_mode: manual
+          hvac_mode: heat
       turn_off:
 
 # Wohnzimmer Thermostat
 - platform: template
   switches:
     wohnzimmer_auto:
+      friendly_name: Wohnzimmer Auto
       value_template: "{{ is_state('climate.oeq0667981', 'auto') }}"
       turn_on:
-        service: climate.set_operation_mode
+        service: climate.set_hvac_mode
         data:
           entity_id: climate.oeq0667981
-          operation_mode: auto
+          hvac_mode: auto
       turn_off:
     wohnzimmer_boost:
+      friendly_name: Wohnzimmer Boost
       value_template: "{{ is_state('climate.oeq0667981', 'boost') }}"
       turn_on:
-        service: climate.set_operation_mode
+        service: climate.set_preset_mode
         data:
           entity_id: climate.oeq0667981
-          operation_mode: boost
+          preset_mode: boost
       turn_off:
     wohnzimmer_manual:
+      friendly_name: Wohnzimmer Manual
       value_template: "{{ is_state('climate.oeq0667981', 'manual') }}"
       turn_on:
-        service: climate.set_operation_mode
+        service: climate.set_hvac_mode
         data:
           entity_id: climate.oeq0667981
-          operation_mode: manual
+          hvac_mode: heat
       turn_off:
