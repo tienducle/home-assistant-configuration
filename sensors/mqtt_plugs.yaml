@@ -63,6 +63,27 @@
 
 # Kueche
 - platform: mqtt
+  name: "Kuehlschrank Verbrauch Heute"
+  state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Kuehlschrank Verbrauch Gestern"
+  state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Kuehlschrank Verbrauch Gesamt"
+  state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Kuehlschrank Power"
+  state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
+- platform: mqtt
   name: "Waschmaschine Verbrauch Heute"
   state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
@@ -183,3 +204,24 @@
 #  name: "Schreibtisch Duc Power Factor"
 #  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
 #  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+
+- platform: mqtt
+  name: "Schreibtisch Melina Verbrauch Heute"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Schreibtisch Melina Verbrauch Gestern"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Schreibtisch Melina Verbrauch Gesamt"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Schreibtisch Melina Power"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"

@@ -1,0 +1,5 @@
+- platform: plex
+#  show_all_controls: false
+#  use_episode_art: false
+#  remove_unavailable_clients: true
+#  remove_interval: 600

@@ -28,7 +28,8 @@ filter:
     - switch.schlafzimmer_auto
     - switch.schlafzimmer_boost
     - switch.schlafzimmer_manual
-    - switch.braviatv
+    - switch.wohnzimmer_fernseher
+    - switch.wohnzimmer_anlage
     - switch.arbeitszimmer_alexa_steckdose
     - switch.wohnzimmer_ventilator_steckdose
     - switch.schlafzimmer_fernseher_steckdose

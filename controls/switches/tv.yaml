@@ -1,6 +1,6 @@
 - platform: template
   switches:
-    braviatv:
+    wohnzimmer_fernseher:
       friendly_name: Wohnzimmer Fernseher
       icon_template: mdi:television
       value_template: "{{ is_state('media_player.kd55xe9005', 'on') }}"

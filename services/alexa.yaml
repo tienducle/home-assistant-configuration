@@ -13,7 +13,8 @@ smart_home:
       - climate.oeq0667981
 
       # Switches
-      - switch.braviatv
+      - switch.wohnzimmer_fernseher
+      - switch.wohnzimmer_anlage
       - switch.arbeitszimmer_alexa_steckdose
       - switch.wohnzimmer_ventilator_steckdose
       - switch.schlafzimmer_fernseher_steckdose

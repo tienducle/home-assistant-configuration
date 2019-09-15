@@ -20,6 +20,17 @@ waschmaschine_verbrauch:
     - sensor.waschmaschine_verbrauch_gesamt
     - sensor.waschmaschine_power_factor
 
+kuehlschrank_verbrauch:
+  name: Kuehlschrank Verbrauch
+  control: hidden
+  entities:
+    - sensor.kuehlschrank_power
+    - sensor.kuehlschrank_voltage
+    - sensor.kuehlschrank_verbrauch_heute
+    - sensor.kuehlschrank_verbrauch_gestern
+    - sensor.kuehlschrank_verbrauch_gesamt
+    - sensor.kuehlschrank_power_factor
+
 trockner_verbrauch:
   name: Trockner Verbrauch
   control: hidden
@@ -63,3 +74,14 @@ schreibtisch_duc_verbrauch:
     - sensor.schreibtisch_duc_verbrauch_gestern
     - sensor.schreibtisch_duc_verbrauch_gesamt
     - sensor.schreibtisch_duc_power_factor
+
+schreibtisch_melina_verbrauch:
+  name: Schreibtisch Melina Verbrauch
+  control: hidden
+  entities:
+    - sensor.schreibtisch_melina_power
+    - sensor.schreibtisch_melina_voltage
+    - sensor.schreibtisch_melina_verbrauch_heute
+    - sensor.schreibtisch_melina_verbrauch_gestern
+    - sensor.schreibtisch_melina_verbrauch_gesamt
+    - sensor.schreibtisch_melina_power_factor
