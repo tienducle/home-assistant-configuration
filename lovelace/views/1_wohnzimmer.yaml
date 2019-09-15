@@ -6,8 +6,12 @@
       entities:
         - entity: binary_sensor.oeq0166378_state
           name: Balkon Fenster
-        - entity: switch.braviatv
+        - entity: switch.wohnzimmer_fernseher
           name: Fernseher
+          tap_action:
+            action: toggle
+        - entity: switch.wohnzimmer_anlage
+          name: Anlage
           tap_action:
             action: toggle
         - entity: switch.wohnzimmer_ventilator_steckdose
