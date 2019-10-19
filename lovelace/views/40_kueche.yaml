@@ -23,6 +23,17 @@
             - entity: sensor.kuehlschrank_verbrauch_gesamt
               name: Gesamt
         - type: glance
+          title: Backofen Verbrauch
+          entities:
+            - entity: sensor.backofen_power
+              name: Jetzt
+            - entity: sensor.backofen_verbrauch_heute
+              name: Heute
+            - entity: sensor.backofen_verbrauch_gestern
+              name: Gestern
+            - entity: sensor.backofen_verbrauch_gesamt
+              name: Gesamt
+        - type: glance
           title: Waschmaschine Verbrauch
           entities:
             - entity: sensor.waschmaschine_power

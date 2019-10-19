@@ -68,6 +68,9 @@
     - type: media-control
       entity: media_player.denon
 
+    - type: sensor
+      entity: sensor.plex_vplex
+
     - type: glance
       title: Wohnzimmer Verbrauch
       entities:

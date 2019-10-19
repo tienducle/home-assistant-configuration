@@ -82,6 +82,10 @@ include:
     - sensor.trockner_verbrauch_heute
     - sensor.trockner_verbrauch_gestern
     - sensor.trockner_verbrauch_gesamt
+    - sensor.backofen_power
+    - sensor.backofen_verbrauch_heute
+    - sensor.backofen_verbrauch_gestern
+    - sensor.backofen_verbrauch_gesamt
 
     # Switches
     - switch.wohnzimmer_fernseher
