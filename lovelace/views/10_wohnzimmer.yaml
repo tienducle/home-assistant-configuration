@@ -47,6 +47,15 @@
           name: Thermostat
 
         - type: entities
+          title: Raumklima
+          show_header_toggle: false
+          entities:
+            - entity: sensor.wohnzimmer_temperature
+              name: Temperatur
+            - entity: sensor.wohnzimmer_humidity
+              name: Luftfeuchtigkeit
+
+        - type: entities
           title: Thermostatsteuerung
           show_header_toggle: false
           entities:

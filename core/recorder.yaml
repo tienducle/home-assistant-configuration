@@ -17,6 +17,8 @@ include:
     ## Wohnzimmer
     - climate.oeq0667981
     - binary_sensor.oeq0667981_lowbat
+    - sensor.wohnzimmer_temperature
+    - sensor.wohnzimmer_humidity
     ## Schlafzimmer
     - climate.meq0797490
     - binary_sensor.meq0797490_lowbat
