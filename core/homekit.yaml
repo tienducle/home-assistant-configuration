@@ -31,6 +31,7 @@ filter:
     - switch.wohnzimmer_fernseher
     - switch.wohnzimmer_anlage
     - switch.arbeitszimmer_alexa_steckdose
+    - switch.wohnzimmer_alexa_steckdose
     - switch.wohnzimmer_ventilator_steckdose
     - switch.schlafzimmer_fernseher_steckdose
     - switch.schlafzimmer_ventilator_steckdose
@@ -51,15 +52,15 @@ filter:
 #    - light.wohnzimmer_lampe_5
 #    - light.wohnzimmer_lampe_6
 
-#    - light.schlafzimmer_lampe
+    - light.schlafzimmer
     - light.schlafzimmer_lampe_1
     - light.schlafzimmer_lampe_2
 
-# accessed via Hue bridge
-#    - light.arbeitszimmer_lampe
-#    - light.arbeitszimmer_lampe_1
-#    - light.arbeitszimmer_lampe_2
-#    - light.arbeitszimmer_lampe_3
+# no access via Hue bridge (Tradfri)
+    - light.arbeitszimmer
+    - light.arbeitszimmer_lampe_1
+    - light.arbeitszimmer_lampe_2
+    - light.arbeitszimmer_lampe_3
 
     # Scenes
     # names too similar to lamps

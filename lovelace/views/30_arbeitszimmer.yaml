@@ -19,8 +19,8 @@
           title: Lampen
           show_header_toggle: true
           entities:
-#            - entity: light.arbeitszimmer
-#              name: Alle
+            - entity: light.arbeitszimmer
+              name: Alle
             - entity: light.arbeitszimmer_lampe_1
               name: Lampe 1
             - entity: light.arbeitszimmer_lampe_2

@@ -52,3 +52,16 @@
         unit: 0
         state: 'off'
         'off': 0
+    Wohnzimmer Alexa Steckdose:
+      on_code:
+        protocol: kaku_switch
+        id: !secret plugset2_id
+        unit: 1
+        state: 'on'
+        'on': 1
+      off_code:
+        protocol: kaku_switch
+        id: !secret plugset2_id
+        unit: 1
+        state: 'off'
+        'off': 0

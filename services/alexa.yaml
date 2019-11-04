@@ -16,6 +16,7 @@ smart_home:
       - switch.wohnzimmer_fernseher
       - switch.wohnzimmer_anlage
       - switch.arbeitszimmer_alexa_steckdose
+      - switch.wohnzimmer_alexa_steckdose
       - switch.wohnzimmer_ventilator_steckdose
       - switch.schlafzimmer_fernseher_steckdose
       - switch.schlafzimmer_ventilator_steckdose

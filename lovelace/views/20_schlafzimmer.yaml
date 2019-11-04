@@ -21,8 +21,8 @@
           title: Lampen
           show_header_toggle: true
           entities:
-#            - entity: light.schlafzimmer
-#              name: Alle
+            - entity: light.schlafzimmer
+              name: Alle
             - entity: light.schlafzimmer_lampe_1
               name: Lampe 1
             - entity: light.schlafzimmer_lampe_2

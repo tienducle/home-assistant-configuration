@@ -14,6 +14,10 @@
           name: Anlage
           tap_action:
             action: toggle
+        - entity: switch.wohnzimmer_alexa_steckdose
+          name: Alexa
+          tap_action:
+            action: toggle
         - entity: switch.wohnzimmer_ventilator_steckdose
           name: Ventilator
           tap_action:
@@ -25,8 +29,8 @@
           title: Lampen
           show_header_toggle: true
           entities:
-#            - entity: light.wohnzimmer
-#              name: Alle
+            - entity: light.wohnzimmer
+              name: Alle
             - entity: light.wohnzimmer_lampe_1
               name: Lampe 1
             - entity: light.wohnzimmer_lampe_2

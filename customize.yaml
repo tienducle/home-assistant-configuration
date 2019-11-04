@@ -50,6 +50,10 @@ sensor.fernbedienung_badezimmer:
 sensor.fernbedienung_schlafzimmer:
   friendly_name: Tradfi Fernbedienung Schlafzimmer Batterien
 
+# Tradri connected to Hue
+light.arbeitszimmer:
+  friendly_name: Arbeitszimmer Lampe
+
 # WOL
 switch.wol_computer_tle:
   hidden: true
