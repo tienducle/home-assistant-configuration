@@ -8,6 +8,25 @@
           entities:
             - entity: binary_sensor.oeq0164835_state
               name: Balkon Fenster
+            - entity: binary_sensor.kueche_bewegungssensor
+              name: Bewegungssensor
+
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Lampen
+          show_header_toggle: true
+          entities:
+            - entity: light.kuche
+              name: Alle
+            - entity: light.kuecheninsel_lampe
+              name: Kuecheninsel Lampe
+            - entity: light.kuechen_lampe_1
+              name: Lampe 1
+            - entity: light.kuechen_lampe_2
+              name: Lampe 2
+            - entity: light.kuechen_lampe_3
+              name: Lampe 3
 
     - type: vertical-stack
       cards:

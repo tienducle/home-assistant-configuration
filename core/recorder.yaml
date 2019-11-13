@@ -50,6 +50,11 @@ include:
     - light.arbeitszimmer_lampe_3
     - light.badezimmer_lampe_1
     - light.badezimmer_lampe_2
+    - light.kuecheninsel_lampe
+    - light.kuechen_lampe_1
+    - light.kuechen_lampe_2
+    - light.kuechen_lampe_3
+    - binary_sensor.kueche_bewegungssensor
 
     # Power
     - sensor.wohnzimmer_power

@@ -39,6 +39,8 @@ binary_sensor.oeq0665714_lowbat:
 # Hue
 light.wohnzimmer:
   friendly_name: Wohnzimmer Lampe
+light.kuche:
+  friendly_name: Küchenlampe
 
 # Ikea Tradfri
 light.badezimmer:

@@ -52,6 +52,13 @@ filter:
 #    - light.wohnzimmer_lampe_5
 #    - light.wohnzimmer_lampe_6
 
+# accessed via Hue bridge
+    - light.kuche
+#    - light.kuecheninsel_lampe
+#    - light.kuechen_lampe_1
+#    - light.kuechen_lampe_2
+#    - light.kuechen_lampe_3
+
     - light.schlafzimmer
     - light.schlafzimmer_lampe_1
     - light.schlafzimmer_lampe_2
