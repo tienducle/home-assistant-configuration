@@ -8,3 +8,14 @@
   name: 'Wohnzimmer Humidity'
   unit_of_measurement: '%'
   device_class: humidity
+
+- platform: mqtt
+  state_topic: 'rooms/arbeitszimmer/temperature'
+  name: 'Arbeitszimmer Temperature'
+  unit_of_measurement: '°C'
+  device_class: temperature
+- platform: mqtt
+  state_topic: 'rooms/arbeitszimmer/humidity'
+  name: 'Arbeitszimmer Humidity'
+  unit_of_measurement: '%'
+  device_class: humidity

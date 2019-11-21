@@ -16,3 +16,79 @@
       message: Test
       title: Notification Title
     service: notify.tv
+- id: '1574144981511'
+  alias: FIX - Tradfri Badezimmer On
+  description: ''
+  trigger:
+  - device_id: 70a79717fa2d409097a1a20468ceaad3
+    domain: light
+    entity_id: light.badezimmer_lampe_1
+    platform: device
+    type: turned_on
+  - device_id: 9abd08daa7f64bbabf7ab8c185b483d0
+    domain: light
+    entity_id: light.badezimmer_lampe_2
+    platform: device
+    type: turned_on
+  condition: []
+  action:
+  - data:
+      entity_id: light.badezimmer
+    service: light.turn_on
+- id: '1574145061772'
+  alias: FIX - Tradfri Badezimmer Off
+  description: ''
+  trigger:
+  - device_id: 70a79717fa2d409097a1a20468ceaad3
+    domain: light
+    entity_id: light.badezimmer_lampe_1
+    platform: device
+    type: turned_off
+  - device_id: 9abd08daa7f64bbabf7ab8c185b483d0
+    domain: light
+    entity_id: light.badezimmer_lampe_2
+    platform: device
+    type: turned_off
+  condition: []
+  action:
+  - data:
+      entity_id: light.badezimmer
+    service: light.turn_off
+- id: '1574145895611'
+  alias: FIX - Tradfri Schlafzimmer On
+  description: ''
+  trigger:
+  - device_id: c89645aa6a394ae8b2ef12b0a9f3de20
+    domain: light
+    entity_id: light.schlafzimmer_lampe_1
+    platform: device
+    type: turned_on
+  - device_id: 5d71c0e7fcd846cf9ef856b3036dda48
+    domain: light
+    entity_id: light.schlafzimmer_lampe_2
+    platform: device
+    type: turned_on
+  condition: []
+  action:
+  - data:
+      entity_id: light.schlafzimmer
+    service: light.turn_on
+- id: '1574145927751'
+  alias: FIX - Tradfri Schlafzimmer Off
+  description: ''
+  trigger:
+  - device_id: c89645aa6a394ae8b2ef12b0a9f3de20
+    domain: light
+    entity_id: light.schlafzimmer_lampe_1
+    platform: device
+    type: turned_off
+  - device_id: 5d71c0e7fcd846cf9ef856b3036dda48
+    domain: light
+    entity_id: light.schlafzimmer_lampe_2
+    platform: device
+    type: turned_off
+  condition: []
+  action:
+  - data:
+      entity_id: light.schlafzimmer
+    service: light.turn_off

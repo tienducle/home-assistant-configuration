@@ -25,6 +25,9 @@ include:
     ## Badezimmer
     - climate.oeq0665714
     - binary_sensor.oeq0665714_lowbat
+    ## Arbeitszimmer
+    - sensor.arbeitszimmer_temperature
+    - sensor.arbeitszimmer_humidity
 
     # TV
     - media_player.kd55xe9005

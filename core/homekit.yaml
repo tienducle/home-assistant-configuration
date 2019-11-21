@@ -39,7 +39,7 @@ filter:
     - switch.melinas_computer
 
     # Lights
-#    - light.badezimmer_lampe
+    - light.badezimmer
     - light.badezimmer_lampe_1
     - light.badezimmer_lampe_2
 
@@ -59,7 +59,7 @@ filter:
 #    - light.kuechen_lampe_2
 #    - light.kuechen_lampe_3
 
-    - light.schlafzimmer
+#    - light.schlafzimmer
     - light.schlafzimmer_lampe_1
     - light.schlafzimmer_lampe_2
 

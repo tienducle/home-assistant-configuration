@@ -28,6 +28,17 @@
             - entity: light.arbeitszimmer_lampe_3
               name: Lampe 3
 
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Raumklima
+          show_header_toggle: false
+          entities:
+            - entity: sensor.arbeitszimmer_temperature
+              name: Temperatur
+            - entity: sensor.arbeitszimmer_humidity
+              name: Luftfeuchtigkeit
+
     - type: glance
       title: Schreibtisch Duc Verbrauch
       entities:
