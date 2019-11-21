@@ -1,7 +1,7 @@
 smart_home:
   endpoint: https://api.eu.amazonalexa.com/v3/events
-  client_id: amzn1.application-oa2-client.ac3d84be933246ff8296559b76ea69ec
-  client_secret: a544e75ebc046938151079e9b20050a2227b2540add1dc5fcb44be733dc0781f
+  client_id: !secret alexa_skill_client_id
+  client_secret: !secret alexa_skill_client_secret
   filter:
     include_entities:
       # Thermostats
