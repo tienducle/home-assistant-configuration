@@ -6,21 +6,22 @@
       title: Duc
       show_header_toggle: false
       entities:
-        - entity: device_tracker.tle_ipx
-        - entity: sensor.tle_ipx_activity
-        - entity: sensor.tle_ipx_average_active_pace
-        - entity: sensor.tle_ipx_bssid
-        - entity: sensor.tle_ipx_battery_level
-        - entity: sensor.tle_ipx_battery_state
-        - entity: sensor.tle_ipx_connection_type
-        - entity: sensor.tle_ipx_distance
-        - entity: sensor.tle_ipx_floors_ascended
-        - entity: sensor.tle_ipx_floors_descended
-        - entity: sensor.tle_ipx_geocoded_location
-        - entity: sensor.tle_ipx_last_update_trigger
-        - entity: sensor.tle_ipx_sim_1
-        - entity: sensor.tle_ipx_ssid
-        - entity: sensor.tle_ipx_steps
+        - entity: device_tracker.tle_ip11p
+        - entity: sensor.tle_ip11p_activity
+        - entity: sensor.tle_ip11p_average_active_pace
+        - entity: sensor.tle_ip11p_bssid
+        - entity: sensor.tle_ip11p_battery_level
+        - entity: sensor.tle_ip11p_battery_state
+        - entity: sensor.tle_ip11p_connection_type
+        - entity: sensor.tle_ip11p_distance
+        - entity: sensor.tle_ip11p_floors_ascended
+        - entity: sensor.tle_ip11p_floors_descended
+        - entity: sensor.tle_ip11p_geocoded_location
+        - entity: sensor.tle_ip11p_last_update_trigger
+        - entity: sensor.tle_ip11p_sim_1
+        - entity: sensor.tle_ip11p_sim_2
+        - entity: sensor.tle_ip11p_ssid
+        - entity: sensor.tle_ip11p_steps
 
     - type: entities
       title: Melina

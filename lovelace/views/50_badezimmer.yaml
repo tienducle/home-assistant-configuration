@@ -18,6 +18,8 @@
     - type: glance
       title: Trockner Verbrauch
       entities:
+        - entity: switch.trockner
+          name: Status
         - entity: sensor.trockner_power
           name: Jetzt
         - entity: sensor.trockner_verbrauch_heute

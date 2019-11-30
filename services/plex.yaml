@@ -1,6 +1,6 @@
 host: 10.92.96.22
 port: 32400
-ssl: true
+ssl: false
 verify_ssl: false
 media_player:
   use_episode_art: true

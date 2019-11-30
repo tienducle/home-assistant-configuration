@@ -40,19 +40,24 @@ include:
 #    - device_tracker.msp_ip7
 
     # Lights
+    - light.wohnzimmer_lampe
     - light.wohnzimmer_lampe_1
     - light.wohnzimmer_lampe_2
     - light.wohnzimmer_lampe_3
     - light.wohnzimmer_lampe_4
     - light.wohnzimmer_lampe_5
     - light.wohnzimmer_lampe_6
+    - light.schlafzimmer_lampe
     - light.schlafzimmer_lampe_1
     - light.schlafzimmer_lampe_2
+    - light.arbeitszimmer_lampe
     - light.arbeitszimmer_lampe_1
     - light.arbeitszimmer_lampe_2
     - light.arbeitszimmer_lampe_3
+    - light.badezimmer_lampe
     - light.badezimmer_lampe_1
     - light.badezimmer_lampe_2
+    - light.kuche
     - light.kuecheninsel_lampe
     - light.kuechen_lampe_1
     - light.kuechen_lampe_2
@@ -61,41 +66,41 @@ include:
 
     # Power
     - sensor.wohnzimmer_power
-    - sensor.wohnzimmer_verbrauch_heute
-    - sensor.wohnzimmer_verbrauch_gestern
-    - sensor.wohnzimmer_verbrauch_gesamt
+#    - sensor.wohnzimmer_verbrauch_heute
+#    - sensor.wohnzimmer_verbrauch_gestern
+#    - sensor.wohnzimmer_verbrauch_gesamt
     - sensor.router_power
-    - sensor.router_verbrauch_heute
-    - sensor.router_verbrauch_gestern
-    - sensor.router_verbrauch_gesamt
+#    - sensor.router_verbrauch_heute
+#    - sensor.router_verbrauch_gestern
+#    - sensor.router_verbrauch_gesamt
     - sensor.schreibtisch_duc_power
-    - sensor.schreibtisch_duc_verbrauch_heute
-    - sensor.schreibtisch_duc_verbrauch_gestern
-    - sensor.schreibtisch_duc_verbrauch_gesamt
+#    - sensor.schreibtisch_duc_verbrauch_heute
+#    - sensor.schreibtisch_duc_verbrauch_gestern
+#    - sensor.schreibtisch_duc_verbrauch_gesamt
     - sensor.schreibtisch_melina_power
-    - sensor.schreibtisch_melina_verbrauch_heute
-    - sensor.schreibtisch_melina_verbrauch_gestern
-    - sensor.schreibtisch_melina_verbrauch_gesamt
+#    - sensor.schreibtisch_melina_verbrauch_heute
+#    - sensor.schreibtisch_melina_verbrauch_gestern
+#    - sensor.schreibtisch_melina_verbrauch_gesamt
     - sensor.kuehlschrank_power
-    - sensor.kuehlschrank_verbrauch_heute
-    - sensor.kuehlschrank_verbrauch_gestern
-    - sensor.kuehlschrank_verbrauch_gesamt
+#    - sensor.kuehlschrank_verbrauch_heute
+#    - sensor.kuehlschrank_verbrauch_gestern
+#    - sensor.kuehlschrank_verbrauch_gesamt
     - sensor.waschmaschine_power
-    - sensor.waschmaschine_verbrauch_heute
-    - sensor.waschmaschine_verbrauch_gestern
-    - sensor.waschmaschine_verbrauch_gesamt
+#    - sensor.waschmaschine_verbrauch_heute
+#    - sensor.waschmaschine_verbrauch_gestern
+#    - sensor.waschmaschine_verbrauch_gesamt
     - sensor.geschirrspueler_power
-    - sensor.geschirrspueler_verbrauch_heute
-    - sensor.geschirrspueler_verbrauch_gestern
-    - sensor.geschirrspueler_verbrauch_gesamt
+#    - sensor.geschirrspueler_verbrauch_heute
+#    - sensor.geschirrspueler_verbrauch_gestern
+#    - sensor.geschirrspueler_verbrauch_gesamt
     - sensor.trockner_power
-    - sensor.trockner_verbrauch_heute
-    - sensor.trockner_verbrauch_gestern
-    - sensor.trockner_verbrauch_gesamt
+#    - sensor.trockner_verbrauch_heute
+#    - sensor.trockner_verbrauch_gestern
+#    - sensor.trockner_verbrauch_gesamt
     - sensor.backofen_power
-    - sensor.backofen_verbrauch_heute
-    - sensor.backofen_verbrauch_gestern
-    - sensor.backofen_verbrauch_gesamt
+#    - sensor.backofen_verbrauch_heute
+#    - sensor.backofen_verbrauch_gestern
+#    - sensor.backofen_verbrauch_gesamt
 
     # Switches
     - switch.wohnzimmer_fernseher
@@ -104,3 +109,37 @@ include:
     - switch.schlafzimmer_ventilator_steckdose
     - switch.schlafzimmer_fernseher_steckdose
     - switch.arbeitszimmer_alexa_steckdose
+
+    # iOS
+    - device_tracker.tle_ip11p
+    - sensor.tle_ip11p_activity
+    - sensor.tle_ip11p_average_active_pace
+    - sensor.tle_ip11p_bssid
+    - sensor.tle_ip11p_battery_level
+    - sensor.tle_ip11p_battery_state
+    - sensor.tle_ip11p_connection_type
+    - sensor.tle_ip11p_distance
+    - sensor.tle_ip11p_floors_ascended
+    - sensor.tle_ip11p_floors_descended
+    - sensor.tle_ip11p_geocoded_location
+    - sensor.tle_ip11p_last_update_trigger
+    - sensor.tle_ip11p_sim_1
+    - sensor.tle_ip11p_sim_2
+    - sensor.tle_ip11p_ssid
+    - sensor.tle_ip11p_steps
+
+    - device_tracker.msp_ip7
+    - sensor.msp_ip7_activity
+    - sensor.msp_ip7_average_active_pace
+    - sensor.msp_ip7_bssid
+    - sensor.msp_ip7_battery_level
+    - sensor.msp_ip7_battery_state
+    - sensor.msp_ip7_connection_type
+    - sensor.msp_ip7_distance
+    - sensor.msp_ip7_floors_ascended
+    - sensor.msp_ip7_floors_descended
+    - sensor.msp_ip7_geocoded_location
+    - sensor.msp_ip7_last_update_trigger
+    - sensor.msp_ip7_sim_1
+    - sensor.msp_ip7_ssid
+    - sensor.msp_ip7_steps

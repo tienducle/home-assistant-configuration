@@ -22,12 +22,14 @@ smart_home:
       - switch.schlafzimmer_ventilator_steckdose
       - switch.ducs_computer
       - switch.melinas_computer
+      - switch.trockner
 
       # Lights
       - light.wohnzimmer
       - light.schlafzimmer
       - light.arbeitszimmer
       - light.badezimmer
+      - light.kuche
 
 #    include_domains:
 #      - light

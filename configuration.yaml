@@ -28,8 +28,7 @@ config:
 automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
 frontend: !include core/frontend.yaml
-history:
-#!include core/history.yaml
+history: !include core/history.yaml
 http: !include core/http.yaml
 homekit: !include core/homekit.yaml
 group: !include_dir_merge_named groups
