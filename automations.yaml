@@ -61,11 +61,19 @@
   - device_id: c89645aa6a394ae8b2ef12b0a9f3de20
     domain: light
     entity_id: light.schlafzimmer_lampe_1
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
     platform: device
     type: turned_on
   - device_id: 5d71c0e7fcd846cf9ef856b3036dda48
     domain: light
     entity_id: light.schlafzimmer_lampe_2
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
     platform: device
     type: turned_on
   condition: []
@@ -80,11 +88,19 @@
   - device_id: c89645aa6a394ae8b2ef12b0a9f3de20
     domain: light
     entity_id: light.schlafzimmer_lampe_1
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
     platform: device
     type: turned_off
   - device_id: 5d71c0e7fcd846cf9ef856b3036dda48
     domain: light
     entity_id: light.schlafzimmer_lampe_2
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
     platform: device
     type: turned_off
   condition: []
@@ -92,3 +108,41 @@
   - data:
       entity_id: light.schlafzimmer
     service: light.turn_off
+- id: '1575208030352'
+  alias: Haustür
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.oeq0169426_state
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.oeq0164835_state
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.oeq0166378_state
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.oeq0167636_state
+      state: 'on'
+  action:
+  - data:
+      message: Ein Fenster ist noch geöffnet!
+    service: notify.telegram
+- id: '1575209500948'
+  alias: NTFY - Schlafzimmer Fenster
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.oeq0167636_state
+    for: 00:10:00
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: Schlafzimmer Fenster war 10min geöffnet
+    service: notify.telegram
