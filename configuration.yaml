@@ -49,6 +49,9 @@ websocket_api:
 # Alexa
 alexa: !include services/alexa.yaml
 
+# Cloudflare
+cloudflare: !include services/cloudflare.yaml
+
 # Homematic
 homematic: !include services/homematic.yaml
 

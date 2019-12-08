@@ -1,0 +1,4 @@
+email: !secret CF_EMAIL
+api_key: !secret CF_API_KEY
+zone: !secret CF_ZONE
+records: !secret CF_RECORDS
