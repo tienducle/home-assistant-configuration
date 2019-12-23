@@ -8,7 +8,7 @@
 #    - off: triggers command_line switch
 
 - platform: wake_on_lan
-  mac_address: !secret computer_tle_mac_address
+  mac: !secret computer_tle_mac_address
   name: wol_computer_tle
   host: !secret computer_tle_host
 
@@ -30,7 +30,7 @@
         entity_id: switch.shutdown_computer_tle
 
 - platform: wake_on_lan
-  mac_address: !secret computer_msp_mac_address
+  mac: !secret computer_msp_mac_address
   name: "wol_computer_msp"
   host: !secret computer_msp_host
 
@@ -53,7 +53,7 @@
 
 # MacMini
 - platform: wake_on_lan
-  mac_address: !secret macmini_mac_address
+  mac: !secret macmini_mac_address
   name: wol_macmini
   host: !secret macmini_host
 

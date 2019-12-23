@@ -64,7 +64,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 1
+      seconds: 0
     platform: device
     type: turned_on
   - device_id: 5d71c0e7fcd846cf9ef856b3036dda48
@@ -73,7 +73,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 1
+      seconds: 0
     platform: device
     type: turned_on
   condition: []
@@ -91,7 +91,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 1
+      seconds: 0
     platform: device
     type: turned_off
   - device_id: 5d71c0e7fcd846cf9ef856b3036dda48
@@ -100,7 +100,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 1
+      seconds: 0
     platform: device
     type: turned_off
   condition: []
