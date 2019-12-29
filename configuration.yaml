@@ -84,6 +84,9 @@ plex: !include services/plex.yaml
 # Shell commands
 shell_command: !include shellcommands.yaml
 
+# Tado
+tado: !include services/tado.yaml
+
 # Tradfri
 tradfri: !include services/tradfri.yaml
 

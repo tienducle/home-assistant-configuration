@@ -42,7 +42,11 @@ light.wohnzimmer:
 light.kuche:
   friendly_name: Küchenlampe
 
-# Ikea Tradfri
+# Tado
+climate.arbeitszimmer:
+  friendly_name: Arbeitszimmer Thermostat
+
+# Tradfri
 light.badezimmer:
   friendly_name: Badezimmer Lampe
 light.schlafzimmer:

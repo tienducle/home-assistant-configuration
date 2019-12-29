@@ -5,6 +5,8 @@ smart_home:
   filter:
     include_entities:
       # Thermostats
+      ## Arbeitszimmer
+      - climate.arbeitszimmer
       ## Schlafzimmer
       - climate.meq0797490
       ## Badezimmer

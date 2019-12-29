@@ -30,6 +30,9 @@
 
     - type: vertical-stack
       cards:
+        - type: thermostat
+          entity: climate.arbeitszimmer
+          name: Thermostat
         - type: entities
           title: Raumklima
           show_header_toggle: false
