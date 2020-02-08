@@ -1,0 +1,3 @@
+- platform: switch
+  name: Wohnzimmer Stehlampe
+  entity_id: switch.wohnzimmer_stehlampe_steckdose

@@ -8,6 +8,9 @@ binary_sensor.oeq0169426_lowbat:
 binary_sensor.oeq0166378_state:
   friendly_name: Wohnzimmer Balkon Fenster
   device_class: window
+binary_sensor.wohnzimmer_fenster:
+  friendly_name: Wohnzimmer Fenster
+  device_class: window
 binary_sensor.oeq0166378_lowbat:
   friendly_name: Wohnzimmer Balkon Fenster Batterien
   device_class: battery
@@ -39,12 +42,16 @@ binary_sensor.oeq0665714_lowbat:
 # Hue
 light.wohnzimmer:
   friendly_name: Wohnzimmer Lampe
-light.kuche:
-  friendly_name: Küchenlampe
+light.kueche:
+  friendly_name: Kuechenlampe
 
 # Tado
 climate.arbeitszimmer:
   friendly_name: Arbeitszimmer Thermostat
+
+# Tasmota
+#switch.wohnzimmer_stehlampe:
+#  device_class: light
 
 # Tradfri
 light.badezimmer:

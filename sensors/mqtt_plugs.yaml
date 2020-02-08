@@ -61,6 +61,28 @@
 #  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
 #  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
 
+# Wohnzimmer Stehlampe
+- platform: mqtt
+  name: "Wohnzimmer Stehlampe Verbrauch Heute"
+  state_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Wohnzimmer Stehlampe Verbrauch Gestern"
+  state_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Wohnzimmer Stehlampe Verbrauch Gesamt"
+  state_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Wohnzimmer Stehlampe Power"
+  state_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
 # Kueche
 - platform: mqtt
   name: "Kuehlschrank Verbrauch Heute"

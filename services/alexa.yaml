@@ -6,7 +6,7 @@ smart_home:
     include_entities:
       # Thermostats
       ## Arbeitszimmer
-      - climate.arbeitszimmer
+      - climate.arbeitszimmer_thermostat
       ## Schlafzimmer
       - climate.meq0797490
       ## Badezimmer
@@ -31,7 +31,9 @@ smart_home:
       - light.schlafzimmer
       - light.arbeitszimmer
       - light.badezimmer
-      - light.kuche
+      - light.kueche
+      - light.gaestebad
+      - light.wohnzimmer_stehlampe
 
 #    include_domains:
 #      - light

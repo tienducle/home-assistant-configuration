@@ -6,6 +6,8 @@
       entities:
         - entity: binary_sensor.oeq0166378_state
           name: Balkon Fenster
+        - entity: binary_sensor.wohnzimmer_fenster
+          name: Fenster
         - entity: switch.wohnzimmer_fernseher
           name: Fernseher
           tap_action:
@@ -43,6 +45,8 @@
               name: Lampe 5
             - entity: light.wohnzimmer_lampe_6
               name: Lampe 6
+            - entity: light.wohnzimmer_stehlampe
+              name: Stehlampe
 
     - type: vertical-stack
       cards:

@@ -25,6 +25,7 @@ homeassistant:
 # https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/default_config/manifest.json
 #default_config:
 config:
+alarm_control_panel: !include core/acp.yaml
 automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
 frontend: !include core/frontend.yaml
@@ -32,6 +33,7 @@ history: !include core/history.yaml
 http: !include core/http.yaml
 homekit: !include core/homekit.yaml
 group: !include_dir_merge_named groups
+#input_boolean: !include_dir_merge_named controls/input_booleans
 #logbook: !include core/logbook.yaml
 lovelace:
   mode: yaml
@@ -50,18 +52,20 @@ websocket_api:
 alexa: !include services/alexa.yaml
 
 # Cloudflare
-cloudflare: !include services/cloudflare.yaml
+#cloudflare: !include services/cloudflare.yaml
 
 # Homematic
 homematic: !include services/homematic.yaml
 
 # Hue
 # Press link button before starting HA for first setup
-hue: !include services/hue.yaml
+#hue: !include services/hue.yaml
 
 # iOS integrations
 # ios:
 mobile_app:
+
+light: !include_dir_merge_list lights
 
 # Media Player
 media_player: !include_dir_merge_list mediaplayers
@@ -85,10 +89,10 @@ plex: !include services/plex.yaml
 shell_command: !include shellcommands.yaml
 
 # Tado
-tado: !include services/tado.yaml
+#tado: !include services/tado.yaml
 
 # Tradfri
-tradfri: !include services/tradfri.yaml
+#tradfri: !include services/tradfri.yaml
 
 # Wake on lan
 wake_on_lan:

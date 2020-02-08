@@ -6,3 +6,10 @@
   payload_off: "OFF"
   retain: false
 
+- platform: mqtt
+  name: "Wohnzimmer Stehlampe Steckdose"
+  state_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/stat/POWER"
+  command_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false

@@ -31,16 +31,8 @@
     - type: vertical-stack
       cards:
         - type: thermostat
-          entity: climate.arbeitszimmer
+          entity: climate.arbeitszimmer_thermostat
           name: Thermostat
-        - type: entities
-          title: Raumklima
-          show_header_toggle: false
-          entities:
-            - entity: sensor.arbeitszimmer_temperature
-              name: Temperatur
-            - entity: sensor.arbeitszimmer_humidity
-              name: Luftfeuchtigkeit
 
     - type: glance
       title: Schreibtisch Duc Verbrauch

@@ -146,3 +146,60 @@
   - data:
       message: Schlafzimmer Fenster war 10min geöffnet
     service: notify.telegram
+- id: '1578513683867'
+  alias: (TEST) CRITICAL NTFY Melina
+  description: ''
+  trigger: []
+  condition: []
+  action:
+  - data:
+      data:
+        push:
+          sound:
+            critical: 1
+            name: default
+            volume: 1
+      message: Hallooooooo
+      title: Test
+    service: notify.mobile_app_msp_ip7
+- id: '1579464490045'
+  alias: Wohnzimmer Lichtschalter - An
+  description: ''
+  trigger:
+  - device_id: 9ae4021053464b1188f3a8b365796f15
+    domain: deconz
+    platform: device
+    subtype: turn_on
+    type: remote_button_long_press
+  condition: []
+  action:
+  - entity_id: light.wohnzimmer_stehlampe
+    service: light.turn_on
+- id: '1579464524100'
+  alias: Wohnzimmer Lichtschalter - Aus
+  description: ''
+  trigger:
+  - device_id: 9ae4021053464b1188f3a8b365796f15
+    domain: deconz
+    platform: device
+    subtype: turn_off
+    type: remote_button_long_press
+  condition: []
+  action:
+  - entity_id: light.wohnzimmer_stehlampe
+    service: light.turn_off
+- id: '1581175680084'
+  alias: New Automation
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.kueche_bewegungssensor
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - below: '10'
+    condition: numeric_state
+    entity_id: sensor.kueche_helligkeitssensor
+  action:
+  - entity_id: light.kueche
+    service: light.turn_on

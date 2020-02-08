@@ -32,6 +32,9 @@
         - person.duc
         - person.melina
 
+    - type: alarm-panel
+      entity: alarm_control_panel.ha_alarm
+
     - type: glance
       title: Router/NAS Verbrauch
       entities:

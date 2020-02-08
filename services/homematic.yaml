@@ -2,4 +2,8 @@ interfaces:
   wired:
     host: !secret homematic_host
     port: !secret homematic_port
-    resolvenames: json
+    ssl: true
+    verify_ssl: false
+    username: !secret homematic_homegear_username
+    password: !secret homematic_homegear_password
+    resolvenames: metadata

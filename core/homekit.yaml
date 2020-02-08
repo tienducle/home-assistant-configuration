@@ -12,7 +12,7 @@ filter:
 
     # Thermostats
     ## Arbeitszimmer
-    - climate.arbeitszimmer
+    - climate.arbeitszimmer_thermostat
     ## Schlafzimmer
     - climate.meq0797490
     ## Badezimmer
@@ -45,28 +45,23 @@ filter:
     - light.badezimmer
     - light.badezimmer_lampe_1
     - light.badezimmer_lampe_2
-
-# accessed via Hue bridge
-#    - light.wohnzimmer_lampe
-#    - light.wohnzimmer_lampe_1
-#    - light.wohnzimmer_lampe_2
-#    - light.wohnzimmer_lampe_3
-#    - light.wohnzimmer_lampe_4
-#    - light.wohnzimmer_lampe_5
-#    - light.wohnzimmer_lampe_6
-
-# accessed via Hue bridge
-    - light.kuche
-#    - light.kuecheninsel_lampe
-#    - light.kuechen_lampe_1
-#    - light.kuechen_lampe_2
-#    - light.kuechen_lampe_3
-
-#    - light.schlafzimmer
+    - light.gaestebad_lampe
+    - light.wohnzimmer_lampe
+    - light.wohnzimmer_lampe_1
+    - light.wohnzimmer_lampe_2
+    - light.wohnzimmer_lampe_3
+    - light.wohnzimmer_lampe_4
+    - light.wohnzimmer_lampe_5
+    - light.wohnzimmer_lampe_6
+    - light.wohnzimmer_stehlampe
+    - light.kueche
+    - light.kuecheninsel_lampe
+    - light.kuechenzeile_lampe_1
+    - light.kuechenzeile_lampe_2
+    - light.kuechenzeile_lampe_3
+    - light.schlafzimmer
     - light.schlafzimmer_lampe_1
     - light.schlafzimmer_lampe_2
-
-# no access via Hue bridge (Tradfri)
     - light.arbeitszimmer
     - light.arbeitszimmer_lampe_1
     - light.arbeitszimmer_lampe_2
