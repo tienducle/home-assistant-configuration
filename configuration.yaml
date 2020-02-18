@@ -83,7 +83,7 @@ telegram_bot: !include services/telegram.yaml
 pilight: !include services/pilight.yaml
 
 # Plex
-plex: !include services/plex.yaml
+#plex: !include services/plex.yaml
 
 # Shell commands
 shell_command: !include shellcommands.yaml

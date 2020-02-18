@@ -21,7 +21,7 @@
   switches:
     ducs_computer:
       friendly_name: 'Ducs Computer'
-      value_template: '{{ is_state("switch.wol_computer_duc", "on") }}'
+      value_template: '{{ is_state("switch.wol_computer_tle", "on") }}'
       turn_on:
         service: switch.turn_on
         entity_id: switch.wol_computer_tle

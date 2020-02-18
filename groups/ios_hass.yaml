@@ -1,6 +1,5 @@
 tle_ipx:
   name: Duc
-  control: hidden
   entities:
     - device_tracker.tle_ipx
     - sensor.tle_ipx_activity
@@ -20,7 +19,6 @@ tle_ipx:
 
 msp_ip7:
   name: Melina
-  control: hidden
   entities:
     - device_tracker.msp_ip7
     - sensor.msp_ip7_activity
