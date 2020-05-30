@@ -46,3 +46,17 @@
           name: Gestern
         - entity: sensor.router_verbrauch_gesamt
           name: Gesamt
+
+    - type: glance
+      title: Drucker
+      entities:
+        - entity: sensor.printer
+          name: Status
+        - entity: sensor.printer_m
+          name: Magenta
+        - entity: sensor.printer_c
+          name: Cyan
+        - entity: sensor.printer_y
+          name: Gelb
+        - entity: sensor.printer_bk
+          name: Schwarz

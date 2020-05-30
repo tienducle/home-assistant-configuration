@@ -1,5 +1,5 @@
 db_url: !secret dburl
-purge_interval: 1
+auto_purge: true
 purge_keep_days: 365
 include:
   entities:
@@ -142,3 +142,10 @@ include:
     - sensor.msp_ip7_sim_1
     - sensor.msp_ip7_ssid
     - sensor.msp_ip7_steps
+
+    # Printer
+    - sensor.printer
+    - sensor.printer_m
+    - sensor.printer_c
+    - sensor.printer_y
+    - sensor.printer_bk
