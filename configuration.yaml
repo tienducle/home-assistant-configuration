@@ -83,6 +83,7 @@ telegram_bot: !include services/telegram.yaml
 pilight: !include services/pilight.yaml
 
 # Plex
+# configured via UI as of 109
 #plex: !include services/plex.yaml
 
 # Shell commands
