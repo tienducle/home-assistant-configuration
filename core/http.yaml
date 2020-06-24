@@ -1,4 +1,3 @@
-base_url: !secret http_base_url
 ssl_certificate: !secret https_crt
 ssl_key: !secret https_pkey
 use_x_forwarded_for: true
