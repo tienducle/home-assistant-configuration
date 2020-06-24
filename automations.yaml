@@ -16,98 +16,6 @@
       message: Test
       title: Notification Title
     service: notify.tv
-- id: '1574144981511'
-  alias: FIX - Tradfri Badezimmer On
-  description: ''
-  trigger:
-  - device_id: 70a79717fa2d409097a1a20468ceaad3
-    domain: light
-    entity_id: light.badezimmer_lampe_1
-    platform: device
-    type: turned_on
-  - device_id: 9abd08daa7f64bbabf7ab8c185b483d0
-    domain: light
-    entity_id: light.badezimmer_lampe_2
-    platform: device
-    type: turned_on
-  condition: []
-  action:
-  - data:
-      entity_id: light.badezimmer
-    service: light.turn_on
-- id: '1574145061772'
-  alias: FIX - Tradfri Badezimmer Off
-  description: ''
-  trigger:
-  - device_id: 70a79717fa2d409097a1a20468ceaad3
-    domain: light
-    entity_id: light.badezimmer_lampe_1
-    platform: device
-    type: turned_off
-  - device_id: 9abd08daa7f64bbabf7ab8c185b483d0
-    domain: light
-    entity_id: light.badezimmer_lampe_2
-    platform: device
-    type: turned_off
-  condition: []
-  action:
-  - data:
-      entity_id: light.badezimmer
-    service: light.turn_off
-- id: '1574145895611'
-  alias: FIX - Tradfri Schlafzimmer On
-  description: ''
-  trigger:
-  - device_id: c89645aa6a394ae8b2ef12b0a9f3de20
-    domain: light
-    entity_id: light.schlafzimmer_lampe_1
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-    platform: device
-    type: turned_on
-  - device_id: 5d71c0e7fcd846cf9ef856b3036dda48
-    domain: light
-    entity_id: light.schlafzimmer_lampe_2
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-    platform: device
-    type: turned_on
-  condition: []
-  action:
-  - data:
-      entity_id: light.schlafzimmer
-    service: light.turn_on
-- id: '1574145927751'
-  alias: FIX - Tradfri Schlafzimmer Off
-  description: ''
-  trigger:
-  - device_id: c89645aa6a394ae8b2ef12b0a9f3de20
-    domain: light
-    entity_id: light.schlafzimmer_lampe_1
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-    platform: device
-    type: turned_off
-  - device_id: 5d71c0e7fcd846cf9ef856b3036dda48
-    domain: light
-    entity_id: light.schlafzimmer_lampe_2
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-    platform: device
-    type: turned_off
-  condition: []
-  action:
-  - data:
-      entity_id: light.schlafzimmer
-    service: light.turn_off
 - id: '1575208030352'
   alias: Haustür
   description: ''
@@ -162,44 +70,97 @@
       message: Hallooooooo
       title: Test
     service: notify.mobile_app_msp_ip7
-- id: '1579464490045'
-  alias: Wohnzimmer Lichtschalter - An
+- id: '1590863492632'
+  alias: Küche Bewegung -> Küchenlampe An
   description: ''
   trigger:
-  - device_id: 9ae4021053464b1188f3a8b365796f15
+  - device_id: 3b59816422944600b79ce4faccfc87ec
+    domain: binary_sensor
+    entity_id: binary_sensor.kueche_bewegungssensor
+    platform: device
+    type: motion
+  condition:
+  - above: '0'
+    below: '30'
+    condition: numeric_state
+    entity_id: sensor.kueche_helligkeitssensor
+  action:
+  - data: {}
+    entity_id: light.kueche
+    service: light.turn_on
+- id: '1590863622994'
+  alias: Küche keine Bewegung -> Küchenlampe Aus
+  description: ''
+  trigger:
+  - device_id: 3b59816422944600b79ce4faccfc87ec
+    domain: binary_sensor
+    entity_id: binary_sensor.kueche_bewegungssensor
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    platform: device
+    type: no_motion
+  condition:
+  - condition: state
+    entity_id: input_boolean.kueche_lichtschalter
+    state: 'off'
+  action:
+  - data: {}
+    entity_id: light.kueche
+    service: light.turn_off
+- id: '1590865975366'
+  alias: Küchenlampe Aus -> Input_Boolean Aus
+  description: ''
+  trigger:
+  - entity_id: light.kueche
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data: {}
+    entity_id: input_boolean.kueche_lichtschalter
+    service: input_boolean.turn_off
+- id: '1593028783719'
+  alias: Wohnzimmer Lichtschalter An (lang) -> Wohnzimmer Stehlampe An
+  description: ''
+  trigger:
+  - device_id: 00cc41ffe8594568be7cba978e1ca1c9
     domain: deconz
     platform: device
     subtype: turn_on
     type: remote_button_long_press
   condition: []
   action:
-  - entity_id: light.wohnzimmer_stehlampe
+  - data: {}
+    entity_id: light.wohnzimmer_stehlampe
     service: light.turn_on
-- id: '1579464524100'
-  alias: Wohnzimmer Lichtschalter - Aus
+- id: '1593028825155'
+  alias: Wohnzimmer Lichtschalter Aus (lang) -> Wohnzimmer Stehlampe Aus
   description: ''
   trigger:
-  - device_id: 9ae4021053464b1188f3a8b365796f15
+  - device_id: 00cc41ffe8594568be7cba978e1ca1c9
     domain: deconz
     platform: device
     subtype: turn_off
     type: remote_button_long_press
   condition: []
   action:
-  - entity_id: light.wohnzimmer_stehlampe
+  - data: {}
+    entity_id: light.wohnzimmer_stehlampe
     service: light.turn_off
-- id: '1581175680084'
-  alias: New Automation
+- id: '1593028891671'
+  alias: Küche Lichtschalter An -> Input_Boolean An
   description: ''
   trigger:
-  - entity_id: binary_sensor.kueche_bewegungssensor
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-  - below: '10'
-    condition: numeric_state
-    entity_id: sensor.kueche_helligkeitssensor
+  - device_id: af2308ef2a9b49e2a00a02292e707301
+    domain: deconz
+    platform: device
+    subtype: turn_on
+    type: remote_button_short_press
+  condition: []
   action:
-  - entity_id: light.kueche
-    service: light.turn_on
+  - data: {}
+    entity_id: input_boolean.kueche_lichtschalter
+    service: input_boolean.turn_on
