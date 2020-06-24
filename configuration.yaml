@@ -2,6 +2,9 @@ homeassistant:
   # https://www.home-assistant.io/docs/configuration/basic/
   # Overwrite automatic detections
   
+  external_url: !secret base_url
+  internal_url: !secret base_url
+
   # Location required to calculate the time the sun rises and sets
   latitude: !secret home_latitude
   longitude: !secret home_longitude
@@ -47,6 +50,13 @@ system_health:
 updater:
 api:
 websocket_api:
+
+# input helper
+input_boolean: !include_dir_merge_named helper/input_boolean/
+input_text: !include_dir_merge_named helper/input_text
+input_number: !include_dir_merge_named helper/input_number
+input_datetime: !include_dir_merge_named helper/input_datetime
+input_select: !include_dir_merge_named helper/input_select
 
 # Alexa
 alexa: !include services/alexa.yaml
