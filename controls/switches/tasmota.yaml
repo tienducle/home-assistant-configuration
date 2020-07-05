@@ -4,7 +4,31 @@
   command_topic: "rooms/badezimmer/plug-trockner/cmnd/POWER"
   payload_on: "ON"
   payload_off: "OFF"
-  retain: false
+  retain: true
+
+- platform: mqtt
+  name: "Kuehlschrank"
+  state_topic: "rooms/kueche/plug-kuehlschrank/stat/POWER"
+  command_topic: "rooms/kueche/plug-kuehlschrank/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Geschirrspueler"
+  state_topic: "rooms/kueche/plug-geschirrspueler/stat/POWER"
+  command_topic: "rooms/kueche/plug-geschirrspueler/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Waschmaschine"
+  state_topic: "rooms/kueche/plug-waschmaschine/stat/POWER"
+  command_topic: "rooms/kueche/plug-waschmaschine/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
 
 - platform: mqtt
   name: "Wohnzimmer Stehlampe Steckdose"
@@ -12,4 +36,4 @@
   command_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/cmnd/POWER"
   payload_on: "ON"
   payload_off: "OFF"
-  retain: false
+  retain: true

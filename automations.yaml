@@ -164,3 +164,153 @@
   - data: {}
     entity_id: input_boolean.kueche_lichtschalter
     service: input_boolean.turn_on
+- id: '1593932789090'
+  alias: Waschmaschine An -> Input_Boolean An
+  description: ''
+  trigger:
+  - above: '0'
+    entity_id: sensor.waschmaschine_power
+    for: 00:00:05
+    platform: numeric_state
+  condition: []
+  action:
+  - data: {}
+    entity_id: input_boolean.waschmaschine
+    service: input_boolean.turn_on
+- id: '1593932888055'
+  alias: Waschmaschine Aus -> Input_Boolean Aus
+  description: ''
+  trigger:
+  - below: '1'
+    entity_id: sensor.waschmaschine_power
+    for: 00:00:05
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: input_boolean.waschmaschine
+    state: 'on'
+  action:
+  - data: {}
+    entity_id: input_boolean.waschmaschine
+    service: input_boolean.turn_off
+- id: '1593933015571'
+  alias: NTFY - Waschmaschine An
+  description: ''
+  trigger:
+  - entity_id: input_boolean.waschmaschine
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: Waschmaschine läuft
+    service: notify.telegram
+- id: '1593933080519'
+  alias: NTFY - Waschmaschine Aus
+  description: ''
+  trigger:
+  - entity_id: input_boolean.waschmaschine
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      message: Waschmaschine ist fertig
+    service: notify.telegram
+- id: '1593933462152'
+  alias: Geschirrspüler An -> Input_Boolean An
+  description: ''
+  trigger:
+  - above: '0'
+    entity_id: sensor.geschirrspueler_power
+    for: 00:00:05
+    platform: numeric_state
+  condition: []
+  action:
+  - data: {}
+    entity_id: input_boolean.geschirrspueler
+    service: input_boolean.turn_on
+- id: '1593933525957'
+  alias: Geschirrspüler Aus -> Input_Boolean Aus
+  description: ''
+  trigger:
+  - below: '1'
+    entity_id: sensor.geschirrspueler_power
+    for: 00:00:05
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: input_boolean.geschirrspueler
+    state: 'on'
+  action:
+  - data: {}
+    entity_id: input_boolean.geschirrspueler
+    service: input_boolean.turn_off
+- id: '1593933585606'
+  alias: NTFY - Geschirrspüler An
+  description: ''
+  trigger:
+  - entity_id: input_boolean.geschirrspueler
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: Geschirrspüler läuft
+    service: notify.telegram
+- id: '1593933634041'
+  alias: NTFY - Geschirrspüler Aus
+  description: ''
+  trigger:
+  - entity_id: input_boolean.geschirrspueler
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      message: Geschirrspüler ist fertig
+    service: notify.telegram
+- id: '1593933862624'
+  alias: S Geschirrspüler > Waschmaschine
+  description: ''
+  trigger:
+  - entity_id: input_boolean.geschirrspueler
+    for: 00:01:00
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.waschmaschine
+    state: 'on'
+  action:
+  - data: {}
+    entity_id: switch.geschirrspueler
+    service: switch.turn_off
+  - data:
+      message: Waschmaschine läuft bereits. Geschirrspüler wurde ausgeschaltet
+    service: notify.telegram
+- id: '1593933954542'
+  alias: S Waschmaschine > Geschirrspüler
+  description: ''
+  trigger:
+  - entity_id: input_boolean.waschmaschine
+    for: 00:01:00
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.geschirrspueler
+    state: 'on'
+  action:
+  - data: {}
+    entity_id: switch.waschmaschine
+    service: switch.turn_off
+  - data:
+      message: Geschirrspüler läuft bereits. Waschmaschine wurde ausgeschaltet
+    service: notify.telegram

@@ -35,6 +35,8 @@
         - type: glance
           title: Kuehlschrank Verbrauch
           entities:
+            - entity: switch.kuehlschrank
+              name: Status
             - entity: sensor.kuehlschrank_power
               name: Jetzt
             - entity: sensor.kuehlschrank_verbrauch_heute
@@ -57,6 +59,8 @@
         - type: glance
           title: Waschmaschine Verbrauch
           entities:
+            - entity: switch.waschmaschine
+              name: Status
             - entity: sensor.waschmaschine_power
               name: Jetzt
             - entity: sensor.waschmaschine_verbrauch_heute
@@ -68,6 +72,8 @@
         - type: glance
           title: Geschirrspüler Verbrauch
           entities:
+            - entity: switch.geschirrspueler
+              name: Status
             - entity: sensor.geschirrspueler_power
               name: Jetzt
             - entity: sensor.geschirrspueler_verbrauch_heute
