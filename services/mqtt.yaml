@@ -6,4 +6,3 @@ keepalive: 60
 username: !secret mqtt_username
 password: !secret mqtt_password
 protocol: 3.1.1
-tls_version: '1.2'
