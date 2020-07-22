@@ -1,10 +1,15 @@
 include:
   entities:
-    # Badezimmer-/Schlafzimmer-/Wohnzimmerfenster & Haustür
+    # Küche Balkonfenster
     - binary_sensor.oeq0164835_state
+    # Schlafzimmerfenster
     - binary_sensor.oeq0167636_state
+    # Wohnzimmer Balkonfenster
     - binary_sensor.oeq0166378_state
+    # Haustür
     - binary_sensor.oeq0169426_state
+
+    - binary_sensor.wohnzimmer_fenster
 
     - light.wohnzimmer_lampe
     - light.wohnzimmer_lampe_1
@@ -116,3 +121,5 @@ include:
     - person.melina
     - device_tracker.tle_ip11p
     - device_tracker.msp_ip7
+    - climate.oeq0667981
+    - climate.meq0797490
