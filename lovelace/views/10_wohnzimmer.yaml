@@ -8,6 +8,10 @@
           name: Balkon Fenster
         - entity: binary_sensor.wohnzimmer_fenster
           name: Fenster
+        - entity: switch.wohnzimmer_tv_steckdose
+          name: TV
+          tap_action:
+            action: toggle
         - entity: switch.wohnzimmer_fernseher
           name: Fernseher
           tap_action:
@@ -24,6 +28,8 @@
           name: Ventilator
           tap_action:
             action: toggle
+        - entity: switch.wohnzimmer_computer
+          name: Wohnzimmer Computer
 
     - type: vertical-stack
       cards:
@@ -88,14 +94,27 @@
     - type: sensor
       entity: sensor.plex_plex
 
-    - type: glance
-      title: Wohnzimmer Verbrauch
-      entities:
-        - entity: sensor.wohnzimmer_power
-          name: Jetzt
-        - entity: sensor.wohnzimmer_verbrauch_heute
-          name: Heute
-        - entity: sensor.wohnzimmer_verbrauch_gestern
-          name: Gestern
-        - entity: sensor.wohnzimmer_verbrauch_gesamt
-          name: Gesamt
+    - type: vertical-stack
+      cards:
+      - type: glance
+        title: Wohnzimmer TV Verbrauch
+        entities:
+          - entity: sensor.wohnzimmer_tv_power
+            name: Jetzt
+          - entity: sensor.wohnzimmer_tv_verbrauch_heute
+            name: Heute
+          - entity: sensor.wohnzimmer_tv_verbrauch_gestern
+            name: Gestern
+          - entity: sensor.wohnzimmer_tv_verbrauch_gesamt
+            name: Gesamt
+      - type: glance
+        title: Wohnzimmer Verbrauch
+        entities:
+          - entity: sensor.wohnzimmer_power
+            name: Jetzt
+          - entity: sensor.wohnzimmer_verbrauch_heute
+            name: Heute
+          - entity: sensor.wohnzimmer_verbrauch_gestern
+            name: Gestern
+          - entity: sensor.wohnzimmer_verbrauch_gesamt
+            name: Gesamt

@@ -34,17 +34,32 @@
           entity: climate.arbeitszimmer_thermostat
           name: Thermostat
 
-    - type: glance
-      title: Schreibtisch Duc Verbrauch
-      entities:
-        - entity: sensor.schreibtisch_duc_power
-          name: Jetzt
-        - entity: sensor.schreibtisch_duc_verbrauch_heute
-          name: Heute
-        - entity: sensor.schreibtisch_duc_verbrauch_gestern
-          name: Gestern
-        - entity: sensor.schreibtisch_duc_verbrauch_gesamt
-          name: Gesamt
+    - type: vertical-stack
+      cards:
+        - type: glance
+          title: Schreibtisch Duc
+          entities:
+            - entity: sensor.schreibtisch_duc_power
+              name: Jetzt
+            - entity: sensor.schreibtisch_duc_verbrauch_heute
+              name: Heute
+            - entity: sensor.schreibtisch_duc_verbrauch_gestern
+              name: Gestern
+            - entity: sensor.schreibtisch_duc_verbrauch_gesamt
+              name: Gesamt
+        - type: horizontal-stack
+          cards:
+            - type: button
+              action: toggle
+              entity: switch.ducs_schreibtisch_hoch
+              name: Hoch
+              icon: 'mdi:arrow-up-thin-circle-outline'
+            - type: button
+              action: toggle
+              entity: switch.ducs_schreibtisch_runter
+              name: Runter
+              icon: 'mdi:arrow-down-thin-circle-outline'
+
     - type: glance
       title: Schreibtisch Melina Verbrauch
       entities:

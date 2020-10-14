@@ -168,9 +168,9 @@
   alias: Waschmaschine An -> Input_Boolean An
   description: ''
   trigger:
-  - above: '0'
+  - above: '5'
     entity_id: sensor.waschmaschine_power
-    for: 00:00:05
+    for: 00:01:00
     platform: numeric_state
   condition: []
   action:
@@ -183,7 +183,7 @@
   trigger:
   - below: '1'
     entity_id: sensor.waschmaschine_power
-    for: 00:00:05
+    for: 00:01:00
     platform: numeric_state
   condition:
   - condition: state
@@ -223,9 +223,9 @@
   alias: Geschirrspüler An -> Input_Boolean An
   description: ''
   trigger:
-  - above: '0'
+  - above: '5'
     entity_id: sensor.geschirrspueler_power
-    for: 00:00:05
+    for: 00:01:00
     platform: numeric_state
   condition: []
   action:
@@ -238,7 +238,7 @@
   trigger:
   - below: '1'
     entity_id: sensor.geschirrspueler_power
-    for: 00:00:05
+    for: 00:01:00
     platform: numeric_state
   condition:
   - condition: state
@@ -314,3 +314,88 @@
   - data:
       message: Geschirrspüler läuft bereits. Waschmaschine wurde ausgeschaltet
     service: notify.telegram
+- id: '1595917322299'
+  alias: Wohnzimmer TV Steckdose
+  description: ''
+  trigger:
+  - below: '30'
+    entity_id: sensor.wohnzimmer_tv_power
+    for: 00:10:00
+    platform: numeric_state
+  condition:
+  - below: '30'
+    condition: numeric_state
+    entity_id: sensor.wohnzimmer_tv_power
+  action:
+  - data: {}
+    entity_id: switch.wohnzimmer_tv_steckdose
+    service: switch.turn_off
+- id: '1601234315287'
+  alias: Schlafzimmer Fenster offen
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.oeq0167636_state
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: input_number.set_value
+    data:
+      value: '{{ states.climate.meq0797490.attributes["temperature"] }}
+
+        '
+    entity_id: input_number.schlafzimmer_thermostat_temperatur
+  - service: climate.set_temperature
+    data:
+      temperature: 5
+    entity_id: climate.meq0797490
+  mode: single
+- id: '1601236679960'
+  alias: Schlafzimmer Fenster zu
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.oeq0167636_state
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: '{{ states.input_number.schlafzimmer_thermostat_temperatur.state
+        }}
+
+        '
+    entity_id: climate.meq0797490
+  mode: single
+- id: '1602617428174'
+  alias: Ducs Schreibtisch Hoch
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.ducs_schreibtisch_hoch
+    from: 'off'
+    to: 'on'
+    for: 00:00:01
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.ducs_schreibtisch_hoch
+  mode: single
+- id: '1602617461384'
+  alias: Ducs Schreibtisch Runter
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.ducs_schreibtisch_runter
+    from: 'off'
+    to: 'on'
+    for: 00:00:01
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.ducs_schreibtisch_runter
+  mode: single

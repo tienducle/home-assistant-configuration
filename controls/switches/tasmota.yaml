@@ -37,3 +37,26 @@
   payload_on: "ON"
   payload_off: "OFF"
   retain: true
+
+- platform: mqtt
+  name: "Wohnzimmer TV Steckdose"
+  state_topic: "rooms/wohnzimmer/plug-tv/stat/POWER"
+  command_topic: "rooms/wohnzimmer/plug-tv/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Ducs Schreibtisch Runter"
+  state_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/stat/POWER3"
+  command_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/cmnd/POWER3"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
+  name: "Ducs Schreibtisch Hoch"
+  state_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/stat/POWER4"
+  command_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/cmnd/POWER4"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

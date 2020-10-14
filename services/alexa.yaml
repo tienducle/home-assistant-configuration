@@ -1,4 +1,5 @@
 smart_home:
+  locale: de-DE
   endpoint: https://api.eu.amazonalexa.com/v3/events
   client_id: !secret alexa_skill_client_id
   client_secret: !secret alexa_skill_client_secret
@@ -25,6 +26,8 @@ smart_home:
       - switch.ducs_computer
       - switch.melinas_computer
       - switch.trockner
+      - switch.ducs_schreibtisch_runter
+      - switch.ducs_schreibtisch_hoch
 
       # Lights
       - light.wohnzimmer
@@ -34,6 +37,12 @@ smart_home:
       - light.kueche
       - light.gaestebad
       - light.wohnzimmer_stehlampe
+
+  entity_config:
+    switch.ducs_schreibtisch_runter:
+      name: "Schreibtisch Runterfahren"
+    switch.ducs_schreibtisch_hoch:
+      name: "Schreibtisch Hochfahren"
 
 #    include_domains:
 #      - light

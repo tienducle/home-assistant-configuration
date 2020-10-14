@@ -1,2 +1,1 @@
-javascript_version: auto
 themes: !include_dir_named ../themes

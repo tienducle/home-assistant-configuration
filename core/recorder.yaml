@@ -64,44 +64,55 @@ include:
     - binary_sensor.kueche_bewegungssensor
 
     # Power
-    - sensor.wohnzimmer_power
-#    - sensor.wohnzimmer_verbrauch_heute
-#    - sensor.wohnzimmer_verbrauch_gestern
-#    - sensor.wohnzimmer_verbrauch_gesamt
     - sensor.router_power
-#    - sensor.router_verbrauch_heute
+    - sensor.router_verbrauch_heute
 #    - sensor.router_verbrauch_gestern
-#    - sensor.router_verbrauch_gesamt
+    - sensor.router_verbrauch_gesamt
+    - sensor.wohnzimmer_power
+    - sensor.wohnzimmer_verbrauch_heute
+#    - sensor.wohnzimmer_verbrauch_gestern
+    - sensor.wohnzimmer_verbrauch_gesamt
+    - sensor.wohnzimmer_tv_power
+    - sensor.wohnzimmer_tv_verbrauch_heute
+#    - sensor.wohnzimmer_tv_verbrauch_gestern
+    - sensor.wohnzimmer_tv_verbrauch_gesamt
+    - sensor.router_power
+    - sensor.router_verbrauch_heute
+#    - sensor.router_verbrauch_gestern
+    - sensor.router_verbrauch_gesamt
     - sensor.schreibtisch_duc_power
-#    - sensor.schreibtisch_duc_verbrauch_heute
+    - sensor.schreibtisch_duc_verbrauch_heute
 #    - sensor.schreibtisch_duc_verbrauch_gestern
-#    - sensor.schreibtisch_duc_verbrauch_gesamt
+    - sensor.schreibtisch_duc_verbrauch_gesamt
     - sensor.schreibtisch_melina_power
-#    - sensor.schreibtisch_melina_verbrauch_heute
+    - sensor.schreibtisch_melina_verbrauch_heute
 #    - sensor.schreibtisch_melina_verbrauch_gestern
-#    - sensor.schreibtisch_melina_verbrauch_gesamt
+    - sensor.schreibtisch_melina_verbrauch_gesamt
     - sensor.kuehlschrank_power
-#    - sensor.kuehlschrank_verbrauch_heute
+    - sensor.kuehlschrank_verbrauch_heute
 #    - sensor.kuehlschrank_verbrauch_gestern
-#    - sensor.kuehlschrank_verbrauch_gesamt
+    - sensor.kuehlschrank_verbrauch_gesamt
     - sensor.waschmaschine_power
-#    - sensor.waschmaschine_verbrauch_heute
+    - sensor.waschmaschine_verbrauch_heute
 #    - sensor.waschmaschine_verbrauch_gestern
-#    - sensor.waschmaschine_verbrauch_gesamt
+    - sensor.waschmaschine_verbrauch_gesamt
     - sensor.geschirrspueler_power
-#    - sensor.geschirrspueler_verbrauch_heute
+    - sensor.geschirrspueler_verbrauch_heute
 #    - sensor.geschirrspueler_verbrauch_gestern
-#    - sensor.geschirrspueler_verbrauch_gesamt
+    - sensor.geschirrspueler_verbrauch_gesamt
     - sensor.trockner_power
-#    - sensor.trockner_verbrauch_heute
+    - sensor.trockner_verbrauch_heute
 #    - sensor.trockner_verbrauch_gestern
-#    - sensor.trockner_verbrauch_gesamt
+    - sensor.trockner_verbrauch_gesamt
     - sensor.backofen_power
-#    - sensor.backofen_verbrauch_heute
+    - sensor.backofen_verbrauch_heute
 #    - sensor.backofen_verbrauch_gestern
-#    - sensor.backofen_verbrauch_gesamt
+    - sensor.backofen_verbrauch_gesamt
 
     # Switches
+    - switch.ducs_computer
+    - switch.melinas_computer
+    - switch.wohnzimmer_computer
     - switch.wohnzimmer_fernseher
     - switch.wohnzimmer_anlage
     - switch.wohnzimmer_ventilator_steckdose

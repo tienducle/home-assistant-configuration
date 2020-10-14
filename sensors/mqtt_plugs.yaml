@@ -30,35 +30,66 @@
 #  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
 
 
-# Wohnzimmer
+# Wohnzimmer TV
 - platform: mqtt
-  name: "Wohnzimmer Verbrauch Heute"
+  name: "Wohnzimmer TV Verbrauch Heute"
   state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Wohnzimmer Verbrauch Gestern"
+  name: "Wohnzimmer TV Verbrauch Gestern"
   state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Wohnzimmer Verbrauch Gesamt"
+  name: "Wohnzimmer TV Verbrauch Gesamt"
   state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Wohnzimmer Power"
+  name: "Wohnzimmer TV Power"
   state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
   unit_of_measurement: "W"
 #- platform: mqtt
-#  name: "Wohnzimmer Voltage"
+#  name: "Wohnzimmer TV Voltage"
 #  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
 #  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
 #  unit_of_measurement: "V"
 #- platform: mqtt
-#  name: "Wohnzimmer Power Factor"
+#  name: "Wohnzimmer TV Power Factor"
 #  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+
+# Wohnzimmer Always On
+- platform: mqtt
+  name: "Wohnzimmer Verbrauch Heute"
+  state_topic: "rooms/wohnzimmer/plug-wohnzimmer-alwayson/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Wohnzimmer Verbrauch Gestern"
+  state_topic: "rooms/wohnzimmer/plug-wohnzimmer-alwayson/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Wohnzimmer Verbrauch Gesamt"
+  state_topic: "rooms/wohnzimmer/plug-wohnzimmer-alwayson/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Wohnzimmer Power"
+  state_topic: "rooms/wohnzimmer/plug-wohnzimmer-alwayson/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+#- platform: mqtt
+#  name: "Wohnzimmer Voltage"
+#  state_topic: "rooms/wohnzimmer/plug-wohnzimmer-alwayson/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "Wohnzimmer Power Factor"
+#  state_topic: "rooms/wohnzimmer/plug-wohnzimmer-alwayson/tele/SENSOR"
 #  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
 
 # Wohnzimmer Stehlampe
