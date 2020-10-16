@@ -49,11 +49,15 @@
     from: 'off'
     platform: state
     to: 'on'
-  condition: []
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
   action:
   - data:
       message: Schlafzimmer Fenster war 10min geöffnet
     service: notify.telegram
+  mode: single
 - id: '1578513683867'
   alias: (TEST) CRITICAL NTFY Melina
   description: ''
@@ -374,7 +378,7 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: switch.ducs_schreibtisch_hoch
+    entity_id: switch.ducs_schreibtisch_stehen
     from: 'off'
     to: 'on'
     for: 00:00:01
@@ -382,14 +386,14 @@
   action:
   - service: switch.turn_off
     data: {}
-    entity_id: switch.ducs_schreibtisch_hoch
+    entity_id: switch.ducs_schreibtisch_stehen
   mode: single
 - id: '1602617461384'
   alias: Ducs Schreibtisch Runter
   description: ''
   trigger:
   - platform: state
-    entity_id: switch.ducs_schreibtisch_runter
+    entity_id: switch.ducs_schreibtisch_sitzen
     from: 'off'
     to: 'on'
     for: 00:00:01
@@ -397,5 +401,412 @@
   action:
   - service: switch.turn_off
     data: {}
-    entity_id: switch.ducs_schreibtisch_runter
+    entity_id: switch.ducs_schreibtisch_sitzen
+  mode: single
+- id: '1602787370441'
+  alias: Heizung Arbeitszimmer 2000
+  description: ''
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_duc
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    state: 'off'
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: 18
+    entity_id: climate.arbeitszimmer_thermostat
+  mode: single
+- id: '1602787706749'
+  alias: Heizung Badezimmer 0600
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:00:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: 30
+    entity_id: climate.oeq0665714
+  mode: single
+- id: '1602787747929'
+  alias: Heizung Badezimmer 0700
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:00:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: 16
+    entity_id: climate.oeq0665714
+  mode: single
+- id: '1602788077314'
+  alias: Heizung Wohnzimmer 0700
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:00:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.wohnzimmer_fenster
+    state: 'off'
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: 20
+    entity_id: climate.oeq0667981
+  mode: single
+- id: '1602788161088'
+  alias: Heizung Wohnzimmer 2000
+  description: ''
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.wohnzimmer_fenster
+    state: 'off'
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: 18
+    entity_id: climate.oeq0667981
+  mode: single
+- id: '1602788328711'
+  alias: Heizung Schlafzimmer 2200
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.oeq0167636_state
+    state: 'off'
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: 21
+    entity_id: climate.meq0797490
+  mode: single
+- id: '1602788396454'
+  alias: Heizung Schlafzimmer 0800
+  description: ''
+  trigger:
+  - platform: time
+    at: 08:00:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.oeq0167636_state
+    state: 'off'
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: 18
+    entity_id: climate.meq0797490
+  mode: single
+- id: '1602790601670'
+  alias: Wohnzimmer Fenster offen
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.wohnzimmer_fenster
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: input_number.set_value
+    data:
+      value: '{{ states.climate.oeq0667981.attributes["temperature"] }}
+
+        '
+    entity_id: input_number.wohnzimmer_thermostat_temperatur
+  - service: climate.set_temperature
+    data:
+      temperature: 5
+    entity_id: climate.oeq0667981
+  mode: single
+- id: '1602790656777'
+  alias: Wohnzimmer Fenster zu
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.wohnzimmer_fenster
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: '{{ states.input_number.wohnzimmer_thermostat_temperatur.state
+        }}
+
+        '
+    entity_id: climate.oeq0667981
+  mode: single
+- id: '1602792579038'
+  alias: Arbeitszimmer Fenster Duc offen
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_duc
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    state: 'off'
+  action:
+  - service: input_number.set_value
+    data:
+      value: '{{ states.climate.arbeitszimmer_thermostat.attributes["temperature"]
+        }}
+
+        '
+    entity_id: input_number.arbeitszimmer_thermostat_temperatur
+  - service: climate.set_temperature
+    data:
+      temperature: 5
+    entity_id: climate.arbeitszimmer_thermostat
+  mode: single
+- id: '1602792649011'
+  alias: Arbeitszimmer Fenster Melina offen
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_duc
+    state: 'off'
+  action:
+  - service: input_number.set_value
+    data:
+      value: '{{ states.climate.arbeitszimmer_thermostat.attributes["temperature"]
+        }}
+
+        '
+    entity_id: input_number.arbeitszimmer_thermostat_temperatur
+  - service: climate.set_temperature
+    data:
+      temperature: 5
+    entity_id: climate.arbeitszimmer_thermostat
+  mode: single
+- id: '1602792738718'
+  alias: Arbeitszimmer Fenster Duc zu
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_duc
+    from: 'on'
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    state: 'off'
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: '{{ states.input_number.arbeitszimmer_thermostat_temperatur.state
+        }}
+
+        '
+    entity_id: climate.arbeitszimmer_thermostat
+  mode: single
+- id: '1602792775660'
+  alias: Arbeitszimmer Fenster Melina zu
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    from: 'on'
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_duc
+    state: 'off'
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: '{{ states.input_number.arbeitszimmer_thermostat_temperatur.state
+        }}
+
+        '
+    entity_id: climate.arbeitszimmer_thermostat
+  mode: single
+- id: '1602793165788'
+  alias: Heizung Schlafzimmer 2200 (Fenster offen)
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.oeq0167636_state
+    state: 'on'
+  action:
+  - service: input_number.set_value
+    data:
+      value: 21
+    entity_id: input_number.schlafzimmer_thermostat_temperatur
+  mode: single
+- id: '1602793245573'
+  alias: Heizung Wohnzimmer 2000 (Fenster offen)
+  description: ''
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.wohnzimmer_fenster
+    state: 'on'
+  action:
+  - service: input_number.set_value
+    data:
+      value: 18
+    entity_id: input_number.wohnzimmer_thermostat_temperatur
+  mode: single
+- id: '1602793340386'
+  alias: Heizung Wohnzimmer 0700 (Fenster offen)
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:00:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.wohnzimmer_fenster
+    state: 'on'
+  action:
+  - service: input_number.set_value
+    data:
+      value: 20
+    entity_id: input_number.wohnzimmer_thermostat_temperatur
+  mode: single
+- id: '1602794181586'
+  alias: Heizung Arbeitszimmer 2000 (Fenster offen)
+  description: ''
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.arbeitszimmer_fenster_duc
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.arbeitszimmer_fenster_melina
+      state: 'on'
+  action:
+  - service: input_number.set_value
+    data:
+      value: 18
+    entity_id: input_number.arbeitszimmer_thermostat_temperatur
+  mode: single
+- id: '1602794237019'
+  alias: Heizung Schlafzimmer 0800 (Fenster offen)
+  description: ''
+  trigger:
+  - platform: time
+    at: 08:00:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.oeq0167636_state
+    state: 'on'
+  action:
+  - service: input_number.set_value
+    data:
+      value: 18
+    entity_id: input_number.schlafzimmer_thermostat_temperatur
+  mode: single
+- id: '1602828741702'
+  alias: NTFY - Wohnzimmer Fenster
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.wohnzimmer_fenster
+    for: 00:10:00
+    from: 'off'
+    platform: state
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.oeq0166378_state
+    from: 'off'
+    to: 'on'
+    for: 00:10:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  action:
+  - data:
+      message: Wohnzimmer Fenster war 10min geöffnet
+    service: notify.telegram
+  mode: single
+- id: '1602828797600'
+  alias: NTFY - Arbeitszimmer Fenster
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.arbeitszimmer_fenster_duc
+    for: 00:10:00
+    from: 'off'
+    platform: state
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    from: 'off'
+    to: 'on'
+    for: 00:10:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  action:
+  - data:
+      message: Arbeitszimmer Fenster war 10min geöffnet
+    service: notify.telegram
   mode: single
