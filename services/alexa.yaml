@@ -26,8 +26,8 @@ smart_home:
       - switch.ducs_computer
       - switch.melinas_computer
       - switch.trockner
-      - switch.ducs_schreibtisch_runter
-      - switch.ducs_schreibtisch_hoch
+      - switch.ducs_schreibtisch_sitzen
+      - switch.ducs_schreibtisch_stehen
 
       # Lights
       - light.wohnzimmer
@@ -39,9 +39,9 @@ smart_home:
       - light.wohnzimmer_stehlampe
 
   entity_config:
-    switch.ducs_schreibtisch_runter:
+    switch.ducs_schreibtisch_sitzen:
       name: "Schreibtisch Runterfahren"
-    switch.ducs_schreibtisch_hoch:
+    switch.ducs_schreibtisch_stehen:
       name: "Schreibtisch Hochfahren"
 
 #    include_domains:

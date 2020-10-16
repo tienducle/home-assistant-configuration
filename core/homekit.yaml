@@ -42,8 +42,8 @@ filter:
     - switch.ducs_computer
     - switch.melinas_computer
     - switch.wohnzimmer_computer
-    - switch.ducs_schreibtisch_runter
-    - switch.ducs_schreibtisch_hoch
+    - switch.ducs_schreibtisch_sitzen
+    - switch.ducs_schreibtisch_stehen
 
     # Lights
     - light.badezimmer
@@ -96,7 +96,7 @@ entity_config:
     type: outlet
   switch.schlafzimmer_ventilator_steckdose:
     type: outlet
-  switch.ducs_schreibtisch_runter:
+  switch.ducs_schreibtisch_sitzen:
     name: "Schreibtisch Runter"
-  switch.ducs_schreibtisch_hoch:
+  switch.ducs_schreibtisch_stehen:
     name: "Schreibtisch Hoch"

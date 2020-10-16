@@ -47,14 +47,28 @@
   retain: true
 
 - platform: mqtt
+  name: "Ducs Schreibtisch Hoch"
+  state_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/stat/POWER1"
+  command_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/cmnd/POWER1"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
   name: "Ducs Schreibtisch Runter"
+  state_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/stat/POWER2"
+  command_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/cmnd/POWER2"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
+  name: "Ducs Schreibtisch Sitzen"
   state_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/stat/POWER3"
   command_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/cmnd/POWER3"
   payload_on: "ON"
   payload_off: "OFF"
   retain: true
 - platform: mqtt
-  name: "Ducs Schreibtisch Hoch"
+  name: "Ducs Schreibtisch Stehen"
   state_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/stat/POWER4"
   command_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/cmnd/POWER4"
   payload_on: "ON"

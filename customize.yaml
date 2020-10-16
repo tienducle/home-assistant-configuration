@@ -1,4 +1,3 @@
-# Homematic
 binary_sensor.oeq0169426_state:
   friendly_name: Haustuer
   device_class: door
@@ -38,22 +37,12 @@ climate.oeq0665714:
   friendly_name: Badezimmer Thermostat
 binary_sensor.oeq0665714_lowbat:
   friendly_name: Badezimmer Thermostat Batterien
-
-# Hue
 light.wohnzimmer:
   friendly_name: Wohnzimmer Lampe
 light.kueche:
   friendly_name: Kuechenlampe
-
-# Tado
 climate.arbeitszimmer:
   friendly_name: Arbeitszimmer Thermostat
-
-# Tasmota
-#switch.wohnzimmer_stehlampe:
-#  device_class: light
-
-# Tradfri
 light.badezimmer:
   friendly_name: Badezimmer Lampe
 light.schlafzimmer:
@@ -62,12 +51,8 @@ sensor.fernbedienung_badezimmer:
   friendly_name: Tradfi Fernbedienung Badezimmer Batterien
 sensor.fernbedienung_schlafzimmer:
   friendly_name: Tradfi Fernbedienung Schlafzimmer Batterien
-
-# Tradri connected to Hue
 light.arbeitszimmer:
   friendly_name: Arbeitszimmer Lampe
-
-# WOL
 switch.wol_computer_tle:
   hidden: true
 switch.shutdown_computer_tle:
@@ -78,3 +63,7 @@ switch.shutdown_computer_msp:
   hidden: true
 switch.wol_macmini:
   hidden: true
+binary_sensor.arbeitszimmer_fenster_duc:
+  device_class: window
+binary_sensor.arbeitszimmer_fenster_melina:
+  device_class: window

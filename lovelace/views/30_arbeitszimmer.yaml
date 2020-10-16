@@ -4,6 +4,10 @@
 
     - type: glance
       entities:
+        - entity: binary_sensor.arbeitszimmer_fenster_melina
+          name: Fenster Melina
+        - entity: binary_sensor.arbeitszimmer_fenster_duc
+          name: Fenster Duc
         - entity: switch.ducs_computer
           name: Ducs Computer
         - entity: switch.melinas_computer
@@ -51,14 +55,24 @@
           cards:
             - type: button
               action: toggle
+              show_name: false
               entity: switch.ducs_schreibtisch_hoch
-              name: Hoch
               icon: 'mdi:arrow-up-thin-circle-outline'
             - type: button
               action: toggle
+              show_name: false
               entity: switch.ducs_schreibtisch_runter
-              name: Runter
               icon: 'mdi:arrow-down-thin-circle-outline'
+            - type: button
+              action: toggle
+              entity: switch.ducs_schreibtisch_sitzen
+              name: Sitzen
+              icon: 'mdi:chair-rolling'
+            - type: button
+              action: toggle
+              entity: switch.ducs_schreibtisch_stehen
+              name: Stehen
+              icon: 'mdi:human-male'
 
     - type: glance
       title: Schreibtisch Melina Verbrauch
