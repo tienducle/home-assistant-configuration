@@ -1,9 +1,0 @@
-host: !secret tradfribridge_host
-allow_tradfri_groups: true
-
-# Workaround as of 2019-06-23
-# pip3 install dtlssocket --user
-# git clone https://github.com/chrysn/aiocoap.git
-# cd aiocoap
-# git checkout 0.4a1
-# pip3 install . --user
