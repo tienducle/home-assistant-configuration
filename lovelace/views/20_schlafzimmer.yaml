@@ -6,8 +6,8 @@
       entities:
         - entity: binary_sensor.oeq0167636_state
           name: Fenster
-        - entity: switch.schlafzimmer_fernseher_steckdose
-          name: Fernseher Steckdose
+        - entity: switch.schlafzimmer_tv_steckdose
+          name: TV Steckdose
           tap_action:
             action: toggle
         - entity: switch.schlafzimmer_ventilator_steckdose

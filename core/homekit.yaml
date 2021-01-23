@@ -1,56 +1,36 @@
 filter:
   include_entities:
-    # Windows
-    ## Küche
-    - binary_sensor.oeq0164835_state
-    ## Wohnzimmer Balkon
-    - binary_sensor.oeq0166378_state
-    ## Badezimmer
-    - binary_sensor.oeq0167636_state
-    ## Haustür
-    - binary_sensor.oeq0169426_state
 
-    # Thermostats
-    ## Arbeitszimmer
-    - climate.arbeitszimmer_thermostat
-    ## Schlafzimmer
-    - climate.meq0797490
-    ## Badezimmer
-    - climate.oeq0665714
-    ## Wohnzimmer
+    ###### Climate
+    # Wohnzimmer
     - climate.oeq0667981
+    # Arbeitszimmer
+    - climate.arbeitszimmer_thermostat
+    # Schlafzimmer
+    - climate.meq0797490
+    # Badezimmer
+    - climate.oeq0665714
 
-    # Switches
-    - switch.wohnzimmer_auto
-    - switch.wohnzimmer_boost
-    - switch.wohnzimmer_manual
-    - switch.badezimmer_auto
-    - switch.badezimmer_boost
-    - switch.badezimmer_manual
-    - switch.schlafzimmer_auto
-    - switch.schlafzimmer_boost
-    - switch.schlafzimmer_manual
-    - switch.wohnzimmer_fernseher
-    - switch.wohnzimmer_anlage
-    - switch.arbeitszimmer_alexa_steckdose
-    - switch.wohnzimmer_alexa_steckdose
-    - switch.wohnzimmer_tv_steckdose
-    - switch.wohnzimmer_ventilator_steckdose
-    - switch.schlafzimmer_fernseher_steckdose
-    - switch.schlafzimmer_ventilator_steckdose
-    - switch.trockner
-    - switch.ducs_computer
-    - switch.melinas_computer
-    - switch.wohnzimmer_computer
-    - switch.ducs_schreibtisch_sitzen
-    - switch.ducs_schreibtisch_stehen
+    ###### Contact sensors
+    # Haustür
+    - binary_sensor.oeq0169426_state
+    # Wohnzimmer
+    - binary_sensor.wohnzimmer_fenster
+    - sensor.wohnzimmer_fenster_battery_level
+    # Wohnzimmer Balkonfenster
+    - binary_sensor.oeq0166378_state
+    # Schlafzimmer
+    - binary_sensor.oeq0167636_state
+    # Arbeitszimmer
+    - binary_sensor.arbeitszimmer_fenster_melina
+    - binary_sensor.arbeitszimmer_fenster_duc
+    # Küche Balkonfenster
+    - binary_sensor.oeq0164835_state
 
-    # Lights
-    - light.badezimmer
-    - light.badezimmer_lampe_1
-    - light.badezimmer_lampe_2
-    - light.gaestebad_lampe
-    - light.wohnzimmer_lampe
+    ###### Lights
+    # Haus
+    # Wohnzimmer
+    - light.wohnzimmer
     - light.wohnzimmer_lampe_1
     - light.wohnzimmer_lampe_2
     - light.wohnzimmer_lampe_3
@@ -58,30 +38,76 @@ filter:
     - light.wohnzimmer_lampe_5
     - light.wohnzimmer_lampe_6
     - light.wohnzimmer_stehlampe
+    # Schlafzimmer
+    - light.schlafzimmer
+    - light.schlafzimmer_lampe_1
+    - light.schlafzimmer_lampe_2
+    # Arbeitszimmer
+    - light.arbeitszimmer
+    - light.arbeitszimmer_lampe_1
+    - light.arbeitszimmer_lampe_2
+    - light.arbeitszimmer_lampe_3
+    # Küche
     - light.kueche
     - light.kuecheninsel_lampe
     - light.kuechenzeile_lampe_1
     - light.kuechenzeile_lampe_2
     - light.kuechenzeile_lampe_3
-    - light.schlafzimmer
-    - light.schlafzimmer_lampe_1
-    - light.schlafzimmer_lampe_2
-    - light.arbeitszimmer
-    - light.arbeitszimmer_lampe_1
-    - light.arbeitszimmer_lampe_2
-    - light.arbeitszimmer_lampe_3
+    - binary_sensor.kueche_bewegungssensor
+    # Badezimmer
+    - light.badezimmer
+    - light.badezimmer_lampe_1
+    - light.badezimmer_lampe_2
+    # Gästebad
+    - light.gaestebad
+    #- light.gaestebad_lampe
 
-    # Scenes
+    ###### Scenes
     # names too similar to lamps
 #    - script.wohnzimmer_tag
-#    - script.wohnzimmer_abend
+    - scene.wohnzimmer_abend
 #    - script.wohnzimmer_nacht
-#    - script.wohnzimmer_film
+    - scene.wohnzimmer_film
 #    - script.wohnzimmer_film_essen
 #    - script.scene_badezimmer_tag
 #    - script.scene_schlafzimmer_tag
 #    - script.scene_schlafzimmer_abend
 #    - script.scene_schlafzimmer_dunkel
+
+    ###### Switches
+    # Haus
+    # Wohnzimmer
+    - switch.wohnzimmer_auto
+    - switch.wohnzimmer_boost
+    - switch.wohnzimmer_manual
+    - switch.wohnzimmer_alexa_steckdose
+    - switch.wohnzimmer_anlage
+    - switch.wohnzimmer_computer
+    - switch.wohnzimmer_fernseher
+    - switch.wohnzimmer_tv_steckdose
+    - switch.wohnzimmer_ventilator_steckdose
+    # Schlafzimmer
+    - switch.schlafzimmer_auto
+    - switch.schlafzimmer_boost
+    - switch.schlafzimmer_manual
+    - switch.schlafzimmer_tv_steckdose
+    - switch.schlafzimmer_ventilator_steckdose
+    # Arbeitszimmer
+    - switch.arbeitszimmer_alexa_steckdose
+    - switch.ducs_computer
+    - switch.ducs_schreibtisch_sitzen
+    - switch.ducs_schreibtisch_stehen
+    - switch.melinas_computer
+    # Küche
+    - switch.backofen
+    - switch.geschirrspueler
+    - switch.kuehlschrank
+    - switch.waschmaschine
+    # Badezimmer
+    - switch.badezimmer_auto
+    - switch.badezimmer_boost
+    - switch.badezimmer_manual
+    - switch.trockner
 
 entity_config:
   switch.wohnzimmer_alexa_steckdose:
@@ -90,11 +116,11 @@ entity_config:
     type: outlet
   switch.wohnzimmer_ventilator_steckdose:
     type: outlet
-  switch.arbeitszimmer_alexa_steckdose:
-    type: outlet
   switch.schlafzimmer_tv_steckdose:
     type: outlet
   switch.schlafzimmer_ventilator_steckdose:
+    type: outlet
+  switch.arbeitszimmer_alexa_steckdose:
     type: outlet
   switch.ducs_schreibtisch_sitzen:
     name: "Schreibtisch Runter"

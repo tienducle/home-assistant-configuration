@@ -3,124 +3,55 @@ auto_purge: true
 purge_keep_days: 365
 include:
   entities:
-    # Badezimmer-/Schlafzimmer-/Wohnzimmerfenster & Haustür
-    - binary_sensor.oeq0164835_state
-    - binary_sensor.oeq0164835_lowbat
-    - binary_sensor.oeq0167636_state
-    - binary_sensor.oeq0167636_lowbat
-    - binary_sensor.oeq0166378_state
-    - binary_sensor.oeq0166378_lowbat
-    - binary_sensor.oeq0169426_state
-    - binary_sensor.oeq0169426_lowbat
 
-    # Climate
-    ## Wohnzimmer
+    # Haus
+    # Wohnzimmer
+    # Schlafzimmer
+    # Arbeitszimmer
+    # Küche
+    # Badezimmer
+    # Gästeklo
+
+    - sun.sun
+    - binary_sensor.updater
+
+    ###### Climate
+    # Wohnzimmer
     - climate.oeq0667981
     - binary_sensor.oeq0667981_lowbat
-    - sensor.wohnzimmer_temperature
-    - sensor.wohnzimmer_humidity
-    ## Schlafzimmer
+    # Arbeitszimmer
+    - climate.arbeitszimmer_thermostat
+    - sensor.arbeitszimmer_thermostat_battery_level
+    # Schlafzimmer
     - climate.meq0797490
     - binary_sensor.meq0797490_lowbat
-    ## Badezimmer
+    # Badezimmer
     - climate.oeq0665714
     - binary_sensor.oeq0665714_lowbat
-    ## Arbeitszimmer
-    - climate.arbeitszimmer_thermostat
 
-    # TV
-    - media_player.kd55xe9005
-    - media_player.denon
+    ###### Contact sensors
+    # Haustür
+    - binary_sensor.oeq0169426_state
+    - binary_sensor.oeq0169426_lowbat
+    # Wohnzimmer
+    - binary_sensor.wohnzimmer_fenster
+    - sensor.wohnzimmer_fenster_battery_level
+    # Wohnzimmer Balkonfenster
+    - binary_sensor.oeq0166378_state
+    - binary_sensor.oeq0166378_lowbat
+    # Schlafzimmer
+    - binary_sensor.oeq0167636_state
+    - binary_sensor.oeq0167636_lowbat
+    # Arbeitszimmer
+    - binary_sensor.arbeitszimmer_fenster_melina
+    - sensor.arbeitszimmer_fenster_melina_battery_level
+    - binary_sensor.arbeitszimmer_fenster_duc
+    - sensor.arbeitszimmer_fenster_duc_battery_level
+    # Küche Balkonfenster
+    - binary_sensor.oeq0164835_state
+    - binary_sensor.oeq0164835_lowbat
 
-    # Person
-    - person.duc
-#    - device_tracker.tle_ipx
-    - person.melina
-#    - device_tracker.msp_ip7
-
-    # Lights
-    - light.wohnzimmer_lampe
-    - light.wohnzimmer_lampe_1
-    - light.wohnzimmer_lampe_2
-    - light.wohnzimmer_lampe_3
-    - light.wohnzimmer_lampe_4
-    - light.wohnzimmer_lampe_5
-    - light.wohnzimmer_lampe_6
-    - light.schlafzimmer_lampe
-    - light.schlafzimmer_lampe_1
-    - light.schlafzimmer_lampe_2
-    - light.arbeitszimmer_lampe
-    - light.arbeitszimmer_lampe_1
-    - light.arbeitszimmer_lampe_2
-    - light.arbeitszimmer_lampe_3
-    - light.badezimmer_lampe
-    - light.badezimmer_lampe_1
-    - light.badezimmer_lampe_2
-    - light.kuche
-    - light.kuecheninsel_lampe
-    - light.kuechen_lampe_1
-    - light.kuechen_lampe_2
-    - light.kuechen_lampe_3
-    - binary_sensor.kueche_bewegungssensor
-
-    # Power
-    - sensor.router_power
-    - sensor.router_verbrauch_heute
-#    - sensor.router_verbrauch_gestern
-    - sensor.router_verbrauch_gesamt
-    - sensor.wohnzimmer_power
-    - sensor.wohnzimmer_verbrauch_heute
-#    - sensor.wohnzimmer_verbrauch_gestern
-    - sensor.wohnzimmer_verbrauch_gesamt
-    - sensor.wohnzimmer_tv_power
-    - sensor.wohnzimmer_tv_verbrauch_heute
-#    - sensor.wohnzimmer_tv_verbrauch_gestern
-    - sensor.wohnzimmer_tv_verbrauch_gesamt
-    - sensor.router_power
-    - sensor.router_verbrauch_heute
-#    - sensor.router_verbrauch_gestern
-    - sensor.router_verbrauch_gesamt
-    - sensor.schreibtisch_duc_power
-    - sensor.schreibtisch_duc_verbrauch_heute
-#    - sensor.schreibtisch_duc_verbrauch_gestern
-    - sensor.schreibtisch_duc_verbrauch_gesamt
-    - sensor.schreibtisch_melina_power
-    - sensor.schreibtisch_melina_verbrauch_heute
-#    - sensor.schreibtisch_melina_verbrauch_gestern
-    - sensor.schreibtisch_melina_verbrauch_gesamt
-    - sensor.kuehlschrank_power
-    - sensor.kuehlschrank_verbrauch_heute
-#    - sensor.kuehlschrank_verbrauch_gestern
-    - sensor.kuehlschrank_verbrauch_gesamt
-    - sensor.waschmaschine_power
-    - sensor.waschmaschine_verbrauch_heute
-#    - sensor.waschmaschine_verbrauch_gestern
-    - sensor.waschmaschine_verbrauch_gesamt
-    - sensor.geschirrspueler_power
-    - sensor.geschirrspueler_verbrauch_heute
-#    - sensor.geschirrspueler_verbrauch_gestern
-    - sensor.geschirrspueler_verbrauch_gesamt
-    - sensor.trockner_power
-    - sensor.trockner_verbrauch_heute
-#    - sensor.trockner_verbrauch_gestern
-    - sensor.trockner_verbrauch_gesamt
-    - sensor.backofen_power
-    - sensor.backofen_verbrauch_heute
-#    - sensor.backofen_verbrauch_gestern
-    - sensor.backofen_verbrauch_gesamt
-
-    # Switches
-    - switch.ducs_computer
-    - switch.melinas_computer
-    - switch.wohnzimmer_computer
-    - switch.wohnzimmer_fernseher
-    - switch.wohnzimmer_anlage
-    - switch.wohnzimmer_ventilator_steckdose
-    - switch.schlafzimmer_ventilator_steckdose
-    - switch.schlafzimmer_fernseher_steckdose
-    - switch.arbeitszimmer_alexa_steckdose
-
-    # iOS
+    ###### iOS
     - device_tracker.tle_ip11p
     - sensor.tle_ip11p_activity
     - sensor.tle_ip11p_average_active_pace
@@ -138,25 +69,144 @@ include:
     - sensor.tle_ip11p_ssid
     - sensor.tle_ip11p_steps
 
-    - device_tracker.msp_ip7
-    - sensor.msp_ip7_activity
-    - sensor.msp_ip7_average_active_pace
-    - sensor.msp_ip7_bssid
-    - sensor.msp_ip7_battery_level
-    - sensor.msp_ip7_battery_state
-    - sensor.msp_ip7_connection_type
-    - sensor.msp_ip7_distance
-    - sensor.msp_ip7_floors_ascended
-    - sensor.msp_ip7_floors_descended
-    - sensor.msp_ip7_geocoded_location
-    - sensor.msp_ip7_last_update_trigger
-    - sensor.msp_ip7_sim_1
-    - sensor.msp_ip7_ssid
-    - sensor.msp_ip7_steps
+    - device_tracker.msp_ip12mini
+    - sensor.msp_ip12mini_activity
+    - sensor.msp_ip12mini_average_active_pace
+    - sensor.msp_ip12mini_bssid
+    - sensor.msp_ip12mini_battery_level
+    - sensor.msp_ip12mini_battery_state
+    - sensor.msp_ip12mini_connection_type
+    - sensor.msp_ip12mini_distance
+    - sensor.msp_ip12mini_floors_ascended
+    - sensor.msp_ip12mini_floors_descended
+    - sensor.msp_ip12mini_geocoded_location
+    - sensor.msp_ip12mini_last_update_trigger
+    - sensor.msp_ip12mini_sim_1
+    - sensor.msp_ip12mini_ssid
+    - sensor.msp_ip12mini_steps
 
-    # Printer
+    ###### Lights
+    # Haus
+    # Wohnzimmer
+    - light.wohnzimmer
+    - light.wohnzimmer_lampe_1
+    - light.wohnzimmer_lampe_2
+    - light.wohnzimmer_lampe_3
+    - light.wohnzimmer_lampe_4
+    - light.wohnzimmer_lampe_5
+    - light.wohnzimmer_lampe_6
+    - light.wohnzimmer_stehlampe
+    # Schlafzimmer
+    - light.schlafzimmer
+    - light.schlafzimmer_lampe_1
+    - light.schlafzimmer_lampe_2
+    # Arbeitszimmer
+    - light.arbeitszimmer
+    - light.arbeitszimmer_lampe_1
+    - light.arbeitszimmer_lampe_2
+    - light.arbeitszimmer_lampe_3
+    # Küche
+    - light.kueche
+    - light.kuecheninsel_lampe
+    - light.kuechenzeile_lampe_1
+    - light.kuechenzeile_lampe_2
+    - light.kuechenzeile_lampe_3
+    - binary_sensor.kueche_bewegungssensor
+    # Badezimmer
+    - light.badezimmer
+    - light.badezimmer_lampe_1
+    - light.badezimmer_lampe_2
+    # Gästebad
+    - light.gaestebad
+    - light.gaestebad_lampe
+    
+    ###### Media
+    - media_player.kd55xe9005
+    - media_player.denon
+
+    ###### Persons
+    - person.duc
+    - person.melina
+
+    ###### Power plugs
+    # Haus
+    - sensor.router_power
+    - sensor.router_verbrauch_heute
+#    - sensor.router_verbrauch_gestern
+    - sensor.router_verbrauch_gesamt
+    # Wohnzimmer
+    - sensor.wohnzimmer_power
+    - sensor.wohnzimmer_verbrauch_heute
+#    - sensor.wohnzimmer_verbrauch_gestern
+    - sensor.wohnzimmer_verbrauch_gesamt
+    - sensor.wohnzimmer_stehlampe_power
+    - sensor.wohnzimmer_stehlampe_heute
+#    - sensor.wohnzimmer_stehlampe_gestern
+    - sensor.wohnzimmer_stehlampe_gesamt
+    - sensor.wohnzimmer_tv_power
+    - sensor.wohnzimmer_tv_verbrauch_heute
+#    - sensor.wohnzimmer_tv_verbrauch_gestern
+    - sensor.wohnzimmer_tv_verbrauch_gesamt
+    # Schlafzimmer
+    # Arbeitszimmer
+    - sensor.schreibtisch_duc_power
+    - sensor.schreibtisch_duc_verbrauch_heute
+#    - sensor.schreibtisch_duc_verbrauch_gestern
+    - sensor.schreibtisch_duc_verbrauch_gesamt
+    - sensor.schreibtisch_melina_power
+    - sensor.schreibtisch_melina_verbrauch_heute
+#    - sensor.schreibtisch_melina_verbrauch_gestern
+    - sensor.schreibtisch_melina_verbrauch_gesamt
+    # Küche
+    - sensor.backofen_power
+    - sensor.backofen_verbrauch_heute
+#    - sensor.backofen_verbrauch_gestern
+    - sensor.backofen_verbrauch_gesamt
+    - sensor.geschirrspueler_power
+    - sensor.geschirrspueler_verbrauch_heute
+#    - sensor.geschirrspueler_verbrauch_gestern
+    - sensor.geschirrspueler_verbrauch_gesamt
+    - sensor.kuehlschrank_power
+    - sensor.kuehlschrank_verbrauch_heute
+#    - sensor.kuehlschrank_verbrauch_gestern
+    - sensor.kuehlschrank_verbrauch_gesamt
+    - sensor.waschmaschine_power
+    - sensor.waschmaschine_verbrauch_heute
+#    - sensor.waschmaschine_verbrauch_gestern
+    - sensor.waschmaschine_verbrauch_gesamt
+    # Badezimmer
+    - sensor.trockner_power
+    - sensor.trockner_verbrauch_heute
+#    - sensor.trockner_verbrauch_gestern
+    - sensor.trockner_verbrauch_gesamt
+
+    ###### Printer
     - sensor.printer
     - sensor.printer_m
     - sensor.printer_c
     - sensor.printer_y
     - sensor.printer_bk
+
+    ###### Switches
+    # Haus
+    # Wohnzimmer
+    - switch.wohnzimmer_alexa_steckdose
+    - switch.wohnzimmer_anlage
+    - switch.wohnzimmer_computer
+    - switch.wohnzimmer_fernseher
+    - switch.wohnzimmer_tv_steckdose
+    - switch.wohnzimmer_ventilator_steckdose
+    # Schlafzimmer
+    - switch.schlafzimmer_tv_steckdose
+    - switch.schlafzimmer_ventilator_steckdose
+    # Arbeitszimmer
+    - switch.arbeitszimmer_alexa_steckdose
+    - switch.ducs_computer
+    - switch.melinas_computer
+    # Küche
+    - switch.backofen
+    - switch.geschirrspueler
+    - switch.kuehlschrank
+    - switch.waschmaschine
+    # Badezimmer
+    - switch.trockner

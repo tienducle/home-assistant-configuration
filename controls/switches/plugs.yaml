@@ -1,6 +1,6 @@
 - platform: pilight
   switches:
-    Schlafzimmer Fernseher Steckdose:
+    Schlafzimmer TV Steckdose:
       on_code:
         protocol: kaku_switch
         id: !secret plugset1_id

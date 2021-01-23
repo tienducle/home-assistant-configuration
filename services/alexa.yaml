@@ -17,6 +17,7 @@ smart_home:
 
       # Switches
       - switch.wohnzimmer_fernseher
+      - switch.wohnzimmer_computer
       - switch.wohnzimmer_anlage
       - switch.arbeitszimmer_alexa_steckdose
       - switch.wohnzimmer_alexa_steckdose

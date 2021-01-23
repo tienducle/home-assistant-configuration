@@ -118,3 +118,14 @@
             name: Gestern
           - entity: sensor.wohnzimmer_verbrauch_gesamt
             name: Gesamt
+      - type: glance
+        title: Wohnzimmer Stehlampe Verbrauch
+        entities:
+          - entity: sensor.wohnzimmer_stehlampe_power
+            name: Jetzt
+          - entity: sensor.wohnzimmer_stehlampe_verbrauch_heute
+            name: Heute
+          - entity: sensor.wohnzimmer_stehlampe_verbrauch_gestern
+            name: Gestern
+          - entity: sensor.wohnzimmer_stehlampe_verbrauch_gesamt
+            name: Gesamt
