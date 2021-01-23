@@ -1,4 +1,12 @@
 - platform: mqtt
+  name: "Backofen"
+  state_topic: "rooms/kueche/plug-backofen/stat/POWER"
+  command_topic: "rooms/kueche/plug-backofen/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
   name: "Trockner"
   state_topic: "rooms/badezimmer/plug-trockner/stat/POWER"
   command_topic: "rooms/badezimmer/plug-trockner/cmnd/POWER"
