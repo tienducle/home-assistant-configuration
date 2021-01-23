@@ -1,0 +1,130 @@
+- id: '1605819601579'
+  name: Wohnzimmer Abend
+  entities:
+    light.wohnzimmer_lampe_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      brightness: 254
+      color_temp: 366
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 1
+      supported_features: 63
+      state: 'on'
+    light.wohnzimmer_lampe_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      brightness: 254
+      color_temp: 366
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 2
+      supported_features: 63
+      state: 'on'
+    light.wohnzimmer_lampe_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      brightness: 254
+      color_temp: 366
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 3
+      supported_features: 63
+      state: 'on'
+    light.wohnzimmer_lampe_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      brightness: 254
+      color_temp: 366
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 4
+      supported_features: 63
+      state: 'on'
+    light.wohnzimmer_lampe_5:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      brightness: 254
+      color_temp: 366
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 5
+      supported_features: 63
+      state: 'on'
+    light.wohnzimmer_lampe_6:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      brightness: 254
+      color_temp: 366
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 6
+      supported_features: 63
+      state: 'on'
+- id: '1605820175871'
+  name: Wohnzimmer Film
+  entities:
+    light.wohnzimmer_lampe_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      brightness: 121
+      color_temp: 500
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 1
+      supported_features: 63
+      state: 'on'
+    light.wohnzimmer_lampe_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 2
+      supported_features: 63
+      state: 'off'
+    light.wohnzimmer_lampe_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 3
+      supported_features: 63
+      state: 'off'
+    light.wohnzimmer_lampe_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 4
+      supported_features: 63
+      state: 'off'
+    light.wohnzimmer_lampe_5:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 5
+      supported_features: 63
+      state: 'off'
+    light.wohnzimmer_lampe_6:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      brightness: 121
+      color_temp: 500
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Lampe 6
+      supported_features: 63
+      state: 'on'

@@ -39,7 +39,7 @@
   action:
   - data:
       message: Ein Fenster ist noch geöffnet!
-    service: notify.telegram
+    service: notify.telegram_home
 - id: '1575209500948'
   alias: NTFY - Schlafzimmer Fenster
   description: ''
@@ -56,10 +56,10 @@
   action:
   - data:
       message: Schlafzimmer Fenster war 10min geöffnet
-    service: notify.telegram
-  mode: single
+    service: notify.telegram_home
+  mode: restart
 - id: '1578513683867'
-  alias: (TEST) CRITICAL NTFY Melina
+  alias: (TEST) CRITICAL NTFY
   description: ''
   trigger: []
   condition: []
@@ -73,16 +73,17 @@
             volume: 1
       message: Hallooooooo
       title: Test
-    service: notify.mobile_app_msp_ip7
+    service: notify.mobile_app_tle_ip11p
+  mode: single
 - id: '1590863492632'
   alias: Küche Bewegung -> Küchenlampe An
   description: ''
   trigger:
-  - device_id: 3b59816422944600b79ce4faccfc87ec
-    domain: binary_sensor
-    entity_id: binary_sensor.kueche_bewegungssensor
+  - type: motion
     platform: device
-    type: motion
+    device_id: c1c2a2ec203a702b6596cb9dfce9337a
+    entity_id: binary_sensor.kueche_bewegungssensor
+    domain: binary_sensor
   condition:
   - above: '0'
     below: '30'
@@ -92,19 +93,20 @@
   - data: {}
     entity_id: light.kueche
     service: light.turn_on
+  mode: single
 - id: '1590863622994'
   alias: Küche keine Bewegung -> Küchenlampe Aus
   description: ''
   trigger:
-  - device_id: 3b59816422944600b79ce4faccfc87ec
-    domain: binary_sensor
+  - type: no_motion
+    platform: device
+    device_id: c1c2a2ec203a702b6596cb9dfce9337a
     entity_id: binary_sensor.kueche_bewegungssensor
+    domain: binary_sensor
     for:
       hours: 0
-      minutes: 1
+      minutes: 2
       seconds: 0
-    platform: device
-    type: no_motion
   condition:
   - condition: state
     entity_id: input_boolean.kueche_lichtschalter
@@ -113,6 +115,7 @@
   - data: {}
     entity_id: light.kueche
     service: light.turn_off
+  mode: single
 - id: '1590865975366'
   alias: Küchenlampe Aus -> Input_Boolean Aus
   description: ''
@@ -130,7 +133,7 @@
   alias: Wohnzimmer Lichtschalter An (lang) -> Wohnzimmer Stehlampe An
   description: ''
   trigger:
-  - device_id: 00cc41ffe8594568be7cba978e1ca1c9
+  - device_id: d616aa56d60d6c88f999072b6e84a66b
     domain: deconz
     platform: device
     subtype: turn_on
@@ -144,7 +147,7 @@
   alias: Wohnzimmer Lichtschalter Aus (lang) -> Wohnzimmer Stehlampe Aus
   description: ''
   trigger:
-  - device_id: 00cc41ffe8594568be7cba978e1ca1c9
+  - device_id: d616aa56d60d6c88f999072b6e84a66b
     domain: deconz
     platform: device
     subtype: turn_off
@@ -158,7 +161,7 @@
   alias: Küche Lichtschalter An -> Input_Boolean An
   description: ''
   trigger:
-  - device_id: af2308ef2a9b49e2a00a02292e707301
+  - device_id: ad9abe1fe14c7595ebecb7d0b8435867
     domain: deconz
     platform: device
     subtype: turn_on
@@ -209,7 +212,7 @@
   action:
   - data:
       message: Waschmaschine läuft
-    service: notify.telegram
+    service: notify.telegram_home
 - id: '1593933080519'
   alias: NTFY - Waschmaschine Aus
   description: ''
@@ -222,7 +225,7 @@
   action:
   - data:
       message: Waschmaschine ist fertig
-    service: notify.telegram
+    service: notify.telegram_home
 - id: '1593933462152'
   alias: Geschirrspüler An -> Input_Boolean An
   description: ''
@@ -264,7 +267,7 @@
   action:
   - data:
       message: Geschirrspüler läuft
-    service: notify.telegram
+    service: notify.telegram_home
 - id: '1593933634041'
   alias: NTFY - Geschirrspüler Aus
   description: ''
@@ -277,7 +280,7 @@
   action:
   - data:
       message: Geschirrspüler ist fertig
-    service: notify.telegram
+    service: notify.telegram_home
 - id: '1593933862624'
   alias: S Geschirrspüler > Waschmaschine
   description: ''
@@ -297,7 +300,7 @@
     service: switch.turn_off
   - data:
       message: Waschmaschine läuft bereits. Geschirrspüler wurde ausgeschaltet
-    service: notify.telegram
+    service: notify.telegram_home
 - id: '1593933954542'
   alias: S Waschmaschine > Geschirrspüler
   description: ''
@@ -317,7 +320,7 @@
     service: switch.turn_off
   - data:
       message: Geschirrspüler läuft bereits. Waschmaschine wurde ausgeschaltet
-    service: notify.telegram
+    service: notify.telegram_home
 - id: '1595917322299'
   alias: Wohnzimmer TV Steckdose
   description: ''
@@ -334,6 +337,7 @@
   - data: {}
     entity_id: switch.wohnzimmer_tv_steckdose
     service: switch.turn_off
+  mode: single
 - id: '1601234315287'
   alias: Schlafzimmer Fenster offen
   description: ''
@@ -404,11 +408,15 @@
     entity_id: switch.ducs_schreibtisch_sitzen
   mode: single
 - id: '1602787370441'
-  alias: Heizung Arbeitszimmer 2000
+  alias: Heizung Arbeitszimmer Nacht
   description: ''
   trigger:
   - platform: time
-    at: '20:00:00'
+    at: input_datetime.arbeitszimmer_heizungssteuerung_nacht
+  - platform: state
+    entity_id: input_boolean.arbeitszimmer_heizungssteuerung_nacht
+    from: 'off'
+    to: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -419,10 +427,18 @@
   - condition: state
     entity_id: binary_sensor.arbeitszimmer_fenster_melina
     state: 'off'
+  - condition: state
+    entity_id: input_boolean.arbeitszimmer_heizungssteuerung_nacht
+    state: 'on'
+  - condition: time
+    after: input_datetime.arbeitszimmer_heizungssteuerung_nacht
+    before: input_datetime.arbeitszimmer_heizungssteuerung_tag
   action:
   - service: climate.set_temperature
     data:
-      temperature: 18
+      temperature: '{{ states.input_number.arbeitszimmer_temperatur_nacht.state }}
+
+        '
     entity_id: climate.arbeitszimmer_thermostat
   mode: single
 - id: '1602787706749'
@@ -458,11 +474,15 @@
     entity_id: climate.oeq0665714
   mode: single
 - id: '1602788077314'
-  alias: Heizung Wohnzimmer 0700
+  alias: Heizung Wohnzimmer Tag
   description: ''
   trigger:
   - platform: time
-    at: 07:00:00
+    at: input_datetime.wohnzimmer_heizungssteuerung_tag
+  - platform: state
+    entity_id: input_boolean.wohnzimmer_heizungssteuerung_tag
+    from: 'off'
+    to: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -470,18 +490,30 @@
   - condition: state
     entity_id: binary_sensor.wohnzimmer_fenster
     state: 'off'
+  - condition: state
+    entity_id: input_boolean.wohnzimmer_heizungssteuerung_tag
+    state: 'on'
+  - condition: time
+    after: input_datetime.wohnzimmer_heizungssteuerung_tag
+    before: input_datetime.wohnzimmer_heizungssteuerung_nacht
   action:
   - service: climate.set_temperature
     data:
-      temperature: 20
+      temperature: '{{ states.input_number.wohnzimmer_temperatur_tag.state }}
+
+        '
     entity_id: climate.oeq0667981
   mode: single
 - id: '1602788161088'
-  alias: Heizung Wohnzimmer 2000
+  alias: Heizung Wohnzimmer Nacht
   description: ''
   trigger:
   - platform: time
-    at: '20:00:00'
+    at: input_datetime.wohnzimmer_heizungssteuerung_nacht
+  - platform: state
+    entity_id: input_boolean.wohnzimmer_heizungssteuerung_nacht
+    from: 'off'
+    to: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -489,18 +521,26 @@
   - condition: state
     entity_id: binary_sensor.wohnzimmer_fenster
     state: 'off'
+  - condition: state
+    entity_id: input_boolean.wohnzimmer_heizungssteuerung_nacht
+    state: 'on'
+  - condition: time
+    after: input_datetime.wohnzimmer_heizungssteuerung_nacht
+    before: input_datetime.wohnzimmer_heizungssteuerung_tag
   action:
   - service: climate.set_temperature
     data:
-      temperature: 18
+      temperature: '{{ states.input_number.wohnzimmer_temperatur_nacht.state }}
+
+        '
     entity_id: climate.oeq0667981
   mode: single
 - id: '1602788328711'
-  alias: Heizung Schlafzimmer 2200
+  alias: Heizung Schlafzimmer 0630
   description: ''
   trigger:
   - platform: time
-    at: '22:00:00'
+    at: 06:30:00
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -511,15 +551,17 @@
   action:
   - service: climate.set_temperature
     data:
-      temperature: 21
+      temperature: '{{ states.input_number.schlafzimmer_temperatur_on.state }}
+
+        '
     entity_id: climate.meq0797490
   mode: single
 - id: '1602788396454'
-  alias: Heizung Schlafzimmer 0800
+  alias: Heizung Schlafzimmer 0730
   description: ''
   trigger:
   - platform: time
-    at: 08:00:00
+    at: 07:30:00
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -530,7 +572,9 @@
   action:
   - service: climate.set_temperature
     data:
-      temperature: 18
+      temperature: '{{ states.input_number.schlafzimmer_temperatur_idle.state }}
+
+        '
     entity_id: climate.meq0797490
   mode: single
 - id: '1602790601670'
@@ -548,7 +592,7 @@
       value: '{{ states.climate.oeq0667981.attributes["temperature"] }}
 
         '
-    entity_id: input_number.wohnzimmer_thermostat_temperatur
+    entity_id: input_number.wohnzimmer_thermostat_temperatur_backup
   - service: climate.set_temperature
     data:
       temperature: 5
@@ -566,7 +610,7 @@
   action:
   - service: climate.set_temperature
     data:
-      temperature: '{{ states.input_number.wohnzimmer_thermostat_temperatur.state
+      temperature: '{{ states.input_number.wohnzimmer_thermostat_temperatur_backup.state
         }}
 
         '
@@ -591,7 +635,7 @@
         }}
 
         '
-    entity_id: input_number.arbeitszimmer_thermostat_temperatur
+    entity_id: input_number.arbeitszimmer_thermostat_temperatur_backup
   - service: climate.set_temperature
     data:
       temperature: 5
@@ -616,7 +660,7 @@
         }}
 
         '
-    entity_id: input_number.arbeitszimmer_thermostat_temperatur
+    entity_id: input_number.arbeitszimmer_thermostat_temperatur_backup
   - service: climate.set_temperature
     data:
       temperature: 5
@@ -637,7 +681,7 @@
   action:
   - service: climate.set_temperature
     data:
-      temperature: '{{ states.input_number.arbeitszimmer_thermostat_temperatur.state
+      temperature: '{{ states.input_number.arbeitszimmer_thermostat_temperatur_backup.state
         }}
 
         '
@@ -658,18 +702,18 @@
   action:
   - service: climate.set_temperature
     data:
-      temperature: '{{ states.input_number.arbeitszimmer_thermostat_temperatur.state
+      temperature: '{{ states.input_number.arbeitszimmer_thermostat_temperatur_backup.state
         }}
 
         '
     entity_id: climate.arbeitszimmer_thermostat
   mode: single
 - id: '1602793165788'
-  alias: Heizung Schlafzimmer 2200 (Fenster offen)
+  alias: Heizung Schlafzimmer 0630 (Fenster offen)
   description: ''
   trigger:
   - platform: time
-    at: '22:00:00'
+    at: 06:30:00
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -680,15 +724,21 @@
   action:
   - service: input_number.set_value
     data:
-      value: 21
+      value: '{{ states.input_number.schlafzimmer_temperatur_on.state }}
+
+        '
     entity_id: input_number.schlafzimmer_thermostat_temperatur
   mode: single
 - id: '1602793245573'
-  alias: Heizung Wohnzimmer 2000 (Fenster offen)
+  alias: Heizung Wohnzimmer Nacht (Fenster offen)
   description: ''
   trigger:
   - platform: time
-    at: '20:00:00'
+    at: input_datetime.wohnzimmer_heizungssteuerung_nacht
+  - platform: state
+    entity_id: input_boolean.wohnzimmer_heizungssteuerung_nacht
+    from: 'off'
+    to: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -696,18 +746,30 @@
   - condition: state
     entity_id: binary_sensor.wohnzimmer_fenster
     state: 'on'
+  - condition: state
+    entity_id: input_boolean.wohnzimmer_heizungssteuerung_nacht
+    state: 'on'
+  - condition: time
+    after: input_datetime.wohnzimmer_heizungssteuerung_nacht
+    before: input_datetime.wohnzimmer_heizungssteuerung_tag
   action:
   - service: input_number.set_value
     data:
-      value: 18
-    entity_id: input_number.wohnzimmer_thermostat_temperatur
+      value: '{{ states.input_number.wohnzimmer_temperatur_nacht.state }}
+
+        '
+    entity_id: input_number.wohnzimmer_thermostat_temperatur_backup
   mode: single
 - id: '1602793340386'
-  alias: Heizung Wohnzimmer 0700 (Fenster offen)
+  alias: Heizung Wohnzimmer Tag (Fenster offen)
   description: ''
   trigger:
   - platform: time
-    at: 07:00:00
+    at: input_datetime.wohnzimmer_heizungssteuerung_tag
+  - platform: state
+    entity_id: input_boolean.wohnzimmer_heizungssteuerung_tag
+    from: 'off'
+    to: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -715,18 +777,30 @@
   - condition: state
     entity_id: binary_sensor.wohnzimmer_fenster
     state: 'on'
+  - condition: state
+    entity_id: input_boolean.wohnzimmer_heizungssteuerung_tag
+    state: 'on'
+  - condition: time
+    after: input_datetime.wohnzimmer_heizungssteuerung_tag
+    before: input_datetime.wohnzimmer_heizungssteuerung_nacht
   action:
   - service: input_number.set_value
     data:
-      value: 20
-    entity_id: input_number.wohnzimmer_thermostat_temperatur
+      value: '{{ states.input_number.wohnzimmer_temperatur_tag.state }}
+
+        '
+    entity_id: input_number.wohnzimmer_thermostat_temperatur_backup
   mode: single
 - id: '1602794181586'
-  alias: Heizung Arbeitszimmer 2000 (Fenster offen)
+  alias: Heizung Arbeitszimmer Nacht (Fenster offen)
   description: ''
   trigger:
   - platform: time
-    at: '20:00:00'
+    at: input_datetime.arbeitszimmer_heizungssteuerung_nacht
+  - platform: state
+    entity_id: input_datetime.arbeitszimmer_heizungssteuerung_nacht
+    from: 'off'
+    to: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -739,18 +813,26 @@
     - condition: state
       entity_id: binary_sensor.arbeitszimmer_fenster_melina
       state: 'on'
+  - condition: state
+    entity_id: input_boolean.arbeitszimmer_heizungssteuerung_nacht
+    state: 'on'
+  - condition: time
+    after: input_datetime.arbeitszimmer_heizungssteuerung_nacht
+    before: input_datetime.arbeitszimmer_heizungssteuerung_tag
   action:
   - service: input_number.set_value
     data:
-      value: 18
-    entity_id: input_number.arbeitszimmer_thermostat_temperatur
+      value: '{{ states.input_number.arbeitszimmer_temperatur_nacht.state }}
+
+        '
+    entity_id: input_number.arbeitszimmer_thermostat_temperatur_backup
   mode: single
 - id: '1602794237019'
-  alias: Heizung Schlafzimmer 0800 (Fenster offen)
+  alias: Heizung Schlafzimmer 0730 (Fenster offen)
   description: ''
   trigger:
   - platform: time
-    at: 08:00:00
+    at: 07:30:00
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -761,7 +843,9 @@
   action:
   - service: input_number.set_value
     data:
-      value: 18
+      value: '{{ states.input_number.schlafzimmer_temperatur_idle.state }}
+
+        '
     entity_id: input_number.schlafzimmer_thermostat_temperatur
   mode: single
 - id: '1602828741702'
@@ -785,8 +869,8 @@
   action:
   - data:
       message: Wohnzimmer Fenster war 10min geöffnet
-    service: notify.telegram
-  mode: single
+    service: notify.telegram_home
+  mode: restart
 - id: '1602828797600'
   alias: NTFY - Arbeitszimmer Fenster
   description: ''
@@ -808,5 +892,264 @@
   action:
   - data:
       message: Arbeitszimmer Fenster war 10min geöffnet
-    service: notify.telegram
+    service: notify.telegram_home
+  mode: restart
+  max: 10
+- id: '1604829094266'
+  alias: Telegram Callback - Reset Energy Total - YES
+  description: ''
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: /telegram_reset_energy_yes
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: rooms/flur/plug-router/cmnd/EnergyReset3
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/wohnzimmer/plug-wohnzimmer-alwayson/cmnd/EnergyReset3
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/wohnzimmer/plug-wohnzimmer-stehlampe/cmnd/EnergyReset3
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/wohnzimmer/plug-tv/cmnd/EnergyReset3
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/arbeitszimmer/plug-schreibtisch-duc/cmnd/EnergyReset3
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/arbeitszimmer/plug-schreibtisch-melina/cmnd/EnergyReset3
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/kueche/plug-backofen/cmnd/EnergyReset3
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/kueche/plug-geschirrspueler/cmnd/EnergyReset3
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/kueche/plug-kuehlschrank/cmnd/EnergyReset3
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/kueche/plug-waschmaschine/cmnd/EnergyReset3
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/badezimmer/plug-trockner/cmnd/EnergyReset3
+      payload: '0'
+  - service: telegram_bot.edit_message
+    data:
+      message_id: '{{ trigger.event.data.message.message_id }}'
+      chat_id: '{{ trigger.event.data.chat_id }}'
+      inline_keyboard:
+      message: '{{ trigger.event.data.message.text }} - YES by {{ trigger.event.data.from_first
+        }}'
+  - service: telegram_bot.answer_callback_query
+    data:
+      callback_query_id: '{{ trigger.event.data.id }}'
+      message: OK (Banner Message)
+  mode: single
+- id: '1604830040324'
+  alias: (TEST) NTFY with Action
+  description: ''
+  trigger: []
+  condition: []
+  action:
+  - service: notify.telegram_duc
+    data:
+      title: Test Title
+      message: Test message
+      data:
+        inline_keyboard:
+        - Ack:/telegram_acknowledge
+  mode: single
+- id: '1604830978787'
+  alias: Telegram Callback - Acknowledge Message
+  description: ''
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: /telegram_acknowledge
+  condition: []
+  action:
+  - service: telegram_bot.answer_callback_query
+    data:
+      callback_query_id: '{{ trigger.event.data.id }}'
+      message: OK (Banner Message)
+  - service: telegram_bot.edit_replymarkup
+    data:
+      message_id: '{{ trigger.event.data.message.message_id }}'
+      chat_id: '{{ trigger.event.data.chat_id }}'
+      inline_keyboard:
+  - service: telegram_bot.edit_message
+    data:
+      message_id: '{{ trigger.event.data.message.message_id }}'
+      chat_id: '{{ trigger.event.data.chat_id }}'
+      message: '{{ trigger.event.data.message.text }} - Acknowledged by {{ trigger.event.data.message.chat.username
+        }}'
+  - service: notify.telegram_duc
+    data:
+      message: '{% set msg = trigger.event.data.message %} {{ msg }}'
+  mode: single
+- id: '1604834819090'
+  alias: Telegram Callback - Reset Energy Total - NO
+  description: ''
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: /telegram_reset_energy_no
+  condition: []
+  action:
+  - service: telegram_bot.edit_message
+    data:
+      message_id: '{{ trigger.event.data.message.message_id }}'
+      chat_id: '{{ trigger.event.data.chat_id }}'
+      inline_keyboard:
+      message: '{{ trigger.event.data.message.text }} - NO by {{ trigger.event.data.from_first
+        }}'
+  - service: telegram_bot.answer_callback_query
+    data:
+      callback_query_id: '{{ trigger.event.data.id }}'
+      message: OK (Banner Message)
+  mode: single
+- id: '1604834934946'
+  alias: NTFY - Reset Energy Total
+  description: ''
+  trigger: []
+  condition: []
+  action:
+  - service: notify.telegram_home
+    data:
+      message: Sollen alle Stromzähler auf 0 zurückgesetzt werden?
+      data:
+        inline_keyboard:
+        - Nein:/telegram_reset_energy_no, **JA**:/telegram_reset_energy_yes
+  mode: single
+- id: '1607638319491'
+  alias: Heizung Arbeitszimmer 0600
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.arbeitszimmer_heizungssteuerung_tag
+  - platform: state
+    entity_id: input_boolean.arbeitszimmer_heizungssteuerung_tag
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_duc
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.arbeitszimmer_heizungssteuerung_tag
+    state: 'on'
+  - condition: time
+    after: input_datetime.arbeitszimmer_heizungssteuerung_tag
+    before: input_datetime.arbeitszimmer_heizungssteuerung_nacht
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: '{{ states.input_number.arbeitszimmer_temperatur_tag.state }}
+
+        '
+    entity_id: climate.arbeitszimmer_thermostat
+  mode: single
+- id: '1607638346176'
+  alias: Heizung Arbeitszimmer 0600 (Fenster offen)
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.arbeitszimmer_heizungssteuerung_tag
+  - platform: state
+    entity_id: input_boolean.arbeitszimmer_heizungssteuerung_tag
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.heizung_on
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.arbeitszimmer_fenster_duc
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.arbeitszimmer_fenster_melina
+      state: 'on'
+  - condition: state
+    entity_id: input_boolean.arbeitszimmer_heizungssteuerung_tag
+    state: 'on'
+  - condition: time
+    after: input_datetime.arbeitszimmer_heizungssteuerung_tag
+    before: input_datetime.arbeitszimmer_heizungssteuerung_nacht
+  action:
+  - service: input_number.set_value
+    data:
+      value: '{{ states.input_number.arbeitszimmer_temperatur_tag.state }}
+
+        '
+    entity_id: input_number.arbeitszimmer_thermostat_temperatur_backup
+  mode: single
+- id: '1610999234395'
+  alias: Schlafzimmer Lichtschalter Power (Toggle) -> Schlafzimmer Lampe An
+  description: ''
+  trigger:
+  - device_id: b79f07ba3d7967191ad9a953754cb36b
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition:
+  - condition: state
+    entity_id: light.schlafzimmer
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness: 255
+    entity_id: light.schlafzimmer_lampe_1
+  - service: light.turn_on
+    data:
+      brightness: 255
+    entity_id: light.schlafzimmer_lampe_2
+  mode: single
+- id: '1610999285171'
+  alias: Schlafzimmer Lichtschalter Power (Toggle) -> Schlafzimmer Lampe Aus
+  description: ''
+  trigger:
+  - device_id: b79f07ba3d7967191ad9a953754cb36b
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition:
+  - condition: state
+    entity_id: light.schlafzimmer
+    state: 'on'
+  action:
+  - service: light.turn_off
+    data: {}
+    entity_id: light.schlafzimmer_lampe_1
+  - service: light.turn_off
+    data: {}
+    entity_id: light.schlafzimmer_lampe_2
   mode: single
