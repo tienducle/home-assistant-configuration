@@ -1,5 +1,6 @@
-- platform: broadcast
-  api_key: !secret telegram_bot_broadcast_api_key
+- platform: polling
+  api_key: !secret telegram_bot_api_key
   allowed_chat_ids:
-    - !secret telegram_main_chat_id
-    - !secret telegram_test_chat_id
+    - !secret telegram_home_chat_id
+    - !secret telegram_duc_chat_id
+    - !secret telegram_melina_chat_id

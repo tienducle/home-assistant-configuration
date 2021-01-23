@@ -1,10 +1,14 @@
-- name: telegram
+- name: telegram_home
   platform: telegram
-  chat_id: !secret telegram_main_chat_id
+  chat_id: !secret telegram_home_chat_id
 
-- name: telegramtest
+- name: telegram_duc
   platform: telegram
-  chat_id: !secret telegram_test_chat_id
+  chat_id: !secret telegram_duc_chat_id
+
+- name: telegram_melina
+  platform: telegram
+  chat_id: !secret telegram_melina_chat_id
 
 - name: tv
   platform: nfandroidtv
