@@ -87,6 +87,14 @@ include:
 
     ###### Lights
     # Haus
+    # Flur
+    - light.flur_lampe_1
+    - light.flur_lampe_2
+    - light.flur_lampe_3
+    - light.flur_lampe_4
+    - binary_sensor.flur_bewegungssensor_garderobe
+    - binary_sensor.flur_bewegungssensor_arbeitszimmer
+    - binary_sensor.flur_bewegungssensor_wohnzimmer
     # Wohnzimmer
     - light.wohnzimmer
     - light.wohnzimmer_lampe_1

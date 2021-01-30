@@ -1040,7 +1040,7 @@
         - Nein:/telegram_reset_energy_no, **JA**:/telegram_reset_energy_yes
   mode: single
 - id: '1607638319491'
-  alias: Heizung Arbeitszimmer 0600
+  alias: Heizung Arbeitszimmer Tag
   description: ''
   trigger:
   - platform: time
@@ -1074,7 +1074,7 @@
     entity_id: climate.arbeitszimmer_thermostat
   mode: single
 - id: '1607638346176'
-  alias: Heizung Arbeitszimmer 0600 (Fenster offen)
+  alias: Heizung Arbeitszimmer Tag (Fenster offen)
   description: ''
   trigger:
   - platform: time
@@ -1153,3 +1153,35 @@
     data: {}
     entity_id: light.schlafzimmer_lampe_2
   mode: single
+- id: '1612044194296'
+  alias: Flur Garderobe Bewegung
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      no_motion_wait: '5'
+      motion_entity: binary_sensor.flur_bewegungssensor_garderobe
+      light_target:
+        device_id:
+        - db47264e85fb7142863142072315fde3
+        - fe92786c82793ea7722f8b8730abbf29
+- id: '1612045450945'
+  alias: Flur Arbeitszimmer Bewegung
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.flur_bewegungssensor_arbeitszimmer
+      light_target:
+        device_id: ecb01faf602119a04b0255ebb29c73ad
+      no_motion_wait: '5'
+- id: '1612045578539'
+  alias: Flur Wohnzimmer Bewegung
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      no_motion_wait: '5'
+      motion_entity: binary_sensor.flur_bewegungssensor_wohnzimmer
+      light_target:
+        device_id: 57c2437157d4ff5630262115c252f032
