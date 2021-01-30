@@ -1,4 +1,5 @@
 secrets.yaml
+gcp-service-account.json
 phue.conf
 .ios.conf
 bravia.conf

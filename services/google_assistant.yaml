@@ -1,0 +1,32 @@
+project_id: home-assistant-lespiller
+service_account: !include ../gcp-service-account.json
+report_state: true
+expose_by_default: false
+exposed_domains:
+  - switch
+  - light
+entity_config:
+  light.wohnzimmer:
+    name: Wohnzimmer Lampe
+    room: Wohnzimmer
+  light.schlafzimmer:
+    name: Schlafzimmer Lampe
+    room: Schlafzimmer
+  light.arbeitszimmer:
+    name: Arbeitszimmer Lampe
+    room: Arbeitszimmer
+  light.badezimmer:
+    name: Badezimmer Lampe
+    room: Badezimmer
+  light.kueche:
+    name: Küchenlampe
+    room: Küche
+  light.gaestebad:
+    name: Gästebad Lampe
+    room: Gästebad
+  light.wohnzimmer_stehlampe:
+    name: Wohnzimmer Stehlampe
+    room: Wohnzimmer
+  light.flur:
+    name: Flur Lampe
+    room: Flur

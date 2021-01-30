@@ -38,6 +38,7 @@ smart_home:
       - light.kueche
       - light.gaestebad
       - light.wohnzimmer_stehlampe
+      - light.flur
 
   entity_config:
     switch.ducs_schreibtisch_sitzen:

@@ -65,6 +65,9 @@ alexa: !include services/alexa.yaml
 # Cloudflare
 #cloudflare: !include services/cloudflare.yaml
 
+# Google Assistant
+google_assistant: !include services/google_assistant.yaml
+
 # Homematic
 homematic: !include services/homematic.yaml
 
