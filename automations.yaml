@@ -158,7 +158,7 @@
     entity_id: light.wohnzimmer_stehlampe
     service: light.turn_off
 - id: '1593028891671'
-  alias: Küche Lichtschalter An -> Input_Boolean An
+  alias: Küche Lichtschalter An -> Küchenlampe+Input_Boolean An
   description: ''
   trigger:
   - device_id: ad9abe1fe14c7595ebecb7d0b8435867
@@ -171,6 +171,8 @@
   - data: {}
     entity_id: input_boolean.kueche_lichtschalter
     service: input_boolean.turn_on
+  - scene: scene.kueche_standard
+  mode: single
 - id: '1593932789090'
   alias: Waschmaschine An -> Input_Boolean An
   description: ''
@@ -1159,12 +1161,12 @@
   use_blueprint:
     path: homeassistant/motion_light.yaml
     input:
-      no_motion_wait: '5'
       motion_entity: binary_sensor.flur_bewegungssensor_garderobe
       light_target:
         device_id:
         - db47264e85fb7142863142072315fde3
         - fe92786c82793ea7722f8b8730abbf29
+      no_motion_wait: '120'
 - id: '1612045450945'
   alias: Flur Arbeitszimmer Bewegung
   description: ''
@@ -1174,14 +1176,199 @@
       motion_entity: binary_sensor.flur_bewegungssensor_arbeitszimmer
       light_target:
         device_id: ecb01faf602119a04b0255ebb29c73ad
-      no_motion_wait: '5'
+      no_motion_wait: '60'
 - id: '1612045578539'
   alias: Flur Wohnzimmer Bewegung
   description: ''
   use_blueprint:
     path: homeassistant/motion_light.yaml
     input:
-      no_motion_wait: '5'
+      no_motion_wait: '60'
       motion_entity: binary_sensor.flur_bewegungssensor_wohnzimmer
       light_target:
         device_id: 57c2437157d4ff5630262115c252f032
+- id: '1612129482093'
+  alias: Flur Wohnzimmer Bewegung -> Lampe An
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: 5e55aa938e48763e2954654c79390b97
+    entity_id: binary_sensor.flur_bewegungssensor_wohnzimmer
+    domain: binary_sensor
+  condition:
+  - above: '0'
+    below: '30'
+    condition: numeric_state
+    entity_id: sensor.kueche_helligkeitssensor
+  action:
+  - data: {}
+    entity_id: light.flur_lampe_4
+    service: light.turn_on
+  mode: single
+- id: '1612129534487'
+  alias: Flur Wohnzimmer keine Bewegung -> Lampe Aus
+  description: ''
+  trigger:
+  - type: no_motion
+    platform: device
+    device_id: 5e55aa938e48763e2954654c79390b97
+    entity_id: binary_sensor.flur_bewegungssensor_wohnzimmer
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.flur_lampe_4
+    service: light.turn_off
+  mode: single
+- id: '1612131018158'
+  alias: Flur Arbeitszimmer Bewegung -> Lampe An
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: 186871de8c4278101129556f133403de
+    entity_id: binary_sensor.flur_bewegungssensor_arbeitszimmer
+    domain: binary_sensor
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.flur_lampe_3
+    service: light.turn_on
+  mode: single
+- id: '1612131045972'
+  alias: Flur Arbeitszimmer keine Bewegung -> Lampe Aus
+  description: ''
+  trigger:
+  - type: no_motion
+    platform: device
+    device_id: 186871de8c4278101129556f133403de
+    entity_id: binary_sensor.flur_bewegungssensor_arbeitszimmer
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.flur_lampe_3
+    service: light.turn_off
+  mode: single
+- id: '1612219903179'
+  alias: Plex Webhook (Output to Log)
+  description: ''
+  trigger:
+  - platform: webhook
+    webhook_id: plex_webhook
+  condition: []
+  action:
+  - service: system_log.write
+    data:
+      message: '{% set payload = (trigger.data.payload.decode()|from_json) %}
+
+        "{{ payload }}"
+
+        '
+      level: warning
+  - service: system_log.write
+    data:
+      level: warning
+      message: '{{ trigger }}'
+  mode: single
+- id: '1612597522865'
+  alias: Küche Lichtschalter Aus -> Küchenlampe+Flurlampe Aus
+  description: ''
+  trigger:
+  - device_id: ad9abe1fe14c7595ebecb7d0b8435867
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.kueche
+    service: light.turn_off
+  - service: light.turn_off
+    data: {}
+    entity_id: light.flur_lampe_4
+  mode: single
+- id: '1613499595445'
+  alias: Plex Webhook - Wohnzimmer Play
+  description: ''
+  trigger:
+  - platform: webhook
+    webhook_id: plex_webhook_wohnzimmer_play
+  condition:
+  - condition: template
+    value_template: '{% set payload = (trigger.data.payload.decode()|from_json) %}
+
+      {% if (payload.event == "media.play" or payload.event == "media.resume") and
+      (payload.Player.uuid == states(''input_text.plex_apple_tv_4k_wohnzimmer''))
+      %}
+
+      true
+
+      {% else %}
+
+      false
+
+      {% endif %}'
+  - condition: time
+    before: '4:00'
+    after: '19:00'
+  action:
+  - service: system_log.write
+    data:
+      message: Plex Wohnzimmer - Play
+      level: info
+  - scene: scene.wohnzimmer_film
+  mode: single
+- id: '1613499794811'
+  alias: Plex Webhook - Wohnzimmer Stop
+  description: ''
+  trigger:
+  - platform: webhook
+    webhook_id: plex_webhook_wohnzimmer_stop
+  condition:
+  - condition: template
+    value_template: '{% set payload = (trigger.data.payload.decode()|from_json) %}
+
+      {% if (payload.event == "media.pause" or payload.event == "media.stop") and
+      (payload.Player.uuid == states(''input_text.plex_apple_tv_4k_wohnzimmer''))
+      %}
+
+      true
+
+      {% else %}
+
+      false
+
+      {% endif %}'
+  - condition: time
+    after: '19:00'
+    before: 04:00
+  action:
+  - service: system_log.write
+    data:
+      message: Plex Wohnzimmer - Stop
+      level: info
+  - scene: scene.wohnzimmer_abend
+  mode: single
+- id: '1613503335638'
+  alias: Media Player - Rick Astley
+  description: ''
+  trigger: []
+  condition: []
+  action:
+  - service: media_extractor.play_media
+    data:
+      media_content_id: https://archive.org/download/MacArthur_Foundation_100andChange_dQw4w9WgXcQ/Rick_Astley_-_Never_Gonna_Give_You_Up_dQw4w9WgXcQ.mp4
+      media_content_type: video
+    entity_id: media_player.apple_tv_4k_wohnzimmer
+  mode: single
