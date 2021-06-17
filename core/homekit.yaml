@@ -26,6 +26,8 @@ filter:
     - binary_sensor.arbeitszimmer_fenster_duc
     # Küche Balkonfenster
     - binary_sensor.oeq0164835_state
+    # Trostbox
+    - binary_sensor.trostbox
 
     ###### Lights
     # Haus

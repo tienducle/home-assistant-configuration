@@ -1126,12 +1126,10 @@
     state: 'off'
   action:
   - service: light.turn_on
-    data:
-      brightness: 255
+    data: {}
     entity_id: light.schlafzimmer_lampe_1
   - service: light.turn_on
-    data:
-      brightness: 255
+    data: {}
     entity_id: light.schlafzimmer_lampe_2
   mode: single
 - id: '1610999285171'
@@ -1202,9 +1200,21 @@
     condition: numeric_state
     entity_id: sensor.kueche_helligkeitssensor
   action:
-  - data: {}
-    entity_id: light.flur_lampe_4
-    service: light.turn_on
+  - choose:
+    - conditions:
+      - condition: time
+        after: '23:00'
+        before: '7:00'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 10
+        entity_id: light.flur_lampe_4
+    default:
+    - service: light.turn_on
+      data:
+        brightness: 255
+      entity_id: light.flur_lampe_4
   mode: single
 - id: '1612129534487'
   alias: Flur Wohnzimmer keine Bewegung -> Lampe Aus
@@ -1236,9 +1246,26 @@
     domain: binary_sensor
   condition: []
   action:
-  - data: {}
-    entity_id: light.flur_lampe_3
-    service: light.turn_on
+  - choose:
+    - conditions:
+      - condition: time
+        after: '23:00'
+        before: '7:00'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 10
+        entity_id: light.flur_lampe_3
+    - conditions:
+      - condition: time
+        after: '18:00'
+        before: '10:00'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 255
+        entity_id: light.flur_lampe_3
+    default: []
   mode: single
 - id: '1612131045972'
   alias: Flur Arbeitszimmer keine Bewegung -> Lampe Aus
@@ -1321,7 +1348,10 @@
       {% endif %}'
   - condition: time
     before: '4:00'
-    after: '19:00'
+    after: '18:00'
+  - condition: state
+    entity_id: input_boolean.plex_wohnzimmer_webhooks
+    state: 'on'
   action:
   - service: system_log.write
     data:
@@ -1351,8 +1381,11 @@
 
       {% endif %}'
   - condition: time
-    after: '19:00'
+    after: '18:00'
     before: 04:00
+  - condition: state
+    entity_id: input_boolean.plex_wohnzimmer_webhooks
+    state: 'on'
   action:
   - service: system_log.write
     data:
@@ -1371,4 +1404,230 @@
       media_content_id: https://archive.org/download/MacArthur_Foundation_100andChange_dQw4w9WgXcQ/Rick_Astley_-_Never_Gonna_Give_You_Up_dQw4w9WgXcQ.mp4
       media_content_type: video
     entity_id: media_player.apple_tv_4k_wohnzimmer
+  mode: single
+- id: '1614251828830'
+  alias: Wohnzimmer Cube
+  description: ''
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: wohnzimmer_cube
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ (trigger.event.data.event|string).split(''00'')[0] ==
+          "1" and (trigger.event.data.gesture == 3 or trigger.event.data.gesture ==
+          4) }}'
+      sequence:
+      - service: input_boolean.turn_off
+        data: {}
+        entity_id: input_boolean.plex_wohnzimmer_webhooks
+      - service: notify.tv
+        data:
+          data:
+            duration: 2
+            fontsize: medium
+            position: top-right
+            color: default
+            transparency: 0%
+            interrupt: 1
+          message: Plex Webhooks aus
+          title: Wohnzimmer Cube Test
+    - conditions:
+      - condition: template
+        value_template: '{{ (trigger.event.data.event|string).split(''00'')[0] ==
+          "6" and (trigger.event.data.gesture == 3 or trigger.event.data.gesture ==
+          4) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        data: {}
+        entity_id: input_boolean.plex_wohnzimmer_webhooks
+      - service: notify.tv
+        data:
+          data:
+            duration: 2
+            fontsize: medium
+            position: top-right
+            color: default
+            transparency: 0%
+            interrupt: 1
+          message: Plex Webhooks an
+          title: Wohnzimmer Cube Test
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.event > 0 and trigger.event.data.gesture
+          == 7 }}'
+      - condition: state
+        entity_id: light.wohnzimmer
+        state: 'on'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: '{{states.light.wohnzimmer.attributes.brightness + 128}}'
+        entity_id: light.wohnzimmer
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.event < 0 and trigger.event.data.gesture
+          == 8 }}'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: '{{states.light.wohnzimmer.attributes.brightness - 128}}'
+        entity_id: light.wohnzimmer
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.event > 0 and trigger.event.data.gesture
+          == 7 }}'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 255
+        entity_id: light.wohnzimmer
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.event == 7007 and trigger.event.data.gesture
+          == 1 }}'
+      sequence:
+      - service: switch.turn_on
+        data: {}
+        entity_id: switch.wohnzimmer_tv_steckdose
+    default:
+    - service: system_log.write
+      data:
+        level: warning
+        message: '{{ trigger.event.data.event }}'
+  mode: single
+- id: '1614274225134'
+  alias: Arbeitszimmer Cube Lichtsteuerung (alt)
+  description: ''
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: arbeitszimmer_cube
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.event > 0 and trigger.event.data.gesture
+          == 7 }}'
+      - condition: state
+        entity_id: light.arbeitszimmer
+        state: 'on'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: '{{states.light.arbeitszimmer.attributes.brightness + 128}}'
+        entity_id: light.arbeitszimmer
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.event < 0 and trigger.event.data.gesture
+          == 8 }}'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: '{{states.light.arbeitszimmer.attributes.brightness - 128}}'
+        entity_id: light.arbeitszimmer
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.event > 0 and trigger.event.data.gesture
+          == 7 }}'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 255
+        entity_id: light.arbeitszimmer
+    default: []
+  mode: single
+- id: '1614341572267'
+  alias: Arbeitszimmer Cube
+  description: ''
+  use_blueprint:
+    path: bergstrom/mi-magic-cube-deconz-45-actions.yaml
+    input:
+      remote: 7b16c09f640d7c51e62350e858ecd3ea
+      rotate_clockwise:
+      - choose:
+        - conditions:
+          - condition: device
+            type: is_on
+            device_id: 8225542da18317f2f09bce8ed7783ad6
+            entity_id: light.arbeitszimmer
+            domain: light
+          sequence:
+          - service: light.turn_on
+            data:
+              brightness: '{{states.light.arbeitszimmer.attributes.brightness + 64}}'
+            entity_id: light.arbeitszimmer
+        default:
+        - service: light.turn_on
+          data:
+            brightness: 255
+          entity_id: light.arbeitszimmer
+      rotate_counter_clockwise:
+      - service: light.turn_on
+        data:
+          brightness: '{{states.light.arbeitszimmer.attributes.brightness - 64}}'
+        entity_id: light.arbeitszimmer
+- id: '1614764552328'
+  alias: Flur Garderobe Bewegung -> Lampe an
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: 5cba8e963a6df5ebf1829c1401b645e3
+    entity_id: binary_sensor.flur_bewegungssensor_garderobe
+    domain: binary_sensor
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: time
+        after: '23:00'
+        before: '7:00'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 10
+        entity_id: light.flur_lampe_1
+      - service: light.turn_on
+        data:
+          brightness: 10
+        entity_id: light.flur_lampe_2
+    default:
+    - service: light.turn_on
+      data:
+        brightness: 255
+      entity_id: light.flur_lampe_1
+    - service: light.turn_on
+      data:
+        brightness: 255
+      entity_id: light.flur_lampe_2
+  mode: single
+- id: '1614764621671'
+  alias: Flur Garderobe keine Bewegung -> Lampe aus
+  description: ''
+  trigger:
+  - type: no_motion
+    platform: device
+    device_id: 5cba8e963a6df5ebf1829c1401b645e3
+    entity_id: binary_sensor.flur_bewegungssensor_garderobe
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
+  condition: []
+  action:
+  - service: light.turn_off
+    data: {}
+    entity_id: light.flur_lampe_1
+  - service: light.turn_off
+    data: {}
+    entity_id: light.flur_lampe_2
   mode: single

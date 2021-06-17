@@ -29,6 +29,34 @@ include:
     - climate.oeq0665714
     - binary_sensor.oeq0665714_lowbat
 
+    ###### Weather
+    # Wohnzimmer
+    - sensor.wohnzimmer_temperature
+    - sensor.wohnzimmer_humidity
+    - sensor.wohnzimmer_air_pressure
+    - sensor.wohnzimmer_klima_battery_level
+    # Schlafzimmer
+    - sensor.schlafzimmer_temperature
+    - sensor.schlafzimmer_humidity
+    - sensor.schlafzimmer_air_pressure
+    - sensor.schlafzimmer_klima_battery_level
+    # Arbeitszimmer
+    - sensor.arbeitszimmer_temperature
+    - sensor.arbeitszimmer_humidity
+    - sensor.arbeitszimmer_air_pressure
+    - sensor.arbeitszimmer_klima_battery_level
+    # Badezimmer
+    - sensor.badezimmer_temperature
+    - sensor.badezimmer_humidity
+    - sensor.badezimmer_air_pressure
+    - sensor.badezimmer_klima_battery_level
+    # Gästeklo
+    - sensor.gaestebad_temperature
+    - sensor.gaestebad_humidity
+    - sensor.gaestebad_air_pressure
+    - sensor.gaestebad_klima_battery_level
+
+
     ###### Contact sensors
     # Haustür
     - binary_sensor.oeq0169426_state
