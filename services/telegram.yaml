@@ -3,4 +3,4 @@
   allowed_chat_ids:
     - !secret telegram_home_chat_id
     - !secret telegram_duc_chat_id
-    - !secret telegram_melina_chat_id
+    - !secret telegram_selina_chat_id

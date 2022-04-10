@@ -26,21 +26,27 @@ homeassistant:
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 # https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/default_config/manifest.json
+# https://www.home-assistant.io/integrations/default_config/
 #default_config:
 config:
 alarm_control_panel: !include core/acp.yaml
 automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
+counter:
+discovery:
 frontend: !include core/frontend.yaml
+group: !include_dir_merge_named groups
 history: !include core/history.yaml
 http: !include core/http.yaml
 homekit: !include core/homekit.yaml
-group: !include_dir_merge_named groups
+input_button:
 #input_boolean: !include_dir_merge_named controls/input_booleans
 logbook: !include core/logbook.yaml
 logger: !include core/logger.yaml
 #lovelace:
 #  mode: yaml
+map:
+my:
 person: #!include core/person.yaml
 recorder: !include core/recorder.yaml
 scene: !include scenes.yaml
@@ -49,7 +55,7 @@ script: !include scripts.yaml
 sensor: !include_dir_merge_list sensors
 switch: !include_dir_merge_list controls/switches
 system_health:
-updater:
+timer:
 api:
 websocket_api:
 
@@ -62,6 +68,9 @@ input_select: !include_dir_merge_named helper/input_select
 
 # Alexa
 alexa: !include services/alexa.yaml
+
+# Calendar
+calendar: !include calendars.yaml
 
 # Cloudflare
 #cloudflare: !include services/cloudflare.yaml
@@ -76,8 +85,10 @@ homematic: !include services/homematic.yaml
 # Press link button before starting HA for first setup
 #hue: !include services/hue.yaml
 
+ifttt: !include services/ifttt.yaml
+
 # iOS integrations
-# ios:
+ios:
 mobile_app:
 
 light: !include_dir_merge_list lights
@@ -94,6 +105,9 @@ mqtt: !include services/mqtt.yaml
 notify: !include services/notifier.yaml
 telegram_bot: !include services/telegram.yaml
 
+# Owntracks
+owntracks: !include services/owntracks.yaml
+
 # Pilight
 pilight: !include services/pilight.yaml
 
@@ -109,6 +123,9 @@ shell_command: !include shellcommands.yaml
 
 # Tradfri
 #tradfri: !include services/tradfri.yaml
+
+#tts:
+#  - platform: amazon_polly
 
 # Wake on lan
 wake_on_lan:

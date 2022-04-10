@@ -1,6 +1,6 @@
-- platform: braviatv
-  host: !secret tv_xe9005_host
-  name: KD55XE9005
+#- platform: braviatv
+#  host: !secret tv_xe9005_host
+#  name: KD55XE9005
 
 #- platform: braviatv
 #  host: !secret tv_w805b_host

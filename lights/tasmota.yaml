@@ -1,3 +1,11 @@
 - platform: switch
   name: Wohnzimmer Stehlampe
   entity_id: switch.wohnzimmer_stehlampe_steckdose
+
+- platform: switch
+  name: Ducs Stehlampe
+  entity_id: switch.ducs_stehlampe_steckdose
+
+- platform: switch
+  name: Bedroom Lavalamp
+  entity_id: switch.bedroom_lavalamp_plug

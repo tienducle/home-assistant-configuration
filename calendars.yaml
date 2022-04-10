@@ -1,0 +1,8 @@
+- platform: caldav
+  username: !secret tle_caldav_username
+  password: !secret tle_caldav_password
+  url: https://caldav.icloud.com
+- platform: caldav
+  username: !secret sel_caldav_username
+  password: !secret sel_caldav_password
+  url: https://caldav.icloud.com

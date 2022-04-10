@@ -7,86 +7,48 @@
 #    - on: triggers wake_on_lan switch
 #    - off: triggers command_line switch
 
+
 - platform: wake_on_lan
   mac: !secret computer_tle_mac_address
-  name: wol_computer_tle
+  name: "Ducs Computer"
   host: !secret computer_tle_host
+  turn_off:
+    service: switch.turn_off
+    target:
+        entity_id:
+          - switch.shutdown_computer_tle
 
 - platform: command_line
   switches:
     shutdown_computer_tle:
       command_off: !secret computer_tle_shutdown_cmd
 
-- platform: template
-  switches:
-    ducs_computer:
-      friendly_name: 'Ducs Computer'
-      value_template: '{{ is_state("switch.wol_computer_tle", "on") }}'
-      turn_on:
-        service: switch.turn_on
-        entity_id: switch.wol_computer_tle
-      turn_off:
-        service: switch.turn_off
-        entity_id: switch.shutdown_computer_tle
-
 - platform: wake_on_lan
-  mac: !secret computer_msp_mac_address
-  name: "wol_computer_msp"
-  host: !secret computer_msp_host
+  mac: !secret computer_sel_mac_address
+  name: "Selinas Computer"
+  host: !secret computer_sel_host
+  turn_off:
+    service: switch.turn_off
+    target:
+        entity_id:
+          - switch.shutdown_computer_sel
 
 - platform: command_line
   switches:
-    shutdown_computer_msp:
-      command_off: !secret computer_msp_shutdown_cmd
-
-- platform: template
-  switches:
-    melinas_computer:
-      friendly_name: 'Melinas Computer'
-      value_template: '{{ is_state("switch.wol_computer_msp", "on") }}'
-      turn_on:
-        service: switch.turn_on
-        entity_id: switch.wol_computer_msp
-      turn_off:
-        service: switch.turn_off
-        entity_id: switch.shutdown_computer_msp
+    shutdown_computer_sel:
+      command_off: !secret computer_sel_shutdown_cmd
 
 - platform: wake_on_lan
   mac: !secret computer_wohnzimmer_mac_address
-  name: wol_computer_wohnzimmer
+  name: "Wohnzimmer Computer"
   host: !secret computer_wohnzimmer_host
+  turn_off:
+    service: switch.turn_off
+    target:
+        entity_id:
+          - switch.shutdown_computer_wohnzimmer
 
 - platform: command_line
   switches:
     shutdown_computer_wohnzimmer:
       command_off: !secret computer_wohnzimmer_shutdown_cmd
-
-- platform: template
-  switches:
-    wohnzimmer_computer:
-      friendly_name: 'Wohnzimmer Computer'
-      value_template: '{{ is_state("switch.wol_computer_wohnzimmer", "on") }}'
-      turn_on:
-        service: switch.turn_on
-        entity_id: switch.wol_computer_wohnzimmer
-      turn_off:
-        service: switch.turn_off
-        entity_id: switch.shutdown_computer_wohnzimmer
-
-# MacMini
-- platform: wake_on_lan
-  mac: !secret macmini_mac_address
-  name: wol_macmini
-  host: !secret macmini_host
-
-- platform: template
-  switches:
-    macmini:
-      friendly_name: 'Mac Mini'
-      value_template: '{{ is_state("switch.wol_macmini", "on") }}'
-      turn_on:
-        service: switch.turn_on
-        entity_id: switch.wol_macmini
-      turn_off:
-        service: switch.turn_on
-        entity_id: switch.wol_macmini

@@ -5,6 +5,8 @@ include:
   entities:
 
     # Haus
+    - lock.entry_door
+    - input_boolean.entry_door_opener
     # Wohnzimmer
     # Schlafzimmer
     # Arbeitszimmer
@@ -25,6 +27,7 @@ include:
     # Schlafzimmer
     - climate.meq0797490
     - binary_sensor.meq0797490_lowbat
+    - fan.bedroom_purifier
     # Badezimmer
     - climate.oeq0665714
     - binary_sensor.oeq0665714_lowbat
@@ -35,6 +38,8 @@ include:
     - sensor.wohnzimmer_humidity
     - sensor.wohnzimmer_air_pressure
     - sensor.wohnzimmer_klima_battery_level
+    - sensor.piano_air_temperature
+    - sensor.piano_air_humidity
     # Schlafzimmer
     - sensor.schlafzimmer_temperature
     - sensor.schlafzimmer_humidity
@@ -71,8 +76,8 @@ include:
     - binary_sensor.oeq0167636_state
     - binary_sensor.oeq0167636_lowbat
     # Arbeitszimmer
-    - binary_sensor.arbeitszimmer_fenster_melina
-    - sensor.arbeitszimmer_fenster_melina_battery_level
+    - binary_sensor.arbeitszimmer_fenster_selina
+    - sensor.arbeitszimmer_fenster_selina_battery_level
     - binary_sensor.arbeitszimmer_fenster_duc
     - sensor.arbeitszimmer_fenster_duc_battery_level
     # Küche Balkonfenster
@@ -80,38 +85,88 @@ include:
     - binary_sensor.oeq0164835_lowbat
 
     ###### iOS
-    - device_tracker.tle_ip11p
-    - sensor.tle_ip11p_activity
-    - sensor.tle_ip11p_average_active_pace
-    - sensor.tle_ip11p_bssid
-    - sensor.tle_ip11p_battery_level
-    - sensor.tle_ip11p_battery_state
-    - sensor.tle_ip11p_connection_type
-    - sensor.tle_ip11p_distance
-    - sensor.tle_ip11p_floors_ascended
-    - sensor.tle_ip11p_floors_descended
-    - sensor.tle_ip11p_geocoded_location
-    - sensor.tle_ip11p_last_update_trigger
-    - sensor.tle_ip11p_sim_1
-    - sensor.tle_ip11p_sim_2
-    - sensor.tle_ip11p_ssid
-    - sensor.tle_ip11p_steps
+    - device_tracker.tle_ip13p
+    - device_tracker.tle_ip13p_owntracks
+    - sensor.tle_ip13p_activity
+    - sensor.tle_ip13p_average_active_pace
+    - sensor.tle_ip13p_battery_level
+    - sensor.tle_ip13p_battery_state
+    - sensor.tle_ip13p_bssid
+    - sensor.tle_ip13p_connection_type
+    - sensor.tle_ip13p_distance
+    - sensor.tle_ip13p_floors_ascended
+    - sensor.tle_ip13p_floors_descended
+    - binary_sensor.tle_ip13p_focus
+    - sensor.tle_ip13p_geocoded_location
+    - sensor.tle_ip13p_last_update_trigger
+    - sensor.tle_ip13p_sim_1
+    - sensor.tle_ip13p_sim_2
+    - sensor.tle_ip13p_ssid
+    - sensor.tle_ip13p_steps
+    - sensor.tle_ip13p_storage
+
+    - device_tracker.tle_ipp
+    - sensor.tle_ipp_activity
+    - sensor.tle_ipp_battery_level
+    - sensor.tle_ipp_battery_state
+    - sensor.tle_ipp_bssid
+    - sensor.tle_ipp_connection_type
+    - binary_sensor.tle_ipp_focus
+    - sensor.tle_ipp_geocoded_location
+    - sensor.tle_ipp_last_update_trigger
+    - sensor.tle_ipp_sim_1
+    - sensor.tle_ipp_ssid
+    - sensor.tle_ipp_storage
+
+    - device_tracker.sel_ip11p
+    - sensor.sel_ip11p_activity
+    - sensor.sel_ip11p_average_active_pace
+    - sensor.sel_ip11p_battery_level
+    - sensor.sel_ip11p_battery_state
+    - sensor.sel_ip11p_bssid
+    - sensor.sel_ip11p_connection_type
+    - sensor.sel_ip11p_distance
+    - sensor.sel_ip11p_floors_ascended
+    - sensor.sel_ip11p_floors_descended
+    - binary_sensor.sel_ip11p_focus
+    - sensor.sel_ip11p_geocoded_location
+    - sensor.sel_ip11p_last_update_trigger
+    - sensor.sel_ip11p_sim_1
+    - sensor.sel_ip11p_sim_2
+    - sensor.sel_ip11p_ssid
+    - sensor.sel_ip11p_steps
+    - sensor.sel_ip11p_storage
 
     - device_tracker.msp_ip12mini
     - sensor.msp_ip12mini_activity
     - sensor.msp_ip12mini_average_active_pace
-    - sensor.msp_ip12mini_bssid
     - sensor.msp_ip12mini_battery_level
     - sensor.msp_ip12mini_battery_state
+    - sensor.msp_ip12mini_bssid
     - sensor.msp_ip12mini_connection_type
     - sensor.msp_ip12mini_distance
     - sensor.msp_ip12mini_floors_ascended
     - sensor.msp_ip12mini_floors_descended
+    - binary_sensor.msp_ip12mini_focus
     - sensor.msp_ip12mini_geocoded_location
     - sensor.msp_ip12mini_last_update_trigger
     - sensor.msp_ip12mini_sim_1
+    - sensor.msp_ip12mini_sim_2
     - sensor.msp_ip12mini_ssid
     - sensor.msp_ip12mini_steps
+    - sensor.msp_ip12mini_storage
+    - device_tracker.msp_ipp
+    - sensor.msp_ipp_activity
+    - sensor.msp_ipp_battery_level
+    - sensor.msp_ipp_battery_state
+    - sensor.msp_ipp_bssid
+    - sensor.msp_ipp_connection_type
+    - binary_sensor.msp_ipp_focus
+    - sensor.msp_ipp_geocoded_location
+    - sensor.msp_ipp_last_update_trigger
+    - sensor.msp_ipp_sim_1
+    - sensor.msp_ipp_ssid
+    - sensor.msp_ipp_storage
 
     ###### Lights
     # Haus
@@ -132,15 +187,18 @@ include:
     - light.wohnzimmer_lampe_5
     - light.wohnzimmer_lampe_6
     - light.wohnzimmer_stehlampe
+    - light.fairy_lights
     # Schlafzimmer
     - light.schlafzimmer
     - light.schlafzimmer_lampe_1
     - light.schlafzimmer_lampe_2
+    - light.bedroom_lavalamp
     # Arbeitszimmer
     - light.arbeitszimmer
     - light.arbeitszimmer_lampe_1
     - light.arbeitszimmer_lampe_2
     - light.arbeitszimmer_lampe_3
+    - light.selinas_schreibtisch_lampe
     # Küche
     - light.kueche
     - light.kuecheninsel_lampe
@@ -162,7 +220,7 @@ include:
 
     ###### Persons
     - person.duc
-    - person.melina
+    - person.selina
 
     ###### Power plugs
     # Haus
@@ -170,29 +228,41 @@ include:
     - sensor.router_verbrauch_heute
 #    - sensor.router_verbrauch_gestern
     - sensor.router_verbrauch_gesamt
+    - sensor.nas_power
+    - sensor.nas_verbrauch_heute
+#    - sensor.nas_verbrauch_gestern
+    - sensor.nas_verbrauch_gesamt
     # Wohnzimmer
     - sensor.wohnzimmer_power
     - sensor.wohnzimmer_verbrauch_heute
 #    - sensor.wohnzimmer_verbrauch_gestern
     - sensor.wohnzimmer_verbrauch_gesamt
     - sensor.wohnzimmer_stehlampe_power
-    - sensor.wohnzimmer_stehlampe_heute
-#    - sensor.wohnzimmer_stehlampe_gestern
-    - sensor.wohnzimmer_stehlampe_gesamt
+    - sensor.wohnzimmer_stehlampe_verbrauch_heute
+#    - sensor.wohnzimmer_stehlampe_verbrauch_gestern
+    - sensor.wohnzimmer_stehlampe_verbrauch_gesamt
     - sensor.wohnzimmer_tv_power
     - sensor.wohnzimmer_tv_verbrauch_heute
 #    - sensor.wohnzimmer_tv_verbrauch_gestern
     - sensor.wohnzimmer_tv_verbrauch_gesamt
     # Schlafzimmer
+    - sensor.lavalamp_power
+    - sensor.lavalamp_energy_today
+#    - sensor.lavalamp_energy_yesterday
+    - sensor.lavalamp_energy_total
     # Arbeitszimmer
     - sensor.schreibtisch_duc_power
     - sensor.schreibtisch_duc_verbrauch_heute
 #    - sensor.schreibtisch_duc_verbrauch_gestern
     - sensor.schreibtisch_duc_verbrauch_gesamt
-    - sensor.schreibtisch_melina_power
-    - sensor.schreibtisch_melina_verbrauch_heute
-#    - sensor.schreibtisch_melina_verbrauch_gestern
-    - sensor.schreibtisch_melina_verbrauch_gesamt
+    - sensor.ducs_stehlampe_power
+    - sensor.ducs_stehlampe_verbrauch_heute
+#    - sensor.ducs_stehlampe_verbrauch_gestern
+    - sensor.ducs_stehlampe_verbrauch_gesamt
+    - sensor.schreibtisch_selina_power
+    - sensor.schreibtisch_selina_verbrauch_heute
+#    - sensor.schreibtisch_selina_verbrauch_gestern
+    - sensor.schreibtisch_selina_verbrauch_gesamt
     # Küche
     - sensor.backofen_power
     - sensor.backofen_verbrauch_heute
@@ -238,7 +308,7 @@ include:
     # Arbeitszimmer
     - switch.arbeitszimmer_alexa_steckdose
     - switch.ducs_computer
-    - switch.melinas_computer
+    - switch.selinas_computer
     # Küche
     - switch.backofen
     - switch.geschirrspueler

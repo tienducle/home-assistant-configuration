@@ -5,11 +5,3 @@
 - name: telegram_duc
   platform: telegram
   chat_id: !secret telegram_duc_chat_id
-
-- name: telegram_melina
-  platform: telegram
-  chat_id: !secret telegram_melina_chat_id
-
-- name: tv
-  platform: nfandroidtv
-  host: !secret tv_xe9005_host

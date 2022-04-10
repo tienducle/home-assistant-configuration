@@ -74,3 +74,141 @@
       friendly_name: Wohnzimmer Lampe 6
       supported_features: 63
       state: 'on'
+- id: '1636570984636'
+  name: Wohnzimmer Tag
+  entities:
+    light.wohnzimmer:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - xy
+      color_mode: color_temp
+      brightness: 254
+      color_temp: 250
+      hs_color:
+      - 26.812
+      - 34.87
+      rgb_color:
+      - 255
+      - 205
+      - 166
+      xy_color:
+      - 0.421
+      - 0.364
+      is_deconz_group: true
+      all_on: true
+      friendly_name: Wohnzimmer Lampe
+      supported_features: 44
+      state: 'on'
+- id: '1636571352114'
+  name: Küche Standard
+  entities:
+    light.kuechenzeile_lampe_1:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      is_deconz_group: false
+      friendly_name: Kuechenzeile Lampe 1
+      supported_features: 40
+      state: 'on'
+    light.kuechenzeile_lampe_2:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      is_deconz_group: false
+      friendly_name: Kuechenzeile Lampe 2
+      supported_features: 40
+      state: 'on'
+    light.kuechenzeile_lampe_3:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      is_deconz_group: false
+      friendly_name: Kuechenzeile Lampe 3
+      supported_features: 40
+      state: 'on'
+    light.kuecheninsel_lampe:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - xy
+      color_mode: color_temp
+      brightness: 255
+      color_temp: 366
+      hs_color:
+      - 28.327
+      - 64.71
+      rgb_color:
+      - 255
+      - 167
+      - 89
+      xy_color:
+      - 0.524
+      - 0.387
+      is_deconz_group: false
+      friendly_name: Kuecheninsel Lampe
+      supported_features: 44
+      state: 'on'
+- id: '1648967575044'
+  name: Arbeitszimmer Tag
+  entities:
+    light.arbeitszimmer:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      color_mode: color_temp
+      brightness: 254
+      color_temp: 300
+      hs_color:
+      - 27.355
+      - 48.529
+      rgb_color:
+      - 255
+      - 187
+      - 131
+      xy_color:
+      - 0.467
+      - 0.377
+      is_deconz_group: true
+      all_on: true
+      friendly_name: Arbeitszimmer Lampe
+      supported_features: 40
+      state: 'on'
+- id: '1648967593621'
+  name: Arbeitszimmer Abend
+  entities:
+    light.arbeitszimmer:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      color_mode: color_temp
+      brightness: 254
+      color_temp: 400
+      hs_color:
+      - 28.874
+      - 72.522
+      rgb_color:
+      - 255
+      - 159
+      - 70
+      xy_color:
+      - 0.546
+      - 0.389
+      is_deconz_group: true
+      all_on: true
+      friendly_name: Arbeitszimmer Lampe
+      supported_features: 40
+      state: 'on'

@@ -8,6 +8,8 @@ filter:
     - climate.arbeitszimmer_thermostat
     # Schlafzimmer
     - climate.meq0797490
+    - fan.bedroom_purifier
+    - cover.bedroom_roller_blind
     # Badezimmer
     - climate.oeq0665714
 
@@ -49,15 +51,22 @@ filter:
     - light.wohnzimmer_lampe_5
     - light.wohnzimmer_lampe_6
     - light.wohnzimmer_stehlampe
+    - light.fairy_lights
     # Schlafzimmer
     - light.schlafzimmer
     - light.schlafzimmer_lampe_1
     - light.schlafzimmer_lampe_2
+    - light.bedroom_lavalamp
     # Arbeitszimmer
     - light.arbeitszimmer
     - light.arbeitszimmer_lampe_1
     - light.arbeitszimmer_lampe_2
     - light.arbeitszimmer_lampe_3
+    - light.arbeitszimmer_lampe_4
+    - light.arbeitszimmer_lampe_5
+    - light.arbeitszimmer_lampe_6
+    - light.selinas_schreibtisch_lampe
+    - light.ducs_stehlampe
     # Küche
     - light.kueche
     - light.kuecheninsel_lampe
@@ -75,7 +84,7 @@ filter:
 
     ###### Scenes
     # names too similar to lamps
-#    - script.wohnzimmer_tag
+    - scene.wohnzimmer_tag
     - scene.wohnzimmer_abend
 #    - script.wohnzimmer_nacht
     - scene.wohnzimmer_film
@@ -97,6 +106,7 @@ filter:
     - switch.wohnzimmer_fernseher
     - switch.wohnzimmer_tv_steckdose
     - switch.wohnzimmer_ventilator_steckdose
+    - input_boolean.living_room_vr_base_stations
     # Schlafzimmer
     - switch.schlafzimmer_auto
     - switch.schlafzimmer_boost
@@ -108,7 +118,7 @@ filter:
     - switch.ducs_computer
     - switch.ducs_schreibtisch_sitzen
     - switch.ducs_schreibtisch_stehen
-    - switch.melinas_computer
+    - switch.selinas_computer
     # Küche
     - switch.backofen
     - switch.geschirrspueler
@@ -137,3 +147,5 @@ entity_config:
     name: "Schreibtisch Runter"
   switch.ducs_schreibtisch_stehen:
     name: "Schreibtisch Hoch"
+  light.bedroom_lavalamp:
+    name: "Schlafzimmer Lavalampe"

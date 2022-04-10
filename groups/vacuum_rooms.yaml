@@ -1,0 +1,6 @@
+vacuum_rooms:
+  name: Vacuum Rooms
+  entities:
+    - input_boolean.vacuum_corridor
+    - input_boolean.vacuum_living_room
+    - input_boolean.vacuum_bed_room

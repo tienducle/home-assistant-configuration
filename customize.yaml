@@ -2,7 +2,7 @@ binary_sensor.oeq0169426_state:
   friendly_name: Haustuer
   device_class: door
 binary_sensor.oeq0169426_lowbat:
-  friendly_name: Haustuer Batterien
+  friendly_name: Haustür Batterien
   device_class: battery
 binary_sensor.oeq0166378_state:
   friendly_name: Wohnzimmer Balkon Fenster
@@ -40,7 +40,7 @@ binary_sensor.oeq0665714_lowbat:
 light.wohnzimmer:
   friendly_name: Wohnzimmer Lampe
 light.kueche:
-  friendly_name: Kuechenlampe
+  friendly_name: Küchenlampe
 climate.arbeitszimmer:
   friendly_name: Arbeitszimmer Thermostat
 light.badezimmer:
@@ -53,17 +53,19 @@ sensor.fernbedienung_schlafzimmer:
   friendly_name: Tradfi Fernbedienung Schlafzimmer Batterien
 light.arbeitszimmer:
   friendly_name: Arbeitszimmer Lampe
-switch.wol_computer_tle:
-  hidden: true
-switch.shutdown_computer_tle:
-  hidden: true
-switch.wol_computer_msp:
-  hidden: true
-switch.shutdown_computer_msp:
-  hidden: true
-switch.wol_macmini:
-  hidden: true
 binary_sensor.arbeitszimmer_fenster_duc:
   device_class: window
 binary_sensor.arbeitszimmer_fenster_melina:
   device_class: window
+binary_sensor.arbeitszimmer_fenster_selina:
+  device_class: window
+calendar.arbeit:
+  friendly_name: Arbeit Duc
+light.bedroom_lavalamp:
+  friendly_name: Schlafzimmer Lavalampe
+input_boolean.vacuum_corridor:
+  room_id: "2"
+input_boolean.vacuum_living_room:
+  room_id: "3"
+input_boolean.vacuum_bed_room:
+  room_id: "1"

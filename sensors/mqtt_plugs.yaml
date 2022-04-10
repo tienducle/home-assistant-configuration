@@ -2,21 +2,25 @@
   name: "Router Verbrauch Heute"
   state_topic: "rooms/flur/plug-router/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Router Verbrauch Gestern"
   state_topic: "rooms/flur/plug-router/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Router Verbrauch Gesamt"
   state_topic: "rooms/flur/plug-router/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Router Power"
   state_topic: "rooms/flur/plug-router/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
   unit_of_measurement: "W"
 #- platform: mqtt
 #  name: "Router Voltage"
@@ -27,6 +31,60 @@
 #  name: "Router Power Factor"
 #  state_topic: "rooms/flur/plug-router/tele/SENSOR"
 #  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+- platform: template
+  sensors:
+    router_power_cost:
+      friendly_name: "Router Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = (states('sensor.router_verbrauch_gesamt') | float(0)) - (states('sensor.nas_verbrauch_gesamt') | float(0)) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}
+
+- platform: mqtt
+  name: "NAS Verbrauch Heute"
+  state_topic: "rooms/flur/plug-nas/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "NAS Verbrauch Gestern"
+  state_topic: "rooms/flur/plug-nas/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "NAS Verbrauch Gesamt"
+  state_topic: "rooms/flur/plug-nas/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "NAS Power"
+  state_topic: "rooms/flur/plug-nas/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
+  unit_of_measurement: "W"
+#- platform: mqtt
+#  name: "NAS Voltage"
+#  state_topic: "rooms/flur/plug-nas/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#  unit_of_measurement: "V"
+#- platform: mqtt
+#  name: "NAS Power Factor"
+#  state_topic: "rooms/flur/plug-nas/tele/SENSOR"
+#  value_template: '{{ value_json["ENERGY"]["Factor"] }}'
+- platform: template
+  sensors:
+    nas_power_cost:
+      friendly_name: "NAS Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.nas_verbrauch_gesamt') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}
 
 ####################################
 ###### Wohnzimmer
@@ -36,70 +94,111 @@
   name: "Wohnzimmer Verbrauch Heute"
   state_topic: "rooms/wohnzimmer/plug-wohnzimmer-alwayson/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Wohnzimmer Verbrauch Gestern"
   state_topic: "rooms/wohnzimmer/plug-wohnzimmer-alwayson/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Wohnzimmer Verbrauch Gesamt"
   state_topic: "rooms/wohnzimmer/plug-wohnzimmer-alwayson/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Wohnzimmer Power"
   state_topic: "rooms/wohnzimmer/plug-wohnzimmer-alwayson/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
   unit_of_measurement: "W"
+- platform: template
+  sensors:
+    living_room_tv_power_cost:
+      friendly_name: "Wohnzimmer TV Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.wohnzimmer_verbrauch_gesamt') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}
 
 # Wohnzimmer Stehlampe
 - platform: mqtt
   name: "Wohnzimmer Stehlampe Verbrauch Heute"
   state_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Wohnzimmer Stehlampe Verbrauch Gestern"
   state_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Wohnzimmer Stehlampe Verbrauch Gesamt"
   state_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Wohnzimmer Stehlampe Power"
   state_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
   unit_of_measurement: "W"
-
-# Wohnzimmer TV
-- platform: mqtt
-  name: "Wohnzimmer TV Verbrauch Heute"
-  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Today"] }}'
-  unit_of_measurement: "kWh"
-- platform: mqtt
-  name: "Wohnzimmer TV Verbrauch Gestern"
-  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
-  unit_of_measurement: "kWh"
-- platform: mqtt
-  name: "Wohnzimmer TV Verbrauch Gesamt"
-  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Total"] }}'
-  unit_of_measurement: "kWh"
-- platform: mqtt
-  name: "Wohnzimmer TV Power"
-  state_topic: "rooms/wohnzimmer/plug-tv/tele/SENSOR"
-  value_template: '{{ value_json["ENERGY"]["Power"] }}'
-  unit_of_measurement: "W"
+- platform: template
+  sensors:
+    living_room_floor_lamp_power_cost:
+      friendly_name: "Wohnzimmer Stehlampe Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.wohnzimmer_stehlampe_verbrauch_gesamt') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}
 
 ####################################
 ###### Schlafzimmer
 ####################################
+# Lavalampe
+- platform: mqtt
+  name: "Lavalamp Energy Today"
+  state_topic: "rooms/bedroom/plug-lavalamp/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Lavalamp Energy Yesterday"
+  state_topic: "rooms/bedroom/plug-lavalamp/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Lavalamp Energy Total"
+  state_topic: "rooms/bedroom/plug-lavalamp/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Lavalamp Energy Power"
+  state_topic: "rooms/bedroom/plug-lavalamp/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}' 
+  device_class: power
+  unit_of_measurement: "W"
+- platform: template
+  sensors:
+    lavalamp_power_cost:
+      friendly_name: "Lavalampe Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.lavalamp_energy_total') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}
 
 ####################################
 ###### Arbeitszimmer
@@ -109,44 +208,108 @@
   name: "Schreibtisch Duc Verbrauch Heute"
   state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Schreibtisch Duc Verbrauch Gestern"
   state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Schreibtisch Duc Verbrauch Gesamt"
   state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Schreibtisch Duc Power"
   state_topic: "rooms/arbeitszimmer/plug-schreibtisch-duc/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
   unit_of_measurement: "W"
+- platform: template
+  sensors:
+    desk_duc_power_cost:
+      friendly_name: "Ducs Schreibtisch Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.schreibtisch_duc_verbrauch_gesamt') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}
 
-# Schreibtisch Melina
+# Schreibtisch Selina
 - platform: mqtt
-  name: "Schreibtisch Melina Verbrauch Heute"
-  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  name: "Schreibtisch Selina Verbrauch Heute"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-selina/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Schreibtisch Melina Verbrauch Gestern"
-  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  name: "Schreibtisch Selina Verbrauch Gestern"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-selina/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Schreibtisch Melina Verbrauch Gesamt"
-  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  name: "Schreibtisch Selina Verbrauch Gesamt"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-selina/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
-  name: "Schreibtisch Melina Power"
-  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-melina/tele/SENSOR"
+  name: "Schreibtisch Selina Power"
+  state_topic: "rooms/arbeitszimmer/plug-schreibtisch-selina/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
   unit_of_measurement: "W"
+- platform: template
+  sensors:
+    desk_selina_power_cost:
+      friendly_name: "Selinas Schreibtisch Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.schreibtisch_selina_verbrauch_gesamt') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}
+
+# Ducs Stehlampe
+- platform: mqtt
+  name: "Ducs Stehlampe Verbrauch Heute"
+  state_topic: "rooms/arbeitszimmer/plug-ducs-stehlampe/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Ducs Stehlampe Verbrauch Gestern"
+  state_topic: "rooms/arbeitszimmer/plug-ducs-stehlampe/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Ducs Stehlampe Verbrauch Gesamt"
+  state_topic: "rooms/arbeitszimmer/plug-ducs-stehlampe/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Ducs Stehlampe Power"
+  state_topic: "rooms/arbeitszimmer/plug-ducs-stehlampe/tele/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
+  unit_of_measurement: "W"
+- platform: template
+  sensors:
+    floorlamp_duc_power_cost:
+      friendly_name: "Ducs Stehlampe Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.ducs_stehlampe_verbrauch_gesamt') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}
 
 ####################################
 ###### Küche
@@ -156,88 +319,145 @@
   name: "Backofen Verbrauch Heute"
   state_topic: "rooms/kueche/plug-backofen/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Backofen Verbrauch Gestern"
   state_topic: "rooms/kueche/plug-backofen/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Backofen Verbrauch Gesamt"
   state_topic: "rooms/kueche/plug-backofen/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Backofen Power"
   state_topic: "rooms/kueche/plug-backofen/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
   unit_of_measurement: "W"
+- platform: template
+  sensors:
+    oven_power_cost:
+      friendly_name: "Backofen Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.backofen_verbrauch_gesamt') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}
 
 # Geschirrspüler
 - platform: mqtt
   name: "Geschirrspueler Verbrauch Heute"
   state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Geschirrspueler Verbrauch Gestern"
   state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Geschirrspueler Verbrauch Gesamt"
   state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Geschirrspueler Power"
   state_topic: "rooms/kueche/plug-geschirrspueler/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
   unit_of_measurement: "W"
+- platform: template
+  sensors:
+    dishwasher_power_cost:
+      friendly_name: "Geschirrspüler Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.geschirrspueler_verbrauch_gesamt') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}
 
 # Kühlschrank
 - platform: mqtt
   name: "Kuehlschrank Verbrauch Heute"
   state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Kuehlschrank Verbrauch Gestern"
   state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Kuehlschrank Verbrauch Gesamt"
   state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Kuehlschrank Power"
   state_topic: "rooms/kueche/plug-kuehlschrank/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
   unit_of_measurement: "W"
+- platform: template
+  sensors:
+    refridgerator_power_cost:
+      friendly_name: "Kühlschrank Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.kuehlschrank_verbrauch_gesamt') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}
 
 # Waschmaschine
 - platform: mqtt
   name: "Waschmaschine Verbrauch Heute"
   state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Waschmaschine Verbrauch Gestern"
   state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Waschmaschine Verbrauch Gesamt"
   state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Waschmaschine Power"
   state_topic: "rooms/kueche/plug-waschmaschine/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
   unit_of_measurement: "W"
+- platform: template
+  sensors:
+    washer_power_cost:
+      friendly_name: "Waschmaschine Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.waschmaschine_verbrauch_gesamt') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2, default=2) }}
+
 
 ####################################
 ###### Badezimmer
@@ -246,19 +466,33 @@
   name: "Trockner Verbrauch Heute"
   state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Trockner Verbrauch Gestern"
   state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Trockner Verbrauch Gesamt"
   state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  device_class: energy
   unit_of_measurement: "kWh"
 - platform: mqtt
   name: "Trockner Power"
   state_topic: "rooms/badezimmer/plug-trockner/tele/SENSOR"
   value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  device_class: power
   unit_of_measurement: "W"
+- platform: template
+  sensors:
+    dryer_power_cost:
+      friendly_name: "Trockner Stromkosten"
+      device_class: monetary
+      unit_of_measurement: "€"
+      value_template: >
+        {% set usage = states('sensor.trockner_verbrauch_gesamt') | float(0) %}
+        {% set cost = states('input_number.power_cost') | float(0) %}
+        {{ (usage * cost) | round(2) }}

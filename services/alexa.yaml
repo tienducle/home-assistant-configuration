@@ -22,22 +22,28 @@ smart_home:
       - switch.arbeitszimmer_alexa_steckdose
       - switch.wohnzimmer_alexa_steckdose
       - switch.wohnzimmer_ventilator_steckdose
+      - input_boolean.living_room_vr_base_stations
       - switch.schlafzimmer_fernseher_steckdose
       - switch.schlafzimmer_ventilator_steckdose
       - switch.ducs_computer
-      - switch.melinas_computer
+      - switch.selinas_computer
       - switch.trockner
+      - switch.geschirrspueler
+      - switch.waschmaschine
       - switch.ducs_schreibtisch_sitzen
       - switch.ducs_schreibtisch_stehen
 
       # Lights
       - light.wohnzimmer
       - light.schlafzimmer
+      - light.bedroom_lavalamp
       - light.arbeitszimmer
+      - light.selinas_schreibtisch_lampe
       - light.badezimmer
       - light.kueche
       - light.gaestebad
       - light.wohnzimmer_stehlampe
+      - light.ducs_stehlampe
       - light.flur
 
   entity_config:
@@ -45,6 +51,8 @@ smart_home:
       name: "Schreibtisch Runterfahren"
     switch.ducs_schreibtisch_stehen:
       name: "Schreibtisch Hochfahren"
+    light.bedroom_lavalamp:
+      name: "Schlafzimmer Lavalampe"
 
 #    include_domains:
 #      - light

@@ -17,7 +17,7 @@
       title: Notification Title
     service: notify.tv
 - id: '1575208030352'
-  alias: Haustür
+  alias: Haustür geöffnet
   description: ''
   trigger:
   - entity_id: binary_sensor.oeq0169426_state
@@ -40,6 +40,7 @@
   - data:
       message: Ein Fenster ist noch geöffnet!
     service: notify.telegram_home
+  mode: single
 - id: '1575209500948'
   alias: NTFY - Schlafzimmer Fenster
   description: ''
@@ -64,16 +65,10 @@
   trigger: []
   condition: []
   action:
-  - data:
-      data:
-        push:
-          sound:
-            critical: 1
-            name: default
-            volume: 1
-      message: Hallooooooo
+  - service: notify.mobile_app_sel_ip11p
+    data:
       title: Test
-    service: notify.mobile_app_tle_ip11p
+      message: Test
   mode: single
 - id: '1590863492632'
   alias: Küche Bewegung -> Küchenlampe An
@@ -85,14 +80,29 @@
     entity_id: binary_sensor.kueche_bewegungssensor
     domain: binary_sensor
   condition:
-  - above: '0'
-    below: '30'
+  - below: '30'
     condition: numeric_state
     entity_id: sensor.kueche_helligkeitssensor
+  - condition: state
+    entity_id: input_boolean.kueche_lichtschalter
+    state: 'off'
   action:
-  - data: {}
-    entity_id: light.kueche
-    service: light.turn_on
+  - choose:
+    - conditions:
+      - condition: time
+        after: '23:00:00'
+        before: 07:00:00
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 10
+        entity_id: light.kueche
+    default:
+    - service: light.turn_on
+      target:
+        entity_id: light.kueche
+      data:
+        brightness_pct: 100
   mode: single
 - id: '1590863622994'
   alias: Küche keine Bewegung -> Küchenlampe Aus
@@ -171,7 +181,7 @@
   - data: {}
     entity_id: input_boolean.kueche_lichtschalter
     service: input_boolean.turn_on
-  - scene: scene.kueche_standard
+  - scene: scene.kuche_standard
   mode: single
 - id: '1593932789090'
   alias: Waschmaschine An -> Input_Boolean An
@@ -190,9 +200,13 @@
   alias: Waschmaschine Aus -> Input_Boolean Aus
   description: ''
   trigger:
-  - below: '1'
+  - below: '5'
     entity_id: sensor.waschmaschine_power
-    for: 00:01:00
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
     platform: numeric_state
   condition:
   - condition: state
@@ -300,9 +314,8 @@
   - data: {}
     entity_id: switch.geschirrspueler
     service: switch.turn_off
-  - data:
-      message: Waschmaschine läuft bereits. Geschirrspüler wurde ausgeschaltet
-    service: notify.telegram_home
+  - service: notify.telegram_duc
+  mode: single
 - id: '1593933954542'
   alias: S Waschmaschine > Geschirrspüler
   description: ''
@@ -320,25 +333,7 @@
   - data: {}
     entity_id: switch.waschmaschine
     service: switch.turn_off
-  - data:
-      message: Geschirrspüler läuft bereits. Waschmaschine wurde ausgeschaltet
-    service: notify.telegram_home
-- id: '1595917322299'
-  alias: Wohnzimmer TV Steckdose
-  description: ''
-  trigger:
-  - below: '30'
-    entity_id: sensor.wohnzimmer_tv_power
-    for: 00:10:00
-    platform: numeric_state
-  condition:
-  - below: '30'
-    condition: numeric_state
-    entity_id: sensor.wohnzimmer_tv_power
-  action:
-  - data: {}
-    entity_id: switch.wohnzimmer_tv_steckdose
-    service: switch.turn_off
+  - service: notify.telegram_duc
   mode: single
 - id: '1601234315287'
   alias: Schlafzimmer Fenster offen
@@ -355,7 +350,7 @@
       value: '{{ states.climate.meq0797490.attributes["temperature"] }}
 
         '
-    entity_id: input_number.schlafzimmer_thermostat_temperatur
+    entity_id: input_number.schlafzimmer_thermostat_temperatur_backup
   - service: climate.set_temperature
     data:
       temperature: 5
@@ -373,7 +368,7 @@
   action:
   - service: climate.set_temperature
     data:
-      temperature: '{{ states.input_number.schlafzimmer_thermostat_temperatur.state
+      temperature: '{{ states.input_number.schlafzimmer_thermostat_temperatur_backup.state
         }}
 
         '
@@ -427,7 +422,7 @@
     entity_id: binary_sensor.arbeitszimmer_fenster_duc
     state: 'off'
   - condition: state
-    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    entity_id: binary_sensor.arbeitszimmer_fenster_selina
     state: 'off'
   - condition: state
     entity_id: input_boolean.arbeitszimmer_heizungssteuerung_nacht
@@ -538,11 +533,15 @@
     entity_id: climate.oeq0667981
   mode: single
 - id: '1602788328711'
-  alias: Heizung Schlafzimmer 0630
+  alias: Heizung Schlafzimmer Nacht
   description: ''
   trigger:
   - platform: time
-    at: 06:30:00
+    at: input_datetime.schlafzimmer_heizungssteuerung_nacht
+  - platform: state
+    entity_id: input_boolean.schlafzimmer_heizungssteuerung_nacht
+    from: 'off'
+    to: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -550,20 +549,30 @@
   - condition: state
     entity_id: binary_sensor.oeq0167636_state
     state: 'off'
+  - condition: state
+    entity_id: input_boolean.schlafzimmer_heizungssteuerung_nacht
+    state: 'on'
+  - condition: time
+    after: input_datetime.schlafzimmer_heizungssteuerung_nacht
+    before: input_datetime.schlafzimmer_heizungssteuerung_tag
   action:
   - service: climate.set_temperature
     data:
-      temperature: '{{ states.input_number.schlafzimmer_temperatur_on.state }}
+      temperature: '{{ states.input_number.schlafzimmer_temperatur_nacht.state }}
 
         '
     entity_id: climate.meq0797490
   mode: single
 - id: '1602788396454'
-  alias: Heizung Schlafzimmer 0730
+  alias: Heizung Schlafzimmer Tag
   description: ''
   trigger:
   - platform: time
-    at: 07:30:00
+    at: input_datetime.schlafzimmer_heizungssteuerung_tag
+  - platform: state
+    entity_id: input_boolean.schlafzimmer_heizungssteuerung_tag
+    from: 'off'
+    to: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -571,10 +580,16 @@
   - condition: state
     entity_id: binary_sensor.oeq0167636_state
     state: 'off'
+  - condition: state
+    entity_id: input_boolean.schlafzimmer_heizungssteuerung_tag
+    state: 'on'
+  - condition: time
+    after: input_datetime.schlafzimmer_heizungssteuerung_tag
+    before: input_datetime.schlafzimmer_heizungssteuerung_nacht
   action:
   - service: climate.set_temperature
     data:
-      temperature: '{{ states.input_number.schlafzimmer_temperatur_idle.state }}
+      temperature: '{{ states.input_number.schlafzimmer_temperatur_tag.state }}
 
         '
     entity_id: climate.meq0797490
@@ -628,7 +643,7 @@
     to: 'on'
   condition:
   - condition: state
-    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    entity_id: binary_sensor.arbeitszimmer_fenster_selina
     state: 'off'
   action:
   - service: input_number.set_value
@@ -644,11 +659,11 @@
     entity_id: climate.arbeitszimmer_thermostat
   mode: single
 - id: '1602792649011'
-  alias: Arbeitszimmer Fenster Melina offen
+  alias: Arbeitszimmer Fenster Selina offen
   description: ''
   trigger:
   - platform: state
-    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    entity_id: binary_sensor.arbeitszimmer_fenster_selina
     from: 'off'
     to: 'on'
   condition:
@@ -678,7 +693,7 @@
     to: 'off'
   condition:
   - condition: state
-    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    entity_id: binary_sensor.arbeitszimmer_fenster_selina
     state: 'off'
   action:
   - service: climate.set_temperature
@@ -690,11 +705,11 @@
     entity_id: climate.arbeitszimmer_thermostat
   mode: single
 - id: '1602792775660'
-  alias: Arbeitszimmer Fenster Melina zu
+  alias: Arbeitszimmer Fenster Selina zu
   description: ''
   trigger:
   - platform: state
-    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    entity_id: binary_sensor.arbeitszimmer_fenster_selina
     from: 'on'
     to: 'off'
   condition:
@@ -711,11 +726,15 @@
     entity_id: climate.arbeitszimmer_thermostat
   mode: single
 - id: '1602793165788'
-  alias: Heizung Schlafzimmer 0630 (Fenster offen)
+  alias: Heizung Schlafzimmer Nacht (Fenster offen)
   description: ''
   trigger:
   - platform: time
-    at: 06:30:00
+    at: input_datetime.schlafzimmer_temperatur_nacht
+  - platform: state
+    entity_id: input_boolean.schlafzimmer_heizungssteuerung_nacht
+    from: 'off'
+    to: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -723,13 +742,19 @@
   - condition: state
     entity_id: binary_sensor.oeq0167636_state
     state: 'on'
+  - condition: state
+    entity_id: input_boolean.schlafzimmer_heizungssteuerung_nacht
+    state: 'on'
+  - condition: time
+    after: input_datetime.schlafzimmer_heizungssteuerung_nacht
+    before: input_datetime.schlafzimmer_heizungssteuerung_tag
   action:
   - service: input_number.set_value
     data:
-      value: '{{ states.input_number.schlafzimmer_temperatur_on.state }}
+      value: '{{ states.input_number.schlafzimmer_temperatur_nacht.state }}
 
         '
-    entity_id: input_number.schlafzimmer_thermostat_temperatur
+    entity_id: input_number.schlafzimmer_thermostat_temperatur_backup
   mode: single
 - id: '1602793245573'
   alias: Heizung Wohnzimmer Nacht (Fenster offen)
@@ -813,7 +838,7 @@
       entity_id: binary_sensor.arbeitszimmer_fenster_duc
       state: 'on'
     - condition: state
-      entity_id: binary_sensor.arbeitszimmer_fenster_melina
+      entity_id: binary_sensor.arbeitszimmer_fenster_selina
       state: 'on'
   - condition: state
     entity_id: input_boolean.arbeitszimmer_heizungssteuerung_nacht
@@ -830,11 +855,15 @@
     entity_id: input_number.arbeitszimmer_thermostat_temperatur_backup
   mode: single
 - id: '1602794237019'
-  alias: Heizung Schlafzimmer 0730 (Fenster offen)
+  alias: Heizung Schlafzimmer Tag (Fenster offen)
   description: ''
   trigger:
   - platform: time
-    at: 07:30:00
+    at: input_datetime.schlafzimmer_heizungssteuerung_tag
+  - platform: state
+    entity_id: input_boolean.schlafzimmer_heizungssteuerung_tag
+    from: 'off'
+    to: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.heizung_on
@@ -842,13 +871,19 @@
   - condition: state
     entity_id: binary_sensor.oeq0167636_state
     state: 'on'
+  - condition: state
+    entity_id: input_boolean.schlafzimmer_heizungssteuerung_tag
+    state: 'on'
+  - condition: time
+    after: input_datetime.schlafzimmer_heizungssteuerung_tag
+    before: input_datetime.schlafzimmer_heizungssteuerung_nacht
   action:
   - service: input_number.set_value
     data:
-      value: '{{ states.input_number.schlafzimmer_temperatur_idle.state }}
+      value: '{{ states.input_number.schlafzimmer_temperatur_tag.state }}
 
         '
-    entity_id: input_number.schlafzimmer_thermostat_temperatur
+    entity_id: input_number.schlafzimmer_thermostat_temperatur_backup
   mode: single
 - id: '1602828741702'
   alias: NTFY - Wohnzimmer Fenster
@@ -883,7 +918,7 @@
     platform: state
     to: 'on'
   - platform: state
-    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    entity_id: binary_sensor.arbeitszimmer_fenster_selina
     from: 'off'
     to: 'on'
     for: 00:10:00
@@ -909,47 +944,55 @@
   action:
   - service: mqtt.publish
     data:
-      topic: rooms/flur/plug-router/cmnd/EnergyReset3
+      topic: rooms/flur/plug-router/cmnd/EnergyTotal
       payload: '0'
   - service: mqtt.publish
     data:
-      topic: rooms/wohnzimmer/plug-wohnzimmer-alwayson/cmnd/EnergyReset3
+      topic: rooms/kueche/plug-waschmaschine/cmnd/EnergyTotal
       payload: '0'
   - service: mqtt.publish
     data:
-      topic: rooms/wohnzimmer/plug-wohnzimmer-stehlampe/cmnd/EnergyReset3
+      topic: rooms/badezimmer/plug-trockner/cmnd/EnergyTotal
       payload: '0'
   - service: mqtt.publish
     data:
-      topic: rooms/wohnzimmer/plug-tv/cmnd/EnergyReset3
+      topic: rooms/kueche/plug-geschirrspueler/cmnd/EnergyTotal
       payload: '0'
   - service: mqtt.publish
     data:
-      topic: rooms/arbeitszimmer/plug-schreibtisch-duc/cmnd/EnergyReset3
+      topic: rooms/kueche/plug-kuehlschrank/cmnd/EnergyTotal
       payload: '0'
   - service: mqtt.publish
     data:
-      topic: rooms/arbeitszimmer/plug-schreibtisch-melina/cmnd/EnergyReset3
+      topic: rooms/kueche/plug-backofen/cmnd/EnergyTotal
       payload: '0'
   - service: mqtt.publish
     data:
-      topic: rooms/kueche/plug-backofen/cmnd/EnergyReset3
+      topic: rooms/arbeitszimmer/plug-schreibtisch-duc/cmnd/EnergyTotal
       payload: '0'
   - service: mqtt.publish
     data:
-      topic: rooms/kueche/plug-geschirrspueler/cmnd/EnergyReset3
+      topic: rooms/arbeitszimmer/plug-schreibtisch-selina/cmnd/EnergyTotal
       payload: '0'
   - service: mqtt.publish
     data:
-      topic: rooms/kueche/plug-kuehlschrank/cmnd/EnergyReset3
+      topic: rooms/wohnzimmer/plug-wohnzimmer-alwayson/cmnd/EnergyTotal
       payload: '0'
   - service: mqtt.publish
     data:
-      topic: rooms/kueche/plug-waschmaschine/cmnd/EnergyReset3
+      topic: rooms/wohnzimmer/plug-wohnzimmer-stehlampe/cmnd/EnergyTotal
       payload: '0'
   - service: mqtt.publish
     data:
-      topic: rooms/badezimmer/plug-trockner/cmnd/EnergyReset3
+      topic: rooms/arbeitszimmer/plug-ducs-stehlampe/cmnd/EnergyTotal
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/flur/plug-nas/cmnd/EnergyTotal
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: rooms/bedroom/plug-lavalamp/cmnd/EnergyTotal
       payload: '0'
   - service: telegram_bot.edit_message
     data:
@@ -1059,7 +1102,7 @@
     entity_id: binary_sensor.arbeitszimmer_fenster_duc
     state: 'off'
   - condition: state
-    entity_id: binary_sensor.arbeitszimmer_fenster_melina
+    entity_id: binary_sensor.arbeitszimmer_fenster_selina
     state: 'off'
   - condition: state
     entity_id: input_boolean.arbeitszimmer_heizungssteuerung_tag
@@ -1095,7 +1138,7 @@
       entity_id: binary_sensor.arbeitszimmer_fenster_duc
       state: 'on'
     - condition: state
-      entity_id: binary_sensor.arbeitszimmer_fenster_melina
+      entity_id: binary_sensor.arbeitszimmer_fenster_selina
       state: 'on'
   - condition: state
     entity_id: input_boolean.arbeitszimmer_heizungssteuerung_tag
@@ -1126,11 +1169,15 @@
     state: 'off'
   action:
   - service: light.turn_on
-    data: {}
-    entity_id: light.schlafzimmer_lampe_1
+    data:
+      brightness: 255
+    target:
+      entity_id: light.schlafzimmer_lampe_1
   - service: light.turn_on
-    data: {}
-    entity_id: light.schlafzimmer_lampe_2
+    data:
+      brightness: 255
+    target:
+      entity_id: light.schlafzimmer_lampe_2
   mode: single
 - id: '1610999285171'
   alias: Schlafzimmer Lichtschalter Power (Toggle) -> Schlafzimmer Lampe Aus
@@ -1244,28 +1291,28 @@
     device_id: 186871de8c4278101129556f133403de
     entity_id: binary_sensor.flur_bewegungssensor_arbeitszimmer
     domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
   condition: []
   action:
   - choose:
     - conditions:
       - condition: time
-        after: '23:00'
-        before: '7:00'
+        after: '23:00:00'
+        before: 07:00:00
       sequence:
       - service: light.turn_on
         data:
           brightness: 10
         entity_id: light.flur_lampe_3
-    - conditions:
-      - condition: time
-        after: '18:00'
-        before: '10:00'
-      sequence:
-      - service: light.turn_on
-        data:
-          brightness: 255
+    default:
+    - service: light.turn_on
+      target:
         entity_id: light.flur_lampe_3
-    default: []
+      data:
+        brightness_pct: 100
   mode: single
 - id: '1612131045972'
   alias: Flur Arbeitszimmer keine Bewegung -> Lampe Aus
@@ -1406,7 +1453,7 @@
     entity_id: media_player.apple_tv_4k_wohnzimmer
   mode: single
 - id: '1614251828830'
-  alias: Wohnzimmer Cube
+  alias: Wohnzimmer Cube (alt)
   description: ''
   trigger:
   - platform: event
@@ -1561,7 +1608,7 @@
           sequence:
           - service: light.turn_on
             data:
-              brightness: '{{states.light.arbeitszimmer.attributes.brightness + 64}}'
+              brightness: '{{states.light.arbeitszimmer.attributes.brightness + 128}}'
             entity_id: light.arbeitszimmer
         default:
         - service: light.turn_on
@@ -1571,8 +1618,21 @@
       rotate_counter_clockwise:
       - service: light.turn_on
         data:
-          brightness: '{{states.light.arbeitszimmer.attributes.brightness - 64}}'
+          brightness: '{{states.light.arbeitszimmer.attributes.brightness - 128}}'
         entity_id: light.arbeitszimmer
+      two_to_five: []
+      five_to_two: []
+      two_to_two: []
+      cube_shake:
+      - type: toggle
+        device_id: e963f05d0ff04d9dde37b0b390c9220b
+        entity_id: light.basteltischlampe
+        domain: light
+      flip_180: true
+      cube_flip_180:
+      - service: light.toggle
+        target:
+          entity_id: light.ducs_stehlampe
 - id: '1614764552328'
   alias: Flur Garderobe Bewegung -> Lampe an
   description: ''
@@ -1630,4 +1690,462 @@
   - service: light.turn_off
     data: {}
     entity_id: light.flur_lampe_2
+  mode: single
+- id: '1623944475402'
+  alias: Haustür Öffner aktiviert
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.entry_door_opener
+    to: 'on'
+  condition: []
+  action:
+  - service: lock.unlock
+    target:
+      device_id: 8ec29e5e722f982fa532e00fb187e08d
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.entry_door_opener
+  mode: single
+- id: '1624484864336'
+  alias: Haustür Gast Öffner aktiviert
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.entry_door_guest_opener
+    to: 'on'
+  condition: []
+  action:
+  - service: lock.open
+    target:
+      entity_id: lock.entry_door
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.entry_door_guest_opener
+  mode: single
+- id: '1634667189839'
+  alias: Selinas Schreibtisch Lampe Lichtschalter An (lang)
+  description: ''
+  trigger:
+  - device_id: 5db37bb78b794401e19ca52deb7a9925
+    domain: deconz
+    platform: device
+    type: remote_button_long_press
+    subtype: turn_on
+  condition: []
+  action:
+  - type: brightness_increase
+    device_id: a04d7a3467768f51bfb028dffe00cf2d
+    entity_id: light.selinas_schreibtisch_lampe
+    domain: light
+  mode: single
+  max: 10
+- id: '1634667217109'
+  alias: Selinas Schreibtisch Lampe Lichtschalter Aus (lang)
+  description: ''
+  trigger:
+  - device_id: 5db37bb78b794401e19ca52deb7a9925
+    domain: deconz
+    platform: device
+    type: remote_button_long_press
+    subtype: turn_off
+  condition: []
+  action:
+  - type: brightness_decrease
+    device_id: a04d7a3467768f51bfb028dffe00cf2d
+    entity_id: light.selinas_schreibtisch_lampe
+    domain: light
+  mode: single
+  max: 10
+- id: '1635921446431'
+  alias: Living Room VR Base Stations On
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.living_room_vr_base_stations
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.valve_index_basisstation_a_steckdose
+  - service: switch.turn_on
+    target:
+      entity_id: switch.valve_index_basisstation_b_steckdose
+  mode: single
+- id: '1635921471856'
+  alias: Living Room VR Base Stations Off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.living_room_vr_base_stations
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.valve_index_basisstation_a_steckdose
+  - service: switch.turn_off
+    target:
+      entity_id: switch.valve_index_basisstation_b_steckdose
+  mode: single
+- id: '1636105043407'
+  alias: Schlafzimmer Fenster Lüften Start
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.oeq0167636_state
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_ventilated
+    state: 'off'
+  action:
+  - device_id: fa7d0dbb4c8ed66128459f25780c8ce1
+    domain: fan
+    entity_id: fan.bedroom_purifier
+    type: turn_on
+  - service: fan.set_preset_mode
+    target:
+      device_id: fa7d0dbb4c8ed66128459f25780c8ce1
+    data:
+      preset_mode: Favorite
+  mode: single
+- id: '1636105398227'
+  alias: Schlafzimmer Fenster Lüften Stop
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.oeq0167636_state
+    from: 'on'
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_ventilated
+    state: 'off'
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.schlafzimmer_boost
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.bedroom_ventilated
+  mode: single
+- id: '1636105532633'
+  alias: Schlafzimmer Fenster Lüften Ende
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.bedroom_ventilated
+    from: 'off'
+    to: 'on'
+    for: 00:10:00
+  condition: []
+  action:
+  - service: fan.set_preset_mode
+    data:
+      preset_mode: Silent
+    target:
+      device_id: fa7d0dbb4c8ed66128459f25780c8ce1
+  mode: single
+- id: '1636105574416'
+  alias: Schlafzimmer Fenster Lüften Reset
+  description: ''
+  trigger:
+  - platform: time
+    at: 01:00:00
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.bedroom_ventilated
+  mode: single
+- id: '1636188553187'
+  alias: Arbeitszimmer Lichtschalter Aus (lang)
+  description: ''
+  trigger:
+  - device_id: e756289b84cc81c9db9df8ff5ff16198
+    domain: deconz
+    platform: device
+    type: remote_button_long_press
+    subtype: turn_off
+  condition: []
+  action:
+  - data: {}
+    service: light.turn_off
+    target:
+      entity_id:
+      - light.arbeitszimmer
+      - light.selinas_schreibtisch_lampe
+      - light.ducs_stehlampe
+      - light.basteltischlampe
+  mode: single
+- id: '1638561565590'
+  alias: Schlafzimmer Lichtschalter
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e1524_e1810.yaml
+    input:
+      integration: deCONZ
+      controller_device: b79f07ba3d7967191ad9a953754cb36b
+      helper_last_controller_event: input_text.schlafzimmer_lichtschalter_last_event
+      action_button_left_short:
+      - service: light.turn_on
+        target:
+          entity_id: light.bedroom_lavalamp
+      action_button_right_short:
+      - service: light.turn_off
+        target:
+          entity_id: light.bedroom_lavalamp
+      action_button_center_short:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: light.schlafzimmer
+            state: 'off'
+          sequence:
+          - service: light.turn_on
+            data:
+              brightness_pct: 100
+            target:
+              entity_id:
+              - light.schlafzimmer
+        default:
+        - service: light.turn_off
+          target:
+            entity_id:
+            - light.schlafzimmer
+- id: '1639492519925'
+  alias: Basteltisch Lichtschalter an
+  description: ''
+  trigger:
+  - device_id: b3b5e6e2c17ce68d0d7a4b7e40a6a7e9
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - type: turn_on
+    device_id: e963f05d0ff04d9dde37b0b390c9220b
+    entity_id: light.basteltischlampe
+    domain: light
+  mode: single
+- id: '1639492531331'
+  alias: Basteltisch Lichtschalter aus
+  description: ''
+  trigger:
+  - device_id: b3b5e6e2c17ce68d0d7a4b7e40a6a7e9
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+  condition: []
+  action:
+  - type: turn_off
+    device_id: e963f05d0ff04d9dde37b0b390c9220b
+    entity_id: light.basteltischlampe
+    domain: light
+  mode: single
+- id: '1639493175248'
+  alias: Wohnzimmer Stehlampe Lichtschalter an
+  description: ''
+  trigger:
+  - device_id: 088518575dd7d3390d48b0e04b513e2c
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: light.turn_on
+    target:
+      entity_id:
+      - light.wohnzimmer_stehlampe
+  mode: single
+- id: '1639493196427'
+  alias: Wohnzimmer Stehlampe Lichtschalter aus
+  description: ''
+  trigger:
+  - device_id: 088518575dd7d3390d48b0e04b513e2c
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+  condition: []
+  action:
+  - service: light.turn_off
+    target:
+      entity_id:
+      - light.wohnzimmer_stehlampe
+  mode: single
+- id: '1639833422364'
+  alias: Wohnzimmer Cube
+  description: ''
+  use_blueprint:
+    path: bergstrom/mi-magic-cube-deconz-45-actions.yaml
+    input:
+      remote: e109790d3ad0806c99cddfc12e8cc716
+      flip_180: true
+      cube_flip_180:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: input_boolean.plex_wohnzimmer_webhooks
+            state: 'off'
+          sequence:
+          - service: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.plex_wohnzimmer_webhooks
+          - service: notify.tv
+            data:
+              data:
+                duration: 2
+                fontsize: medium
+                position: top-right
+                color: default
+                transparency: 0%
+                interrupt: 1
+              message: Plex Webhooks an
+              title: Wohnzimmer Cube
+        - conditions:
+          - condition: state
+            entity_id: input_boolean.plex_wohnzimmer_webhooks
+            state: 'on'
+          sequence:
+          - service: input_boolean.turn_off
+            target:
+              entity_id: input_boolean.plex_wohnzimmer_webhooks
+          - service: notify.tv
+            data:
+              message: Plex Webhooks aus
+              title: Wohnzimmer Cube
+              data:
+                duration: 2
+                fontsize: medium
+                position: top-right
+                color: default
+                transparency: 0%
+                interrupt: 1
+        default: []
+      rotate_clockwise:
+      - service: light.turn_on
+        target:
+          entity_id:
+          - light.wohnzimmer
+        data:
+          brightness_pct: 100
+      rotate_counter_clockwise:
+      - condition: state
+        entity_id: light.wohnzimmer
+        state: 'on'
+      - service: light.turn_on
+        data:
+          brightness: '{{states.light.wohnzimmer.attributes.brightness - 128}}'
+        entity_id: light.wohnzimmer
+      cube_shake:
+      - service: light.toggle
+        target:
+          device_id: ad29fc95c6a47aee6c913a9fc6e339af
+- id: '1640177586755'
+  alias: Wohnzimmer Lichtschalter An -> Wohnzimmer Lampe An
+  description: ''
+  trigger:
+  - device_id: d616aa56d60d6c88f999072b6e84a66b
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - data:
+      brightness_pct: 100
+    service: light.turn_on
+    target:
+      entity_id:
+      - light.wohnzimmer
+  mode: single
+- id: '1642016703815'
+  alias: Schlafzimmer Rollo Schalter Hoch
+  description: ''
+  trigger:
+  - device_id: b576f0b143b8c0804c49216fa92d198a
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: open
+  condition: []
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.bedroom_lavalamp
+  mode: single
+- id: '1642016727775'
+  alias: Schlafzimmer Rollo Schalter Runter
+  description: ''
+  trigger:
+  - device_id: b576f0b143b8c0804c49216fa92d198a
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: close
+  condition: []
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.bedroom_lavalamp
+  mode: single
+- id: '1642194780063'
+  alias: Schlafzimmer Rollo Schalter Hoch (lang)
+  description: ''
+  trigger:
+  - device_id: b576f0b143b8c0804c49216fa92d198a
+    domain: deconz
+    platform: device
+    type: remote_button_long_press
+    subtype: open
+  condition: []
+  action:
+  - service: cover.open_cover
+    target:
+      device_id: 70457021d82f6b881ae61fbe44ca8c12
+  mode: single
+- id: '1642194868539'
+  alias: Schlafzimmer Rollo Schalter Runter (Lang)
+  description: ''
+  trigger:
+  - device_id: b576f0b143b8c0804c49216fa92d198a
+    domain: deconz
+    platform: device
+    type: remote_button_long_press
+    subtype: close
+  condition: []
+  action:
+  - service: cover.close_cover
+    target:
+      device_id: 70457021d82f6b881ae61fbe44ca8c12
+  mode: single
+- id: '1649622821582'
+  alias: Start Vacuum
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_button.start_vacuum
+  condition:
+  - condition: state
+    entity_id: group.vacuum_rooms
+    state: 'on'
+  action:
+  - service: script.turn_on
+    data:
+      variables:
+        segments: '{{expand("group.vacuum_rooms") | selectattr("state","eq","on")
+          | map(attribute="attributes.room_id") | list | to_json}}'
+    target:
+      entity_id: script.vacuum_clean_segments_message
   mode: single

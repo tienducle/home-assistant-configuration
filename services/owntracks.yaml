@@ -1,0 +1,3 @@
+max_gps_accuracy: 100
+waypoints: false
+mqtt_topic: "owntracks/#"
