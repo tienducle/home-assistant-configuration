@@ -316,3 +316,15 @@ include:
     - switch.waschmaschine
     # Badezimmer
     - switch.trockner
+
+    ###### Vacuum
+    - vacuum.valetudo_vacuum
+    - sensor.valetudo_vacuum_current_statistics_area
+    - sensor.valetudo_vacuum_current_statistics_time
+    - sensor.valetudo_vacuum_main_brush
+    - sensor.valetudo_vacuum_main_filter
+    - sensor.valetudo_vacuum_map_segments
+    - sensor.valetudo_vacuum_right_brush
+    - sensor.valetudo_vacuum_sensor_cleaning
+    - sensor.valetudo_vacuum_zone_presets
+    - sensor.valetudo_vacuum_error_description

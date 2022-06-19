@@ -130,6 +130,9 @@ filter:
     - switch.badezimmer_manual
     - switch.trockner
 
+    ###### Vacuum
+    - input_button.clean_bed_room
+
 entity_config:
   switch.wohnzimmer_alexa_steckdose:
     type: outlet
@@ -149,3 +152,5 @@ entity_config:
     name: "Schreibtisch Hoch"
   light.bedroom_lavalamp:
     name: "Schlafzimmer Lavalampe"
+  input_button.clean_bed_room:
+    name: "Schlafzimmer saugen"

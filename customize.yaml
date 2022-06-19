@@ -64,8 +64,10 @@ calendar.arbeit:
 light.bedroom_lavalamp:
   friendly_name: Schlafzimmer Lavalampe
 input_boolean.vacuum_corridor:
-  room_id: "2"
-input_boolean.vacuum_living_room:
   room_id: "3"
+input_boolean.vacuum_living_room:
+  room_id: "4"
 input_boolean.vacuum_bed_room:
+  room_id: "2"
+input_boolean.vacuum_office_room:
   room_id: "1"

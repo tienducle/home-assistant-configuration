@@ -3,7 +3,7 @@ gcp-service-account.json
 phue.conf
 .ios.conf
 bravia.conf
-home-assistant.log
+home-assistant.log*
 entity_registry.yaml
 .config_entries.json
 ip_bans.yaml
