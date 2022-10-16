@@ -285,3 +285,82 @@ sensor:
     value_template: '{{ value_json["ENERGY"]["Power"] }}'
     device_class: power
     unit_of_measurement: "W"
+switch:
+  - name: "Backofen"
+    state_topic: "rooms/kueche/plug-backofen/stat/POWER"
+    command_topic: "rooms/kueche/plug-backofen/cmnd/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Trockner"
+    state_topic: "rooms/badezimmer/plug-trockner/stat/POWER"
+    command_topic: "rooms/badezimmer/plug-trockner/cmnd/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Kuehlschrank"
+    state_topic: "rooms/kueche/plug-kuehlschrank/stat/POWER"
+    command_topic: "rooms/kueche/plug-kuehlschrank/cmnd/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Geschirrspueler"
+    state_topic: "rooms/kueche/plug-geschirrspueler/stat/POWER"
+    command_topic: "rooms/kueche/plug-geschirrspueler/cmnd/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Waschmaschine"
+    state_topic: "rooms/kueche/plug-waschmaschine/stat/POWER"
+    command_topic: "rooms/kueche/plug-waschmaschine/cmnd/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Wohnzimmer Stehlampe Steckdose"
+    state_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/stat/POWER"
+    command_topic: "rooms/wohnzimmer/plug-wohnzimmer-stehlampe/cmnd/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Ducs Stehlampe Steckdose"
+    state_topic: "rooms/arbeitszimmer/plug-ducs-stehlampe/stat/POWER"
+    command_topic: "rooms/arbeitszimmer/plug-ducs-stehlampe/cmnd/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Bedroom Lavalamp Plug"
+    state_topic: "rooms/bedroom/plug-lavalamp/stat/POWER"
+    command_topic: "rooms/bedroom/plug-lavalamp/cmnd/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Wohnzimmer TV Steckdose"
+    state_topic: "rooms/wohnzimmer/plug-tv/stat/POWER"
+    command_topic: "rooms/wohnzimmer/plug-tv/cmnd/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Ducs Schreibtisch Hoch"
+    state_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/stat/POWER1"
+    command_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/cmnd/POWER1"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Ducs Schreibtisch Runter"
+    state_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/stat/POWER2"
+    command_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/cmnd/POWER2"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Ducs Schreibtisch Sitzen"
+    state_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/stat/POWER3"
+    command_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/cmnd/POWER3"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - name: "Ducs Schreibtisch Stehen"
+    state_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/stat/POWER4"
+    command_topic: "rooms/arbeitszimmer/sonoff-schreibtisch-duc/cmnd/POWER4"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true

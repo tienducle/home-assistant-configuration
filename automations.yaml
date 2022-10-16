@@ -65,10 +65,10 @@
   trigger: []
   condition: []
   action:
-  - service: notify.mobile_app_sel_ip11p
+  - service: notify.mobile_app_iphone
     data:
-      title: Test
       message: Test
+      title: Test
   mode: single
 - id: '1590863492632'
   alias: Küche Bewegung -> Küchenlampe An
@@ -1604,7 +1604,8 @@
       cube_flip_180:
       - service: light.toggle
         target:
-          entity_id: light.ducs_stehlampe
+          entity_id:
+          - light.arbeitszimmer_basteltisch
         data: {}
 - id: '1614764552328'
   alias: Flur Garderobe Bewegung -> Lampe an
@@ -1612,8 +1613,8 @@
   trigger:
   - type: motion
     platform: device
-    device_id: 5cba8e963a6df5ebf1829c1401b645e3
-    entity_id: binary_sensor.flur_bewegungssensor_garderobe
+    device_id: 342e2fe116d5935bad49d4d85bdff27d
+    entity_id: binary_sensor.corridor_motion_wardrobe
     domain: binary_sensor
   condition: []
   action:
@@ -1621,7 +1622,7 @@
     - conditions:
       - condition: time
         after: '23:00'
-        before: '7:00'
+        before: 07:00:00
       sequence:
       - service: light.turn_on
         data:
@@ -1647,14 +1648,13 @@
   trigger:
   - type: no_motion
     platform: device
-    device_id: 5cba8e963a6df5ebf1829c1401b645e3
-    entity_id: binary_sensor.flur_bewegungssensor_garderobe
+    device_id: 342e2fe116d5935bad49d4d85bdff27d
+    entity_id: binary_sensor.corridor_motion_wardrobe
     domain: binary_sensor
     for:
       hours: 0
       minutes: 2
       seconds: 0
-      milliseconds: 0
   condition: []
   action:
   - service: light.turn_off
@@ -2143,4 +2143,32 @@
     data:
       topic: valetudo/vacuum/MapSegmentationCapability/clean/set
       payload_template: '{"segment_ids": ["2"]}'
+  mode: single
+- id: '1663858900987'
+  alias: _Test
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.arbeitszimmer_fenster_duc
+  condition: []
+  action:
+  - if:
+    - condition: state
+      entity_id: binary_sensor.arbeitszimmer_fenster_duc
+      state: 'on'
+    then:
+    - service: system_log.write
+      data:
+        message: Window has been opened
+        level: info
+  - if:
+    - condition: state
+      entity_id: binary_sensor.arbeitszimmer_fenster_duc
+      state: 'off'
+    then:
+    - service: system_log.write
+      data:
+        message: Window has been closed
+        level: info
   mode: single

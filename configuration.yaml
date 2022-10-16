@@ -31,7 +31,7 @@ homeassistant:
 config:
 alarm_control_panel: !include core/acp.yaml
 automation: !include automations.yaml
-automation old: !include_dir_merge_list automations
+#automation old: !include_dir_merge_list automations
 counter:
 discovery:
 frontend: !include core/frontend.yaml
@@ -76,7 +76,7 @@ calendar: !include calendars.yaml
 #cloudflare: !include services/cloudflare.yaml
 
 # Google Assistant
-google_assistant: !include services/google_assistant.yaml
+#google_assistant: !include services/google_assistant.yaml
 
 # Homematic
 homematic: !include services/homematic.yaml
